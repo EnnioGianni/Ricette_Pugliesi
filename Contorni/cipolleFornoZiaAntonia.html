@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cipolle al Forno della Zia Antonia — Sapori di Puglia</title>
+  <meta name="description" content="Ancienne recette familiale : oignons entiers rôtis lentement au four, confits dans l’huile d’olive, légèrement caramélisés, façon Zia Antonia. Recette rustique, rare et très détaillée.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Contorni/Images/cipolle-forno-zia-antonia.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li>
+          <button class="button secondary" data-toggle-theme>🌓</button>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🧅 Cipolle al Forno della Zia Antonia</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Contorni/Images/cipolle-forno-zia-antonia.png"
+           alt="Oignons entiers rôtis au four, confits dans l’huile d’olive, façon Zia Antonia"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src=" &"
+           class="modal-content"
+           alt="Agrandissement des Cipolle al Forno della Zia Antonia">
+    </div>
+
+    <p class="intro">
+      Les <strong>Cipolle al Forno della Zia Antonia</strong> sont un <strong>vieux plat de famille</strong>&nbsp;:  
+      des <strong>oignons entiers</strong>, cuits très lentement au four dans beaucoup d’<strong>huile d’olive</strong>,  
+      jusqu’à devenir <strong>confits, doux et légèrement caramélisés</strong>.  
+      C’est un accompagnement pauvre, sans fromage ni sucre ajouté, mais d’un parfum incroyable, à servir avec du pain,  
+      des œufs ou des plats de légumes.
+    </p>
+
+    <!-- INFOS -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>20 min</strong> |
+        🔥 Cuisson : <strong>60–75 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Facile / Patience</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour les oignons rôtis</h3>
+      <ul>
+        <li>8 petits <strong>oignons blancs</strong> ou dorés, de taille similaire</li>
+        <li>6–7 c.à.s d’<strong>huile d’olive extravierge</strong> (voire plus si le plat est large)</li>
+        <li>2 gousses d’ail entières, légèrement écrasées</li>
+        <li>2–3 brins de <strong>thym</strong> ou marjolaine fraîche (ou une pincée de version sèche)</li>
+        <li>Sel fin</li>
+        <li>Poivre noir fraîchement moulu</li>
+      </ul>
+
+      <h3>Pour la petite touche “Zia Antonia” (facultatif)</h3>
+      <ul>
+        <li>1 petite cuillère à café de <strong>vinaigre de vin blanc</strong></li>
+        <li>1 pincée de <strong>piment sec</strong> émietté (optionnel)</li>
+      </ul>
+
+      <h3>Pour servir</h3>
+      <ul>
+        <li>Quelques tranches de <strong>pain rustique grillé</strong></li>
+        <li>Un filet d’<strong>huile d’olive crue</strong> à la fin</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION TRES DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation très détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Choisir et préparer les oignons.</strong><br>
+          Choisir de petits oignons de taille similaire afin qu’ils cuisent de façon uniforme.  
+          Les oignons blancs ou dorés conviennent bien, à condition qu’ils ne soient pas trop piquants.  
+          <br><br>
+          Retirer uniquement la première peau sèche extérieure si elle est très abîmée, mais conserver autant que possible  
+          la seconde peau fine&nbsp;: elle protège l’oignon pendant la cuisson et aide à garder l’humidité à l’intérieur.  
+          Couper légèrement la base si elle est très dure, en veillant à ne pas trop entamer le cœur pour qu’il reste entier.
+        </li>
+
+        <li>
+          <strong>Préchauffer le four.</strong><br>
+          Préchauffer le four à <strong>180–190&nbsp;°C</strong> (chaleur statique).  
+          Un four trop chaud brûlerait la surface avant que l’intérieur ne devienne doux&nbsp;: on cherche une cuisson lente,  
+          régulière, presque comme dans une cheminée de Masseria.
+        </li>
+
+        <li>
+          <strong>Préparer le plat et la base d’huile.</strong><br>
+          Choisir un plat à four pas trop grand, de préférence en terre cuite ou en fonte,  
+          dans lequel les oignons pourront être <strong>côte à côte, mais pas entassés en plusieurs couches</strong>.  
+          <br><br>
+          Verser dans le fond du plat environ <strong>3–4 c.à.s d’huile d’olive extravierge</strong> et la répartir sur toute la surface.  
+          Ajouter les <strong>gousses d’ail</strong> légèrement écrasées (juste un coup de plat de couteau) et les brins de thym  
+          ou de marjolaine. Cela va constituer le parfum de base.
+        </li>
+
+        <li>
+          <strong>Disposer les oignons dans le plat.</strong><br>
+          Placer les oignons entiers dans le plat, de préférence <strong>sur le côté ou légèrement inclinés</strong> et non tous  
+          debout, pour qu’une partie de la surface soit en contact direct avec l’huile.  
+          <br><br>
+          Les tourner doucement dans l’huile du fond pour qu’ils soient légèrement enrobés sur la partie basse.  
+          Saupoudrer de sel fin et d’un peu de poivre noir.  
+          Si tu utilises du piment sec, ajouter une pincée à ce stade.
+        </li>
+
+        <li>
+          <strong>Arroser d’huile d’olive.</strong><br>
+          Verser le reste de l’huile (2–3 c.à.s ou plus selon la taille du plat) en filet sur les oignons,  
+          en veillant à ce que chacun reçoive un peu d’huile sur le dessus.  
+          <br><br>
+          L’idée n’est pas de les “noyer”, mais qu’ils soient suffisamment huilés pour qu’ils confisent doucement,  
+          sans dessécher, tout en laissant un peu de jus au fond du plat.
+        </li>
+
+        <li>
+          <strong>Première phase de cuisson, à couvert.</strong><br>
+          Couvrir le plat avec un couvercle adapté ou, à défaut, avec une feuille de papier cuisson puis une feuille d’aluminium  
+          par-dessus (sans trop serrer).  
+          <br><br>
+          Enfourner le plat dans le four préchauffé et laisser cuire <strong>35–40 minutes</strong>.  
+          Durant cette phase, les oignons vont <strong>cuire à cœur, devenir transparents et très doux</strong>.
+        </li>
+
+        <li>
+          <strong>Deuxième phase de cuisson, à découvert.</strong><br>
+          Au bout de 35–40 minutes, retirer le couvercle ou le papier.  
+          À ce stade, les oignons sont déjà tendres, mais encore pâles.  
+          <br><br>
+          Laisser le plat dans le four, toujours à <strong>180–190&nbsp;°C</strong>, sans couvrir, pendant encore  
+          <strong>20–30 minutes</strong>.  
+          Les oignons vont commencer à se colorer, les sucs du fond vont épaissir et prendre une teinte dorée.  
+          Tu peux les retourner délicatement une fois à mi-cuisson pour donner un peu de couleur de chaque côté.
+        </li>
+
+        <li>
+          <strong>Ajouter la touche “Zia Antonia”.</strong><br>
+          Quand les oignons sont bien tendres et légèrement caramélisés sur les bords, sortir le plat du four.  
+          Verser sur l’ensemble <strong>1 petite cuillère à café de vinaigre de vin blanc</strong> (si tu souhaites la version  
+          traditionnelle un peu plus vive) et remettre au four <strong>2–3 minutes</strong> seulement.  
+          <br><br>
+          Le vinaigre va s’évaporer en partie, en laissant juste un léger côté “agrodolce” (doux-acide), typique des vieilles  
+          recettes familiales.
+        </li>
+
+        <li>
+          <strong>Vérifier la cuisson et ajuster l’assaisonnement.</strong><br>
+          Piquer un oignon avec la pointe d’un couteau&nbsp;: il doit être <strong>fondant jusqu’au cœur</strong>, presque comme une crème.  
+          Goûter un peu du jus au fond du plat&nbsp;: s’il manque de sel, en ajouter une pincée et mélanger légèrement  
+          en penchant le plat pour répartir les sucs sur les oignons.
+        </li>
+
+        <li>
+          <strong>Laisser reposer avant de servir.</strong><br>
+          Laisser reposer le plat hors du four <strong>5–10 minutes</strong>.  
+          Ce temps de repos permet aux arômes de se stabiliser et aux oignons de se raffermir juste assez pour pouvoir  
+          être servis sans se défaire.
+        </li>
+
+        <li>
+          <strong>Service à table.</strong><br>
+          Servir les <strong>Cipolle al Forno della Zia Antonia</strong> telles quelles dans le plat de cuisson ou les disposer  
+          dans un autre plat chaud, en prenant soin de récupérer le jus et l’huile parfumée du fond.  
+          <br><br>
+          Ajouter un filet d’<strong>huile d’olive crue</strong> sur les oignons au moment de servir et accompagner avec  
+          du <strong>pain rustique grillé</strong> pour profiter de la sauce.  
+          Ce plat est parfait en <strong>contorno</strong> pour des légumes, des œufs ou un simple fromage frais.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTE -->
+    <section class="preparation variante">
+      <h2>🔁 Variante : Cipolle al Forno Ripiene di Pane ed Erbe</h2>
+      <p>
+        Une variante encore plus paysanne consiste à <strong>fendre les oignons</strong> et à les remplir avec un mélange de  
+        <strong>chapelure, herbes et huile d’olive</strong>, avant de les rôtir.  
+        Cela donne un cœur plus parfumé et un dessus légèrement gratiné.
+      </p>
+
+      <h3>Ingrédients en plus</h3>
+      <ul>
+        <li>4 c.à.s de chapelure</li>
+        <li>2 c.à.s d’huile d’olive extravierge</li>
+        <li>1 c.à.s de persil ou marjolaine fraîche hachée</li>
+        <li>1 pincée d’origan sec</li>
+      </ul>
+
+      <h3>Étapes spécifiques</h3>
+      <ol>
+        <li>
+          <strong>Préparer la farce.</strong><br>
+          Dans un bol, mélanger la chapelure, l’huile d’olive, les herbes hachées, l’origan et une pincée de sel.  
+          On obtient une chapelure légèrement humide, parfumée.
+        </li>
+        <li>
+          <strong>Fendre les oignons.</strong><br>
+          Après la première phase de cuisson (quand les oignons sont déjà tendres), les sortir du four,  
+          les laisser tiédir quelques minutes, puis les fendre délicatement en croix sur le dessus, sans les couper entièrement.
+        </li>
+        <li>
+          <strong>Garnir et gratiner.</strong><br>
+          Remplir chaque oignon avec une cuillerée de farce, en la tassant légèrement dans la fente.  
+          Remettre au four sans couvrir, à <strong>190&nbsp;°C</strong> pendant <strong>10–15 minutes</strong>,  
+          jusqu’à ce que la surface soit dorée et croustillante.
+        </li>
+      </ol>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Si tu veux un goût encore plus doux, utilise des <strong>oignons rouges de Tropea</strong> ou des oignons très doux&nbsp;:  
+        ils confisent encore mieux et prennent une saveur presque sucrée, uniquement grâce à la cuisson lente.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les <strong>Cipolle al Forno della Zia Antonia</strong> sont inspirées de ces plats qu’on préparait dans les grandes  
+        cuisines de campagne, quand le four à bois était déjà chaud pour le pain. On profitait de la chaleur qui restait pour  
+        cuire lentement les oignons, les pommes de terre ou d’autres légumes. Ce type de recette, très simple, a presque  
+        disparu, mais il représente à lui seul l’âme de la cuisine paysanne des Pouilles.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette familiale rare des Pouilles.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

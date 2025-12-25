@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Friselle al Pomodoro — Sapori di Puglia</title>
+  <meta name="description" content="Recette traditionnelle des friselle al pomodoro, pain biscotté des Pouilles garni de tomates fraîches et d’huile d’olive.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+
+  <!-- Favicon (image carrée de la recette) -->
+  <link rel="icon" type="image/png" href="/Images/Friselle.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+  
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes (ordre DOM) -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu latéral (drawer) -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list"></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="recette container">
+    <article>
+      <h1>🥖 Friselle al Pomodoro</h1>
+
+      <!-- Image de la recette (assure-toi que /Images/Friselle.png existe) -->
+      <img src="/Images/Friselle.png" alt="Friselle al Pomodoro" class="recette-photo">
+
+      <p class="intro">
+        Les <strong>friselle</strong> sont un grand classique des Pouilles : un pain sec de blé dur cuit deux fois,
+        que l’on humidifie avant de le garnir de tomates fraîches, d’huile d’olive et d’origan.
+        C’est une recette d’été, simple, savoureuse et typiquement méditerranéenne.
+      </p>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li class="ingredient">6 friselle de blé dur</li>
+          <li class="ingredient">4 tomates bien mûres</li>
+          <li class="ingredient">1 gousse d’ail</li>
+          <li class="ingredient">Origan séché</li>
+          <li class="ingredient">Huile d’olive extra-vierge</li>
+          <li class="ingredient">Sel fin</li>
+          <li class="ingredient">Quelques feuilles de basilic frais</li>
+        </ul>
+      </section>
+
+      <section class="fabrication">
+        <h2>🍞 Préparer les friselle maison</h2>
+        <p>
+          Si tu veux faire tes friselle toi-même, c’est très simple ! Ce sont des petits pains de blé dur cuits deux fois,
+          comme des biscottes, pour qu’ils se conservent longtemps.
+        </p>
+        <ol>
+          <li><strong>Pâte :</strong> mélange <strong>500 g de semoule de blé dur</strong> avec <strong>1 c. à café de sel</strong>,
+            <strong>10 g de levure fraîche</strong> et <strong>280 ml d’eau tiède</strong>. Pétris jusqu’à obtenir une pâte souple.</li>
+          <li><strong>Levée :</strong> couvre et laisse reposer 1 h à température ambiante.</li>
+          <li><strong>Façonnage :</strong> forme des boudins et roule-les en anneaux de 8–10 cm de diamètre, pose-les sur une plaque.</li>
+          <li><strong>Première cuisson :</strong> enfourne à <strong>200 °C</strong> pendant <strong>15 min</strong>.</li>
+          <li><strong>Deuxième cuisson :</strong> coupe-les en deux puis recuis à <strong>160 °C</strong> pendant <strong>30 min</strong> jusqu’à ce qu’elles soient bien sèches.</li>
+        </ol>
+        <p>Laisse-les refroidir complètement. Elles se conservent plusieurs semaines dans une boîte métallique.</p>
+      </section>
+
+      <section class="preparation">
+        <h2>🍅 Préparation</h2>
+        <ol>
+          <li>Plonge les friselle dans un grand bol d’eau fraîche pendant 10–15 secondes, puis égoutte-les.</li>
+          <li>Frotte chaque frisella avec la gousse d’ail coupée en deux.</li>
+          <li>Découpe les tomates en petits dés et dépose-les sur les friselle.</li>
+          <li>Assaisonne de sel, d’origan et d’un généreux filet d’huile d’olive.</li>
+          <li>Ajoute quelques feuilles de basilic frais et laisse reposer 10 minutes avant de servir.</li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du Sud</h2>
+        <p>
+          Pour un goût encore plus authentique, utilise des tomates du jardin bien mûres et une huile d’olive fruitée.
+          Les friselle sont encore meilleures accompagnées d’olives noires ou d’un peu de thon à l’huile.
+        </p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Les <em>friselle</em> sont nées de la nécessité : les paysans et marins des Pouilles emportaient ce pain sec
+          en voyage, car il se conservait des semaines. Avant de le manger, ils l’humidifiaient avec l’eau de mer,
+          puis le garnissaient de ce qu’ils avaient — souvent des tomates, un peu d’huile et du sel.
+        </p>
+      </section>
+    </article>
+  </main>
+
+<!-- Pied de page -->
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia.</p>
+</footer>
+</body>
+</html>

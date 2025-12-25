@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orecchiette al Sugo di Braciole — Sapori di Puglia</title>
+  <meta name="description" content="Recette traditionnelle des orecchiette au sugo di braciole, un plat typique de Bari préparé avec des rouleaux de bœuf mijotés dans une sauce tomate parfumée.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/orecchiette-sugo-di-braciole.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes (ordre DOM) -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <h1>🍝 Orecchiette al Sugo di Braciole</h1>
+      <img src="/Images/orecchiette-sugo-di-braciole.png" alt="Orecchiette al Sugo di Braciole" class="recette-photo">
+
+      <p class="intro">
+        Ce plat typique de <strong>Bari</strong> associe les <em>orecchiette</em> maison à un savoureux <strong>sugo di braciole</strong> : des rouleaux de bœuf farcis et mijotés lentement dans une sauce tomate parfumée au vin rouge, à l’ail et au persil.  
+        Une recette de patience et d’amour, symbole des repas du dimanche dans les Pouilles.
+      </p>
+
+      <section class="infos">
+        <h2>Informations</h2>
+        <p>⏱ Préparation : <strong>2 h 30</strong> &nbsp;|&nbsp; 👥 Pour <strong>4 personnes</strong> &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Moyenne</strong></p>
+      </section>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li class="ingredient">400 g d’orecchiette fraîches</li>
+          <li class="ingredient">8 fines tranches de bœuf (faux-filet ou tranche)</li>
+          <li class="ingredient">100 g de pecorino râpé</li>
+          <li class="ingredient">2 gousses d’ail</li>
+          <li class="ingredient">1 bouquet de persil frais</li>
+          <li class="ingredient">1 oignon</li>
+          <li class="ingredient">80 cl de purée de tomates</li>
+          <li class="ingredient">10 cl de vin rouge</li>
+          <li class="ingredient">Huile d’olive extra-vierge</li>
+          <li class="ingredient">Sel et poivre noir</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li><strong>Préparer les braciole :</strong> Sur chaque tranche de bœuf, déposer un peu d’ail et de persil hachés, une cuillère de pecorino, sel et poivre. Rouler et fixer avec un cure-dent ou de la ficelle.</li>
+          <li><strong>Faire revenir :</strong> Dans une grande cocotte, faire dorer les rouleaux dans un peu d’huile d’olive jusqu’à ce qu’ils soient bien colorés. Ajouter l’oignon émincé et faire revenir 5 minutes.</li>
+          <li><strong>Déglacer :</strong> Verser le vin rouge et laisser évaporer l’alcool à feu moyen.</li>
+          <li><strong>Cuire la sauce :</strong> Ajouter la purée de tomates, couvrir partiellement et laisser mijoter 1 h 30 à feu doux. Le sugo doit devenir épais et riche en arômes.</li>
+          <li><strong>Cuire les pâtes :</strong> Faire cuire les orecchiette dans de l’eau salée, les égoutter al dente et les mélanger avec une partie du sugo.</li>
+          <li><strong>Servir :</strong> Dresser les orecchiette dans les assiettes, napper de sauce et accompagner des braciole entières. Saupoudrer d’un peu de pecorino.</li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Pour une touche d’originalité, ajoute un peu de zeste d’orange dans la sauce en fin de cuisson.  
+          Ce petit secret donne une note fraîche et parfumée qui met en valeur le goût profond du bœuf et du vin rouge.
+        </p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Les <em>braciole alla barese</em> sont un pilier de la cuisine familiale des Pouilles.  
+          Préparées le dimanche, elles mijotent lentement jusqu’à devenir fondantes.  
+          Le sugo, riche et aromatique, est ensuite utilisé pour assaisonner les orecchiette faites à la main — un symbole de la chaleur des tables méridionales.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Bouton Remonter en haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <!-- Pied de page -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Fallback minimal si /JS/app.js n’est pas chargé -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

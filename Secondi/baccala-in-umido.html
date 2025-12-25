@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baccalà in umido — Sapori di Puglia</title>
+
+  <meta name="description"
+        content="Baccalà in umido : morue mijotée lentement à la tomate avec pommes de terre, olives et câpres, plat traditionnel des Pouilles.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/zoom.css">
+  <link rel="icon" type="image/png" href="/Secondi/Images/baccala-in-umido.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+  <script defer src="/JS/zoom.js"></script>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li>
+          <button class="button secondary" onclick="window.print()" aria-label="Imprimer la recette">🖨️</button>
+        </li>
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATERAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🐟 Baccalà in umido<br><small>morue mijotée à la tomate et pommes de terre</small></h1>
+
+    <!-- IMAGE -->
+    <div class="image-zoom">
+      <img src="/Secondi/Images/baccala-in-umido.png"
+           alt="Baccalà in umido, plat traditionnel des Pouilles"
+           class="zoomable signature-pp">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" src="&" class="modal-content" alt="Agrandissement du Baccalà in umido">
+    </div>
+
+    <!-- INTRO -->
+    <p class="intro">
+      Le <strong>Baccalà in umido</strong> est un plat emblématique de la
+      cuisine populaire des <strong>Pouilles</strong>.
+      La morue dessalée est cuite lentement dans une sauce à base de tomate,
+      d’oignon et d’huile d’olive, avec des <strong>pommes de terre</strong>
+      qui absorbent le jus et deviennent fondantes.
+      C’est un plat simple, nourrissant, souvent servi avec du pain pour
+      accompagner la sauce.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>20 min</strong> |
+        🔥 Cuisson : <strong>40 min</strong> |
+        👥 Pour : <strong>4 personnes</strong> |
+        🎚 Difficulté : <strong>Facile</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+      <ul>
+        <li>800 g de <strong>baccalà dessalé</strong> (morue)</li>
+        <li>500 g de <strong>pommes de terre</strong></li>
+        <li>1 <strong>oignon</strong></li>
+        <li>2 gousses d’<strong>ail</strong></li>
+        <li>400 g de <strong>tomates concassées</strong></li>
+        <li>80 g d’<strong>olives noires</strong></li>
+        <li>1 c. à café de <strong>câpres</strong> (facultatif)</li>
+        <li>4 c. à soupe d’<strong>huile d’olive</strong></li>
+        <li>1 verre d’<strong>eau</strong></li>
+        <li><strong>Persil</strong> frais</li>
+        <li><strong>Poivre</strong> noir</li>
+      </ul>
+
+      <p>
+        Le baccalà doit être correctement dessalé à l’avance,
+        en changeant l’eau plusieurs fois pendant 24 à 48 heures.
+      </p>
+    </section>
+
+    <!-- PREPARATION DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation détaillée</h2>
+      <ol>
+        <li>
+          <strong>Préparer la morue.</strong><br>
+          Égoutter le baccalà, retirer la peau si elle est présente et vérifier
+          l’arête centrale. Couper le poisson en gros morceaux réguliers
+          afin qu’ils tiennent bien à la cuisson.
+        </li>
+
+        <li>
+          <strong>Préparer les légumes.</strong><br>
+          Éplucher les pommes de terre et les couper en gros cubes.
+          Émincer l’oignon et écraser légèrement les gousses d’ail.
+        </li>
+
+        <li>
+          <strong>Faire la base du plat.</strong><br>
+          Dans une casserole large, chauffer l’huile d’olive à feu moyen.
+          Ajouter l’oignon et l’ail, puis les faire revenir doucement
+          jusqu’à ce qu’ils deviennent translucides, sans coloration.
+        </li>
+
+        <li>
+          <strong>Ajouter la tomate.</strong><br>
+          Verser les tomates concassées, mélanger et laisser cuire
+          5 minutes pour concentrer la sauce et enlever l’acidité.
+        </li>
+
+        <li>
+          <strong>Incorporer les légumes.</strong><br>
+          Ajouter les pommes de terre, les olives et les câpres.
+          Verser le verre d’eau, mélanger délicatement et porter à frémissement.
+        </li>
+
+        <li>
+          <strong>Cuisson du baccalà.</strong><br>
+          Déposer les morceaux de morue sur la sauce, sans trop remuer.
+          Couvrir partiellement et laisser mijoter à feu doux
+          pendant environ 40 minutes, jusqu’à ce que les pommes de terre
+          soient tendres et le poisson bien cuit.
+        </li>
+
+        <li>
+          <strong>Finition.</strong><br>
+          En fin de cuisson, poivrer légèrement, goûter et ajuster
+          l’assaisonnement si nécessaire.
+          Parsemer de persil frais haché et laisser reposer
+          quelques minutes avant de servir.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes principales</h2>
+      <ul>
+        <li>Ajouter une pointe de piment pour une version plus relevée.</li>
+        <li>Remplacer les pommes de terre par des artichauts.</li>
+        <li>Ajouter une feuille de laurier pendant la cuisson.</li>
+      </ul>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Le <strong>Baccalà in umido</strong> était un plat courant
+        dans les foyers des Pouilles, notamment à l’intérieur des terres.
+        La morue salée, facile à conserver, permettait de préparer
+        un repas complet et nourrissant avec peu d’ingrédients.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Baccalà in umido.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zuppa di Frutti di Mare alla Recanati — Sapori di Puglia</title>
+  <meta name="description" content="Zuppa di frutti di mare traditionnelle : moules, palourdes, crevettes, calamars et vin blanc. Recette pugliese détaillée avec 4 variantes régionales.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/zoom.css">
+  <link rel="icon" type="image/png" href="/Secondi/Images/zuppa-frutti-mare-recanati.png">
+
+  <!-- Scripts -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+  <script defer src="/JS/zoom.js"></script>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li>
+          <button class="button secondary" onclick="window.print()" aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MENU LATERAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍲 Zuppa di Frutti di Mare alla Recanati</h1>
+
+    <!-- IMAGE -->
+    <div class="image-zoom">
+      <img src="/Secondi/Images/zuppa-frutti-mare-recanati.png"
+           alt="Zuppa de fruits de mer pugliese Recanati"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" src="&" class="modal-content" alt="Agrandissement de la Zuppa di Mare">
+    </div>
+
+    <p class="intro">
+      La <strong>Zuppa di Frutti di Mare alla Recanati</strong> est un grand classique des Pouilles : une soupe rouge et parfumée, 
+      où se mélangent <strong>moules</strong>, <strong>palourdes</strong>, <strong>calamars</strong>, <strong>crevettes</strong> et 
+      <strong>vin blanc</strong>.  
+      Le jus final, riche en iode et en tomate, est si savoureux qu’on le déguste avec du pain grillé frotté à l’ail.  
+      C’est un plat simple, mais chaque geste compte : ouvrir les coquillages correctement, saisir les fruits de mer 
+      à la bonne température, réduire la sauce sans la faire brûler… tout est expliqué ici.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>25 min</strong> |
+        🔥 Cuisson : <strong>20 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Moyenne (cuisson précise)</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🦐 Ingrédients</h2>
+
+      <ul>
+        <li>500 g de <strong>moules</strong> bien nettoyées</li>
+        <li>300 g de <strong>palourdes</strong> purgées</li>
+        <li>250 g de <strong>calamars</strong> en anneaux</li>
+        <li>200 g de <strong>crevettes</strong> crues décortiquées</li>
+        <li>300 g de <strong>tomates concassées</strong></li>
+        <li>2 gousses d’<strong>ail</strong></li>
+        <li>1 petit <strong>piment</strong> ou flocons</li>
+        <li>1 verre de <strong>vin blanc</strong></li>
+        <li><strong>Huile d’olive extravierge</strong></li>
+        <li><strong>Persil</strong> frais haché</li>
+        <li>Sel, poivre</li>
+      </ul>
+
+      <h3>Pour servir :</h3>
+      <ul>
+        <li>Tranches de <strong>pain rustique grillé</strong> et frotté à l’ail</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION ULTRA DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation ultra détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Ouvrir les moules et palourdes.</strong><br>
+          Chauffer une grande poêle sans matière grasse.  
+          Ajouter moules + palourdes, couvrir, laisser ouvrir 1–2 minutes.  
+          Retirer immédiatement celles ouvertes : ne pas surcuire.  
+          Filtrer le jus au tamis fin et garder.
+        </li>
+
+        <li>
+          <strong>Saisir les calamars.</strong><br>
+          Dans une grande casserole : huile + ail écrasé + piment.  
+          Ajouter les calamars et saisir 1 minute seulement.
+        </li>
+
+        <li>
+          <strong>Déglacer au vin blanc.</strong><br>
+          Verser le vin, laisser évaporer l’alcool 30–40 secondes.
+        </li>
+
+        <li>
+          <strong>Ajouter la tomate.</strong><br>
+          Ajouter tomates concassées + jus filtré des coquillages.  
+          Cuire 10 minutes à feu moyen pour concentrer les saveurs.
+        </li>
+
+        <li>
+          <strong>Ajouter crevettes + coquillages.</strong><br>
+          Ajouter crevettes crues → 2 minutes.  
+          Ajouter moules + palourdes ouvertes → 1 minute.  
+          Le tout doit rester tendre.
+        </li>
+
+        <li>
+          <strong>Finition.</strong><br>
+          Poivre, persil haché, un filet d’huile d’olive cru.  
+          Servir avec du pain grillé frotté à l’ail.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes détaillées</h2>
+
+      <h3>1️⃣ Frutti di Mare alla Teglia (au four, gratiné)</h3>
+      <ul>
+        <li>Mélanger moules, palourdes, anneaux de calamars, crevettes.</li>
+        <li>Ajouter tomates cerises, chapelure maison, ail, persil, huile d’olive.</li>
+        <li>Cuire au four 15 min à 220°C jusqu’à croûte dorée.</li>
+        <li>Version très rustique, parfaite pour les grandes tablées.</li>
+      </ul>
+
+      <h3>2️⃣ Insalata Calda di Mare (tiède, élégante)</h3>
+      <ul>
+        <li>Cuire séparément poulpe, calamars, crevettes.</li>
+        <li>Ajouter pommes de terre tièdes.</li>
+        <li>Assaisonner citron, huile d’olive, persil, poivre, olives noires.</li>
+      </ul>
+
+      <h3>3️⃣ Frutti di Mare in Padella (poêle express)</h3>
+      <ul>
+        <li>Sauter tomates cerises, ail, piment dans l’huile très chaude.</li>
+        <li>Ajouter mélange de fruits de mer et saisir 3 minutes.</li>
+        <li>Déglacer au vin blanc, persil final.</li>
+      </ul>
+
+      <h3>4️⃣ Version Recanati (signature maison)</h3>
+      <ul>
+        <li>Calamars + crevettes + moules ouvertes au vin blanc.</li>
+        <li>Tomates confites maison.</li>
+        <li>Chapelure ail-persil-citron (“Recanati mix”).</li>
+        <li>5 minutes de four pour une légère croûte parfumée.</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        La clé est la <strong>cuisson séparée</strong> : coquillages ouverts à part, calamars saisis rapidement, 
+        crevettes ajoutées en dernier.  
+        C’est ce qui garantit une zuppa parfaite : tendre, juteuse et sans goût de surcuisson.
+      </p>
+    </section>
+
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les soupes de poissons et fruits de mer sont un pilier des villages côtiers du Salento.  
+        Chaque famille a sa version : plus rouge, plus iodée, plus relevée…  
+        La version “alla Recanati” met l’accent sur le bouillon parfumé au vin blanc et sur la cuisson très précise 
+        de chaque fruit de mer.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Zuppa di Frutti di Mare alla Recanati.</p>
+</footer>
+
+</body>
+</html>

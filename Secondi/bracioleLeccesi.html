@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Braciole alla Leccese — Sapori di Puglia</title>
+  <meta name="description" content="Recette traditionnelle des Braciole alla Leccese : roulés de viande farcis et mijotés dans un sugo riche du Salento.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/braciole-leccesi.png">
+
+  <!-- ⚠️ Ordre important -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles pour le zoom image -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+
+      <h1>🥩 Braciole alla Leccese</h1>
+
+      <!-- Image principale avec zoom -->
+      <div class="image-zoom">
+        <img src="/Images/braciole-leccesi.png" alt="Braciole alla Leccese — portion servie" class="zoomable">
+      </div>
+
+      <!-- Fenêtre d’agrandissement -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" type="button" aria-label="Fermer">×</button>
+        <img class="modal-content" id="modalImg" src="&" alt="Agrandissement de l’image">
+      </div>
+
+      <p class="intro">
+        Les <strong>Braciole alla Leccese</strong> sont des roulés de viande farcis à l’ail, au persil et au pecorino, dorés à l’huile d’olive puis mijotés longtemps dans un <em>sugo</em> riche et parfumé.
+        Il s’agit d’un plat du dimanche par excellence, partagé dans les familles du Salento.
+        Traditionnellement, on utilise de la viande de <em>cheval</em> pour obtenir un résultat tendre et juteux après une longue cuisson.
+      </p>
+
+      <!-- INFOS corrigées -->
+      <div class="infos">
+        <p>⏱ Préparation : <strong>30 min</strong> &nbsp;|&nbsp; 🕰 Cuisson : <strong>2 h 30</strong> &nbsp;|&nbsp; 👥 Pour <strong>4 personnes</strong> &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Moyenne</strong></p>
+      </div>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+
+        <h3>Pour les braciole</h3>
+        <ul>
+          <li>8 fines tranches de viande (veau ou cheval)</li>
+          <li>100 g de pecorino râpé</li>
+          <li>2 gousses d’ail hachées</li>
+          <li>Persil frais finement ciselé</li>
+          <li>Poivre noir</li>
+          <li>Huile d’olive extra-vierge</li>
+          <li>Ficelle de cuisine (ou cure-dents)</li>
+        </ul>
+
+        <h3>Pour le sugo</h3>
+        <ul>
+          <li>800 g de passata de tomates</li>
+          <li>1 oignon</li>
+          <li>1 carotte</li>
+          <li>1 branche de céleri</li>
+          <li>1 verre de vin rouge</li>
+          <li>2–3 c.à.s d’huile d’olive</li>
+          <li>Sel, poivre</li>
+          <li>1 feuille de laurier ou basilic</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li>
+            <strong>Préparer les roulés.</strong><br>
+            Étaler chaque tranche de viande. Saupoudrer d’ail, de persil et de pecorino.
+            Assaisonner de poivre. Rouler très serré et attacher avec de la ficelle.
+          </li>
+
+          <li>
+            <strong>Faire dorer les braciole.</strong><br>
+            Chauffer un fond d’huile dans une poêle.
+            Faire dorer les roulés sur chaque face.
+            Déglacer avec le vin rouge et laisser évaporer 2–3 minutes.
+          </li>
+
+          <li>
+            <strong>Préparer le sugo.</strong><br>
+            Dans une grande casserole, faire revenir oignon, céleri et carotte hachés.
+            Ajouter les braciole dorées puis la passata.
+            Ajouter laurier ou basilic, sel et poivre.
+          </li>
+
+          <li>
+            <strong>Cuisson lente.</strong><br>
+            Couvrir et cuire <strong>2 h à feu très doux</strong>, en remuant uniquement en secouant la casserole.
+          </li>
+
+          <li>
+            <strong>Finition.</strong><br>
+            Retirer la ficelle.
+            Servir les roulés nappés du sugo épais et parfumé.
+          </li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Une fois les roulés cuits, utilise une partie du sugo pour assaisonner des pâtes fraîches :
+          c’est ainsi que les familles du Salento servent ce plat : d’abord les pâtes, puis la viande.
+        </p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Les <strong>Braciole alla Leccese</strong> sont un symbole du dimanche dans le Salento.
+          Autrefois préparées avec de la viande de cheval, elles mijotaient dans des casseroles en terre cuite.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script du zoom -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback minimal -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+
+      const scrollBtn=document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=>{
+        scrollBtn.style.display=(window.scrollY>200)?'block':'none';
+      });
+
+      scrollBtn.addEventListener('click', ()=>{
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    })();
+  </script>
+
+</body>
+</html>

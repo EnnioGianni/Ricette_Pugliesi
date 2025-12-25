@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Agnello al Forno con Patate e Rosmarino — Sapori di Puglia</title>
+  <meta name="description" content="Agneau rôti au four, pommes de terre, romarin et vin blanc — une spécialité rustique du Gargano.">
+
+  <!-- Fichiers CSS spécifiques -->
+  <link rel="stylesheet" href="/Menu/menu-salento.css">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/menu.js"></script>
+
+  <!-- Styles globaux -->
+  <link rel="icon" type="image/png" href="/Images/orecchiette-cime-di-rapa.png">
+  <link rel="stylesheet" href="/CSS/Styles.css">
+
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes (ordre DOM) -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  
+<!-- Tiroir des recettes (menu latéral) -->
+<aside id="menuDrawer"
+       class="drawer"
+       aria-hidden="true"
+       aria-label="Menu des recettes">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes Sapori di Puglia</h2>
+    <button type="button"
+            class="drawer-close"
+            data-close-menu
+            aria-label="Fermer le menu">
+      ✕
+    </button>
+  </div>
+
+  <nav class="drawer-body">
+    <!-- La liste sera remplie par JS (data-list) -->
+    <ul id="recipeList" data-list="recettes"></ul>
+  </nav>
+</aside>
+<main>
+  <div class="recette-block">
+
+    <h1>Agnello al Forno con Patate e Rosmarino</h1>
+
+    <img src="/Menu/Images/agnello-al-forno.png"
+         alt="Agnello al Forno con Patate e Rosmarino"
+         class="recette-photo" style="height: auto; width: 1250px;">
+
+    <p>
+      Ce plat est un classique du Gargano :  
+      un agneau tendre rôti lentement avec des pommes de terre, du vin blanc et beaucoup de romarin frais.  
+      Un parfum de montagne, de cuisine familiale et de tradition rustique.
+    </p>
+
+    <h2>Ingrédients (4 personnes)</h2>
+    <ul>
+      <li data-symbol="🥩">1,2 kg d’agneau (épaule ou gigot coupé en morceaux)</li>
+      <li data-symbol="🥔">700 g de pommes de terre</li>
+      <li data-symbol="🧅">1 oignon</li>
+      <li data-symbol="🧄">3 gousses d’ail</li>
+      <li data-symbol="🌿">3 branches de romarin frais</li>
+      <li data-symbol="🍷">120 ml de vin blanc sec</li>
+      <li data-symbol="🫒">Huile d’olive vierge extra</li>
+      <li data-symbol="🧂">Sel et poivre noir</li>
+    </ul>
+
+    <h2>Préparation pas à pas</h2>
+    <ol>
+      <li><strong>Préparer l’agneau :</strong><br>
+        Rince et sèche les morceaux, puis masse-les avec de l’huile d’olive, du sel, du poivre  
+        et 2 gousses d’ail écrasées.  
+        Laisse reposer 10 minutes → la viande s’imprègne mieux.
+      </li>
+
+      <li><strong>Préparer les légumes :</strong><br>
+        • Épluche les pommes de terre et coupe-les en quartiers épais.<br>
+        • Émince l’oignon.<br>
+        • Coupe 1 gousse d’ail en lamelles.
+      </li>
+
+      <li><strong>Assemblage du plat :</strong><br>
+        Dans un grand plat allant au four :  
+        • Étale les pommes de terre.  
+        • Ajoute l’oignon + l’ail + 2 branches de romarin.  
+        • Place l’agneau dessus.  
+        • Verse 3 c. à s. d’huile d’olive.  
+        • Ajoute le vin blanc.
+      </li>
+
+      <li><strong>Cuisson lente (le secret !)</strong><br>
+        ➤ 180°C pendant 1 h 30  
+        • Retourne l’agneau 1 fois.  
+        • Arrose régulièrement avec le jus du plat.  
+        Tu dois obtenir une viande dorée, fondante, parfumée.
+      </li>
+
+      <li><strong>Finition :</strong><br>
+        Allume le grill 5 à 6 minutes  
+        → pour caraméliser la peau et rendre les pommes de terre croustillantes.
+      </li>
+
+      <li><strong>Dégustation :</strong><br>
+        Sers bien chaud, avec une branche de romarin frais pour le parfum final.
+      </li>
+    </ol>
+
+    <h2>Astuce du chef</h2>
+    <p>
+      Tu peux ajouter quelques tomates cerises entières en fin de cuisson :  
+      elles éclatent dans le jus et donnent une note douce et brillante.
+    </p>
+
+    <h2>Origine</h2>
+    <p>
+      Dans le Gargano, l’agneau rôti est un plat des grandes occasions.  
+      Il est préparé dans des plats en terre cuite, cuit au four à bois et partagé en famille  
+      lors des dimanches et des fêtes traditionnelles.
+    </p>
+
+  </div>
+</main>
+
+<footer class="menu-footer">
+  <p>© 2025 Sapori di Puglia — Recette du Gargano.</p>
+</footer>
+
+</body>
+</html>

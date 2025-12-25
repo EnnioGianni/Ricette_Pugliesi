@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Purée di Cardon alla Pugliese — Sapori di Puglia</title>
+  <meta name="description" content="Purée di Cardon alla Pugliese : recette paysanne rare, très détaillée, avec variantes traditionnelles (laurier, piment, gratiné, amandes). Plat végétal rustique et historique.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Contorni/Images/pure-cardon.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      margin: 0 auto;
+      display: block;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #ffffff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2>Recettes</h2>
+    <button id="closeMenuBtn" class="button icon">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <ul id="recipeList" class="recipe-list" data-list></ul>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+<article>
+
+<h1>🌿 Purée di Cardon alla Pugliese</h1>
+
+<div class="image-zoom">
+  <img src="/Contorni/Images/pure-cardon.png"
+       alt="Purée de cardon rustique à l’huile d’olive"
+       class="zoomable">
+</div>
+
+<div id="imageModal" class="modal" hidden>
+  <button class="close" aria-label="Fermer">×</button>
+  <img id="modalImg" class="modal-content" src="&" alt="Purée de cardon — zoom">
+</div>
+
+<p class="intro">
+  La <strong>Purée di Cardon alla Pugliese</strong> est un plat rare et ancien des campagnes du Salento
+  et du Gargano. Une purée végétale, douce, montée à l’huile d’olive, préparée comme la purée de fèves.
+  Un plat rustique, simple, parfait avec du pain grillé ou des légumes verts.
+</p>
+
+<div class="infos">
+  <p>
+    ⏱ Préparation : <strong>30–35 min</strong> |
+    🔥 Cuisson : <strong>50–60 min</strong> |
+    👥 Pour <strong>4 personnes</strong> |
+    ⚙️ Difficulté : <strong>Moyenne</strong>
+  </p>
+</div>
+
+<section class="ingredients custom-list">
+<h2>🫒 Ingrédients</h2>
+
+<h3>Base</h3>
+<ul>
+  <li>1 grosse botte de cardon (1–1,2 kg brut)</li>
+  <li>2 pommes de terre moyennes</li>
+  <li>1 petite gousse d’ail (ou ½ pour plus doux)</li>
+  <li>5–6 c.à.s d’huile d’olive extravierge</li>
+  <li>Sel fin</li>
+  <li>Poivre noir (optionnel)</li>
+</ul>
+
+<h3>Nettoyage</h3>
+<ul>
+  <li>1 citron</li>
+  <li>1 grand saladier d’eau froide</li>
+</ul>
+
+<h3>Service</h3>
+<ul>
+  <li>Huile d’olive extravierge crue</li>
+  <li>Persil ou marjolaine (optionnel)</li>
+  <li>Quelques gouttes de citron (optionnel)</li>
+</ul>
+</section>
+
+<section class="preparation">
+<h2>👩‍🍳 Préparation détaillée</h2>
+
+<ol>
+  <li><strong>Préparer l’eau citronnée</strong> pour empêcher le cardon de noircir.</li>
+
+  <li><strong>Nettoyer le cardon</strong> : retirer les fils comme le céleri, couper en morceaux et plonger dans l’eau citronnée.</li>
+
+  <li><strong>Cuire le cardon</strong> 35–45 minutes dans de l’eau bouillante salée jusqu’à très tendre.</li>
+
+  <li><strong>Ajouter les pommes de terre</strong> et cuire encore 15 minutes.</li>
+
+  <li><strong>Égoutter</strong> et remettre dans la casserole 1 minute pour évaporer l’eau.</li>
+
+  <li><strong>Ajouter l’ail</strong> écrasé (cru ou légèrement doré).</li>
+
+  <li><strong>Écraser ou mixer</strong> selon la texture désirée.</li>
+
+  <li><strong>Monter à l’huile d’olive</strong> en remuant vigoureusement. Saler, poivrer.</li>
+
+  <li><strong>Servir</strong> avec huile crue, herbes fraîches, citron.</li>
+</ol>
+</section>
+
+<section class="preparation variante">
+<h2>🔁 Variantes traditionnelles</h2>
+
+<h3>1️⃣ Au Laurier & Piment</h3>
+<ul>
+  <li>Cuire le cardon avec 1 feuille de laurier + un morceau de piment sec.</li>
+  <li>Retirer avant de mixer.</li>
+</ul>
+
+<h3>2️⃣ Gratinée alla Contadina</h3>
+<ul>
+  <li>Préparer la purée et la verser dans un plat.</li>
+  <li>Mélanger chapelure + huile + origan.</li>
+  <li>Gratiner 10–12 min à 200°C.</li>
+</ul>
+
+<h3>3️⃣ Purée aux Amandes</h3>
+<ul>
+  <li>Ajouter 2–3 c.à.s d’amandes blanches mixées.</li>
+  <li>Mélanger vigoureusement.</li>
+</ul>
+
+<h3>4️⃣ Cardon & Cime di Rapa</h3>
+<ul>
+  <li>Mélanger moitié purée de cardon, moitié purée de cime di rapa.</li>
+  <li>Servir avec piment et huile crue.</li>
+</ul>
+</section>
+
+<section class="astuce">
+<h2>💡 Astuce du chef</h2>
+<p>
+  Ajouter l’huile en trois étapes donne une purée brillante, douce et parfaitement montée.
+</p>
+</section>
+
+<section class="origine">
+<h2>📜 Origine</h2>
+<p>
+  Le <strong>cardon schiacciato</strong> était une purée d’hiver dans les Masserie&nbsp;:
+  cardon du champ, pommes de terre de la cave, huile d’olive du moulin.
+  Une recette simple, nourrissante, aujourd’hui redécouverte.
+</p>
+</section>
+
+</article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Haut de page">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette paysanne traditionnelle.</p>
+</footer>
+
+<script>
+document.querySelectorAll('.zoomable').forEach(img => {
+  img.addEventListener('click', () => {
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    modalImg.src = img.src;
+    modal.removeAttribute('hidden');
+  });
+});
+
+document.querySelector('.close').addEventListener('click', () => {
+  document.getElementById('imageModal').setAttribute('hidden', '');
+});
+</script>
+
+</body>
+</html>

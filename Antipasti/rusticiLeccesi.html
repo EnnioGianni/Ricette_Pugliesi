@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rustici — Sapori di Puglia</title>
+  <meta name="description" content="Recette des Rustici, des chaussons salés traditionnels fourrés à la béchamel, mozzarella et jambon. Parfait pour l'apéritif ou un repas léger.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/rustici.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes (ordre DOM) -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav>
+      <ul id="recipeList" class="recipe-list" data-list>
+        <!-- Liste des recettes, générée par le script categories.js -->
+      </ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <h1>🧆 Rustici</h1>
+      <img src="/Images/rustici.png" alt="Rustici" class="recette-photo">
+
+      <p class="intro">
+        Les <strong>Rustici</strong> sont des chaussons salés traditionnels de la région des Pouilles. Ils sont fourrés à la béchamel, mozzarella et jambon pour un goût fondant à l’intérieur et doré à l’extérieur. Parfaits pour l’apéritif ou un dîner léger !
+      </p>
+
+      <section class="infos">
+        <h2 class="sr-only">Informations de la recette</h2>
+          <p>
+            ⏱ Préparation : <strong>1 h 30</strong> &nbsp;|&nbsp;
+            👥 Pour <strong>6 personnes</strong> &nbsp;|&nbsp;
+            ⚙️ Difficulté : <strong>Facile</strong>
+          </p>
+      </section>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li class="ingredient">250 g de pâte feuilletée</li>
+          <li class="ingredient">150 g de mozzarella râpée</li>
+          <li class="ingredient">150 g de jambon cuit coupé en dés</li>
+          <li class="ingredient">1 c. à soupe de beurre</li>
+          <li class="ingredient">250 ml de lait</li>
+          <li class="ingredient">30 g de farine</li>
+          <li class="ingredient">1 pincée de sel</li>
+          <li class="ingredient">Poivre du moulin</li>
+          <li class="ingredient">Jaune d'œuf pour la dorure</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li><strong>Préparer la béchamel :</strong> Dans une casserole, faire fondre le beurre à feu doux. Ajouter la farine et cuire pendant 1 à 2 minutes en remuant pour faire un roux. Ajouter le lait progressivement tout en fouettant pour éviter les grumeaux. Assaisonner avec le sel et le poivre, puis cuire pendant environ 5 minutes jusqu'à ce que la béchamel épaississe.</li>
+          <li><strong>Ajouter le jambon et la mozzarella :</strong> Une fois la béchamel prête, ajouter le jambon coupé en dés et la mozzarella râpée. Mélanger jusqu’à ce que la mozzarella fonde et que la garniture soit bien homogène.</li>
+          <li><strong>Façonner les rustici :</strong> Étaler la pâte feuilletée et découper des cercles d’environ 10 cm de diamètre. Déposer une cuillère à soupe de garniture au centre de chaque cercle et refermer en formant des chaussons. Bien souder les bords avec une fourchette.</li>
+          <li><strong>Dorer et cuire :</strong> Badigeonner les chaussons de jaune d'œuf pour leur donner une belle couleur dorée. Préchauffer le four à 180 °C et faire cuire pendant 20 à 25 minutes, ou jusqu’à ce qu’ils soient bien dorés.</li>
+          <li><strong>Servir chaud :</strong> Laisser tiédir légèrement avant de servir, ces rustici sont délicieux aussi bien chauds que tièdes.</li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>Pour une variante plus originale, ajoute un peu de champignons émincés dans la garniture ou remplace le jambon par du salami pour une touche épicée.</p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>Les Rustici sont une spécialité de la cuisine des Pouilles, souvent préparée pour des occasions familiales ou des repas informels. Leurs petites tailles et leur goût savoureux en font un en-cas parfait.</p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Bouton Remonter en haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <!-- Pied de page -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle des Pouilles.</p>
+  </footer>
+
+  <!-- Fallback minimal si /JS/app.js n’est pas chargé -->
+  <script>
+    (function(){
+      // Toggle theme
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      // Scroll-to-top
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

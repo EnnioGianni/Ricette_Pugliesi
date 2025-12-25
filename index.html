@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sapori di Puglia — Recettes & Menus</title>
+  <meta name="description" content="Recueil de recettes et menus traditionnels des Pouilles : antipasti, primi, secondi, dolci. Découvrez aussi nos menus complets comme le Menu Saveurs du Salento.">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/orecchiette-cime-di-rapa.png">
+
+  <!-- JS : ordre important -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+</head>
+
+<body class="index-page">
+
+  <!-- En-tête -->
+  <header class="header">
+    <div class="header-inner">
+      <button id="openMenuBtn" class="button ghost" title="Afficher les recettes" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+      <div class="brand">
+        <img src="/Images/orecchiette-cime-di-rapa.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+      <nav aria-label="Navigation principale">
+        <ul class="nav">
+          <li><a href="/Menu/menu-salento.html" class="button tertiary" title="Voir les menus complets">🍷 Menus</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button" aria-label="Basculer le mode sombre">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette ou un menu..." aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes et menus">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container">
+
+    <section class="hero slideshow">
+      <div class="slideshow-wrapper">
+        <img src="/Images/Carte.png" alt="Carte de la Puglia" loading="eager" decoding="async">
+        <img src="/Images/focaccia-barese.png" alt="Focaccia Barese" loading="lazy" decoding="async">
+        <img src="/Images/orecchiette-cime-di-rapa.png" alt="Orecchiette alle Cime di Rapa" loading="lazy" decoding="async">
+        <img src="/Images/cartellate.png" alt="Cartellate" loading="lazy" decoding="async">
+      </div>
+
+      <div class="hero-text">
+        <h1>Saveurs des Pouilles</h1>
+        <p>
+          🍅 <strong>Recueil de Recettes Authentiques de la Puglia</strong><br>
+          Au cœur du talon de l’Italie, la Puglia (ou Pouilles) est une terre de lumière,
+          d’oliviers centenaires et de traditions culinaires transmises de génération en génération.
+        </p>
+        <div class="cta-row">
+          <button class="button primary" id="openMenuBtn2" aria-controls="menuDrawer" aria-expanded="false">Voir les recettes</button>
+          <a href="/Menu/menu-salento.html" class="button accent">🍷 Découvrir le Menu “Saveurs du Salento”</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sections éditoriales -->
+    <section id="decouvrir" class="section intro">
+      <header class="section-header">
+        <h2>Découvrir la Puglia à travers ses saveurs</h2>
+      </header>
+      <div class="section-content">
+        <p>
+          La <strong>Puglia</strong>, c’est une terre où les repas sont un langage. On y cuisine comme on parle :
+          avec le cœur, la patience et une pincée d’improvisation. Chaque recette naît d’un souvenir, d’une saison,
+          ou d’un geste transmis dans la cuisine familiale.
+        </p>
+        <blockquote>
+          Ici, chaque recette est une porte ouverte sur un paysage, un sourire, une histoire.
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="fetes-marche" class="section markets">
+      <header class="section-header">
+        <h2>Fêtes populaires &amp; marchés du terroir</h2>
+        <p class="section-kicker">Des rendez-vous qui mettent à l’honneur les produits locaux — sans référence religieuse.</p>
+      </header>
+      <div class="section-grid">
+        <article class="card">
+          <h3>Fêtes populaires</h3>
+          <p>
+            Tout au long de l’année, les villages s’animent : musique, vins, poissons grillés, fromages et pains rustiques.
+          </p>
+        </article>
+        <article class="card">
+          <h3>Marchés traditionnels</h3>
+          <p>
+            Tomates séchées, aubergines, figues, huile d’olive, pains de blé dur :
+            les marchés hebdomadaires sont la vitrine vivante d’une culture paysanne fière et généreuse.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section id="ingredients-ame" class="section ingredients">
+      <header class="section-header">
+        <h2>Les Ingrédients de l’Âme du Sud</h2>
+      </header>
+      <ul class="feature-list">
+        <li><strong>Huile d’olive extra-vierge</strong><br>Dorée, parfumée, pilier des sauces, marinades et cuissons lentes.</li>
+        <li><strong>Blé dur &amp; pâtes artisanales</strong><br>Orecchiette, cavatelli, troccoli : formes simples, texture ferme.</li>
+        <li><strong>Légumes de saison</strong><br>Cime di rapa, tomates, artichauts, herbes sauvages.</li>
+        <li><strong>La mer toute proche</strong><br>Poissons bleus, poulpe, coquillages : simplicité et cuisson courte.</li>
+      </ul>
+      <p class="section-outro">
+        Ce recueil préserve la vérité des saveurs — pour cuisiner « comme là-bas ».
+      </p>
+    </section>
+  </main>
+
+  <!-- Pied de page -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recettes & Menus traditionnels des Pouilles.</p>
+  </footer>
+
+</body>
+</html>

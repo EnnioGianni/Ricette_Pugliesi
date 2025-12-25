@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Purciàzzucci — Sapori di Puglia</title>
+  <meta name="description" content="Purciàzzucci traditionnels du Salento : petites bouchées frites à base de farine et potiron, enrobées de sucre, parfumées au zeste et servies avec pignons et cannelle. Recette traditionnelle ultra détaillée.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/zoom.css">
+  <link rel="icon" type="image/png" href="/Dolci/Images/purciazzucci.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+  <script defer src="/JS/zoom.js"></script>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">🖨️</button>
+        </li>
+
+        <li><a href="/index.html">Accueil</a></li>
+
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍯 Purciàzzucci (Dolce frit du Salento)</h1>
+
+    <!-- IMAGE -->
+    <div class="image-zoom">
+      <img src="/Dolci/Images/purciazzucci.png"
+           alt="Purciàzzucci dorés du Salento, enrobés de sucre et accompagnés de pignons"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" src="&" class="modal-content" alt="Agrandissement des Purciàzzucci">
+    </div>
+
+    <p class="intro">
+      Les <strong>Purciàzzucci</strong> (ou <em>Purciaddruzzi</em>) sont de petites bouchées frites typiques du <strong>Salento</strong>.  
+      Leur texture est moelleuse à l’intérieur, croustillante dehors, parfumée au <strong>zeste</strong>,  
+      légèrement sucrée, et servie avec des <strong>pignons</strong> (les “se amande de pigne”), du sucre  
+      et parfois un léger soupçon de cannelle.  
+      <br><br>
+      C’était autrefois un <strong>dolce de fête</strong>, préparé pour Noël ou pour célébrer l’huile nouvelle.  
+      Voici la version mixte potiron + farine, la plus ancienne et la plus répandue dans les maisons.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>25 min</strong> |
+        🔥 Cuisson : <strong>15–20 min</strong> |
+        👥 Pour <strong>6 personnes</strong> |
+        ⚙️ Difficulté : <strong>Facile</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🥣 Ingrédients</h2>
+
+      <h3>Pour la pâte</h3>
+      <ul>
+        <li>400 g de <strong>farine</strong></li>
+        <li>250 g de <strong>chair de potiron</strong> cuite et bien égouttée</li>
+        <li>1 <strong>œuf</strong></li>
+        <li>2 c.à.s d’<strong>huile d’olive</strong></li>
+        <li>1 c.à.c de <strong>sucre</strong></li>
+        <li>1 pincée de <strong>sel</strong></li>
+        <li><strong>Zeste de citron</strong> ou d’orange (traditionnel)</li>
+      </ul>
+
+      <h3>Pour la friture</h3>
+      <ul>
+        <li>Huile de friture (arachide ou mélange)</li>
+      </ul>
+
+      <h3>Pour la finition</h3>
+      <ul>
+        <li><strong>Sucre</strong> pour enrober</li>
+        <li><strong>Pignons (se amande de pigne)</strong> légèrement grillés</li>
+        <li>Cannelle (facultatif)</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation ultra détaillée — Purciàzzucci</h2>
+
+      <ol>
+        <li>
+          <strong>Cuire le potiron.</strong><br>
+          Couper la chair de potiron en cubes, cuire à la vapeur ou à l'eau jusqu'à ce qu'elle devienne très tendre.  
+          Égoutter soigneusement et laisser refroidir.  
+          Plus le potiron est sec, plus la pâte sera réussie.
+        </li>
+
+        <li>
+          <strong>Préparer la pâte.</strong><br>
+          Écraser le potiron en purée.  
+          Ajouter l’œuf, l’huile d’olive, le sucre, le sel et le zeste.  
+          Incorporer peu à peu la farine jusqu’à obtenir une pâte souple, légèrement collante mais façonnable.
+        </li>
+
+        <li>
+          <strong>Former les Purciàzzucci.</strong><br>
+          Prélever de petits morceaux de pâte et façonner des <strong>bouchées de 2–3 cm</strong>, ovales, irrégulières.  
+          Traditionnellement, on les roule légèrement avec le bout des doigts pour leur donner leur forme rustique.
+        </li>
+
+        <li>
+          <strong>Chauffer l’huile.</strong><br>
+          Faire chauffer l’huile à environ <strong>170°C</strong>.  
+          L’huile doit frémir doucement et non fumer.
+        </li>
+
+        <li>
+          <strong>Frire par petites quantités.</strong><br>
+          Plonger les morceaux de pâte par petites séries pour éviter la chute de température.  
+          Retourner pendant la cuisson.  
+          Les Purciàzzucci doivent être <strong>dorés, gonflés et légers</strong>.
+        </li>
+
+        <li>
+          <strong>Égoutter et enrober de sucre.</strong><br>
+          Sortir avec une écumoire, déposer sur du papier absorbant, puis rouler immédiatement dans le sucre.
+        </li>
+
+        <li>
+          <strong>Ajouter les pignons.</strong><br>
+          Parsemer les Purciàzzucci encore tièdes de <strong>pignons grillés</strong>.  
+          Leur parfum de résine adoucit parfaitement la douceur du potiron et du sucre.
+        </li>
+
+        <li>
+          <strong>Servir.</strong><br>
+          Servir tièdes ou froids, avec quelques zestes ou une pointe de cannelle selon la tradition familiale.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes</h2>
+
+      <h3>1️⃣ Version au miel (ancienne)</h3>
+      <ul>
+        <li>Remplacer le sucre final par un filet de <strong>miel chaud</strong>.</li>
+        <li>Ajouter les <strong>pignons</strong> directement dans le miel.</li>
+      </ul>
+
+      <h3>2️⃣ Version à l’orange</h3>
+      <ul>
+        <li>Utiliser uniquement du <strong>zeste d’orange</strong>.</li>
+        <li>Ajouter quelques gouttes d’<strong>eau de fleur d’oranger</strong>.</li>
+      </ul>
+
+      <h3>3️⃣ Version très rustique</h3>
+      <ul>
+        <li>Sans œuf, uniquement potiron + farine + zeste.</li>
+        <li>Plus dense mais très traditionnelle.</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Plus la purée de potiron est sèche, plus les Purciàzzucci seront légers.  
+        Égoutter longuement, voire laisser sécher un peu à l’air avant de mélanger à la farine.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les Purciàzzucci sont un dolce ancien du <strong>Salento</strong>, souvent préparé pour les fêtes d’hiver.  
+        Le potiron venait des potagers familiaux, et les <strong>pignons</strong> étaient un véritable luxe :  
+        on les ajoutait pour les grandes occasions.  
+        La recette a évolué de maison en maison, mais le geste — former de petites bouchées et les frire —  
+        reste le même depuis des générations.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut"></button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Purciàzzucci (Dolci frits du Salento).</p>
+</footer>
+
+</body>
+</html>

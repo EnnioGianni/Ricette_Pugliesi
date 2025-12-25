@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cardon con Patate e Pomodori al Forno — Sapori di Puglia</title>
+  <meta name="description" content="Cardon con Patate e Pomodori al Forno : plat paysan rare des Pouilles, avec cardon longuement cuit, pommes de terre et tomates au four. Version très détaillée avec variante gratinée à la contadine.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Contorni/Images/cardon-patate-pomodoro.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li>
+          <button class="button secondary" data-toggle-theme>🌓</button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🌿 Cardon con Patate e Pomodori al Forno</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Contorni/Images/cardon-patate-pomodoro.png"
+           alt="Plat de cardon au four avec pommes de terre et tomates, à la manière paysanne des Pouilles"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           class="modal-content" src="&"
+           alt="Agrandissement du cardon au four avec pommes de terre et tomates">
+    </div>
+
+    <p class="intro">
+      Le <strong>Cardon con Patate e Pomodori al Forno</strong> est un plat paysan rare des Pouilles&nbsp;:  
+      du <strong>cardon longuement cuit</strong>, des <strong>pommes de terre fondantes</strong> et des <strong>tomates</strong>,  
+      le tout arrosé de beaucoup d’<strong>huile d’olive</strong> et cuit au four comme un tian rustique.  
+      Une cuisine de <em>Masseria</em> simple, sans fromage obligatoire, où le goût vient des légumes, de l’oignon et de l’huile.
+    </p>
+
+    <!-- INFOS -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>35–40 min</strong> |
+        🔥 Cuisson : <strong>40–45 min</strong> (+ 35–45 min pour le cardon) |
+        👥 Pour <strong>4–5 personnes</strong> |
+        ⚙️ Difficulté : <strong>Moyenne (cardon à nettoyer)</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS VERSION DE BASE -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients — Version de base</h2>
+
+      <h3>Cardon, pommes de terre et tomates</h3>
+      <ul>
+        <li>1 grosse botte de <strong>cardon</strong> (environ 1–1,2 kg brut)</li>
+        <li>3 à 4 <strong>pommes de terre</strong> moyennes (chair ferme ou légèrement farineuse)</li>
+        <li>4–5 <strong>tomates</strong> mûres (ou 250&nbsp;g de pulpe de tomate en morceaux)</li>
+        <li>1 <strong>oignon blanc</strong> moyen</li>
+        <li>2 gousses d’ail</li>
+        <li>7–8 c.à.s d’<strong>huile d’olive extravierge</strong></li>
+        <li>Sel fin</li>
+        <li>Poivre noir fraîchement moulu</li>
+        <li>1 pincée d’<strong>origan sec</strong> (facultatif mais très typique)</li>
+        <li>Un peu de <strong>persil frais</strong> pour servir</li>
+      </ul>
+
+      <h3>Pour le nettoyage du cardon</h3>
+      <ul>
+        <li>1 citron (pour l’eau acidulée)</li>
+        <li>Un grand saladier d’eau froide</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION TRES TRES DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation extrêmement détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer l’eau citronnée pour le cardon.</strong><br>
+          Remplir un grand saladier d’eau froide.  
+          Couper le citron en deux, presser son jus dans l’eau, puis y plonger aussi les demi-citrons pressés.  
+          Mélanger légèrement.  
+          <br><br>
+          Cette eau citronnée va servir à recevoir le cardon au fur et à mesure du nettoyage pour éviter qu’il  
+          ne noircisse au contact de l’air.
+        </li>
+
+        <li>
+          <strong>Nettoyer le cardon, étape par étape.</strong><br>
+          Couper la base du cardon et séparer les grosses côtes.  
+          Travailler une côte à la fois&nbsp;: poser la côte sur une planche, partie convexe vers le haut.  
+          Avec un petit couteau, <strong>tirer les fils</strong> en partant de l’extrémité&nbsp;: comme pour le céleri,  
+          on enlève les fibres dures.  
+          <br><br>
+          Couper chaque côte en tronçons de 6–8&nbsp;cm.  
+          À mesure que tu coupes, plonger immédiatement les morceaux dans l’eau citronnée pour éviter  
+          qu’ils prennent une couleur brunâtre.  
+          <br><br>
+          Répéter jusqu’à ce que tout le cardon soit nettoyé. Cette étape est un peu longue, mais c’est elle  
+          qui garantit un cardon tendre et agréable à manger.
+        </li>
+
+        <li>
+          <strong>Cuire le cardon avant le passage au four.</strong><br>
+          Verser de l’eau dans une grande marmite, ajouter une poignée de sel et porter à ébullition.  
+          Égoutter les tronçons de cardon de l’eau citronnée, les rincer rapidement sous l’eau froide,  
+          puis les ajouter dans l’eau bouillante.  
+          <br><br>
+          Baisser légèrement le feu pour avoir une ébullition régulière mais pas trop violente.  
+          Laisser cuire <strong>35 à 45 minutes</strong>, selon l’épaisseur des côtes, jusqu’à ce qu’un couteau  
+          traverse la chair sans résistance.  
+          <br><br>
+          Égoutter le cardon cuit dans une passoire et le laisser tiédir quelques minutes.  
+          S’il reste quelques fils, tu peux les retirer à ce moment, ils se voient mieux une fois cuits.
+        </li>
+
+        <li>
+          <strong>Préparer les autres légumes.</strong><br>
+          Pendant la cuisson du cardon, préparer les pommes de terre, les tomates et l’oignon.  
+          <br><br>
+          – Éplucher les pommes de terre, les rincer sous l’eau froide, puis les couper en <strong>rondelles de 4–5&nbsp;mm d’épaisseur</strong>.  
+          Les garder dans de l’eau froide pour qu’elles ne noircissent pas.  
+          <br>
+          – Laver les tomates et les couper en rondelles ou en tranches épaisses.  
+          Si tu utilises de la pulpe en boîte, la verser dans un bol et l’écraser grossièrement à la fourchette.  
+          <br>
+          – Éplucher l’oignon et le couper en fines demi-lunes.  
+          <br>
+          – Éplucher les gousses d’ail, les écraser légèrement avec le plat du couteau.
+        </li>
+
+        <li>
+          <strong>Huiler le plat et préparer la première couche.</strong><br>
+          Préchauffer le four à <strong>190–200&nbsp;°C</strong>.  
+          <br><br>
+          Prendre un plat à four assez large (idéalement en terre cuite ou en fonte).  
+          Verser au fond <strong>2 bonnes cuillères à soupe d’huile d’olive</strong> et l’étaler avec un pinceau ou le dos d’une cuillère.  
+          Disposer une partie de l’oignon émincé dans le fond du plat pour créer une première couche aromatique.  
+          <br><br>
+          Cette base d’oignon va légèrement caraméliser et parfumer l’ensemble des légumes.
+        </li>
+
+        <li>
+          <strong>Monter les couches de cardon, pommes de terre et tomates.</strong><br>
+          Égoutter les pommes de terre de leur eau.  
+          <br><br>
+          Disposer une première couche de <strong>cardon cuit</strong> sur les oignons, en répartissant les morceaux de manière  
+          assez régulière. Saler légèrement et ajouter une pincée de poivre.  
+          <br><br>
+          Ajouter ensuite une couche de <strong>rondelles de pommes de terre</strong>, en les chevauchant légèrement.  
+          Saler légèrement les pommes de terre (elles ont besoin de sel pour exprimer leur goût).  
+          <br><br>
+          Répartir quelques lamelles d’oignon et quelques morceaux d’ail écrasé par-dessus.  
+          Ajouter ensuite une couche de <strong>tomates</strong> (ou quelques cuillerées de pulpe), en veillant à ce que chaque  
+          zone soit couverte d’un peu de tomate.  
+          <br><br>
+          Saupoudrer d’un peu d’<strong>origan sec</strong> si tu aimes ce parfum, puis arroser d’un filet d’<strong>huile d’olive</strong>.  
+          <br><br>
+          Répéter l’opération (cardon → pommes de terre → oignon/ail → tomates → sel/poivre/origan → huile)  
+          jusqu’à épuisement des ingrédients, en terminant si possible par <strong>tomates + un peu d’oignon</strong> sur le dessus.
+        </li>
+
+        <li>
+          <strong>Assaisonner généreusement et ajuster l’huile.</strong><br>
+          Une fois toutes les couches en place, vérifier l’assaisonnement&nbsp;:  
+          ajouter un peu de sel et de poivre sur la surface si nécessaire.  
+          <br><br>
+          Ajouter ensuite un dernier <strong>bon filet d’huile d’olive</strong> sur toute la surface du plat, en dessinant des zigzags.  
+          Le plat ne doit pas “nager” dans l’huile, mais il ne doit pas non plus être sec&nbsp;: l’huile d’olive est  
+          l’un des secrets de ce type de cuisson paysanne.
+        </li>
+
+        <li>
+          <strong>Cuisson au four.</strong><br>
+          Enfourner le plat au milieu du four préchauffé à <strong>190–200&nbsp;°C</strong>.  
+          Laisser cuire <strong>40–45 minutes</strong>.  
+          <br><br>
+          Après 25–30 minutes, vérifier l’état des pommes de terre en les piquant avec la pointe d’un couteau&nbsp;:  
+          elles doivent être presque tendres. Si nécessaire, couvrir le plat d’une feuille de papier cuisson ou  
+          d’alu si le dessus sèche trop vite, puis terminer la cuisson jusqu’à ce que les pommes de terre soient  
+          complètement cuites et que les bords de la surface soient légèrement dorés.  
+          <br><br>
+          Pour un effet plus “grillé”, tu peux terminer par <strong>3–5 minutes sous le grill</strong>, en surveillant pour ne pas brûler.
+        </li>
+
+        <li>
+          <strong>Repos avant service.</strong><br>
+          À la sortie du four, laisser le plat reposer <strong>5–10 minutes</strong> hors du four, à découvert.  
+          Ce temps de repos permet aux saveurs de se stabiliser et aux jus de se répartir dans tout le plat.  
+          <br><br>
+          Juste avant de servir, parsemer d’un peu de <strong>persil frais haché</strong> et, si tu le souhaites, ajouter  
+          un filet d’huile d’olive crue sur chaque portion pour renforcer le goût.
+        </li>
+
+        <li>
+          <strong>Service à table.</strong><br>
+          Servir le <strong>Cardon con Patate e Pomodori al Forno</strong> bien chaud, en veillant à prendre dans  
+          chaque portion un peu de cardon, de pomme de terre et de tomate.  
+          <br><br>
+          Ce plat peut être servi comme <strong>contorno rustique</strong> avec des œufs, des fromages ou un simple morceau de pain,  
+          ou comme <strong>piatto unico léger</strong> le soir, accompagné d’une salade verte et de pain grillé.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTE -->
+    <section class="preparation variante">
+      <h2>🔁 Variante : Cardon, Patate e Pomodorini Gratinati alla Contadina</h2>
+      <p>
+        Cette variante ajoute un <strong>léger gratin</strong> et des <strong>pomodorini</strong> (tomates cerises), mais reste  
+        sans béchamel et peut se faire sans fromage. Elle est plus colorée et encore plus parfumée.
+      </p>
+
+      <h3>Ingrédients en plus / changements</h3>
+      <ul>
+        <li>Remplacer les tomates classiques par 300–400&nbsp;g de <strong>tomates cerises</strong> coupées en deux</li>
+        <li>Ajouter 3–4 c.à.s de <strong>chapelure</strong> (maison si possible)</li>
+        <li>Optionnel&nbsp;: 2–3 c.à.s de pecorino ou caciocavallo râpé pour un gratin plus riche</li>
+      </ul>
+
+      <h3>Étapes spécifiques de la variante</h3>
+      <ol>
+        <li>
+          <strong>Utiliser la même base.</strong><br>
+          Suivre exactement toutes les étapes de la version de base&nbsp;:  
+          nettoyage et cuisson du cardon, préparation des pommes de terre et de l’oignon, montage en couches dans le plat.
+        </li>
+
+        <li>
+          <strong>Remplacer les tomates.</strong><br>
+          À la place des tomates en tranches, utiliser des <strong>tomates cerises coupées en deux</strong>,  
+          côté coupé vers le haut, réparties sur les couches de cardon et de pommes de terre.  
+          Elles donneront plus de jus, une couleur vive et un goût légèrement sucré-acide.
+        </li>
+
+        <li>
+          <strong>Préparer le mélange à gratin.</strong><br>
+          Dans un bol, mélanger la chapelure avec un filet d’huile d’olive, une pincée de sel, un peu de poivre  
+          et, si tu le souhaites, le fromage râpé.  
+          Mélanger avec les doigts jusqu’à obtenir une chapelure légèrement humide, qui forme de petits grains.
+        </li>
+
+        <li>
+          <strong>Parsemer le dessus et cuire.</strong><br>
+          Une fois le plat monté avec cardon, pommes de terre, oignons et tomates cerises, répartir la chapelure  
+          parfumée sur toute la surface.  
+          Ajouter un dernier filet d’huile d’olive par-dessus.  
+          <br><br>
+          Cuire au four à <strong>190&nbsp;°C</strong> pendant <strong>35–40 minutes</strong>, puis terminer si besoin par  
+          <strong>2–3 minutes de grill</strong> pour obtenir un dessus bien doré et légèrement croustillant.
+        </li>
+
+        <li>
+          <strong>Service.</strong><br>
+          Laisser reposer quelques minutes, puis servir comme pour la version de base.  
+          Dans cette variante, tu auras&nbsp;:  
+          <em>le fondant du cardon et des pommes de terre + le jus des pomodorini + le croquant léger de la chapelure</em>.
+        </li>
+      </ol>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour un goût encore plus rustique, utilise l’eau de cuisson du cardon pour commencer une soupe de légumes  
+        ou pour cuire des pâtes simples à l’ail et à l’huile&nbsp;: rien n’est perdu, tout le parfum des champs reste dans la cuisine.  
+        Tu peux aussi ajouter, dans la variante gratinée, une très légère touche de piment dans la chapelure pour rappeler  
+        la cuisine des fermes du Gargano.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Ce <strong>Cardon con Patate e Pomodori al Forno</strong> est inspiré des plats oubliés des campagnes du nord des Pouilles  
+        et du Gargano. On utilisait le cardon du champ, les pommes de terre de la cave et les tomates de la dernière récolte,  
+        le tout lié seulement par l’huile d’olive et un peu d’oignon.  
+        Aujourd’hui, ce plat est rare sur les tables modernes, mais il représente parfaitement l’esprit de la cuisine  
+        paysanne&nbsp;: peu d’ingrédients, beaucoup de temps, beaucoup d’amour.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette paysanne rare des Pouilles.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

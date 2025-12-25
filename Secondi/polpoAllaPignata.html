@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polpo alla Pignata — Sapori di Puglia</title>
+  <meta name="description" content="Recette traditionnelle du Polpo alla Pignata, le poulpe mijoté lentement dans une pignata en terre cuite avec tomates, vin et herbes du Salento. Version authentique, détaillée étape par étape.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/polpo-alla-pignata.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles pour zoom image -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+  <header class="menu-header"
+    style="
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0.8rem 1rem;
+    "
+  >
+
+    <a href="/index.html" class="back-home" style="white-space:nowrap;">
+      ← Accueil
+    </a>
+
+    <div class="brand"
+      style="
+        text-align:center;
+        flex:1;
+      "
+    >
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="56"
+           height="56"
+           style="margin:0px 0 0 300px;">
+
+      <!-- ⚠️ plus de h1 ici -->
+      <p class="site-title" style="margin:0; font-size:1.4rem; font-weight:bold;">
+        Sapori di Puglia
+      </p>
+
+      <p class="subtitle" style="margin:0; font-size:1rem;">
+        Recette traditionnelle du bassin méditerranéen
+      </p>
+    </div>
+
+    <!-- Menu déroulant intégré -->
+    <details class="menu-dropdown" style="position:relative;">
+      <summary
+        style="
+          list-style:none;
+          cursor:pointer;
+          background:#d4a373;
+          color:#fff;
+          padding:0.5rem 1rem;
+          border-radius:8px;
+          font-weight:bold;
+          white-space:nowrap;
+          display:inline-block;
+          user-select:none;
+        "
+        aria-label="Ouvrir le menu des cartes"
+      >
+        Menus ▾
+      </summary>
+
+      <ul
+        style="
+          margin:0.5rem 0 0;
+          padding:0.25rem 0;
+          list-style:none;
+          background:#fff;
+          border:1px solid rgba(0,0,0,0.1);
+          border-radius:8px;
+          box-shadow:0 6px 18px rgba(0,0,0,0.1);
+          position:absolute;
+          right:0;
+          min-width:220px;
+          z-index:999;
+        "
+        role="menu"
+      >
+        <li role="none">
+          <a role="menuitem" href="/Menu/menuGargano.html"
+             onclick="this.closest('details').removeAttribute('open')"
+             style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Gargano</a>
+        </li>
+        <li role="none">
+          <a role="menuitem" href="/Menu/menuSalento.html"
+             onclick="this.closest('details').removeAttribute('open')"
+             style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Salento</a>
+        </li>
+        <li role="none">
+          <a role="menuitem" href="/Menu/menuBari.html"
+             onclick="this.closest('details').removeAttribute('open')"
+             style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Bari</a>
+        </li>
+        <li role="none">
+          <a role="menuitem" href="/Menu/menuLecce.html"
+             onclick="this.closest('details').removeAttribute('open')"
+             style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Lecce</a>
+        </li>
+        <li role="none">
+          <a role="menuitem" href="/Menu/menuFoggia.html"
+             onclick="this.closest('details').removeAttribute('open')"
+             style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Foggia</a>
+        </li>
+        <li role="none">
+          <a role="menuitem" href="/Menu/menuVegetarien.html"
+             onclick="this.closest('details').removeAttribute('open')"
+             style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Végétarien</a>
+        </li>
+        <li role="none">
+          <a role="menuitem" href="/Menu/menuPoisson.html"
+             onclick="this.closest('details').removeAttribute('open')"
+             style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Poisson</a>
+        </li>
+      </ul>
+    </details>
+
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <!-- ⚠️ Ici : seul h1 de la page -->
+      <h1>🐙 Polpo alla Pignata</h1>
+
+      <!-- Image principale avec zoom -->
+      <div class="image-zoom">
+        <img src="/Images/polpo-alla-pignata.png" alt="Polpo alla Pignata — portion servie dans une assiette rustique" class="zoomable">
+      </div>
+
+      <!-- Fenêtre d’agrandissement -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" type="button" aria-label="Fermer">×</button>
+        <img class="modal-content" id="modalImg" src="&" alt="Agrandissement de l’image">
+      </div>
+
+      <p class="intro">
+        Le <strong>Polpo alla Pignata</strong> est une véritable icône du Salento.  
+        Cuit lentement dans une marmite en terre cuite appelée <em>pignata</em>, le poulpe mijote avec des tomates, du vin, des oignons et des herbes pour devenir tendre et savoureux.  
+        Cette recette ancestrale, transmise par les pêcheurs, célèbre la simplicité et la patience de la cuisine des Pouilles.
+      </p>
+
+      <div class="infos">
+        <p>⏱ Préparation : <strong>2 h 30</strong> &nbsp;|&nbsp; 👥 Pour <strong>4 personnes</strong> &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Moyenne</strong></p>
+      </div>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li>1 poulpe frais (1 à 1,2 kg)</li>
+          <li>400 g de tomates pelées ou tomates cerises du Salento</li>
+          <li>1 oignon rouge</li>
+          <li>2 gousses d’ail</li>
+          <li>10 cl de vin rouge</li>
+          <li>2 feuilles de laurier</li>
+          <li>Huile d’olive extra-vierge</li>
+          <li>Sel, poivre noir, piment doux (facultatif)</li>
+          <li>Persil frais haché</li>
+          <li>Pain rustique grillé pour servir</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation étape par étape</h2>
+        <ol>
+          <li><strong>Nettoyer le poulpe :</strong>  
+            Rincer abondamment le poulpe sous l’eau froide.  
+            Retirer le bec au centre des tentacules à l’aide d’un petit couteau, puis vider la tête en ôtant les viscères.  
+            Retirer les yeux si nécessaire et bien rincer. Égoutter et couper en morceaux moyens (5–6 cm).  
+            💡 <em>Astuce :</em> Si le poulpe est frais, le congeler une nuit avant la cuisson aide à attendrir la chair naturellement.
+          </li>
+
+          <li><strong>Cuire à cru dans la pignata :</strong>  
+            Déposer les morceaux de poulpe directement dans la marmite en terre (ou une cocotte en fonte).  
+            Le poulpe va libérer son eau naturellement, inutile d’en ajouter.  
+            Ajouter les tomates, l’oignon émincé, l’ail, le laurier, un filet d’huile et le vin rouge.  
+            Couvrir et laisser chauffer à feu très doux.  
+            🔥 <em>Astuce :</em> on ne doit pas entendre de friture, juste un léger frémissement — signe que le poulpe cuit dans son propre jus.
+          </li>
+
+          <li><strong>Laisser mijoter longuement :</strong>  
+            Cuire environ 1 h 30 à 2 h.  
+            Remuer doucement toutes les 30 minutes pour éviter que la sauce n’attache au fond.  
+            Quand le poulpe devient tendre au toucher et que la sauce s’épaissit, la cuisson est parfaite.  
+            Si la sauce réduit trop, ajouter un filet d’eau chaude.  
+            🕯️ <em>Conseil :</em> le parfum doit être doux, marin et légèrement sucré par la tomate.
+          </li>
+
+          <li><strong>Rectifier l’assaisonnement :</strong>  
+            En fin de cuisson, goûter et ajuster : un peu de sel, un tour de poivre, un filet d’huile d’olive crue pour la brillance.  
+            On peut aussi ajouter une pincée de piment doux pour relever légèrement le tout.
+          </li>
+
+          <li><strong>Servir :</strong>  
+            Dresser le poulpe et sa sauce dans une assiette creuse rustique.  
+            Parsemer de persil frais.  
+            Servir avec du pain grillé arrosé d’huile d’olive, idéal pour savourer la sauce.  
+            🍷 <em>Suggestion :</em> accompagne ce plat d’un verre de <strong>Negroamaro</strong> ou de <strong>Primitivo di Manduria</strong>.
+          </li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Variantes et conseils du chef</h2>
+        <p>
+          • <strong>Version Lecce :</strong> ajoute quelques dés de pommes de terre pour un plat complet et crémeux. <br>
+          • <strong>Version Gallipoli :</strong> utilise du vin blanc au lieu du rouge, pour une saveur plus iodée. <br>
+          • <strong>Version rustique :</strong> ajoute des olives noires et un peu de céleri. <br><br>
+          🔥 <em>Astuce cuisson :</em> si tu n’as pas de <em>pignata</em>, une cocotte en fonte ou en terre fera parfaitement l’affaire — l’important, c’est la cuisson douce et longue.
+        </p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Dans le Salento, chaque village côtier a sa version du <strong>Polpo alla Pignata</strong>.  
+          Ce plat tire son nom de la <em>pignata</em>, une marmite en terre cuite utilisée depuis des siècles pour cuire à feu lent.  
+          Autrefois, les pêcheurs plaçaient la pignata au coin du feu pendant qu’ils réparaient leurs filets.  
+          Le parfum du poulpe qui mijotait dans le vin et la tomate remplissait tout le port — une image encore vivante aujourd’hui.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Bouton Remonter en haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <!-- Pied de page -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script zoom -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback minimal -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

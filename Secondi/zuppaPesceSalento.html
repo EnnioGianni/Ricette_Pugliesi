@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zuppa di Pesce del Salento — Sapori di Puglia</title>
+  <meta name="description" content="Zuppa di Pesce del Salento : soupe de poisson traditionnelle du Salento avec poissons, fruits de mer, tomates, vin blanc et huile d’olive. Recette extrêmement détaillée.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Secondi/Images/zuppa-pesce-salento.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    /* Style impression */
+    @media print {
+      header, footer, #scrollTopBtn, #openMenuBtn, #menuDrawer, #backdrop {
+        display: none !important;
+      }
+      body {
+        background: white !important;
+      }
+      .container {
+        padding: 0 !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost"
+            aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"  alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+
+        <!-- Bouton thème -->
+        <li>
+          <button class="button tertiary" data-toggle-theme>🌓</button>
+        </li>
+
+        <!-- BOUTON IMPRIMER -->
+        <li>
+          <button class="button secondary" id="printRecipeBtn" aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+
+<main class="container recette">
+  <article>
+
+    <h1>🐟 Zuppa di Pesce del Salento</h1>
+
+    <!-- IMAGE -->
+    <div class="image-zoom">
+      <img src="/Secondi/Images/zuppa-pesce-salento.png"
+           alt="Zuppa di Pesce del Salento — portion servie"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" class="modal-content" src="&" alt="Agrandissement de la Zuppa di Pesce">
+    </div>
+
+    <p class="intro">
+      La <strong>Zuppa di Pesce del Salento</strong> est une soupe marine ancestrale des pêcheurs d’Otranto et Gallipoli.  
+      On y utilise les poissons du jour : morceaux de poisson blanc, poulpe, moules, crevettes, tomates et vin blanc.  
+      C’est un plat complet, puissant et aromatique, servi chaud avec du pain grillé.
+    </p>
+
+    <!-- INFOS -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>35 min</strong> |
+        🔥 Cuisson : <strong>40 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Moyenne</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Poissons & fruits de mer</h3>
+      <ul>
+        <li>400 g de poisson blanc (lotte, merlu, grondin, rascasse…)</li>
+        <li>250 g de poulpe ou seiche</li>
+        <li>300 g de crevettes</li>
+        <li>500 g de moules</li>
+      </ul>
+
+      <h3>Pour la base</h3>
+      <ul>
+        <li>1 oignon</li>
+        <li>2 gousses d’ail</li>
+        <li>350 g de tomates ou 250 g de pulpe</li>
+        <li>1 verre de vin blanc</li>
+        <li>4–5 c.à.s d’huile d’olive</li>
+        <li>Piment doux ou fort</li>
+        <li>1 feuille de laurier</li>
+        <li>Sel & poivre</li>
+      </ul>
+
+      <h3>Finition</h3>
+      <ul>
+        <li>Persil frais</li>
+        <li>Pain rustique grillé</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION TRES DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation extrêmement détaillée</h2>
+
+      <ol>
+
+        <!-- 1 -->
+        <li>
+          <strong>Préparer les moules.</strong><br>
+          Laver les moules, retirer le byssus, jeter celles qui restent ouvertes.  
+          Les mettre dans une casserole chaude, couvrir → elles s’ouvrent en 2–3 minutes.  
+          Filtrer leur jus (pour retirer le sable) : <strong>c’est l’or marin de la recette</strong>.  
+          Décortiquer la moitié, garder l’autre moitié en coquille pour la décoration.
+        </li>
+
+        <!-- 2 -->
+        <li>
+          <strong>Préparer poisson, poulpe et crevettes.</strong><br>
+          Couper le poisson en morceaux de 4–5 cm.  
+          Le poulpe : retirer le bec, rincer, couper en cubes.  
+          Les crevettes : décortiquer (ou garder la queue pour plus de goût).
+        </li>
+
+        <!-- 3 -->
+        <li>
+          <strong>Faire le soffritto (base aromatique).</strong><br>
+          Dans une grande cocotte, mettre l’huile d’olive.  
+          Faire revenir l’oignon émincé + l’ail écrasé à feu doux 7 minutes.  
+          Ajouter un peu de piment pour un parfum salentin authentique.
+        </li>
+
+        <!-- 4 -->
+        <li>
+          <strong>Faire revenir le poulpe.</strong><br>
+          Ajouter les cubes de poulpe dans la cocotte → ils rendent leur eau.  
+          Laisser évaporer complètement.  
+          Le poulpe doit devenir légèrement rosé et ferme.
+        </li>
+
+        <!-- 5 -->
+        <li>
+          <strong>Ajouter les tomates.</strong><br>
+          Ajouter les tomates en dés ou la pulpe.  
+          Cuire 10–12 minutes jusqu’à obtenir une base épaisse.
+        </li>
+
+        <!-- 6 -->
+        <li>
+          <strong>Déglacer au vin blanc.</strong><br>
+          Verser le vin, gratter le fond pour libérer les sucs.  
+          Laisser évaporer l’alcool 2 minutes.
+        </li>
+
+        <!-- 7 -->
+        <li>
+          <strong>Ajouter le jus des moules et mijoter.</strong><br>
+          Ajouter la moitié du jus filtré + un peu d’eau chaude.  
+          Ajouter laurier, sel, poivre.  
+          Laisser mijoter 15–20 minutes : la base devient parfumée.
+        </li>
+
+        <!-- 8 -->
+        <li>
+          <strong>Cuire le poisson.</strong><br>
+          Ajouter les morceaux de poisson → cuisson douce 6–8 minutes.  
+          Le poisson doit devenir opaque mais rester entier.
+        </li>
+
+        <!-- 9 -->
+        <li>
+          <strong>Ajouter crevettes & moules.</strong><br>
+          Ajouter crevettes + moules décortiquées + quelques moules entières.  
+          Couvrir et cuire 4–5 minutes.  
+          Rectifier le sel (attention : jus des moules = salé).
+        </li>
+
+        <!-- 10 -->
+        <li>
+          <strong>Préparer le pain & finition.</strong><br>
+          Griller le pain rustique, éventuellement frotté à l’ail.  
+          Ajouter beaucoup de persil frais dans la soupe + un filet d’huile crue.  
+          Laisser reposer 3 minutes avant de servir.
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour une soupe encore plus riche, prépare un petit fumet avec les arêtes du poisson  
+        et utilise-le à la place de l’eau. C’est ainsi que les familles de pêcheurs font dans le port d’Otranto.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Plat né dans les maisons des pêcheurs du Salento : on utilisait les poissons invendus du matin.  
+        Aujourd’hui, c’est une spécialité servie le long des côtes d’Otranto, Gallipoli et Santa Maria di Leuca.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette traditionnelle du Salento.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+<!-- SCRIPT IMPRIMER -->
+<script>
+  document.getElementById('printRecipeBtn').addEventListener('click', () => {
+    window.print();
+  });
+</script>
+
+</body>
+</html>

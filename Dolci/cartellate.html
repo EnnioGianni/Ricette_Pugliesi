@@ -1,0 +1,263 @@
+<!-- /pages/cartellate.html -->
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cartellate Pugliesi — Sapori di Puglia</title>
+  <meta name="description" content="Recette traditionnelle des cartellate pugliesi : rosaces croustillantes de Noël, trempées dans le miel ou le vin cuit. Version ultra détaillée.">
+
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/cartellate.png">
+
+  <!-- Scripts globaux (ordre important) -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+    <style>
+    body {
+      background: #fffaf4;
+      color: #3a2a1b;
+      font-family: 'Lora', serif;
+    }
+
+    img.recette-photo {
+      height:   550px;
+      width: 800px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform .3s ease;
+      display: block;
+      margin: 1.5rem auto;
+    }
+    img.recette-photo:hover {
+      transform: scale(1.02);
+    }
+
+    .recette-block {
+      background: #ffffffdd;
+      padding: 2rem 2.5rem;
+      border-radius: 14px;
+      max-width: 900px;
+      margin: 2rem auto;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    .note-culturelle {
+      background: #fff6ea;
+      border-left: 5px solid #d4a373;
+      padding: 1em 1.5em;
+      margin-top: 1.5em;
+      font-style: italic;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      line-height: 1.6;
+    }
+    .note-culturelle strong {
+      color: #b45f06;
+    }
+  </style>
+
+</head>
+
+<header class="menu-header"
+  style="
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.8rem 1rem;
+  "
+>
+
+  <a href="/index.html" class="back-home" style="white-space:nowrap;">
+    ← Accueil
+  </a>
+
+  <div class="brand"
+    style="
+      text-align:center;
+      flex:1;
+    "
+  >
+    <img src="/Images/SaporiDiPuglia.png"
+         alt="Logo Sapori di Puglia"
+         width="56"
+         height="56"
+         style="margin:0px 0 0 300px;">
+
+    <h1>Sapori di Puglia</h1>
+
+    <p class="subtitle" style="margin:0; font-size:1rem;">
+      Recette traditionnelle du bassin méditerranéen
+    </p>
+  </div>
+
+  <!-- Menu déroulant intégré -->
+  <details class="menu-dropdown" style="position:relative;">
+    <summary
+      style="
+        list-style:none;
+        cursor:pointer;
+        background:#d4a373;
+        color:#fff;
+        padding:0.5rem 1rem;
+        border-radius:8px;
+        font-weight:bold;
+        white-space:nowrap;
+        display:inline-block;
+        user-select:none;
+      "
+      aria-label="Ouvrir le menu des cartes"
+    >
+      Menus ▾
+    </summary>
+
+    <ul
+      style="
+        margin:0.5rem 0 0;
+        padding:0.25rem 0;
+        list-style:none;
+        background:#fff;
+        border:1px solid rgba(0,0,0,0.1);
+        border-radius:8px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.1);
+        position:absolute;
+        right:0;
+        min-width:220px;
+        z-index:999;
+      "
+      role="menu"
+    >
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuGargano.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Gargano</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuSalento.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Salento</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuBari.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Bari</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuLecce.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Lecce</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuFoggia.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Foggia</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuVegetarien.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Végétarien</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuPoisson.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Poisson</a>
+      </li>
+    </ul>
+  </details>
+
+</header>
+
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon">✕</button>
+    </div>
+
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+
+    <nav>
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <main class="container recette">
+    <article>
+      <h2>Cartellate Pugliesi</h2>
+
+      <img src="/Images/cartellate.png" alt="Cartellate pugliesi" class="recette-photo">
+
+      <p class="intro">
+        Les cartellate sont l’un des symboles les plus anciens de Noël dans les Pouilles. 
+        Ces fines rosaces croustillantes, plongées dans le miel ou le vin cuit, 
+        existent depuis au moins le XVe siècle. Voici la version ultra détaillée, comme en famille à Foggia ou Bari Vecchia.
+      </p>
+
+      <section class="infos">
+        <h2 class="visually-hidden">Informations</h2>
+          <p>⏱ Préparation : <strong>1 h 30</strong> &nbsp;|&nbsp; 👥 Pour <strong>20 pièces</strong> &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Moyenne</strong></p>
+      </section>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+
+        <h3>Pour la pâte</h3>
+        <ul>
+          <li>500 g de farine 00</li>
+          <li>50 ml d’huile d’olive tiède</li>
+          <li>100 ml de vin blanc sec ou vin cuit</li>
+          <li>1 c. à soupe de sucre</li>
+          <li>1 pincée de sel</li>
+          <li>Zeste d’un citron ou d’une orange</li>
+        </ul>
+
+        <h3>Pour la finition</h3>
+        <ul>
+          <li>300 g de miel OU de vin cuit</li>
+          <li>Confettini colorés (diavulicchi)</li>
+          <li>Amandes, noix ou sésame (optionnel)</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation détaillée</h2>
+
+        <div class="step"><p><strong>1 — Chauffer l'huile d'olive :</strong> fais tiédir l’huile sans la faire fumer.</p></div>
+        <div class="step"><p><strong>2 — Faire la pâte :</strong> puits de farine, sucre, sel, zeste, huile, vin (moitié).</p></div>
+        <div class="step"><p><strong>3 — Pétrir :</strong> ajouter le reste du vin; pâte lisse et souple (10 min).</p></div>
+        <div class="step"><p><strong>4 — Repos :</strong> 30 min sous torchon.</p></div>
+        <div class="step"><p><strong>5 — Étaler très fin :</strong> feuille quasi transparente.</p></div>
+        <div class="step"><p><strong>6 — Découper :</strong> bandes 3–4 cm, pincer tous les 2 cm.</p></div>
+        <div class="step"><p><strong>7 — Former les rosaces :</strong> enrouler sans serrer.</p></div>
+        <div class="step"><p><strong>8 — Séchage :</strong> 2–3 h (ou nuit).</p></div>
+        <div class="step"><p><strong>9 — Friture :</strong> 170–175°C, ~1 min/face.</p></div>
+        <div class="step"><p><strong>10 — Enrobage :</strong> miel/vin cuit tiède, tremper.</p></div>
+        <div class="step"><p><strong>11 — Décoration :</strong> confettini, fruits secs, cannelle.</p></div>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>Mélange miel + vin cuit (50/50) pour le parfum typique du Gargano.</p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine & Tradition</h2>
+        <p>Cartellate attestées dès le XVe siècle; symbole de Noël dans les Pouilles.</p>
+      </section>
+    </article>
+  </main>
+
+  <button id="scrollTopBtn" title="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle des Cartellate.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salade Méditerranéenne — Sapori di Puglia</title>
+  <meta name="description" content="Salade fraîche aux concombres, tomates, olives, oignons rouges, feta et huile d’olive — un classique incontournable du bassin méditerranéen.">
+
+  <!-- Fichiers CSS spécifiques -->
+  <link rel="stylesheet" href="/Menu/menu-salento.css">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/menu.js"></script>
+
+  <!-- Styles globaux du site -->
+  <link rel="icon" type="image/png" href="/Images/orecchiette-cime-di-rapa.png">
+  <link rel="stylesheet" href="/CSS/Styles.css">
+
+  <style>
+    body {
+      background: #fffaf4;
+      color: #3a2a1b;
+      font-family: 'Lora', serif;
+    }
+
+    img.recette-photo {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform .3s ease;
+      display: block;
+      margin: 1.5rem auto;
+    }
+    img.recette-photo:hover {
+      transform: scale(1.02);
+    }
+
+    .note-culturelle {
+      background: #fff6ea;
+      border-left: 5px solid #d4a373;
+      padding: 1em 1.5em;
+      margin-top: 1.5em;
+      font-style: italic;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      line-height: 1.6;
+    }
+    .note-culturelle strong {
+      color: #b45f06;
+    }
+
+    .recette-block {
+      background: #ffffffdd;
+      padding: 2rem 2.5rem;
+      border-radius: 14px;
+      max-width: 900px;
+      margin: 2rem auto;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="menu-header"
+  style="
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.8rem 1rem;
+  "
+>
+
+  <a href="/index.html" class="back-home" style="white-space:nowrap;">
+    ← Accueil
+  </a>
+
+  <div class="brand"
+    style="
+      text-align:center;
+      flex:1;
+    "
+  >
+    <img src="/Images/SaporiDiPuglia.png"
+         alt="Logo Sapori di Puglia"
+         width="56"
+         height="56"
+         style="margin:0px 0 0 300px;">
+
+    <h1>Sapori di Puglia</h1>
+
+    <p class="subtitle" style="margin:0; font-size:1rem;">
+      Recette traditionnelle du bassin méditerranéen
+    </p>
+  </div>
+
+  <!-- Menu déroulant intégré -->
+  <details class="menu-dropdown" style="position:relative;">
+    <summary
+      style="
+        list-style:none;
+        cursor:pointer;
+        background:#d4a373;
+        color:#fff;
+        padding:0.5rem 1rem;
+        border-radius:8px;
+        font-weight:bold;
+        white-space:nowrap;
+        display:inline-block;
+        user-select:none;
+      "
+      aria-label="Ouvrir le menu des cartes"
+    >
+      Menus ▾
+    </summary>
+
+    <ul
+      style="
+        margin:0.5rem 0 0;
+        padding:0.25rem 0;
+        list-style:none;
+        background:#fff;
+        border:1px solid rgba(0,0,0,0.1);
+        border-radius:8px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.1);
+        position:absolute;
+        right:0;
+        min-width:220px;
+        z-index:999;
+      "
+      role="menu"
+    >
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuGargano.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Gargano</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuSalento.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Salento</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuBari.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Bari</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuLecce.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Lecce</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuFoggia.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Foggia</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuVegetarien.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Végétarien</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuPoisson.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Poisson</a>
+      </li>
+    </ul>
+  </details>
+
+</header>
+
+<main>
+  <div class="recette-block">
+
+    <h1>Salade Méditerranéenne</h1>
+
+    <img src="/Images/Salade_Méditerranéenne.png" 
+         alt="Salade Méditerranéenne" 
+         class="recette-photo">
+
+    <p>
+      Une salade fraîche et ensoleillée, typique des côtes méditerranéennes.  
+      Concombres croquants, tomates mûres, feta crémeuse, olives parfumées  
+      et huile d’olive extra vierge : un plat simple, rapide et plein d’arômes.
+    </p>
+
+    <h2>Ingrédients (pour 4 personnes)</h2>
+    <ul>
+      <li data-symbol="🥒">1 grand concombre</li>
+      <li data-symbol="🍅">4 tomates mûres</li>
+      <li data-symbol="🧅">1 oignon rouge</li>
+      <li data-symbol="🫒">120 g d’olives noires</li>
+      <li data-symbol="🧀">150 g de feta</li>
+      <li data-symbol="🌿">Origan ou basilic frais</li>
+      <li data-symbol="🫒">Huile d’olive vierge extra</li>
+      <li data-symbol="🍋">Jus de citron</li>
+      <li data-symbol="🧂">Sel, poivre</li>
+    </ul>
+
+    <h2>Préparation pas à pas</h2>
+    <ol>
+      <li><strong>Préparer les légumes :</strong> couper les tomates, le concombre et l’oignon rouge en morceaux réguliers.</li>
+      <li><strong>Ajouter les olives :</strong> incorporer les olives noires entières ou dénoyautées.</li>
+      <li><strong>Ajouter la feta :</strong> émietter grossièrement la feta par-dessus.</li>
+      <li><strong>Assaisonner :</strong> arroser d’huile d’olive, de jus de citron, sel, poivre et origan.</li>
+      <li><strong>Mélanger délicatement :</strong> mélanger juste avant de servir pour conserver le croquant.</li>
+    </ol>
+
+    <h2>Astuce du chef</h2>
+    <p>
+      Ajoute un filet de vinaigre de vin rouge :  
+      il renforce le goût frais du concombre et intensifie les parfums de la feta.
+    </p>
+
+    <h2>Origine de cette salade</h2>
+    <p>
+      Cette salade est omniprésente dans tout le pourtour méditerranéen,  
+      avec de nombreuses variantes selon les régions — Grèce, Italie, Turquie,  
+      Croatie ou Tunisie.  
+      Un plat simple, nourrissant et rafraîchissant.
+    </p>
+
+    <div class="note-culturelle">
+      🕊 <strong>Le secret de la vraie salade méditerranéenne</strong><br><br>
+      La clé réside dans la qualité des produits : tomates bien mûres, huile d’olive  
+      de première pression à froid, olives parfumées et feta authentique.  
+      Chaque ingrédient apporte un parfum unique.
+    </div>
+
+  </div>
+
+</main>
+
+<footer class="menu-footer">
+  <p>© 2025 Sapori di Puglia — Recette Méditerranéenne.</p>
+</footer>
+
+</body>
+</html>

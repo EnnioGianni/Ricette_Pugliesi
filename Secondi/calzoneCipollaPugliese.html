@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calzone di Cipolla alla Pugliese — Sapori di Puglia</title>
+  <meta name="description" content="Calzone de Pouilles farci aux oignons doux, anchois, olives noires et câpres, dans une pâte à l’huile d’olive façon focaccia. Une spécialité rustique de Bari et des villages pugliesi.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/calzone-pugliese.png">
+
+  <!-- ⚠️ Ordre important -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">
+        🍝 Recettes
+      </button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+
+      <h1>🥧 Calzone di Cipolla alla Pugliese</h1>
+
+      <!-- Image principale -->
+      <div class="image-zoom">
+        <img src="/Images/calzone-pugliese.png"
+             alt="Calzone pugliese farci aux oignons et anchois — portion servie"
+             class="zoomable">
+      </div>
+
+      <!-- Modal zoom -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" type="button" aria-label="Fermer">×</button>
+        <img class="modal-content" id="modalImg" src="&" alt="">
+      </div>
+
+      <p class="intro">
+        Le <strong>calzone di cipolla alla pugliese</strong> est une tourte salée emblématique des Pouilles :
+        une pâte à l’huile d’olive, proche de la focaccia, renfermant une farce généreuse d’<em>oignons doux</em>,
+        d’<em>anchois</em>, d’<em>olives noires</em> et de <em>câpres</em>.  
+        On le déguste tiède ou à température ambiante, en parts, lors des fêtes, des dimanches en famille ou à l’heure de l’aperitivo.
+      </p>
+
+      <!-- Infos -->
+      <div class="infos">
+        <p>
+          ⏱ Préparation : <strong>45–60 min</strong> |
+          🕰 Repos pâte : <strong>1 h</strong> |
+          🔥 Cuisson : <strong>35–40 min</strong> |
+          👥 Pour <strong>6–8 personnes</strong> |
+          ⚙️ Difficulté : <strong>Moyenne</strong>
+        </p>
+      </div>
+
+      <!-- Ingrédients -->
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+
+        <h3>Pour la pâte (type focaccia)</h3>
+        <ul>
+          <li>500 g de farine (T45 ou T55, ou mélange avec un peu de Manitoba)</li>
+          <li>10 g de levure de boulanger fraîche (ou 3–4 g de levure sèche)</li>
+          <li>250 ml d’eau tiède</li>
+          <li>70 ml d’huile d’olive extra-vierge</li>
+          <li>10 g de sel fin</li>
+          <li>1 pincée de sucre (pour activer la levure)</li>
+        </ul>
+
+        <h3>Pour la farce aux oignons</h3>
+        <ul>
+          <li>800 g d’oignons (mélange d’oignons blancs et rouges, si possible de type doux)</li>
+          <li>6–8 filets d’anchois à l’huile (ou salés rincés)</li>
+          <li>60–80 g d’olives noires dénoyautées (type “leccino” ou “taggiasche”)</li>
+          <li>1–2 c.à.s de câpres dessalées</li>
+          <li>4–5 c.à.s d’huile d’olive extra-vierge</li>
+          <li>1 petite poignée de persil plat frais</li>
+          <li>Poivre noir fraîchement moulu</li>
+          <li>Optionnel : 3–4 tomates cerises ou 2 c.à.s de pulpe de tomate pour une touche plus juteuse</li>
+        </ul>
+
+        <h3>Pour la finition</h3>
+        <ul>
+          <li>Un filet d’huile d’olive pour la surface</li>
+          <li>Un peu de gros sel ou de fleur de sel</li>
+        </ul>
+      </section>
+
+      <!-- Préparation -->
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+
+        <ol>
+          <li>
+            <strong>Préparer la pâte.</strong><br>
+            Dans un bol, délayer la levure dans l’eau tiède avec une pincée de sucre et laisser reposer 5–10 minutes
+            jusqu’à ce qu’un léger mousseux se forme à la surface.  
+            Dans un grand saladier, verser la farine et le sel, mélanger, puis faire un puits.
+            Ajouter l’eau avec la levure et commencer à incorporer la farine à la main ou avec une cuillère.
+            Ajouter ensuite l’huile d’olive en plusieurs fois, tout en pétrissant, jusqu’à obtenir une pâte souple,
+            légèrement collante mais homogène.  
+            Pétrir 8–10 minutes sur le plan de travail légèrement fariné, jusqu’à ce que la pâte devienne élastique
+            et lisse. Former une boule, huiler légèrement la surface, déposer dans un bol, couvrir et laisser lever
+            environ <strong>1 heure</strong>, ou jusqu’à ce qu’elle double de volume.
+          </li>
+
+          <li>
+            <strong>Préparer les oignons.</strong><br>
+            Éplucher les oignons, les couper en deux, puis les émincer en fines demi-lunes.
+            Plus les tranches sont fines, plus ils fondront bien à la cuisson.  
+            Rincer rapidement les câpres si elles sont très salées, les égoutter.
+            Couper les olives en deux ou en rondelles selon la taille.
+          </li>
+
+          <li>
+            <strong>Cuire doucement les oignons.</strong><br>
+            Dans une grande poêle, faire chauffer 3–4 c.à.s d’huile d’olive.
+            Ajouter les oignons émincés avec une pincée de sel, mélanger, puis cuire à feu doux
+            en remuant régulièrement pendant <strong>20–25 minutes</strong>.
+            Les oignons doivent devenir très tendres, légèrement translucides et à peine dorés,
+            presque confits, mais sans brûler.  
+            Si nécessaire, ajouter une cuillère d’eau pour éviter qu’ils accrochent.
+          </li>
+
+          <li>
+            <strong>Ajouter anchois, olives et câpres.</strong><br>
+            Quand les oignons sont bien fondants, ajouter les filets d’anchois grossièrement coupés,
+            les olives noires et les câpres.  
+            Laisser cuire encore 5 minutes, le temps que les anchois se délient dans la masse des oignons
+            et parfument la farce.  
+            Poivrer généreusement, goûter et rectifier le sel (attention : anchois et câpres apportent déjà du sel).
+            Hors du feu, ajouter un peu de persil plat grossièrement ciselé.  
+            Laisser tiédir la farce avant de garnir le calzone.
+          </li>
+
+          <li>
+            <strong>Préparer le moule et diviser la pâte.</strong><br>
+            Préchauffer le four à <strong>190–200&nbsp;°C</strong> (chaleur statique).
+            Huiler généreusement un moule rond ou rectangulaire (type moule à tarte ou à pizza) ou le chemiser
+            d’un léger film d’huile d’olive.  
+            Dégazer la pâte levée sur le plan de travail, la couper en deux parts,
+            une légèrement plus grande que l’autre (pour le dessous).
+          </li>
+
+          <li>
+            <strong>Étaler la base.</strong><br>
+            Avec la portion la plus grande, étaler un disque ou un rectangle de pâte un peu plus grand que le moule,
+            d’une épaisseur de 4–5 mm environ.  
+            Déposer cette pâte dans le moule en laissant un léger débord sur les bords.
+          </li>
+
+          <li>
+            <strong>Garnir avec la farce aux oignons.</strong><br>
+            Répartir la farce aux oignons tiédie sur toute la surface de la pâte, en laissant
+            un petit bord libre tout autour.  
+            Si tu utilises un peu de tomate (pulpe ou quelques tomates cerises coupées),
+            les répartir maintenant de façon régulière.  
+            Veiller à ce que la couche de farce soit homogène : ni trop fine, ni trop épaisse.
+          </li>
+
+          <li>
+            <strong>Fermer le calzone.</strong><br>
+            Étaler la deuxième portion de pâte en un disque (ou rectangle) légèrement plus petit,
+            pour qu’il vienne recouvrir juste la farce.  
+            Poser ce “couvercle” de pâte sur les oignons, puis souder les bords en repliant
+            le débord de la pâte du dessous vers l’intérieur, comme un cordon.
+            Bien pincer pour éviter que la farce ne s’échappe à la cuisson.  
+            Piquer légèrement la surface avec une fourchette à quelques endroits pour laisser s’échapper la vapeur.
+          </li>
+
+          <li>
+            <strong>Huiler et assaisonner la surface.</strong><br>
+            Badigeonner la surface du calzone avec un peu d’huile d’olive (au pinceau ou avec les doigts).
+            Saupoudrer éventuellement d’un peu de gros sel ou de fleur de sel, et,
+            si tu le souhaites, d’une pincée d’origan sec.
+          </li>
+
+          <li>
+            <strong>Cuire au four.</strong><br>
+            Enfourner le calzone dans le four préchauffé à <strong>190–200&nbsp;°C</strong> pendant environ
+            <strong>35–40 minutes</strong>, ou jusqu’à ce qu’il soit bien doré dessus et dessous.  
+            Si le dessus colore trop vite, baisser légèrement la température ou couvrir
+            très brièvement avec une feuille de papier aluminium (sans coller sur la pâte).
+          </li>
+
+          <li>
+            <strong>Repos et service.</strong><br>
+            À la sortie du four, laisser reposer le calzone au moins <strong>15–20 minutes</strong> :
+            les oignons se stabilisent, la pâte finit de cuire à cœur et les saveurs se répartissent.  
+            Servir tiède ou à température ambiante, découpé en larges parts, comme une tarte ou une focaccia farcie.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Astuce -->
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Pour retrouver le goût des anciens fours de quartier, prépare le calzone un peu en avance :
+          tiède ou froid, il est encore meilleur le lendemain, lorsque la pâte a bien absorbé le parfum des oignons,
+          des anchois et des olives.  
+          Tu peux aussi varier légèrement la farce en ajoutant quelques <strong>raisins secs</strong> ou des <strong>pignons</strong>,
+          comme on le fait dans certaines familles, pour une touche sucrée-salée typiquement méditerranéenne.
+        </p>
+      </section>
+
+      <!-- Origine -->
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Le <strong>calzone di cipolla</strong> est une spécialité très répandue dans la région de Bari et dans de nombreux villages des Pouilles.
+          Il était autrefois préparé dans les fours publics, où chacun apportait son plat à cuire, souvent garni de ce que la mer et le potager offraient :
+          oignons, anchois, olives, huile d’olive.  
+          Aujourd’hui encore, c’est l’un des symboles de la <em>cuisine de four pugliese</em> :
+          une pâte simple, une farce parfumée, un plat qui se partage en famille, en tranches épaisses,
+          autour d’une table bruyante et chaleureuse.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Bouton haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script zoom -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback si app.js ne charge pas -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.body.classList.toggle('dark');
+        });
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', () => {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>

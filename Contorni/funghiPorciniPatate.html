@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funghi Porcini con Patate — Sapori di Puglia</title>
+  <meta name="description" content="Funghi porcini con patate alla pugliese : champignons porcini dorés et pommes de terre fondantes, mijotés à l’huile d’olive avec ail, oignon, herbes et un filet de vin blanc.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/funghi-porcini-patate.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍄 Funghi Porcini con Patate</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Contorni/Images/funghi-porcini-patate.png"
+           alt="Funghi porcini con patate alla pugliese — portion servie"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" class="modal-content" src="&" alt="Agrandissement de l’image">
+    </div>
+
+    <p class="intro">
+      Les <strong>Funghi Porcini con Patate</strong> sont un plat simple et très parfumé&nbsp;:  
+      des <strong>pommes de terre dorées et fondantes</strong> qui cuisent doucement avec des  
+      <strong>porcini sautés à l’huile d’olive</strong>, ail, oignon, herbes du Sud et un léger filet de vin blanc.  
+      Parfait comme <em>contorno</em> rustique ou comme second plat végétarien.
+    </p>
+
+    <!-- Infos -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>25 min</strong> |
+        🔥 Cuisson : <strong>30–35 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Facile</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <ul>
+        <li>400 g de funghi porcini frais (ou 40 g secs réhydratés)</li>
+        <li>500 g de pommes de terre (chair ferme ou légèrement fondante)</li>
+        <li>1 oignon blanc ou doré</li>
+        <li>2 gousses d’ail</li>
+        <li>5–6 c.à.s d’huile d’olive extravierge</li>
+        <li>1 petite brindille de thym ou d’origan</li>
+        <li>Persil frais haché</li>
+        <li>2–3 c.à.s de vin blanc sec (facultatif mais conseillé)</li>
+        <li>Sel & poivre noir fraîchement moulu</li>
+        <li>1 pincée de piment doux ou paprika (facultatif)</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer les pommes de terre.</strong><br>
+          Éplucher les pommes de terre, les rincer et les couper en cubes réguliers d’environ 2&nbsp;cm.  
+          Les plonger quelques minutes dans de l’eau froide pour enlever l’excès d’amidon, puis bien les  
+          sécher dans un torchon propre&nbsp;: ainsi elles doreront au lieu de se déliter à la cuisson.
+        </li>
+
+        <li>
+          <strong>Nettoyer et couper les porcini.</strong><br>
+          Nettoyer délicatement les champignons avec un pinceau ou un chiffon humide.  
+          Éviter de les laisser tremper dans l’eau.  
+          Couper les pieds en morceaux et les têtes en lamelles épaisses pour qu’ils gardent de la texture.  
+          Si tu utilises des porcini secs, les réhydrater 20&nbsp;minutes dans de l’eau tiède, puis les égoutter en  
+          conservant l’eau filtrée (qui servira à parfumer le plat).
+        </li>
+
+        <li>
+          <strong>Commencer la cuisson des pommes de terre.</strong><br>
+          Dans une grande sauteuse, verser 3&nbsp;c.à.s d’huile d’olive.  
+          Quand elle est chaude, ajouter les cubes de pommes de terre et les étaler en une couche régulière.  
+          Les faire dorer à feu moyen pendant 8–10&nbsp;minutes, en les retournant délicatement de temps en temps.  
+          De petites zones brun doré doivent apparaître&nbsp;: c’est ce qui donnera la saveur rustique.
+        </li>
+
+        <li>
+          <strong>Préparer la base aromatique.</strong><br>
+          Pendant que les pommes de terre dorent, émincer l’oignon et écraser légèrement les gousses d’ail.  
+          Dans une autre poêle (ou après avoir poussé les pommes de terre sur un côté si ta sauteuse est large),  
+          verser 2&nbsp;c.à.s d’huile d’olive, ajouter l’oignon et l’ail et les laisser revenir doucement 5–6&nbsp;minutes.  
+          L’oignon doit devenir translucide et légèrement doré sur les bords sans brûler.  
+          Ajouter une pincée de piment doux si tu veux une note chaude et douce.
+        </li>
+
+        <li>
+          <strong>Faire sauter les porcini.</strong><br>
+          Ajouter maintenant les porcini dans la poêle avec l’oignon et l’ail.  
+          Monter légèrement le feu et faire sauter 3–4&nbsp;minutes&nbsp;: les champignons vont rendre leur eau.  
+          Laisser cette eau s’évaporer presque complètement en remuant doucement, pour concentrer le goût.
+        </li>
+
+        <li>
+          <strong>Déglacer et parfumer.</strong><br>
+          Quand les porcini sont bien revenus, verser le vin blanc (2–3&nbsp;c.à.s) et laisser évaporer l’alcool une minute.  
+          Si tu as utilisé des champignons secs, ajouter 2–3&nbsp;c.à.s de leur eau filtrée.  
+          Ajouter une petite brindille de thym ou une pincée d’origan, sel et poivre.
+        </li>
+
+        <li>
+          <strong>Réunir les pommes de terre et les porcini.</strong><br>
+          Verser ensuite la préparation de porcini dans la sauteuse avec les pommes de terre déjà dorées.  
+          Mélanger délicatement pour ne pas écraser les cubes.  
+          Si le fond est trop sec, ajouter un peu d’eau chaude ou encore un peu d’eau de champignons.  
+          Couvrir partiellement avec un couvercle et laisser mijoter 15&nbsp;minutes à feu doux,  
+          en remuant de temps en temps. Les pommes de terre doivent devenir tendres à cœur et les porcini bien moelleux.
+        </li>
+
+        <li>
+          <strong>Finition.</strong><br>
+          Goûter et corriger en sel et en poivre.  
+          Ajouter une bonne poignée de persil frais haché en fin de cuisson, couper le feu,  
+          couvrir et laisser reposer 2–3&nbsp;minutes pour que les arômes se déposent.  
+          Juste avant de servir, tu peux ajouter un filet d’huile d’olive crue pour renforcer le parfum.
+        </li>
+      </ol>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Si tu veux un plat encore plus parfumé, fais dorer quelques petites feuilles de sauge dans l’huile au départ  
+        puis retire-les avant d’ajouter l’oignon&nbsp;: l’huile prendra une légère note herbacée qui va très bien  
+        avec les porcini. Et comme souvent avec ce type de plat, il est encore meilleur réchauffé le lendemain.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les <strong>Funghi Porcini con Patate</strong> sont un exemple parfait de <em>cucina povera</em> du Sud&nbsp;:  
+        quelques bons légumes, de l’huile d’olive, des herbes simples et une cuisson lente.  
+        Là où les porcini sont disponibles, on les associe volontiers aux pommes de terre pour en faire  
+        un plat unique ou un contorno riche, servi avec du pain rustique et un verre de vin local.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette traditionnelle du Sud de l’Italie.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

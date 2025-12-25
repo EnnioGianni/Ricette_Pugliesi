@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Riso al Forno ai Frutti di Mare (a strati) — Sapori di Puglia</title>
+  <meta name="description" content="Riz au four aux fruits de mer, monté en couches comme une lasagne : riz, poisson, moules, calamars, crevettes, tomates et aromates, gratiné au four à la manière pugliese.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/riso-mare-strati.png">
+
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+
+      <h1>🦐 Riso al Forno ai Frutti di Mare (a strati)</h1>
+
+      <!-- Image zoomable -->
+      <div class="image-zoom">
+        <img src="/Images/riso-mare-strati.png"
+             alt="Riz au four aux fruits de mer a strati — portion servie"
+             class="zoomable">
+      </div>
+
+      <!-- Modal -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" type="button" aria-label="Fermer">×</button>
+        <img class="modal-content" id="modalImg" src="&" alt="">
+      </div>
+
+      <p class="intro">
+        Ce <strong>riso al forno ai frutti di mare</strong> est une sorte de “paella pugliese” montée <strong>a strati</strong>,  
+        comme une lasagne : des couches de <em>riz</em>, de <em>poisson blanc</em>, de <em>moules</em>, de <em>calamars</em> et de <em>crevettes</em>,  
+        liées par un <strong>bouillon de poisson maison</strong> et une base de <strong>tomate et oignon</strong>.  
+        Le tout est gratiné au four avec une fine <strong>chapelure à l’huile d’olive</strong>, sans safran ni curcuma,  
+        pour garder le goût net de la mer typique des Pouilles.
+      </p>
+
+      <!-- Infos -->
+      <div class="infos">
+        <p>
+          ⏱ Préparation : <strong>45–50 min</strong> |
+          🔥 Cuisson au four : <strong>35–45 min</strong> |
+          👥 Pour <strong>4–6 personnes</strong> |
+          ⚙️ Difficulté : <strong>Moyenne</strong>
+        </p>
+      </div>
+
+      <!-- INGREDIENTS -->
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+
+        <h3>Pour le riz et les couches</h3>
+        <ul>
+          <li>300 g de riz (arborio ou carnaroli)</li>
+          <li>3–4 c.à.s d’huile d’olive extra-vierge</li>
+          <li>1 oignon moyen (blanc ou doré)</li>
+          <li>2 gousses d’ail</li>
+          <li>200 g de pulpe de tomate (ou tomates concassées)</li>
+          <li>Sel fin, poivre noir</li>
+          <li>Persil plat frais</li>
+        </ul>
+
+        <h3>Pour les fruits de mer et le poisson</h3>
+        <ul>
+          <li>400 g de poisson blanc à chair ferme (merlu, cabillaud, maigre, etc.)</li>
+          <li>500 g de moules (propres, grattées, débyssusées)</li>
+          <li>200 g de calamars ou de seiches en anneaux</li>
+          <li>200 g de crevettes décortiquées (garder quelques-unes entières pour la décoration)</li>
+          <li>10 cl de vin blanc sec</li>
+        </ul>
+
+        <h3>Pour le bouillon de poisson</h3>
+        <ul>
+          <li>Les parures du poisson (arêtes, tête sans branchies, peau)</li>
+          <li>1 petit morceau de carotte</li>
+          <li>1 petit bout de céleri</li>
+          <li>1 morceau d’oignon</li>
+          <li>1 feuille de laurier</li>
+          <li>Quelques grains de poivre</li>
+          <li>1 pincée de sel</li>
+          <li>Environ 1 L d’eau froide</li>
+        </ul>
+
+        <h3>Pour la chapelure et le gratin</h3>
+        <ul>
+          <li>5–6 c.à.s de chapelure fine</li>
+          <li>2–3 c.à.s d’huile d’olive extra-vierge</li>
+          <li>1 pincée d’origan sec (facultatif)</li>
+          <li>1 c.à.s de persil finement ciselé (facultatif)</li>
+        </ul>
+      </section>
+
+      <!-- PREPARATION -->
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+
+        <ol>
+          <li>
+            <strong>Préparer le bouillon de poisson.</strong><br>
+            Rincer rapidement les parures de poisson sous l’eau froide.  
+            Les déposer dans une casserole avec la carotte, le céleri, le morceau d’oignon, la feuille de laurier et quelques grains de poivre.  
+            Couvrir avec environ 1 litre d’eau froide, porter à légère ébullition, puis laisser frémir doucement pendant <strong>25–30 minutes</strong>.  
+            Écumer les impuretés à la surface si nécessaire. Filtrer ensuite le bouillon à travers une passoire fine et réserver au chaud.
+          </li>
+
+          <li>
+            <strong>Préparer les moules.</strong><br>
+            Gratter et nettoyer les moules si ce n’est pas déjà fait.  
+            Dans une grande casserole, faire chauffer un filet d’huile d’olive avec 1 gousse d’ail légèrement écrasée.  
+            Ajouter les moules, verser un tout petit peu de vin blanc (facultatif), couvrir et laisser ouvrir à feu vif pendant quelques minutes en secouant la casserole.  
+            Dès qu’elles sont ouvertes, retirer du feu.  
+            Filtrer le jus rendu par les moules et l’ajouter au bouillon de poisson.  
+            Décortiquer la plupart des moules en gardant quelques coquilles pour la décoration finale, puis réserver.
+          </li>
+
+          <li>
+            <strong>Préparer le poisson, les calamars et les crevettes.</strong><br>
+            Couper le poisson en cubes de <strong>3–4 cm</strong> de côté.  
+            Rincer rapidement les calamars (ou seiches) et les couper en anneaux si ce n’est pas déjà fait.  
+            Décortiquer les crevettes en laissant éventuellement la queue sur quelques-unes pour la présentation.  
+            Assaisonner le tout avec un peu de sel, de poivre et un filet d’huile d’olive.
+          </li>
+
+          <li>
+            <strong>Préparer la base tomate–oignon.</strong><br>
+            Émincer finement l’oignon et hacher une gousse d’ail.  
+            Dans une sauteuse, faire chauffer 2 c.à.s d’huile d’olive, ajouter l’oignon et le laisser fondre à feu doux jusqu’à ce qu’il devienne translucide.  
+            Ajouter l’ail haché, mélanger quelques secondes, puis verser les 200 g de pulpe de tomate.  
+            Saler légèrement, poivrer, et laisser mijoter à feu doux pendant <strong>10–15 minutes</strong> pour obtenir une sauce épaisse et parfumée.  
+            En fin de cuisson, ajouter un peu de persil ciselé.
+          </li>
+
+          <li>
+            <strong>Pré-cuire légèrement le riz.</strong><br>
+            Rincer rapidement le riz sous l’eau froide, puis bien l’égoutter.  
+            Dans une petite casserole ou directement dans la sauteuse si elle est assez large, faire chauffer un filet d’huile d’olive.  
+            Ajouter le riz et le faire nacrer 1–2 minutes en remuant, jusqu’à ce qu’il devienne légèrement translucide.  
+            Verser ensuite environ <strong>1,5 fois son volume</strong> de bouillon chaud (bouillon de poisson + jus de moules), saler légèrement et laisser cuire à feu moyen 5–6 minutes, juste pour commencer la cuisson.  
+            Le riz doit rester ferme, car il finira de cuire au four.  
+            Mélanger la sauce tomate–oignon avec ce riz pré-cuit pour bien l’enrober.
+          </li>
+
+          <li>
+            <strong>Préparer la chapelure parfumée.</strong><br>
+            Dans un bol, mélanger la chapelure avec 2–3 c.à.s d’huile d’olive, une pincée d’origan et, si tu le souhaites, un peu de persil finement ciselé.  
+            Travailler le mélange à la fourchette : la chapelure doit prendre une texture de <em>sable légèrement humide</em>, idéale pour gratiner.
+          </li>
+
+          <li>
+            <strong>Huiler le plat et monter la première couche de riz.</strong><br>
+            Préchauffer le four à <strong>190&nbsp;°C</strong> (chaleur statique).  
+            Huiler généreusement un plat à gratin assez profond avec un filet d’huile d’olive, en veillant à bien couvrir le fond et les bords.  
+            Étaler une première couche de riz à la tomate au fond du plat : pas trop épaisse, juste de quoi faire un tapis uniforme.
+          </li>
+
+          <li>
+            <strong>Deuxième couche : fruits de mer.</strong><br>
+            Répartir par-dessus une couche de fruits de mer : cubes de poisson, anneaux de calamars, crevettes, moules décortiquées.  
+            Essayer de les répartir de manière régulière pour que chaque portion contienne un peu de chaque ingrédient.  
+            Ajouter une pincée de poivre noir et un peu de persil ciselé.
+          </li>
+
+          <li>
+            <strong>Troisième couche : riz à nouveau.</strong><br>
+            Recouvrir les fruits de mer avec une deuxième couche de riz à la tomate, en l’étalant délicatement avec le dos d’une cuillère.  
+            Tasser très légèrement sans écraser, juste pour que les couches soient bien en place.
+          </li>
+
+          <li>
+            <strong>Quatrième couche (facultative) : fruits de mer supplémentaires.</strong><br>
+            Si tu as encore assez de fruits de mer, tu peux ajouter une deuxième couche plus fine de poisson et de fruits de mer sur cette couche de riz.  
+            Là encore, répartir régulièrement, puis ajouter un léger filet d’huile d’olive.
+          </li>
+
+          <li>
+            <strong>Cinquième couche : dernière couche de riz.</strong><br>
+            Terminer par une dernière couche de riz, qui formera la surface du gratin.  
+            Lisser délicatement la surface, puis verser doucement un peu de bouillon chaud sur un côté du plat, de façon à ce qu’il descende entre les couches (environ 150–200 ml, selon la profondeur du plat).  
+            Le riz doit être bien hydraté sans baigner complètement.
+          </li>
+
+          <li>
+            <strong>Répartir la chapelure et arroser d’huile.</strong><br>
+            Saupoudrer la chapelure parfumée sur toute la surface du plat, en une couche fine mais uniforme.  
+            Ajouter un mince filet d’huile d’olive par-dessus pour aider à la coloration.  
+            Tu peux déposer quelques moules en coquille et quelques crevettes entières sur le dessus pour la décoration.
+          </li>
+
+          <li>
+            <strong>Cuisson au four.</strong><br>
+            Enfourner le plat dans le four préchauffé à <strong>190&nbsp;°C</strong> et cuire pendant <strong>35–45 minutes</strong>.  
+            La surface doit devenir <em>dorée et légèrement croustillante</em>, le riz doit absorber presque tout le liquide, et les bords doivent légèrement caraméliser.  
+            Si la surface colore trop vite, couvrir légèrement avec une feuille de papier aluminium (sans la coller à la chapelure) et terminer la cuisson.
+          </li>
+
+          <li>
+            <strong>Repos et service.</strong><br>
+            À la sortie du four, laisser reposer le plat pendant <strong>10 à 15 minutes</strong>.  
+            Ce temps permet au riz de se stabiliser et facilite la découpe en carrés ou en rectangles, comme une lasagne.  
+            Servir chaque portion avec un peu de fruits de mer visibles sur le dessus, un filet d’huile d’olive crue et un peu de persil frais ciselé.
+          </li>
+        </ol>
+
+      </section>
+
+      <!-- ASTUCE -->
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Ce <strong>riso al forno ai frutti di mare</strong> est encore meilleur si tu le prépares un peu à l’avance et que tu le réchauffes doucement avant de servir :  
+          les couches se tiennent mieux, et le riz a le temps d’absorber tous les parfums de la mer.  
+          Tu peux aussi jouer sur la quantité de bouillon : un peu moins pour un résultat plus compact, un peu plus pour un plat plus juteux.  
+          Et si tu veux renforcer le goût de la mer, ajoute quelques <strong>petites tomates cerises</strong> et des <strong>olives noires</strong> dans une des couches intermédiaires.
+        </p>
+      </section>
+
+      <!-- ORIGINE -->
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Ce plat s’inspire à la fois des <strong>riz au four du Sud de l’Italie</strong> et des grandes poêlées de fruits de mer méditerranéennes.  
+          Dans les Pouilles, on aime cuisiner le riz avec le poisson et les moules, en utilisant un <strong>bouillon de poisson simple</strong> et beaucoup d’<strong>huile d’olive</strong>,  
+          souvent sans safran ni épices fortes, pour laisser parler le goût de la mer.  
+          La cuisson <em>a strati</em> et au four rappelle la logique du baccalà con le patate : un plat généreux, que l’on pose au centre de la table et que l’on sert à la spatule, en parts bien nettes.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Bouton haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script Zoom -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>

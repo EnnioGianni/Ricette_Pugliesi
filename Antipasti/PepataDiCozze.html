@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pepata di Cozze — Sapori di Puglia</title>
+  <meta name="description" content="Recette traditionnelle des Pouilles : la Pepata di Cozze, des moules parfumées au poivre, à l’ail et au vin blanc.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/SaporiDiPuglia.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Ajustements légers image de la recette -->
+  <style>
+    .recette-photo {
+      max-width: 900px; /* large pour bien voir tout le plat */
+      width: 100%;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.22);
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes (ordre DOM) -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu latéral (drawer) -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+
+    <!-- Recherche dans le menu -->
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette..." aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+
+    <!-- Liste auto-générée par menu.js à partir de window.CATEGORIES -->
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+
+  <!-- Fond du drawer -->
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <h1>🐚 Pepata di Cozze</h1>
+      <img src="/Images/pepata-di-cozze.png" alt="Pepata di Cozze" class="recette-photo">
+
+      <p class="intro">
+        La <strong>Pepata di Cozze</strong> est un classique des Pouilles : des moules très fraîches,
+        ouvertes à la vapeur avec de l’ail, du vin blanc et beaucoup de poivre noir.
+        Simple, parfumé et parfait avec du pain grillé pour saucer le jus.
+      </p>
+
+      <section class="infos">
+        <h2 class="sr-only">Informations de la recette</h2>
+        <p>
+          ⏱ Préparation : <strong>30 min</strong> &nbsp;|&nbsp;
+          👥 Pour <strong>4 personnes</strong> &nbsp;|&nbsp;
+          ⚙️ Difficulté : <strong>Facile</strong>
+        </p>
+      </section>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li class="ingredient">2 kg de moules fraîches</li>
+          <li class="ingredient">2 gousses d’ail</li>
+          <li class="ingredient">1 petit bouquet de persil plat</li>
+          <li class="ingredient">1 verre de vin blanc sec</li>
+          <li class="ingredient">Huile d’olive extra-vierge</li>
+          <li class="ingredient">Poivre noir fraîchement moulu (généreusement)</li>
+          <li class="ingredient">Quelques tranches de pain grillé</li>
+          <!-- 🔸 Twist original systématique -->
+          <li class="ingredient">Zeste fin d’1 citron + 1 pincée de poivre Timut (optionnel, pour une note agrumée)</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li><strong>Nettoyer les moules.</strong> Gratte et rince soigneusement à grande eau froide. Retire les filaments ; garde uniquement les moules bien fermées.</li>
+          <li><strong>Parfumer l’huile.</strong> Dans une grande casserole, verse un filet d’huile et fais revenir l’ail écrasé 1 min.</li>
+          <li><strong>Cuire.</strong> Ajoute les moules, le vin blanc, couvre et laisse 5–7 min à feu vif jusqu’à ouverture.</li>
+          <li><strong>Assaisonner.</strong> Hors du feu : beaucoup de poivre noir, persil haché, puis zeste de citron et une pointe de poivre Timut si tu utilises le twist.</li>
+          <li><strong>Servir.</strong> Répartis les moules avec leur jus filtré, accompagne de pain grillé.</li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>Pas de sel : les moules sont déjà salées. Tu peux ajouter 6–8 tomates cerises coupées en deux avant la cuisson pour un jus légèrement sucré.</p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>Dans les ports de <strong>Tarente</strong> et <strong>Bari</strong>, la pepata se faisait sur les barques avec les moules du jour : peu d’ingrédients, beaucoup de fraîcheur, et du pain pour partager.</p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Bouton Remonter en haut (géré par app.js aussi) -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <!-- Pied de page -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette d’après la tradition des Pouilles.</p>
+  </footer>
+
+  <!-- Fallback minimal si /JS/app.js n’est pas chargé -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=>{ document.body.classList.toggle('dark'); });
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

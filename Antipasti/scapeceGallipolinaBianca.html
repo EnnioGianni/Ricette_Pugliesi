@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scapece Gallipolina Bianca — Sapori di Puglia</title>
+  <meta name="description" content="Scapece Gallipolina dans sa version ancienne et blanche, sans safran ni curcuma : petits poissons frits marinés au vinaigre, oignon et mie de pain, selon la tradition de Gallipoli. Recette ultra détaillée, étape par étape.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Antipasti/Images/scapece-gallipolina-bianca.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom (standard Sapori di Puglia) -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+
+        <!-- Bouton imprimante -->
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+
+        <li><a href="/index.html">Accueil</a></li>
+
+        <li>
+          <button class="button secondary" data-toggle-theme>🌓</button>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🐟 Scapece Gallipolina Bianca (sans safran)</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Antipasti/Images/scapece-gallipolina-bianca.png"
+           alt="Scapece gallipolina blanche servie dans un plat rustique, avec poissons marinés, mie de pain et oignons"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement de la Scapece Gallipolina Bianca">
+    </div>
+
+    <p class="intro">
+      La <strong>Scapece Gallipolina</strong> est l’un des antipasti les plus anciens de la <strong>côte ionienne du Salento</strong>.  
+      Dans cette version <strong>bianca</strong>, sans safran ni curcuma, on retrouve la forme la plus pauvre et la plus authentique :  
+      des <strong>petits poissons frits</strong>, une <strong>mie de pain rassis</strong> qui absorbe la marinade,  
+      du <strong>vinaigre chaud</strong>, de l’<strong>oignon</strong> et un peu d’<strong>huile d’olive</strong>.  
+      Tout repose <strong>24 à 48 heures</strong>, le temps que le pain se gorge de jus et que le poisson prenne ce goût  
+      marin, acidulé et profond qui fait la réputation de Gallipoli.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation active : <strong>45 min</strong> |
+        🧊 Repos : <strong>24–48 h</strong> |
+        👥 Pour <strong>4–6 personnes</strong> |
+        ⚙️ Difficulté : <strong>Moyenne (friture + marinade)</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour les poissons frits</h3>
+      <ul>
+        <li>700–900 g de <strong>petits poissons de mer</strong> : zerri, boghe, petites trilles, muletto, aguglie…</li>
+        <li>Farine de blé (ou farine pour friture)</li>
+        <li>Sel fin</li>
+        <li>Huile de friture (arachide ou mélange spécial friture)</li>
+      </ul>
+
+      <h3>Pour la marinade “bianca”</h3>
+      <ul>
+        <li>300 ml de <strong>vinaigre de vin blanc</strong></li>
+        <li>200 ml d’<strong>eau</strong></li>
+        <li>1 gros <strong>oignon blanc ou doré</strong>, coupé en fines lamelles</li>
+        <li>3–4 c.à.s d’<strong>huile d’olive extravierge</strong></li>
+        <li>Sel fin (généreux, à ajuster selon ton vinaigre)</li>
+        <li>(Facultatif) un peu de <strong>poivre noir</strong> ou de piment doux émietté</li>
+      </ul>
+
+      <h3>Pour les couches de scapece</h3>
+      <ul>
+        <li>150–200 g de <strong>mie de pain rassis</strong> (sans croûte), d’un pain rustique</li>
+        <li>Un filet supplémentaire d’<strong>huile d’olive</strong> pour finir</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION TRES DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation ultra détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer les poissons.</strong><br>
+          Si les poissons ne sont pas déjà prêts, les vider&nbsp;: retirer la tête si tu préfères,  
+          ouvrir légèrement le ventre pour enlever les entrailles, rincer très rapidement sous un filet d’eau froide.  
+          <br><br>
+          Les disposer ensuite sur plusieurs feuilles de papier absorbant et bien les sécher,  
+          en les tamponnant délicatement.  
+          <br><br>
+          Cette étape est essentielle&nbsp;: des poissons encore mouillés éclaboussèrent dans l’huile et  
+          donneraient une friture lourde et molle, alors que pour la scapece on a besoin d’un poisson  
+          <strong>sec, croustillant et bien formé</strong>.
+        </li>
+
+        <li>
+          <strong>Saler légèrement les poissons.</strong><br>
+          Placer les poissons dans un plat et les saler très légèrement.  
+          Le but n’est pas de les saler comme un plat fini, mais de leur donner une première assise en goût,  
+          car la marinade vinaigrée viendra compléter l’assaisonnement plus tard.
+        </li>
+
+        <li>
+          <strong>Fariner les poissons.</strong><br>
+          Verser de la farine dans un sac ou un grand bol. Ajouter une couche de poissons,  
+          secouer doucement pour bien les enrober, puis les sortir en les secouant légèrement pour éliminer l’excès.  
+          <br><br>
+          Les disposer sur un plateau sans qu’ils se chevauchent trop, prêts pour la friture.  
+          Une fine couche de farine uniforme aide à obtenir une friture croustillante et régulière.
+        </li>
+
+        <li>
+          <strong>Frire les poissons.</strong><br>
+          Chauffer l’huile de friture dans une grande casserole ou une friteuse, jusqu’à environ <strong>180–185°C</strong>.  
+          Si tu n’as pas de thermomètre, plonger un petit morceau de pain&nbsp;: il doit frire doucement et remonter en surface  
+          en quelques secondes, sans brûler instantanément.  
+          <br><br>
+          Plonger les poissons par petites quantités pour ne pas faire chuter la température de l’huile.  
+          Les laisser frire jusqu’à ce qu’ils deviennent <strong>bien dorés et croustillants</strong>,  
+          sans toutefois les dessécher complètement.  
+          <br><br>
+          Les sortir avec une écumoire, les déposer sur du papier absorbant,  
+          et continuer jusqu’à avoir frit tous les poissons.
+        </li>
+
+        <li>
+          <strong>Préparer la mie de pain.</strong><br>
+          Pendant que les poissons refroidissent légèrement, prendre la <strong>mie de pain rassis</strong>.  
+          Retirer les croûtes, puis émietter la mie avec les doigts en morceaux irréguliers,  
+          ni trop fins ni trop gros, de manière à ce qu’elle puisse bien absorber la marinade.  
+          <br><br>
+          Réserver la mie dans un saladier ou directement dans le récipient de service  
+          (idéalement une <strong>terrine en terre cuite ou en verre</strong>, assez profonde).
+        </li>
+
+        <li>
+          <strong>Préparer la marinade “bianca”.</strong><br>
+          Dans une petite casserole, verser le <strong>vinaigre de vin blanc</strong> et l’<strong>eau</strong>.  
+          Ajouter une première pincée de sel (tu ajusteras plus tard), ainsi que l’<strong>oignon coupé en fines lamelles</strong>.  
+          <br><br>
+          Porter doucement à frémissement&nbsp;: le liquide doit chauffer et commencer à dégager un parfum légèrement piquant,  
+          mais sans bouillir violemment. Laisser frémir <strong>2–3 minutes</strong> pour adoucir l’oignon et arrondir le vinaigre.  
+          <br><br>
+          Éteindre le feu, ajouter les <strong>3–4 c.à.s d’huile d’olive extravierge</strong>,  
+          goûter et ajuster en sel&nbsp;: la marinade doit être <strong>bien sapide et nettement acidulée</strong>,  
+          car elle sera absorbée par le pain et les poissons.
+        </li>
+
+        <li>
+          <strong>Monter la scapece en couches.</strong><br>
+          Dans la terrine, répartir une première couche de <strong>mie de pain</strong>.  
+          Arroser légèrement avec un peu de marinade chaude (vinaigre + eau + oignon + huile).  
+          <br><br>
+          Disposer ensuite une couche de <strong>poissons frits</strong>, en les alignant ou en les posant simplement,  
+          sans les entasser de manière désordonnée. Ajouter quelques lamelles d’oignon de la marinade par-dessus.  
+          <br><br>
+          Répéter&nbsp;: pain → marinade → poissons → oignon,  
+          jusqu’à épuiser poissons et mie, en veillant à garder assez de marinade pour bien humidifier l’ensemble.  
+          <br><br>
+          Terminer par une couche de <strong>mie de pain</strong>, arrosée d’un peu de marinade et d’un dernier filet d’<strong>huile d’olive</strong>.
+        </li>
+
+        <li>
+          <strong>Laisser reposer 24–48 heures.</strong><br>
+          Couvrir la terrine (film, couvercle ou assiette) et laisser reposer dans un endroit frais  
+          ou au réfrigérateur (pas trop froid) pendant au moins <strong>24 heures</strong>, idéalement <strong>48 heures</strong>.  
+          <br><br>
+          Pendant ce temps, la mie de pain va absorber la marinade, se transformer en une sorte de coussin moelleux,  
+          légèrement acide et plein de saveur, tandis que les poissons vont s’imprégner du vinaigre et de l’huile,  
+          tout en restant entiers.  
+        </li>
+
+        <li>
+          <strong>Déguster la scapece.</strong><br>
+          Sortir la terrine un peu avant de servir pour que la scapece ne soit pas glacée.  
+          Prélever des portions composées à la fois de <strong>mie imbibée</strong>, de <strong>poissons</strong> et d’<strong>oignons</strong>.  
+          <br><br>
+          Tu peux ajouter juste avant de servir un léger filet d’<strong>huile d’olive crue</strong> par-dessus,  
+          voire une pincée de <strong>poivre noir</strong> ou un tout petit peu de piment doux si tu aimes.  
+          On mange la scapece comme un antipasto riche, avec du pain ou telle quelle,  
+          comme on le fait dans les fêtes de village et les foires de Gallipoli.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes traditionnelles autour de la Scapece</h2>
+
+      <h3>1️⃣ Scapece “rossastra” (un peu de tomate)</h3>
+      <p>
+        Sans utiliser ni safran ni curcuma, certaines familles ajoutent une touche de couleur en incorporant un peu de tomate.
+      </p>
+      <ul>
+        <li>Ajouter 1 c.à.s de <strong>concentré de tomate</strong> dans la marinade chaude.</li>
+        <li>Bien mélanger pour le dissoudre, puis verser sur le pain et les poissons.</li>
+        <li>On obtient une couleur légèrement orangée et un parfum un peu plus rond, sans couvrir le goût du poisson.</li>
+      </ul>
+
+      <h3>2️⃣ Scapece “povera” (presque sans poisson)</h3>
+      <p>
+        En période de disette, on préparait parfois une scapece presque uniquement avec du pain.
+      </p>
+      <ul>
+        <li>Utiliser davantage de <strong>mie de pain</strong> et moins de poissons.</li>
+        <li>Accentuer l’<strong>huile d’olive</strong> et l’<strong>oignon</strong> dans la marinade.</li>
+        <li>La mie devient alors le véritable “protagoniste”, saturée de vinaigre et de jus, servie comme antipasto simple.</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour une scapece réussie, ne cherche pas à “adoucir” trop le vinaigre dès le départ&nbsp;:  
+        le pain va absorber une grande partie de l’acidité, et le poisson va s’équilibrer avec le gras de la friture.  
+        Mieux vaut une marinade <strong>un peu trop vive au goût</strong> au moment de la préparer,  
+        qu’une marinade trop fade qui donnera un ensemble sans caractère après 24 heures de repos.  
+        Et n’oublie pas&nbsp;: les poissons doivent être <strong>très bien frits et bien égouttés</strong>,  
+        c’est le secret pour une scapece qui se garde et se déguste sans lourdeur.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        La <strong>Scapece di Gallipoli</strong> remonte à une époque où il fallait conserver le poisson  
+        sans réfrigération, à l’aide de la friture, du vinaigre et du pain.  
+        La version <strong>bianca</strong>, sans safran, était souvent celle des familles plus modestes  
+        ou des périodes où les épices étaient rares et coûteuses.  
+        Aujourd’hui encore, dans certaines maisons et petites trattorie de la région,  
+        on prépare la scapece exactement ainsi, en laissant le vinaigre, le pain et le poisson faire tout le travail,  
+        sans artifice de couleur, avec seulement la force du goût marin du Salento.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Scapece Gallipolina Bianca traditionnelle.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

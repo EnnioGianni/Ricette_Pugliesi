@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Polpette di Cavallo Leccesi — Sapori di Puglia</title>
+  <meta name="description" content="Polpette di Cavallo alla Leccese : boulettes de viande de cheval mijotées dans un sugo parfumé, spécialité traditionnelle et très appréciée du Salento.">
+  
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/polpette-cavallo-lecce.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍖 Polpette di Cavallo alla Leccese</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+        <img src="/Images/polpette-cavallo-lecce.png" alt="Polpette di Cavallo alla Leccese — portion servie" class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" class="modal-content" src="&" alt="Agrandissement de l’image">
+    </div>
+
+    <p class="intro">
+      Les <strong>Polpette di Cavallo alla Leccese</strong> sont une spécialité incontournable de Lecce :  
+      de généreuses boulettes de viande de cheval, assaisonnées à la main, puis <strong>mijotées dans un sugo épais</strong>  
+      au basilic. Un plat rustique, parfumé et profondément enraciné dans la cuisine populaire du Salento.
+    </p>
+
+    <!-- Infos -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>25 min</strong> |
+        🔥 Cuisson : <strong>40 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Facile</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour les polpette</h3>
+      <ul>
+        <li>500 g de viande de cheval hachée</li>
+        <li>1 œuf</li>
+        <li>3 c.à.s de pecorino râpé</li>
+        <li>40 g de mie de pain trempée dans du lait</li>
+        <li>1 gousse d’ail hachée</li>
+        <li>Persil frais haché</li>
+        <li>Sel & poivre</li>
+        <li>Huile d’olive pour saisir</li>
+      </ul>
+
+      <h3>Pour le sugo</h3>
+      <ul>
+        <li>700 ml de passata</li>
+        <li>2 gousses d’ail</li>
+        <li>4 c.à.s d’huile d’olive</li>
+        <li>Basilic frais</li>
+        <li>Sel & poivre</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer les polpette.</strong><br>
+          Mélanger la viande, l’œuf, la mie pressée, le pecorino, l’ail, le persil, sel et poivre.  
+          Former des boulettes de taille moyenne, bien compactes.
+        </li>
+
+        <li>
+          <strong>Les saisir.</strong><br>
+          Dans une poêle, faire chauffer un fond d’huile d’olive.  
+          Faire dorer les polpette sur toutes les faces.  
+          Les réserver.
+        </li>
+
+        <li>
+          <strong>Préparer le sugo.</strong><br>
+          Faire revenir l’ail écrasé dans l’huile.  
+          Ajouter la passata, saler, poivrer et ajouter quelques feuilles de basilic.  
+          Cuire 10 minutes.
+        </li>
+
+        <li>
+          <strong>Mijoter.</strong><br>
+          Plonger les polpette dans le sugo.  
+          Couvrir et cuire <strong>30 minutes à feu doux</strong>  
+          jusqu’à obtenir une sauce épaisse et brillante.
+        </li>
+
+        <li>
+          <strong>Servir.</strong><br>
+          Disposer les polpette nappées de sugo, avec un filet d’huile d’olive crue  
+          et quelques feuilles de basilic.
+        </li>
+      </ol>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour un goût encore plus authentique, ajoute une cuillère de <strong>ricotta forte</strong>  
+        dans la sauce en fin de cuisson — un secret des maisons leccesi.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Dans le Salento, la viande de cheval est utilisée depuis des siècles.  
+        Les polpette de cheval mijotées au sugo représentaient autrefois le plat du dimanche  
+        des familles rurales : simple, parfumé, généreux, et profondément local.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette traditionnelle du Salento.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

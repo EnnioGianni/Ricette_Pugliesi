@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Melanzane Marinate — Sapori di Puglia</title>
+  <meta name="description" content="Recette traditionnelle des aubergines marinées des Pouilles, avec une touche d'originalité au citron et au piment doux.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/melanzane-marinate.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes (ordre DOM) -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <h1>🍆 Melanzane Marinate</h1>
+      <img src="/Images/Aubergines.png" alt="Melanzane Marinate" class="recette-photo">
+
+      <p class="intro">
+        Les <strong>Melanzane Marinate</strong> sont une spécialité simple et ensoleillée des Pouilles. 
+        Ces aubergines marinées à l’huile d’olive, à l’ail et au vinaigre sont servies froides, souvent en antipasto. 
+        Dans cette version, une touche de citron et de piment doux vient relever le goût traditionnel.
+      </p>
+
+      <section class="infos">
+        <h2 class="visually-hidden">Informations de la recette</h2>
+        <p>⏱ Préparation : <strong>45 min</strong> &nbsp;|&nbsp; 👥 Pour <strong>4 personnes</strong> &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Facile</strong></p>
+      </section>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li class="ingredient">3 aubergines moyennes</li>
+          <li class="ingredient">2 gousses d’ail</li>
+          <li class="ingredient">10 cl de vinaigre de vin blanc</li>
+          <li class="ingredient">1 citron (jus + zeste)</li>
+          <li class="ingredient">1 petit piment doux (ou flocons de piment)</li>
+          <li class="ingredient">Origan séché</li>
+          <li class="ingredient">Huile d’olive extra-vierge</li>
+          <li class="ingredient">Sel marin</li>
+          <li class="ingredient">Persil frais haché</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li><strong>Préparer les aubergines :</strong> Laver et couper les aubergines en fines tranches (0,5 cm). Saupoudrer de sel et laisser dégorger 30 minutes pour enlever l’amertume.</li>
+          <li><strong>Cuire les tranches :</strong> Faire griller les aubergines dans une poêle ou sur un grill sans matière grasse, jusqu’à ce qu’elles soient tendres et légèrement dorées.</li>
+          <li><strong>Préparer la marinade :</strong> Dans un bol, mélanger l’huile d’olive, le vinaigre, le jus et le zeste de citron, l’ail émincé, le piment doux, le sel, l’origan et le persil.</li>
+          <li><strong>Assembler :</strong> Dans un plat creux, disposer une première couche d’aubergines, napper de marinade, puis recommencer jusqu’à épuisement. Couvrir et laisser mariner au réfrigérateur pendant au moins 4 heures (idéalement une nuit).</li>
+          <li><strong>Servir :</strong> Sortir à température ambiante 20 minutes avant dégustation. Servir avec du pain de campagne grillé ou des taralli.</li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Pour une version plus originale, ajoute quelques câpres, des zestes d’orange confite ou un filet de miel au moment du service. 
+          Cette touche sucrée-salée mettra en valeur le goût fumé des aubergines grillées.
+        </p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Les <em>melanzane marinate</em> sont un antipasto traditionnel des Pouilles. 
+          Elles étaient autrefois préparées à la fin de l’été, quand les aubergines abondaient. 
+          Conservées dans l’huile, elles accompagnaient les repas d’hiver. Une recette de mémoire et de soleil.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Bouton Remonter en haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <!-- Pied de page -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Fallback minimal si /JS/app.js n’est pas chargé -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

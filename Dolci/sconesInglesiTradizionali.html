@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Scones Anglais Traditionnels — Sapori di Puglia</title>
+  <meta name="description"
+        content="Scones anglais traditionnels à la mie aérée et dorée, servis avec clotted cream et confiture. Recette très détaillée, rustique, expliquée geste par geste.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Dolci/Images/scones-inglesi.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles image + zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍰 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><button class="button secondary" onclick="window.print()" aria-label="Imprimer">🖨️</button></li>
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+
+
+<main class="container recette">
+  <article>
+
+    <h1>🫖 Scones Anglais Traditionnels</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+        <img src="/Dolci/Images/scones-inglesi.png"
+        alt="Scones anglais dorés, servis avec clotted cream et confiture, ambiance rustique"
+        class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement des scones anglais traditionnels">
+    </div>
+
+
+    <!-- INTRO -->
+    <p class="intro">
+      Ces <strong>scones anglais traditionnels</strong> sont préparés selon la méthode authentique&nbsp;:  
+      beurre très froid, farine tamisée, mélange rapide, et une cuisson vive pour obtenir  
+      une mie <strong>aérée, légèrement feuilletée, moelleuse</strong>, avec une fine croûte dorée.  
+      Ils sont parfaits avec de la <strong>clotted cream</strong> et une confiture maison.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>30 min</strong> |
+        🔥 Cuisson : <strong>12–14 min</strong> |
+        👥 Pour <strong>8–10 scones</strong> |
+        ⚙️ Difficulté : <strong>Facile</strong>
+      </p>
+    </div>
+
+
+
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pâte à scones</h3>
+      <ul>
+        <li>350 g de <strong>farine T55</strong></li>
+        <li>1 sachet de <strong>levure chimique</strong> (11 g)</li>
+        <li>2 c.à.s de <strong>sucre</strong></li>
+        <li>1 pincée <strong>de sel</strong></li>
+        <li>90 g de <strong>beurre très froid</strong>, en petits cubes</li>
+        <li>150 ml de <strong>lait entier froid</strong></li>
+        <li>1 <strong>œuf froid</strong></li>
+        <li>1 œuf ou un peu de lait pour la <strong>dorure</strong></li>
+      </ul>
+    </section>
+
+
+
+
+    <!-- PREPARATION -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation extrêmement détaillée</h2>
+
+      <ol>
+
+        <li>
+          <strong>Préparer les ingrédients très froids.</strong><br>
+          Place le beurre, le lait et l’œuf au réfrigérateur.  
+          Tamise la farine et la levure pour les aérer.
+        </li>
+
+        <li>
+          <strong>Mélanger les ingrédients secs.</strong><br>
+          Dans un saladier&nbsp;: farine, levure, sucre, sel.  
+          Mélange rapidement.
+        </li>
+
+        <li>
+          <strong>Sabler le beurre — “rubbing in”.</strong><br>
+          Ajoute les dés de beurre froid.  
+          Frotte du bout des doigts jusqu’à obtenir une texture sableuse  
+          avec de petits morceaux de beurre visibles (taille lentille).
+        </li>
+
+        <li>
+          <strong>Mélange œuf + lait.</strong><br>
+          Fouette l’œuf et le lait dans un petit bol.  
+          Verser d’un coup au centre de la farine.
+        </li>
+
+        <li>
+          <strong>Rassembler la pâte — sans pétrir.</strong><br>
+          Avec une spatule, ramène la pâte en boule.  
+          Elle doit rester légèrement irrégulière.
+        </li>
+
+        <li>
+          <strong>Plier la pâte.</strong><br>
+          Sur le plan de travail fariné, plie la pâte en deux,  
+          tourne d’un quart, replie encore une fois.  
+          Ce geste crée les feuillets.
+        </li>
+
+        <li>
+          <strong>Étaler à 3,5–4 cm d’épaisseur.</strong><br>
+          Cette hauteur est essentielle pour obtenir des scones hauts.
+        </li>
+
+        <li>
+          <strong>Découper les scones.</strong><br>
+          Emporte-pièce 5–6 cm, fariné.  
+          Appuyer droit, sans rotation.
+        </li>
+
+        <li>
+          <strong>Dorer sans toucher les côtés.</strong><br>
+          Sinon la levée est bloquée.
+        </li>
+
+        <li>
+          <strong>Cuisson.</strong><br>
+          200°C — 12 à 14 minutes, jusqu’à belle dorure.
+        </li>
+
+      </ol>
+    </section>
+
+
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes traditionnelles</h2>
+
+      <h3>1️⃣ Raisins trempés dans le thé</h3>
+      <ul>
+        <li>80 g de raisins secs</li>
+        <li>10 min dans du thé noir chaud</li>
+      </ul>
+
+      <h3>2️⃣ Citron & pavot</h3>
+      <ul>
+        <li>Zeste d’un citron</li>
+        <li>1 c.à.s de graines de pavot</li>
+      </ul>
+
+      <h3>3️⃣ Cheddar salé</h3>
+      <ul>
+        <li>80 g de cheddar affiné râpé</li>
+        <li>Poivre</li>
+      </ul>
+
+      <h3>4️⃣ Chocolat noir</h3>
+      <ul>
+        <li>80 g de pépites ou éclats de chocolat</li>
+      </ul>
+
+      <h3>5️⃣ Cranberries & orange</h3>
+      <ul>
+        <li>80 g de cranberries</li>
+        <li>Zeste d’orange</li>
+      </ul>
+    </section>
+
+
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Mets les scones formés au réfrigérateur 10 minutes avant cuisson&nbsp;:  
+        le choc froid/chaud les fait lever encore plus haut.
+      </p>
+    </section>
+
+
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Nés dans les tea-rooms du Royaume-Uni, les scones sont devenus un symbole  
+        du <strong>cream tea</strong>. Leur texture légèrement feuilletée provient du  
+        mélange minimal et du beurre très froid.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Scones anglais traditionnels.</p>
+</footer>
+
+
+
+
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

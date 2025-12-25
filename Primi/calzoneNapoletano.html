@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Calzone Napoletano al Forno & Calzone Fritto — Sapori di Puglia</title>
+  <meta name="description" content="Calzone napolitain traditionnel cuit au four, farci à la ricotta, provola et salame, avec variante détaillée du Calzone Fritto (Pizza Fritta). Pâte napolitaine longue fermentation, gestes et cuisson expliqués pas à pas.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/zoom.css">
+  <link rel="icon" type="image/png" href="/Primi/Images/calzone-napoletano.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+  <script defer src="/JS/zoom.js"></script>
+
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+
+        <!-- Bouton imprimante -->
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+
+        <li><a href="/index.html">Accueil</a></li>
+
+        <li>
+          <button class="button secondary" data-toggle-theme>🌓</button>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🥟 Calzone Napoletano al Forno & Variante Calzone Fritto</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Primi/Images/calzone-napoletano.png"
+           alt="Calzone napolitain cuit au four, doré avec garniture à la ricotta et salame, posé sur une planche en bois"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement du Calzone Napoletano">
+    </div>
+
+    <p class="intro">
+      Le <strong>Calzone Napoletano</strong>, qu’on appelle aussi <strong>ripieno napolitain</strong>, est une demi-lune de pâte à pizza  
+      garnie de <strong>ricotta</strong>, <strong>provola ou caciocavallo</strong>, <strong>salame</strong> et, selon les familles, un peu de <strong>tomate</strong>.  
+      Ici, on le prépare dans sa version <strong>classique au four</strong>, avec une pâte napolitaine à <strong>fermentation longue</strong>,  
+      puis on ajoute une <strong>variante détaillée de Calzone Fritto (Pizza Fritta)</strong>, comme on la mange dans les rues de Naples.  
+      Chaque geste est expliqué pour que la pâte ne perce pas, que la farce reste moelleuse et bien chaude,  
+      et que le calzone soit gonflé, parfumé et parfaitement cuit.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Fermentation : <strong>8–24 h</strong> (pâte) |
+        🔥 Cuisson : <strong>5–7 min au four</strong> ou <strong>2–3 min en friture</strong> |
+        👥 Pour <strong>4 calzoni</strong> |
+        ⚙️ Difficulté : <strong>Élevée (pâte + garniture + façonnage)</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour la pâte (base pizza napolitaine)</h3>
+      <ul>
+        <li>600 g de <strong>farine type 00</strong> pour pizza (W 260–300)</li>
+        <li>380 ml d’<strong>eau froide</strong> (environ 63 % d’hydratation)</li>
+        <li>15 g de <strong>sel fin</strong></li>
+        <li>1,5 g de <strong>levure boulangère sèche</strong> (ou 4 g de levure fraîche émiettée)</li>
+      </ul>
+
+      <h3>Pour la farce traditionnelle du Calzone Napoletano</h3>
+      <ul>
+        <li>250 g de <strong>ricotta</strong> de vache ou de bufflonne (bien égouttée)</li>
+        <li>150 g de <strong>provola</strong> ou de <strong>caciocavallo</strong>, coupé en petits dés</li>
+        <li>80 g de <strong>salame Napoli</strong>, coupé en petits cubes</li>
+        <li>2–3 c.à.s de <strong>sauce tomate</strong> bien réduite (facultatif, pour une version “rouge”)</li>
+        <li>1–2 c.à.s de <strong>parmigiano</strong> ou pecorino râpé (facultatif)</li>
+        <li>Poivre noir fraîchement moulu</li>
+        <li>Quelques feuilles de <strong>basilic frais</strong> (facultatif)</li>
+        <li>1–2 c.à.s d’<strong>huile d’olive extravierge</strong></li>
+      </ul>
+
+      <h3>Pour la cuisson au four</h3>
+      <ul>
+        <li>Un peu de <strong>farine</strong> pour le plan de travail</li>
+        <li>Un filet d’<strong>huile d’olive</strong> pour la plaque ou la pierre</li>
+        <li>(Facultatif) un peu de <strong>sauce tomate</strong> et de <strong>parmigiano</strong> pour napper légèrement le dessus</li>
+      </ul>
+
+      <h3>Pour la variante Calzone Fritto (Pizza Fritta)</h3>
+      <ul>
+        <li>La même <strong>pâte</strong> et la même <strong>farce</strong> que ci-dessus</li>
+        <li>1,5 à 2 L d’<strong>huile de friture</strong> (arachide ou mélange spécial friture)</li>
+        <li>Un peu de <strong>sauce tomate</strong> simple (tomate, sel, basilic) pour servir</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION TRES DETAILLEE CALZONE AU FOUR -->
+    <section class="preparation">
+      <h2>👩‍🍳 Calzone Napoletano al Forno — Préparation ultra détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer la pâte napolitaine.</strong><br>
+          Verser l’eau froide dans un grand saladier ou la cuve du robot.  
+          Ajouter la levure sèche (ou fraîche émiettée) et bien mélanger pour la dissoudre.  
+          Ajouter ensuite environ <strong>10–15 % de la farine</strong> pour former une sorte de crème fluide.  
+          Mélanger jusqu’à ce qu’il n’y ait plus de grumeaux.  
+          <br><br>
+          Ajouter progressivement le reste de la farine, en mélangeant à la main ou au crochet, jusqu’à obtenir une masse  
+          de pâte, un peu rugueuse mais homogène. Ce n’est pas grave si la pâte n’est pas encore parfaitement lisse.  
+        </li>
+
+        <li>
+          <strong>Ajouter le sel et pétrir.</strong><br>
+          Quand toute la farine est absorbée, ajouter le <strong>sel</strong>.  
+          Pétrir <strong>10–12 minutes</strong> : pousser la pâte avec la paume, la replier sur elle-même, la tourner,  
+          et recommencer. Au robot, travailler en vitesse lente pour ne pas chauffer la pâte, jusqu’à ce qu’elle devienne  
+          plus lisse, souple et qu’elle se détache des parois.  
+          <br><br>
+          La pâte doit être <strong>élastique</strong>, douce au toucher, sans être trop collante.
+        </li>
+
+        <li>
+          <strong>Première phase de repos.</strong><br>
+          Former une boule, la déposer dans un saladier légèrement huilé, couvrir d’un linge ou d’un film.  
+          Laisser reposer à température ambiante environ <strong>30–40 minutes</strong>, le temps qu’elle se détende un peu.  
+        </li>
+
+        <li>
+          <strong>Diviser la pâte en pâtons.</strong><br>
+          Renverser délicatement la pâte sur le plan de travail légèrement fariné.  
+          Diviser en <strong>4 morceaux d’environ 250 g</strong> chacun.  
+          Pour chaque morceau, rabattre les bords vers le centre, puis le rouler sous la paume pour former une boule bien tendue.  
+          <br><br>
+          Déposer les boules dans un bac légèrement fariné ou huilé, en les espaçant suffisamment,  
+          puis couvrir et laisser fermenter à température ambiante pendant <strong>8 à 12 heures</strong>,  
+          ou au frais si la fermentation doit être plus longue (jusqu’à 24 heures).
+        </li>
+
+        <li>
+          <strong>Préparer la farce à la ricotta et au salame.</strong><br>
+          Placer la <strong>ricotta</strong> dans un bol. La travailler à la cuillère ou au fouet pour la lisser,  
+          de manière à obtenir une texture crémeuse, sans grumeaux.  
+          <br><br>
+          Ajouter les dés de <strong>provola</strong> ou de caciocavallo, les cubes de <strong>salame</strong>,  
+          un peu de <strong>poivre noir</strong> fraîchement moulu et, si tu le souhaites, une cuillère de <strong>parmigiano</strong>.  
+          Mélanger délicatement.  
+          <br><br>
+          Si tu choisis la version rouge, ajouter <strong>2–3 c.à.s de sauce tomate bien réduite</strong> à la farce  
+          (juste assez pour parfumer, sans la rendre liquide).  
+          Terminer avec un filet d’<strong>huile d’olive</strong>. Goûter et ajuster en sel si nécessaire  
+          (le fromage et le salame sont déjà salés).
+        </li>
+
+        <li>
+          <strong>Préchauffer le four.</strong><br>
+          Placer une pierre à pizza ou une plaque au niveau inférieur ou central du four.  
+          Préchauffer le four à la température la plus élevée possible, idéalement <strong>270–300°C</strong>.  
+          Laisser bien chauffer au moins <strong>30 minutes</strong> pour que la pierre ou la plaque soit brûlante.
+        </li>
+
+        <li>
+          <strong>Étaler les pâtons comme pour une pizza.</strong><br>
+          Sur un plan de travail légèrement fariné, prendre un pâton et le déposer devant toi.  
+          Avec le bout des doigts, commencer à l’aplatir délicatement en poussant l’air vers les bords,  
+          comme pour la pizza napolitaine.  
+          <br><br>
+          Étaler jusqu’à obtenir un disque d’environ <strong>22–25 cm</strong> de diamètre,  
+          avec un centre plus fin et un bord légèrement plus épais.  
+          Ne pas utiliser de rouleau à pâtisserie pour ne pas chasser tout l’air.
+        </li>
+
+        <li>
+          <strong>Garnir le calzone.</strong><br>
+          Disposer une portion de farce sur la moitié inférieure du disque, en laissant une bordure libre tout autour  
+          (1,5–2 cm). Ne pas trop charger : une bonne cuillerée généreuse suffit.  
+          <br><br>
+          Si tu souhaites une touche de tomate à l’intérieur, ajouter une petite cuillère de sauce sur la farce,  
+          sans exagérer pour éviter que le calzone ne perce à la cuisson.
+        </li>
+
+        <li>
+          <strong>Fermer et sceller le calzone.</strong><br>
+          Replier la moitié supérieure du disque sur la farce pour former une demi-lune.  
+          Presser avec les doigts tout le long du bord pour souder la pâte.  
+          <br><br>
+          Pour renforcer la fermeture, tu peux replier le bord vers l’intérieur en formant un petit cordon de pâte,  
+          ou bien pincer la bordure par petites sections.  
+          L’important est qu’il n’y ait pas de trous ni d’endroits mal soudés, pour éviter les fuites à la cuisson.
+        </li>
+
+        <li>
+          <strong>Cuisson au four.</strong><br>
+          Si tu utilises une pierre à pizza, fariner légèrement une pelle à pizza, déposer le calzone dessus,  
+          puis le glisser sur la pierre brûlante.  
+          Sinon, déposer le calzone sur une plaque légèrement huilée.  
+          <br><br>
+          Enfourner dans le four bien chaud.  
+          Cuire pendant environ <strong>5–7 minutes</strong>, selon la puissance du four,  
+          jusqu’à ce que le calzone soit bien gonflé, avec des taches légèrement dorées sur la surface.  
+          <br><br>
+          Si tu le souhaites, tu peux ajouter un petit filet de <strong>sauce tomate</strong> sur le dessus  
+          et une pincée de <strong>parmigiano</strong> dans les dernières minutes de cuisson,  
+          pour une version “rouge” légèrement gratinée.
+        </li>
+
+        <li>
+          <strong>Repos et service.</strong><br>
+          À la sortie du four, laisser reposer le calzone <strong>2–3 minutes</strong>.  
+          La farce sera très chaude à l’intérieur : ce court repos permet de stabiliser la texture et de ne pas se brûler.  
+          <br><br>
+          Arroser d’un petit filet d’<strong>huile d’olive crue</strong>, éventuellement ajouter une feuille de basilic frais  
+          et servir immédiatement, entier ou coupé en deux pour laisser apparaître la farce fondante.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES : CALZONE FRITTO -->
+    <section class="preparation variante">
+      <h2>🔁 Variante détaillée — Calzone Fritto (Pizza Fritta Napoletana)</h2>
+
+      <p>
+        Le <strong>Calzone Fritto</strong>, ou <strong>Pizza Fritta</strong>, est une version encore plus ancienne et très populaire à Naples.  
+        La pâte et la farce sont pratiquement les mêmes que pour le calzone au four,  
+        mais le mode de cuisson change tout : la pâte gonfle comme un petit coussin,  
+        reste très moelleuse dedans et légèrement croustillante dehors.
+      </p>
+
+      <h3>1️⃣ Préparation de la pâte et de la farce (identiques)</h3>
+      <ul>
+        <li>Utiliser la même <strong>pâte napolitaine</strong> et la même <strong>farce ricotta–provola–salame</strong>.</li>
+        <li>Former les disques et garnir comme pour le calzone au four.</li>
+        <li>Fermer soigneusement le calzone, en insistant encore plus sur la soudure des bords :  
+            en friture, une petite fuite peut vite faire sortir la farce dans l’huile.</li>
+      </ul>
+
+      <h3>2️⃣ Préparer l’huile de friture</h3>
+      <ul>
+        <li>Verser l’<strong>huile de friture</strong> dans une grande casserole ou une friteuse.</li>
+        <li>Chauffer jusqu’à environ <strong>175–180°C</strong>.  
+            Si tu n’as pas de thermomètre, une petite miette de pâte plongée doit se mettre à frire doucement  
+            et remonter en surface en quelques secondes, sans brûler immédiatement.</li>
+      </ul>
+
+      <h3>3️⃣ Frire le calzone</h3>
+      <ul>
+        <li>Plonger délicatement un calzone à la fois dans l’huile chaude, en le déposant toujours <strong>loin de toi</strong>,  
+            pour éviter les projections.</li>
+        <li>Cuire environ <strong>2–3 minutes</strong> de chaque côté, en le retournant avec une écumoire,  
+            jusqu’à ce qu’il <strong>gonfle bien</strong> et prenne une <strong>belle couleur dorée</strong>.</li>
+        <li>Ne pas trop baisser la température de l’huile : si elle est trop froide, la pâte absorbe beaucoup d’huile ;  
+            si elle est trop chaude, elle colore trop vite sans cuire à cœur.</li>
+      </ul>
+
+      <h3>4️⃣ Égoutter et servir</h3>
+      <ul>
+        <li>Sortir le calzone frit avec l’écumoire et le déposer sur du papier absorbant.</li>
+        <li>Le laisser reposer 1–2 minutes pour que la vapeur finisse de cuire doucement l’intérieur.</li>
+        <li>Servir bien chaud, parfois accompagné d’un peu de <strong>sauce tomate simple</strong> (tomate, sel, basilic)  
+            à côté ou dessus, selon la tradition.</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour éviter que le calzone ne perce, veille à ce que la <strong>farce soit bien égouttée</strong>  
+        (ricotta pas trop humide, sauce tomate bien réduite) et à ce que la <strong>soudure des bords</strong> soit nette.  
+        Pour la friture, ne surcharge jamais le calzone en sauce : mieux vaut en ajouter un peu à côté au moment de servir.  
+        Et que ce soit au four ou à la friture, un <strong>court repos</strong> avant de croquer dedans permet à la farce  
+        de se stabiliser et aux saveurs de se développer.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Le <strong>Calzone Napoletano</strong> et la <strong>Pizza Fritta</strong> sont nés dans les rues de Naples,  
+        comme nourriture populaire et nourrissante. Pendant les périodes difficiles,  
+        la friture permettait de cuire la pâte sans four à bois, et de garnir avec ce qu’on avait :  
+        ricotta, fromage, un peu de salame ou de légumes.  
+        Aujourd’hui encore, ce sont des emblèmes de la ville, servis dans les pizzerie historiques et les friggitorie,  
+        toujours brûlants, simples, et incroyablement généreux.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Calzone napolitain au four & pizza fritta.</p>
+</footer>
+</body>
+</html>

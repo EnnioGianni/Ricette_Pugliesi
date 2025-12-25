@@ -1,0 +1,433 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carciofi alla “Cacioru e Oliu” — Sapori di Puglia</title>
+  <meta name="description" content="Carciofi alla “Cacioru e Oliu” : artichauts violets crus tranchés très finement, assaisonnés avec pecorino affiné et huile d’olive du Salento. Version ancienne, ultra détaillée, avec variantes traditionnelles des campagnes salentines.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Antipasti/Images/carciofi-cacioru-e-oliu.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom (standard Sapori di Puglia) -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+
+        <!-- Bouton imprimante -->
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+
+        <li><a href="/index.html">Accueil</a></li>
+
+        <li>
+          <button class="button secondary" data-toggle-theme>🌓</button>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🌿 Carciofi alla “Cacioru e Oliu”</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Antipasti/Images/carciofi-cacioru-e-oliu.png"
+           alt="Fine salade d’artichauts violets crus avec pecorino râpé et huile d’olive, servie dans une assiette rustique"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement des Carciofi alla Cacioru e Oliu">
+    </div>
+
+    <p class="intro">
+      Les <strong>Carciofi alla “Cacioru e Oliu”</strong> sont un <strong>antipasto cru très ancien</strong> du Salento intérieur.  
+      Au printemps, lorsque les petits <strong>artichauts violets</strong> sont jeunes et tendres, on les nettoie avec soin,  
+      on les tranche <strong>très finement</strong> puis on les assaisonne simplement avec du <strong>pecorino affiné</strong>  
+      et beaucoup d’<strong>huile d’olive extravierge</strong>.  
+      C’est une préparation de campagne, directe, sincère, qu’on ne voit presque plus dans les trattorie,  
+      mais qui reste un des gestes les plus élégants de la cuisine pauvre salentine.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>35–40 min</strong> |
+        🧊 Repos : <strong>10–20 min</strong> (facultatif) |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Moyenne (nettoyage minutieux des artichauts)</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Artichauts</h3>
+      <ul>
+        <li>6 à 8 <strong>petits artichauts violets</strong> très jeunes (carciofini)</li>
+        <li>1 <strong>citron</strong> (pour l’eau acidulée)</li>
+      </ul>
+
+      <h3>Assaisonnement “Cacioru e Oliu”</h3>
+      <ul>
+        <li>4 à 6 c.à.s d’<strong>huile d’olive extravierge</strong> du Salento</li>
+        <li>4 à 6 c.à.s de <strong>pecorino très affiné</strong>, râpé fin (pecorino romano ou canestrato pugliese)</li>
+        <li>1 petite pincée de <strong>sel fin</strong> (attention, le fromage est déjà salé)</li>
+        <li>(Facultatif) un peu de <strong>poivre noir</strong> fraîchement moulu</li>
+      </ul>
+
+      <h3>Pour les variantes</h3>
+      <ul>
+        <li>1 petite gousse d’<strong>ail</strong> (pour la version avec ail & persil)</li>
+        <li>2 c.à.s de <strong>persil plat</strong> finement haché (variante Cutrofiano / Supersano)</li>
+        <li>Quelques feuilles de <strong>mentuccia</strong> (menthe sauvage) hachée finement (variante Tricase / Alessano)</li>
+        <li>1 pincée de <strong>piment sec émietté</strong> (variante piccante)</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION ULTRA DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation extrêmement détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer l’eau citronnée.</strong><br>
+          Remplir un grand saladier d’environ 1 litre d’eau froide.  
+          Presser le <strong>citron</strong> dedans et ajouter aussi la moitié du citron pressé, coupé en morceaux, dans l’eau.  
+          <br><br>
+          Mélanger rapidement. Cette eau acidulée va servir à accueillir les artichauts dès qu’ils seront coupés,  
+          pour éviter qu’ils ne noircissent au contact de l’air.  
+          C’est un geste simple, mais indispensable pour garder une couleur claire et appétissante.
+        </li>
+
+        <li>
+          <strong>Choisir et vérifier les artichauts.</strong><br>
+          Les <strong>carciofini</strong> utilisés pour cette recette doivent être très jeunes&nbsp;:  
+          petit calibre, feuilles violettes serrées, presque pas de foin à l’intérieur.  
+          <br><br>
+          Quand tu plies une feuille, elle doit casser net avec un bruit sec.  
+          Ce signe indique que le cœur sera tendre et qu’on pourra manger l’artichaut cru sans fibre dure ni amertume excessive.
+        </li>
+
+        <li>
+          <strong>Nettoyer les artichauts — première étape.</strong><br>
+          Travailler un artichaut à la fois, en gardant les autres en attente.  
+          Avec un couteau, couper la queue en laissant 3–4 cm de tige&nbsp;: la tige, une fois pelée, est délicieuse.  
+          <br><br>
+          Retirer les premières feuilles extérieures, celles qui sont plus épaisses, dures et piquantes,  
+          jusqu’à atteindre des feuilles plus claires, plus tendres, plus fines au toucher.
+        </li>
+
+        <li>
+          <strong>Nettoyer les artichauts — deuxième étape (tête et tige).</strong><br>
+          Couper la partie supérieure de l’artichaut (la pointe), qui contient le plus de parties dures,  
+          en retirant environ le tiers supérieur si nécessaire.  
+          <br><br>
+          Peler ensuite la tige avec un couteau ou un épluche-légumes, pour enlever la partie fibreuse et laisser apparaître  
+          un cylindre plus clair, tendre et croquant.  
+          <br><br>
+          À ce stade, l’artichaut doit être compact, rond, avec des feuilles déjà adoucies visuellement.
+        </li>
+
+        <li>
+          <strong>Vérifier le cœur et préparer pour la découpe.</strong><br>
+          Selon la variété, il peut y avoir un peu de foin au centre.  
+          Si c’est le cas, couper l’artichaut en deux dans le sens de la hauteur et vérifier le cœur&nbsp;:  
+          si un duvet apparaît, l’enlever délicatement avec la pointe du couteau.  
+          <br><br>
+          S’il n’y a presque pas de foin (ce qui est idéal), tu peux garder l’artichaut entier pour la découpe en lamelles.
+        </li>
+
+        <li>
+          <strong>Trancher les artichauts très finement.</strong><br>
+          Avec un couteau bien aiguisé, couper l’artichaut en <strong>lamelles fines</strong>, presque translucides,  
+          en incluant le cœur et la tige pelée.  
+          L’épaisseur idéale est d’environ <strong>3–4 mm</strong>.  
+          <br><br>
+          Chaque tranche doit montrer à la fois les feuilles et le cœur, comme un petit éventail végétal.  
+          Plus les tranches sont fines, plus l’artichaut sera agréable à manger cru,  
+          et plus l’assaisonnement “cacioru e oliu” se répartira bien.
+        </li>
+
+        <li>
+          <strong>Plonger immédiatement dans l’eau citronnée.</strong><br>
+          Dès que quelques tranches sont prêtes, les faire glisser dans le saladier d’<strong>eau citronnée</strong>.  
+          <br><br>
+          Ce contact immédiat avec l’eau acidulée évite l’oxydation (le noircissement rapide),  
+          et commence déjà à adoucir légèrement le goût du légume.  
+          Répéter avec tous les artichauts, en les ajoutant au fur et à mesure dans le saladier.
+        </li>
+
+        <li>
+          <strong>Égoutter soigneusement les artichauts.</strong><br>
+          Lorsque tous les artichauts sont coupés, laisser reposer 5 minutes dans l’eau citronnée,  
+          puis les verser dans une passoire.  
+          Les laisser égoutter quelques instants, puis les tamponner délicatement avec un torchon propre ou du papier  
+          absorbant pour retirer l’excès d’eau.  
+          <br><br>
+          Cette étape est importante&nbsp;: si les lamelles restent trop mouillées, l’huile d’olive adhèrera moins bien  
+          et l’assaisonnement sera dilué.
+        </li>
+
+        <li>
+          <strong>Transférer dans un saladier et assaisonner.</strong><br>
+          Mettre les lamelles d’artichauts dans un grand saladier.  
+          Verser par-dessus <strong>4–6 c.à.s d’huile d’olive extravierge</strong>,  
+          en arrosant largement pour que toutes les tranches soient légèrement enrobées.  
+          <br><br>
+          Ajouter une petite pincée de <strong>sel</strong> (avec prudence, le pecorino est bien salé)  
+          et, si tu aimes, un peu de <strong>poivre noir fraîchement moulu</strong>.
+        </li>
+
+        <li>
+          <strong>Ajouter le “cacioru” : le pecorino affiné.</strong><br>
+          Râper le <strong>pecorino affiné</strong> très finement (texture presque poudreuse)  
+          et en saupoudrer une première couche généreuse sur les artichauts.  
+          <br><br>
+          Mélanger délicatement avec les mains ou une grande cuillère,  
+          de manière à ce que le fromage se répartisse partout, en adhérant aux lamelles légèrement huilées.  
+          Ajouter encore un peu de pecorino si nécessaire&nbsp;: on doit clairement le voir entre les tranches,  
+          sans pour autant former une couche compacte.
+        </li>
+
+        <li>
+          <strong>Mélanger et goûter pour ajuster l’assaisonnement.</strong><br>
+          Après ce premier mélange, goûter une lamelle&nbsp;:  
+          tu dois sentir le croquant de l’artichaut, la présence nette de l’huile,  
+          et le sel provenant surtout du pecorino.  
+          <br><br>
+          Ajuster&nbsp;:  
+          – un peu d’<strong>huile</strong> si c’est trop sec,  
+          – une pincée de <strong>sel</strong> si c’est trop doux,  
+          – un peu de <strong>pecorino</strong> si tu veux un goût plus marqué.  
+        </li>
+
+        <li>
+          <strong>Laisser reposer avant de servir.</strong><br>
+          Couvrir le saladier (ou transférer dans un plat de service)  
+          et laisser reposer à température ambiante environ <strong>10–20 minutes</strong>.  
+          <br><br>
+          Ce court repos permet à l’huile de pénétrer légèrement,  
+          de détendre un peu les fibres de l’artichaut cru,  
+          et de marier le parfum du fromage avec celui du légume et de l’huile.  
+          L’artichaut doit rester croquant mais plus “rond” en bouche.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES TRES DETAILLEES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes traditionnelles des campagnes salentines</h2>
+
+      <h3>1️⃣ Variante “Cutrofiano–Supersano” — Ail & Persil</h3>
+      <p>
+        Dans certaines zones du Salento central, on ajoute une touche d’ail cru et de persil pour renforcer le caractère du plat.
+      </p>
+      <ul>
+        <li>Hacher très finement une <strong>demi gousse d’ail</strong> (il ne doit pas dominer).</li>
+        <li>Ajouter 1–2 c.à.s de <strong>persil plat</strong> finement haché.</li>
+        <li>Mélanger avec l’huile et le pecorino, comme dans la recette de base.</li>
+        <li>Cette version est plus parfumée, légèrement plus piquante, idéale avec du pain rustique grillé.</li>
+      </ul>
+
+      <h3>2️⃣ Variante “Tricase–Alessano” — Mentuccia (menthe sauvage)</h3>
+      <p>
+        Dans les zones plus proches de la côte sud, certains ajoutent de la mentuccia pour un parfum herbacé très délicat.
+      </p>
+      <ul>
+        <li>Remplacer le persil par quelques feuilles de <strong>mentuccia</strong> (menthe sauvage) hachées très finement.</li>
+        <li>Ne pas en mettre trop&nbsp;: il faut que la menthe soit une nuance, pas le parfum principal.</li>
+        <li>Le résultat est très frais, presque printanier, tout en restant rustique.</li>
+      </ul>
+
+      <h3>3️⃣ Variante “Povera” — Sans pecorino</h3>
+      <p>
+        Quand le fromage manquait ou était trop cher, on préparait les artichauts presque uniquement avec huile et sel.
+      </p>
+      <ul>
+        <li>Omettre complètement le pecorino.</li>
+        <li>Assaisonner simplement avec <strong>huile d’olive</strong>, <strong>sel</strong> et éventuellement un peu de <strong>poivre</strong>.</li>
+        <li>Les artichauts deviennent alors une sorte de salade crue très simple, servie comme contorno ou antipasto léger.</li>
+      </ul>
+
+      <h3>4️⃣ Variante “Piccante” — Avec peperoncino</h3>
+      <p>
+        Dans les familles qui aiment le piquant, on ajoute du piment sec, tout en gardant la base pecorino + huile.
+      </p>
+      <ul>
+        <li>Ajouter une petite pincée de <strong>piment sec émietté</strong> (peperoncino) dans l’huile avant de l’ajouter aux artichauts.</li>
+        <li>Bien mélanger pour répartir la chaleur du piment.</li>
+        <li>Cette version se marie très bien avec des charcuteries et des fromages sur un plateau de mezze.</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour que les <strong>Carciofi alla “Cacioru e Oliu”</strong> restent agréables à manger, il est essentiel que les artichauts soient
+        <strong>très frais</strong> et <strong>très jeunes</strong>. Si tu as un doute sur leur tendreté,  
+        n’hésite pas à croquer une lamelle avant d’assaisonner&nbsp;: elle doit être croquante, sans fibre dure au milieu,  
+        et avec une amertume présente mais agréable.  
+        <br><br>
+        Si l’amertume te semble trop forte, tu peux prolonger très légèrement le passage dans l’eau citronnée  
+        ou ajouter une goutte de vinaigre de vin blanc dans l’assaisonnement, pour arrondir le goût avec l’acidité.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les <strong>Carciofi alla “Cacioru e Oliu”</strong> appartiennent à cette cuisine paysanne où l’on faisait beaucoup avec très peu.  
+        Au printemps, les artichauts violets étaient abondants dans les champs, et le fromage affiné, conservé longtemps,  
+        représentait une réserve de saveur précieuse.  
+        <br><br>
+        En associant simplement <strong>artichaut cru</strong>, <strong>fromage râpé</strong> et <strong>huile d’olive</strong>,  
+        les familles du Salento ont créé un antipasto d’une grande finesse,  
+        qui conserve toute la personnalité du légume et la force des produits de la ferme.  
+        Aujourd’hui, ce plat apparaît rarement sur les cartes, mais il reste vivant dans les maisons,  
+        transmis de génération en génération, au moment des premiers artichauts de la saison.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Antipasto traditionnel du Salento.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

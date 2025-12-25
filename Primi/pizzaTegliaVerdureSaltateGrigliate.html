@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pizza in Teglia con Verdure Saltate e Grigliate — Sapori di Puglia</title>
+  <meta name="description" content="Pizza in teglia romaine avec légumes sautés et grillés : aubergines, courgettes, poivrons, tomates, oignons et pommes de terre, cuits comme chez les pizzaioli romains. Recette ultra détaillée, avec pâte à haute hydratation et méthode complète pour des légumes parfaits sur pizza.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Primi/Images/pizza-teglia-verdure-saltate-grigliate.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+
+        <!-- Bouton imprimante -->
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+
+        <li><a href="/index.html">Accueil</a></li>
+
+        <li>
+          <button class="button secondary" data-toggle-theme>🌓</button>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍕 Pizza in Teglia con Verdure Saltate e Grigliate</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Primi/Images/pizza-teglia-verdure-saltate-grigliate.png"
+           alt="Pizza in teglia rectangulaire garnie de légumes sautés et grillés, servie sur une plaque rustique"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement de la pizza in teglia con verdure saltate e grigliate">
+    </div>
+
+    <p class="intro">
+      Cette <strong>Pizza in Teglia con Verdure Saltate e Grigliate</strong> est une pizza romaine en plaque,  
+      généreuse et très parfumée, garnie d’<strong>aubergines, courgettes, poivrons, tomates, oignons et pommes de terre</strong>.  
+      Les légumes sont d’abord <strong>sautés à la poêle avec l’oignon</strong>, puis <strong>égouttés et passés au four</strong> pour les sécher  
+      et les griller légèrement avant d’être posés sur la pâte.  
+      C’est exactement la méthode des <strong>pizzaioli al taglio</strong> : une base légère, très alvéolée,  
+      et des légumes bien intégrés, jamais aqueux, toujours savoureux.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Fermentation : <strong>8–24 h</strong> (pâte) |
+        🔥 Cuisson : <strong>15–20 min légumes + 8–10 min pizza</strong> |
+        👥 Pour <strong>4–6 parts</strong> (plaque 30×40 cm) |
+        ⚙️ Difficulté : <strong>Élevée (pâte hydratée + légumes)</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour la pâte à pizza in teglia (30×40 cm)</h3>
+      <ul>
+        <li>500 g de <strong>farine forte</strong> (type Manitoba ou W 300–340)</li>
+        <li>400 g d’<strong>eau froide</strong> (80 % d’hydratation)</li>
+        <li>12 g de <strong>sel fin</strong></li>
+        <li>2 g de <strong>levure boulangère sèche</strong> (ou 6 g de levure fraîche)</li>
+        <li>20 g d’<strong>huile d’olive extravierge</strong> (pour la pâte)</li>
+        <li>Huile d’olive extravierge <strong>pour la plaque</strong> et les mains</li>
+      </ul>
+
+      <h3>Pour les légumes sautés et grillés</h3>
+      <ul>
+        <li>1 <strong>aubergine</strong> moyenne</li>
+        <li>1 <strong>courgette</strong> moyenne</li>
+        <li>1 <strong>poivron</strong> (rouge ou jaune de préférence)</li>
+        <li>10–12 <strong>tomates cerises</strong></li>
+        <li>1 <strong>oignon</strong> moyen (blanc ou doré)</li>
+        <li>1 <strong>pomme de terre</strong> (chair ferme ou mixte)</li>
+        <li>4–5 c.à.s d’<strong>huile d’olive extravierge</strong> (pour la poêle)</li>
+        <li>1 petite gousse d’<strong>ail</strong> (optionnelle)</li>
+        <li>Sel fin et poivre noir</li>
+        <li>Un peu d’<strong>origan sec</strong> ou de romarin frais</li>
+      </ul>
+
+      <h3>Pour finir la pizza</h3>
+      <ul>
+        <li>Un filet d’<strong>huile d’olive extravierge crue</strong></li>
+        <li>Quelques feuilles de <strong>basilic frais</strong> ou de persil plat (optionnel)</li>
+        <li>(Facultatif) un peu de <strong>ricotta salata</strong> ou de pecorino râpé</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION TRES DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation ultra détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer la pâte (autolyse facultative, mais conseillée).</strong><br>
+          Verser la farine dans un grand saladier ou la cuve d’un robot.  
+          Ajouter environ <strong>300 g d’eau</strong> (sur les 400 g) et mélanger juste assez pour hydrater la farine,  
+          sans chercher à pétrir parfaitement.  
+          Tu obtiens une masse un peu irrégulière, légèrement collante.  
+          <br><br>
+          Couvrir avec un linge ou du film et laisser reposer <strong>20–30 minutes</strong>.  
+          Cette autolyse va rendre la pâte plus souple et plus extensible,  
+          ce qui est idéal pour une pizza en teglia bien alvéolée.
+        </li>
+
+        <li>
+          <strong>Ajouter la levure et le reste de l’eau.</strong><br>
+          Dans un petit récipient, dissoudre la <strong>levure sèche</strong> (ou fraîche) dans une partie des <strong>100 g d’eau</strong> restants.  
+          Laisser reposer 5 minutes pour l’activer.  
+          <br><br>
+          Verser cette eau levurée sur la pâte en plusieurs fois, en mélangeant entre chaque ajout.  
+          La pâte sera très hydratée et collante&nbsp;: c’est normal pour une pizza en teglia.  
+        </li>
+
+        <li>
+          <strong>Incorporer le sel puis l’huile.</strong><br>
+          Ajouter les <strong>12 g de sel</strong> et continuer à pétrir (à la main ou au robot, vitesse lente).  
+          Quand le sel est bien intégré, verser les <strong>20 g d’huile d’olive</strong> en filet,  
+          en pétrissant encore quelques minutes jusqu’à ce que l’huile soit absorbée et que la pâte devienne lisse.  
+          <br><br>
+          À ce stade, la pâte doit être&nbsp;:  
+          – toujours souple et un peu collante  
+          – mais élastique et brillante.
+        </li>
+
+        <li>
+          <strong>Faire les rabats (stretch & fold) pour donner de la force à la pâte.</strong><br>
+          Huiler légèrement un bac ou un grand saladier.  
+          Déposer la pâte, couvrir, laisser reposer <strong>15 minutes</strong>.  
+          <br><br>
+          Puis effectuer un premier tour de <strong>rabats</strong>&nbsp;:  
+          saisir un côté de la pâte, l’étirer doucement vers le haut, puis le replier vers le centre.  
+          Tourner le bac d’un quart de tour et répéter l’opération 3–4 fois,  
+          jusqu’à avoir replié tous les côtés.  
+          <br><br>
+          Répéter cette opération <strong>3 fois</strong> au total, espacées de 15–20 minutes.  
+          Tu verras la pâte gagner en tenue et en volume à chaque tour.
+        </li>
+
+        <li>
+          <strong>Repos en masse à température ambiante.</strong><br>
+          Après le dernier rabat, couvrir le bac et laisser reposer la pâte à température ambiante  
+          pendant environ <strong>1 heure</strong>, jusqu’à ce qu’elle commence à gonfler légèrement.  
+        </li>
+
+        <li>
+          <strong>Repos au réfrigérateur (fermentation lente).</strong><br>
+          Placer le bac au réfrigérateur pour une fermentation lente de <strong>8 à 24 heures</strong>.  
+          Plus le repos est long, plus la pâte développera des arômes,  
+          sera digeste et donnera une mie alvéolée.  
+        </li>
+
+        <li>
+          <strong>Sortir la pâte et la laisser revenir en température.</strong><br>
+          Sortir le bac du réfrigérateur environ <strong>1 à 2 heures</strong> avant l’étalage,  
+          afin que la pâte s’assouplisse.  
+          Huiler généreusement une plaque de <strong>30×40 cm</strong>.  
+          <br><br>
+          Renverser délicatement la pâte sur la plaque, en évitant de la dégazer brutalement&nbsp;:  
+          faire glisser la pâte avec l’aide des mains huilées pour ne pas casser les bulles d’air.
+        </li>
+
+        <li>
+          <strong>Commencer à étaler la pâte sur la plaque.</strong><br>
+          Avec les doigts huilés, appuyer délicatement du bout des doigts sur la pâte,  
+          du centre vers les bords, en la poussant progressivement pour qu’elle remplisse la plaque.  
+          <br><br>
+          Si la pâte résiste et se rétracte, la laisser reposer <strong>10 minutes</strong>,  
+          puis reprendre l’étalage.  
+          Le but est d’obtenir une base régulière, avec une épaisseur plus fine au centre  
+          et un peu plus de pâte sur les bords.
+        </li>
+
+        <li>
+          <strong>Préparer l’oignon et les légumes à la poêle (méthode “Gianni”).</strong><br>
+          Pendant que la pâte finit de se détendre dans la plaque, préparer les légumes.  
+          <br><br>
+          Éplucher l’oignon, le couper en fines lamelles.  
+          Dans une grande poêle, verser <strong>3 c.à.s d’huile d’olive</strong>.  
+          Ajouter l’oignon (et l’ail si tu l’utilises), cuire à feu doux <strong>10 minutes</strong>  
+          jusqu’à ce qu’il devienne tendre et légèrement doré, sans brûler.  
+          <br><br>
+          Pendant ce temps, laver et couper les légumes&nbsp;:  
+          – aubergine en dés ou en demi-rondelles  
+          – courgette en rondelles fines  
+          – poivron en lanières  
+          – tomates cerises en deux  
+          – pomme de terre en très fines rondelles (idéalement à la mandoline).
+        </li>
+
+        <li>
+          <strong>Sauter tous les légumes ensemble.</strong><br>
+          Ajouter les légumes coupés dans la poêle avec l’oignon,  
+          saler légèrement, poivrer, ajouter un peu d’origan ou de romarin.  
+          Cuire à feu moyen en remuant souvent pendant <strong>12–15 minutes</strong>,  
+          jusqu’à ce que&nbsp;:  
+          – les légumes aient rendu une bonne partie de leur eau  
+          – commencent à colorer  
+          – soient tendres mais encore entiers.  
+          <br><br>
+          L’objectif n’est pas de les cuire entièrement comme une ratatouille,  
+          mais de les pré-cuire pour enlever l’excès d’eau et concentrer les saveurs.
+        </li>
+
+        <li>
+          <strong>Égoutter les légumes et les sécher au four.</strong><br>
+          Verser les légumes sautés dans une passoire ou un chinois,  
+          laisser égoutter quelques minutes pour éliminer le jus de cuisson.  
+          <br><br>
+          Préchauffer le four à <strong>200–210°C</strong>.  
+          Étaler les légumes en une couche relativement fine sur une plaque recouverte de papier cuisson.  
+          Enfourner pour <strong>15 minutes</strong> environ&nbsp;:  
+          ils vont légèrement griller, sécher davantage et devenir parfaits pour la pizza.  
+          <br><br>
+          Sortir la plaque du four et laisser tiédir les légumes.  
+        </li>
+
+        <li>
+          <strong>Pré-cuisson éventuelle de la base (optionnelle).</strong><br>
+          Si tu veux une base très croustillante, tu peux pré-cuire la pâte seule.  
+          Préchauffer le four à <strong>250–260°C</strong>.  
+          Piquer légèrement la surface de la pâte avec les doigts (pas avec une fourchette,  
+          pour ne pas tout percer), puis enfourner la plaque <strong>5–6 minutes</strong>  
+          jusqu’à ce que la surface commence juste à sécher.  
+          <br><br>
+          Sortir la plaque et laisser tiédir quelques minutes avant de garnir.  
+          Cette étape est facultative mais utile si tu aimes les pizzas bien croustillantes dessous.
+        </li>
+
+        <li>
+          <strong>Garnir la pizza avec les légumes sautés et grillés.</strong><br>
+          Verser un très léger filet d’<strong>huile d’olive</strong> sur la pâte.  
+          Répartir les légumes refroidis sur toute la surface de la pizza,  
+          en essayant de garder une répartition harmonieuse des couleurs et des textures.  
+          <br><br>
+          Tu peux ajouter un peu d’origan sec en surface.  
+          Si tu veux ajouter un peu de fromage (ricotta salata, pecorino),  
+          attends plutôt la fin de la cuisson ou les dernières minutes.
+        </li>
+
+        <li>
+          <strong>Cuisson finale de la pizza.</strong><br>
+          Remonter la température du four à <strong>250–260°C</strong>.  
+          Enfourner la plaque sur le niveau inférieur ou au centre du four,  
+          et cuire environ <strong>8–10 minutes</strong>,  
+          jusqu’à ce que les bords soient bien dorés,  
+          que le dessous soit croustillant et que les légumes soient bien grillés sur le dessus.  
+          <br><br>
+          Sur les dernières minutes, tu peux passer la plaque un cran plus haut  
+          pour accentuer la coloration des légumes, en surveillant pour éviter de brûler.
+        </li>
+
+        <li>
+          <strong>Finition et service.</strong><br>
+          À la sortie du four, arroser la pizza d’un filet d’<strong>huile d’olive crue</strong>.  
+          Ajouter quelques feuilles de <strong>basilic frais</strong> ou de persil plat.  
+          Si tu le souhaites, râper un peu de <strong>ricotta salata</strong> ou de pecorino par-dessus.  
+          <br><br>
+          Laisser reposer 2–3 minutes, puis découper en parts rectangulaires,  
+          comme dans les pizzerie al taglio de Rome.  
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes autour des légumes</h2>
+
+      <h3>1️⃣ Version “Melanzane & Ricotta Salata”</h3>
+      <p>
+        Une variante très méditerranéenne, centrée sur l’aubergine.
+      </p>
+      <ul>
+        <li>Utiliser davantage d’<strong>aubergines</strong> que les autres légumes.</li>
+        <li>Ajouter à la sortie du four de la <strong>ricotta salata râpée</strong> sur toute la surface.</li>
+        <li>Terminer avec un peu de <strong>basilic frais</strong>.</li>
+      </ul>
+
+      <h3>2️⃣ Version “Patate, Cipolla e Rosmarino”</h3>
+      <p>
+        Inspirée de la pizza bianca romaine, très simple et très parfumée.
+      </p>
+      <ul>
+        <li>Mettre surtout des <strong>pommes de terre très fines</strong> et des <strong>oignons</strong>.</li>
+        <li>Ajouter du <strong>romarin frais</strong> en petites aiguilles.</li>
+        <li>Pas de tomate, uniquement huile, sel, romarin et légumes.</li>
+      </ul>
+
+      <h3>3️⃣ Version “Verdure piccanti”</h3>
+      <p>
+        Pour une pizza aux légumes avec une touche plus vive.
+      </p>
+      <ul>
+        <li>Ajouter un peu de <strong>piment sec émietté</strong> dans la poêle lors du sautage des légumes.</li>
+        <li>Terminer avec un filet d’<strong>huile pimentée</strong> juste avant de servir.</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Si tu veux que la pizza reste légère malgré la quantité de légumes,  
+        garde toujours cette logique : <strong>poêle → égouttage → four → pizza</strong>.  
+        On enlève d’abord l’eau, puis on concentre le goût, ensuite seulement on garnit.  
+        C’est ce qui permet d’avoir une base croustillante dessous,  
+        une mie alvéolée dedans, et des légumes bien fondants mais jamais aqueux.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        La <strong>pizza in teglia alla romana</strong> est devenue un symbole de la street-food italienne moderne.  
+        Dans les pizzerie al taglio, on prépare souvent les légumes à part, en grandes plaques,  
+        puis on les utilise comme garniture sur la journée.  
+        Cette version avec <strong>verdure saltate e grigliate</strong> est une synthèse de la cuisine de Rome  
+        et de la cuisine de campagne&nbsp;: une pâte très travaillée, moderne,  
+        et des légumes traités comme dans une cuisine familiale généreuse.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Pizza in teglia aux légumes sautés et grillés.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cosce di Pollo alla Mare e Masseria — Sapori di Puglia</title>
+
+  <meta name="description"
+        content="Cosce di Pollo alla Mare e Masseria : cuisses de poulet rôties avec cœurs d’artichauts, olives et câpres, comme dans les masserie du Salento. Recette complète pour un secondo rustique et parfumé.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/zoom.css">
+  <link rel="icon" type="image/png" href="/Secondi/Images/cosce-pollo-mare-masseria.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+  <script defer src="/JS/zoom.js"></script>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <!-- Bouton imprimante -->
+        <li>
+          <button class="button secondary" onclick="window.print()" aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATERAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍗 Cosce di Pollo alla “Mare e Masseria”<br><small>avec cœurs d’artichauts, olives et câpres</small></h1>
+
+    <!-- IMAGE -->
+    <div class="image-zoom">
+      <img src="/Secondi/Images/cosce-pollo-mare-masseria.png"
+           alt="Cosce di Pollo alla Mare e Masseria, avec cœurs d’artichauts, olives et câpres, plat rustique du Salento"
+           class="zoomable signature-pp">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement des Cosce di Pollo alla Mare e Masseria">
+    </div>
+
+    <!-- INTRO -->
+    <p class="intro">
+      Les <strong>Cosce di Pollo alla “Mare e Masseria”</strong> sont un secondo
+      rustique du <strong>Salento</strong> : des cuisses de poulet rôties,
+      posées sur un lit de <strong>cœurs d’artichauts</strong>, d’<strong>olives</strong> et de
+      <strong>câpres</strong>, avec le parfum du <strong>citron</strong>, du <strong>vin blanc</strong> et des herbes.
+      Un plat simple, généreux, qui rappelle la cuisine des masserie entre
+      mer et campagne.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>20 min</strong> |
+        🔥 Cuisson : <strong>40–45 min</strong> |
+        👥 Pour : <strong>4 personnes</strong> |
+        🎚 Difficulté : <strong>Facile</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour le poulet et les artichauts</h3>
+      <ul>
+        <li>4 <strong>cuisses de poulet</strong> avec la peau</li>
+        <li>4 <strong>cœurs d’artichauts</strong> (frais préparés ou surgelés)</li>
+        <li>1 gros <strong>oignon</strong> doux</li>
+        <li>2 gousses d’<strong>ail</strong></li>
+        <li>80 g d’<strong>olives noires</strong> (type Cellina ou Leccino, ou autre)</li>
+        <li>1 c. à café de <strong>câpres</strong> dessalées</li>
+        <li>1 <strong>citron</strong> (zeste + un peu de jus)</li>
+        <li>1 verre de <strong>vin blanc</strong> sec</li>
+        <li>3 c. à soupe d’<strong>huile d’olive</strong></li>
+        <li>1 branche de <strong>romarin</strong></li>
+        <li><strong>Origan</strong> séché, sel, poivre noir</li>
+      </ul>
+
+      <p>
+        Les cœurs d’artichauts doivent rester en beaux morceaux : ils vont
+        absorber le jus du poulet et devenir très fondants, sans tomber en purée.
+      </p>
+    </section>
+
+    <!-- PREPARATION -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer les artichauts.</strong><br>
+          Si tu utilises des cœurs frais, les nettoyer, enlever les feuilles trop dures
+          et garder seulement le cœur. Les couper en deux ou en quatre selon la taille.
+          Les sécher avec du papier absorbant pour qu’ils dorent mieux en cuisson.
+        </li>
+
+        <li>
+          <strong>Assaisonner le poulet.</strong><br>
+          Saler et poivrer les cuisses de poulet des deux côtés.
+          Ajouter une pincée d’origan et masser avec 1 c. à soupe d’huile d’olive.
+          Laisser de côté pendant que tu prépares la base.
+        </li>
+
+        <li>
+          <strong>Colorer le poulet.</strong><br>
+          Chauffer une grande poêle ou une cocotte.
+          Déposer les cuisses côté peau et les faire dorer à feu moyen-vif,
+          jusqu’à obtenir une peau bien dorée et légèrement croustillante.
+          Retourner rapidement l’autre côté pour le saisir, puis réserver les cuisses
+          sur une assiette.
+        </li>
+
+        <li>
+          <strong>Préparer la base aromatique.</strong><br>
+          Dans la même poêle (sans la laver), ajouter l’oignon émincé
+          et les gousses d’ail légèrement écrasées.
+          Faire revenir 2–3 minutes à feu moyen.
+          Ajouter ensuite les cœurs d’artichauts, les olives noires et les câpres.
+          Mélanger et laisser dorer encore 3–4 minutes : les artichauts prennent
+          une légère coloration et les arômes se mélangent.
+        </li>
+
+        <li>
+          <strong>Déglacer au vin blanc.</strong><br>
+          Verser le verre de vin blanc dans la poêle.
+          Gratter légèrement le fond avec une cuillère en bois pour récupérer
+          les sucs du poulet qui se sont collés. Laisser réduire 1–2 minutes :
+          l’odeur d’alcool disparaît et il ne reste que le parfum.
+        </li>
+
+        <li>
+          <strong>Assembler en teglia.</strong><br>
+          Verser tout le contenu de la poêle (artichauts, oignons, olives, câpres,
+          jus au vin blanc) dans un plat à four.
+          Répartir en une couche uniforme.
+          Déposer par-dessus les cuisses de poulet, peau vers le haut.
+          Ajouter la branche de romarin, un peu de zeste de citron
+          et un filet d’huile d’olive.
+        </li>
+
+        <li>
+          <strong>Cuisson au four.</strong><br>
+          Enfourner dans un four préchauffé à <strong>190&nbsp;°C</strong>
+          pour environ <strong>40–45 minutes</strong>.
+          Pendant la cuisson, arroser les cuisses 1 ou 2 fois avec le jus
+          qui se forme au fond du plat.
+          Le poulet doit être bien doré et cuit à cœur, les artichauts tendres
+          mais encore en morceaux.
+        </li>
+
+        <li>
+          <strong>Finition au citron.</strong><br>
+          À la sortie du four, laisser reposer 5 minutes.
+          Ajouter quelques gouttes de jus de citron (vraiment peu, juste pour
+          réveiller le plat) et, si tu veux, une touche finale d’origan.
+          Servir chaque cuisse avec des artichauts, olives et un peu de jus
+          bien chaud.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes principales</h2>
+
+      <ul>
+        <li>
+          <strong>Version cardoncelli :</strong>
+          remplacer les cœurs d’artichauts par des champignons cardoncelli ou
+          d’autres champignons charnus, pour une version encore plus “terre”.
+        </li>
+        <li>
+          <strong>Version plus citronnée :</strong>
+          ajouter quelques rondelles de citron dans le plat avant cuisson
+          (en veillant à ne pas trop presser le jus pour ne pas acidifier).
+        </li>
+        <li>
+          <strong>Version avec pommes de terre :</strong>
+          ajouter des quartiers de pommes de terre dans le lit d’artichauts
+          pour obtenir un plat complet, comme dans les familles des masserie.
+        </li>
+      </ul>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Ce plat est inspiré de la cuisine des <strong>masserie</strong> du Salento :
+        on y retrouvait souvent le poulet, les artichauts, les olives et les
+        câpres, assemblés dans un même plat au four.
+        Les <em>Cosce di Pollo alla “Mare e Masseria”</em> réunissent ces éléments
+        simples pour créer un secondo parfumé, généreux et profondément
+        méditerranéen.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Cosce di Pollo alla Mare e Masseria.</p>
+</footer>
+
+</body>
+</html>

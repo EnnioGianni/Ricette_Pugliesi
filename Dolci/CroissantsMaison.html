@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Croissants Maison — Sapori di Puglia</title>
+  <meta name="description" content="Recette détaillée pour réaliser des croissants maison, avec une pâte feuilletée maison et un résultat délicieux.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/croissants.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+    <style>
+    body {
+      background: #fffaf4;
+      color: #3a2a1b;
+      font-family: 'Lora', serif;
+    }
+
+    img.recette-photo {
+      height:   550px;
+      width: 800px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform .3s ease;
+      display: block;
+      margin: 1.5rem auto;
+    }
+    img.recette-photo:hover {
+      transform: scale(1.02);
+    }
+
+    .recette-block {
+      background: #ffffffdd;
+      padding: 2rem 2.5rem;
+      border-radius: 14px;
+      max-width: 900px;
+      margin: 2rem auto;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    .note-culturelle {
+      background: #fff6ea;
+      border-left: 5px solid #d4a373;
+      padding: 1em 1.5em;
+      margin-top: 1.5em;
+      font-style: italic;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      line-height: 1.6;
+    }
+    .note-culturelle strong {
+      color: #b45f06;
+    }
+  </style>
+
+</head>
+
+<header class="menu-header"
+  style="
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.8rem 1rem;
+  "
+>
+
+  <a href="/index.html" class="back-home" style="white-space:nowrap;">
+    ← Accueil
+  </a>
+
+  <div class="brand"
+    style="
+      text-align:center;
+      flex:1;
+    "
+  >
+    <img src="/Images/SaporiDiPuglia.png"
+         alt="Logo Sapori di Puglia"
+         width="56"
+         height="56"
+         style="margin:0px 0 0 300px;">
+
+    <h1>Sapori di Puglia</h1>
+
+    <p class="subtitle" style="margin:0; font-size:1rem;">
+      Recette traditionnelle du bassin méditerranéen
+    </p>
+  </div>
+
+  <!-- Menu déroulant intégré -->
+  <details class="menu-dropdown" style="position:relative;">
+    <summary
+      style="
+        list-style:none;
+        cursor:pointer;
+        background:#d4a373;
+        color:#fff;
+        padding:0.5rem 1rem;
+        border-radius:8px;
+        font-weight:bold;
+        white-space:nowrap;
+        display:inline-block;
+        user-select:none;
+      "
+      aria-label="Ouvrir le menu des cartes"
+    >
+      Menus ▾
+    </summary>
+
+    <ul
+      style="
+        margin:0.5rem 0 0;
+        padding:0.25rem 0;
+        list-style:none;
+        background:#fff;
+        border:1px solid rgba(0,0,0,0.1);
+        border-radius:8px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.1);
+        position:absolute;
+        right:0;
+        min-width:220px;
+        z-index:999;
+      "
+      role="menu"
+    >
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuGargano.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Gargano</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuSalento.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Salento</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuBari.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Bari</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuLecce.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Lecce</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuFoggia.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Foggia</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuVegetarien.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Végétarien</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuPoisson.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Poisson</a>
+      </li>
+    </ul>
+  </details>
+
+</header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list>
+        <!-- Liste des recettes à afficher ici (menu dynamique) -->
+      </ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <h2>🥐 Croissants Maison</h2>
+      <img src="/Images/croissants.png" alt="Croissants Maison" class="recette-photo">
+
+      <p class="intro">
+        Les croissants maison, légers, croustillants et fondants, sont un délice incontournable pour le petit-déjeuner ou le goûter. Suivez cette recette simple et étape par étape pour les préparer à la maison !
+      </p>
+
+      <section class="infos">
+        <h2>Information</h2>
+        <p>⏱ Préparation : <strong>4 h</strong> &nbsp;|&nbsp; 👥 Pour <strong>6 personnes</strong> &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Moyenne</strong></p>
+      </section>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li class="ingredient">500 g de farine de blé</li>
+          <li class="ingredient">10 g de sel</li>
+          <li class="ingredient">50 g de sucre</li>
+          <li class="ingredient">20 g de levure fraîche</li>
+          <li class="ingredient">300 ml d'eau froide</li>
+          <li class="ingredient">250 g de beurre froid</li>
+          <li class="ingredient">1 jaune d'œuf (pour la dorure)</li>
+        </ul>
+      </section>
+
+      <!-- Etapes de la préparation -->
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+
+        <!-- Étape 1 -->
+        <div class="step">
+          <p class="step-description">
+            <strong>Étape 1 :</strong> Mélanger la farine, le sel et le sucre dans un grand bol. Ajouter la levure et l'eau froide. Mélanger jusqu’à obtention d’une pâte homogène. Pétrir pendant environ 10 minutes pour rendre la pâte lisse.
+          </p>
+        </div>
+
+        <!-- Étape 2 -->
+        <div class="step">
+          <p class="step-description">
+            <strong>Étape 2 :</strong> Formez une boule avec la pâte et laissez-la reposer 1 heure, couvert d’un film plastique. Pendant ce temps, aplatissez le beurre froid entre deux feuilles de papier sulfurisé pour obtenir un carré d’environ 20 cm.
+          </p>
+        </div>
+
+        <!-- Étape 3 -->
+        <div class="step">
+          <p class="step-description">
+            <strong>Étape 3 :</strong> Après le temps de repos, étalez la pâte en un rectangle et placez le beurre au centre. Pliez la pâte en trois, puis laissez reposer 30 minutes. Répétez cette étape deux fois pour obtenir plusieurs tours.
+          </p>
+        </div>
+
+        <!-- Étape 4 -->
+        <div class="step">
+          <p class="step-description">
+            <strong>Étape 4 :</strong> Étalez la pâte et découpez-la en triangles. Enroulez chaque triangle en partant de la base pour former des croissants. Disposez-les sur une plaque de cuisson et laissez-les lever pendant 1 heure.
+          </p>
+        </div>
+
+        <!-- Étape 5 -->
+        <div class="step">
+          <p class="step-description">
+            <strong>Étape 5 :</strong> Badigeonnez les croissants de jaune d'œuf pour les dorer. Enfournez à 180°C pendant 15–20 minutes, jusqu'à ce qu'ils soient dorés et bien croustillants.
+          </p>
+        </div>
+      </section>
+
+      <!-- Astuce -->
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>Pour un goût encore plus raffiné, vous pouvez ajouter une petite touche de sucre vanillé dans la pâte ou garnir les croissants de chocolat ou d’amandes avant de les rouler.</p>
+      </section>
+
+      <!-- Origine -->
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>Le croissant est une pâtisserie d’origine viennoise, popularisée en France. Aujourd’hui, il fait partie intégrante du petit-déjeuner français, apprécié dans le monde entier pour sa texture légère et feuilletée.</p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Bouton Remonter en haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <!-- Pied de page -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle des croissants.</p>
+  </footer>
+
+  <!-- Fallback minimal si /JS/app.js n’est pas chargé -->
+  <script>
+    (function(){
+      // Toggle theme
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      // Scroll-to-top
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

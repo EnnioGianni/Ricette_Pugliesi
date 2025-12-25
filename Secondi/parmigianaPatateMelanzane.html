@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Parmigiana Pugliese di Patate e Melanzane — Sapori di Puglia</title>
+  <meta name="description" content="Parmigiana paysanne des Pouilles : couches d’aubergines et de pommes de terre, sauce tomate au basilic, oignon et fromage, cuite au four dans un plat en terre cuite. Recette traditionnelle détaillée étape par étape.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/zoom.css">
+  <link rel="icon" type="image/png" href="/Secondi/Images/parmigiana-patate-melanzane.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+  <script defer src="/JS/zoom.js"></script>
+
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+
+        <!-- Bouton imprimante -->
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+
+        <li><a href="/index.html">Accueil</a></li>
+
+        <li>
+          <button class="button secondary" data-toggle-theme>🌓</button>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍆🥔 Parmigiana Pugliese di Patate e Melanzane al Forno</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Secondi/Images/parmigiana-patate-melanzane.png"
+           alt="Parmigiana pugliese de pommes de terre et d’aubergines dans un plat en terre cuite, gratinée et dorée, posée sur une table en bois rustique"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement de la parmigiana pugliese de patate e melanzane">
+    </div>
+
+    <p class="intro">
+      La <strong>Parmigiana Pugliese di Patate e Melanzane</strong> est un <strong>plat de four paysan</strong> des Pouilles :  
+      des couches d’<strong>aubergines</strong> et de <strong>pommes de terre</strong>, une <strong>sauce tomate simple au basilic</strong>,  
+      un peu d’<strong>oignon doux</strong> et de <strong>fromage râpé</strong>, le tout cuit lentement dans un <strong>plat en terre cuite</strong>.  
+      <br><br>
+      C’est une version plus pauvre et plus rustique de la célèbre parmigiana,  
+      mais avec une profondeur de goût incroyable : la <strong>douceur des pommes de terre</strong>,  
+      le <strong>fondant des aubergines</strong>, la <strong>tomate légèrement confite</strong> et la croûte gratinée  
+      qui craque sous la fourchette.  
+      On t’explique ici chaque couche, chaque geste, pour retrouver le goût d’un vrai four des Pouilles.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>35–40 min</strong> |
+        🔥 Cuisson : <strong>40–45 min</strong> |
+        👥 Pour <strong>4–6 personnes</strong> |
+        ⚙️ Difficulté : <strong>Moyenne (un peu de découpe et de montage)</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour la base de parmigiana (plat en terre cuite 22–24 cm)</h3>
+      <ul>
+        <li>2 grosses <strong>aubergines</strong> (environ 700–800 g au total)</li>
+        <li>500–600 g de <strong>pommes de terre</strong> à chair ferme ou légèrement farineuse</li>
+        <li>1 gros <strong>oignon blanc</strong> ou rouge de type Tropea</li>
+        <li>500 ml de <strong>passata di pomodoro</strong> ou de coulis de tomate simple</li>
+        <li>3–4 gousses d’<strong>ail</strong></li>
+        <li>6–8 c.à.s d’<strong>huile d’olive extravierge</strong> des Pouilles</li>
+        <li>Sel fin non iodé</li>
+        <li>Poivre noir ou pincées de <strong>piment</strong> selon le goût</li>
+        <li>Quelques feuilles de <strong>basilic frais</strong></li>
+      </ul>
+
+      <h3>Pour le fromage et la croûte gratinée</h3>
+      <ul>
+        <li>60–80 g de <strong>pecorino</strong> ou de <strong>cacioricotta</strong> râpé</li>
+        <li>20–30 g de <strong>parmigiano reggiano</strong> (facultatif, pour mélanger)</li>
+        <li>1–2 c.à.s de <strong>chapelure fine</strong> (facultatif, pour une croûte plus rustique)</li>
+      </ul>
+
+      <h3>Pour la cuisson des légumes</h3>
+      <ul>
+        <li>Huile d’olive pour <strong>griller ou frire légèrement</strong> les tranches d’aubergines</li>
+        <li>Sel pour dégorger les aubergines si nécessaire</li>
+      </ul>
+
+      <h3>Pour servir</h3>
+      <ul>
+        <li>Un filet d’<strong>huile d’olive crue</strong> au moment de servir</li>
+        <li>Quelques feuilles de <strong>basilic frais</strong> pour décorer</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION ULTRA DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation ultra détaillée — Parmigiana Pugliese di Patate e Melanzane</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer les aubergines.</strong><br>
+          Laver les <strong>aubergines</strong>, puis les couper en <strong>rondelles</strong> d’environ 5–6 mm d’épaisseur.  
+          Si les aubergines sont un peu amères, les disposer en couches dans une passoire,  
+          en les saupoudrant légèrement de sel fin, puis laisser dégorger <strong>20–30 minutes</strong>.  
+          Rincer rapidement et bien sécher dans un torchon propre ou sur du papier absorbant.  
+        </li>
+
+        <li>
+          <strong>Préparer les pommes de terre.</strong><br>
+          Peler les <strong>pommes de terre</strong>, les rincer et les couper en rondelles de la même épaisseur  
+          que les aubergines, environ 4–5 mm.  
+          Les plonger dans une casserole d’<strong>eau froide salée</strong>, porter à ébullition et cuire  
+          <strong>4–5 minutes</strong> seulement : elles doivent rester fermes, juste à peine tendres.  
+          Égoutter délicatement et laisser refroidir sur un plateau, sans les empiler trop pour éviter qu’elles ne se cassent.
+        </li>
+
+        <li>
+          <strong>Préparer la sauce tomate simple.</strong><br>
+          Dans une petite casserole, faire chauffer 2–3 c.à.s d’<strong>huile d’olive</strong>.  
+          Ajouter 1 gousse d’<strong>ail</strong> légèrement écrasée.  
+          Quand l’ail commence à à peine blondir, verser la <strong>passata di pomodoro</strong>.  
+          Saler légèrement, ajouter quelques feuilles de <strong>basilic</strong> et laisser mijoter  
+          <strong>15–20 minutes</strong> à feu doux, jusqu’à obtenir une sauce tomate <strong>souple mais pas trop liquide</strong>.  
+          Retirer l’ail si tu préfères un goût plus doux.
+        </li>
+
+        <li>
+          <strong>Cuire les aubergines.</strong><br>
+          Deux options sont possibles :  
+          <br>
+          <em>Option traditionnelle (plus riche) :</em>  
+          Faire chauffer une fine couche d’<strong>huile d’olive</strong> dans une grande poêle et faire dorer les rondelles d’aubergine  
+          des deux côtés, sans les brûler. Les déposer sur du papier absorbant au fur et à mesure.  
+          <br><br>
+          <em>Option plus légère :</em>  
+          Badigeonner les rondelles d’aubergine d’un peu d’huile d’olive et les faire griller sur une plaque  
+          ou dans une poêle-grill chaude, jusqu’à ce qu’elles soient souples et marquées.  
+        </li>
+
+        <li>
+          <strong>Préparer l’oignon.</strong><br>
+          Éplucher l’<strong>oignon</strong> et le couper en fines lamelles.  
+          Dans une petite poêle, faire chauffer 1–2 c.à.s d’huile d’olive, ajouter l’oignon et le laisser  
+          <strong>fondre doucement</strong> à feu doux : il doit devenir translucide et légèrement doré, sans brunir.  
+          Cela donnera un fond sucré et parfumé à la parmigiana.
+        </li>
+
+        <li>
+          <strong>Préchauffer le four et préparer le plat.</strong><br>
+          Préchauffer le four à <strong>180°C</strong> (chaleur statique de préférence).  
+          Huiler légèrement un <strong>plat en terre cuite</strong> ou un plat à gratin de taille moyenne  
+          (22–24 cm de diamètre ou équivalent rectangulaire).  
+        </li>
+
+        <li>
+          <strong>Commencer le montage des couches.</strong><br>
+          Déposer une fine couche de <strong>sauce tomate</strong> au fond du plat, juste de quoi le napper.  
+          Disposer ensuite une première couche de <strong>pommes de terre</strong>, en faisant se chevaucher légèrement les rondelles.  
+          Saler très légèrement (la sauce et le fromage apporteront déjà du sel).  
+          Ajouter quelques lamelles d’<strong>oignon fondu</strong> par-dessus.  
+        </li>
+
+        <li>
+          <strong>Ajouter la première couche d’aubergines.</strong><br>
+          Par-dessus les pommes de terre, disposer une couche d’<strong>aubergines cuites</strong>.  
+          Verser un peu de <strong>sauce tomate</strong> par-dessus (quelques cuillerées, pas trop),  
+          puis saupoudrer d’un mélange de <strong>pecorino/cacioricotta râpé</strong>.  
+          Ajouter éventuellement un tour de poivre ou un peu de piment si tu aimes.  
+        </li>
+
+        <li>
+          <strong>Continuer les couches.</strong><br>
+          Reprendre le montage :  
+          <br>
+          – une couche de <strong>pommes de terre</strong>  
+          – quelques <strong>oignons fondus</strong>  
+          – un peu de <strong>sauce tomate</strong>  
+          – une couche d’<strong>aubergines</strong>  
+          – fromage râpé  
+          <br><br>
+          Continuer ainsi jusqu’à épuiser les ingrédients, en terminant de préférence par une couche d’<strong>aubergines</strong>,  
+          nappée de sauce tomate et généreusement saupoudrée de fromage.  
+          Si tu aimes les gratins très rustiques, ajouter une fine couche de <strong>chapelure</strong> mélangée à un filet d’huile.  
+        </li>
+
+        <li>
+          <strong>Cuisson au four.</strong><br>
+          Placer le plat au milieu du four préchauffé à <strong>180°C</strong>.  
+          Cuire environ <strong>40–45 minutes</strong>, jusqu’à ce que le dessus soit <strong>bien doré</strong>,  
+          avec des petites bulles de sauce sur les bords et un parfum d’aubergine rôtie et de fromage fondu.  
+          Si la surface colore trop vite, couvrir légèrement de papier cuisson en fin de cuisson.  
+        </li>
+
+        <li>
+          <strong>Repos avant de servir.</strong><br>
+          C’est une étape essentielle : à la sortie du four, laisser reposer la parmigiana  
+          au moins <strong>15–20 minutes</strong> avant de la couper.  
+          Ce temps permet aux couches de se stabiliser, à la sauce de se répartir et aux saveurs de se concentrer.  
+          Au moment de servir, arroser d’un léger filet d’<strong>huile d’olive crue</strong>  
+          et décorer avec quelques feuilles de <strong>basilic frais</strong>.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes paysannes</h2>
+
+      <h3>1️⃣ Version à la ricotta forte</h3>
+      <ul>
+        <li>Mélanger une petite quantité de <strong>ricotta forte</strong> avec une partie de la sauce tomate,  
+            pour napper une couche centrale : le goût devient plus intense, typique du Salento.</li>
+        <li>Ne pas en mettre trop : la ricotta forte est très parfumée, quelques cuillerées suffisent.</li>
+      </ul>
+
+      <h3>2️⃣ Version à la scamorza fumée</h3>
+      <ul>
+        <li>Remplacer une partie du pecorino par de fines tranches de <strong>scamorza fumée</strong>,  
+            disposées entre deux couches d’aubergines.</li>
+        <li>La cuisson fait fondre la scamorza et apporte une <strong>note fumée</strong> qui rappelle les anciens fours à bois.</li>
+      </ul>
+
+      <h3>3️⃣ Version encore plus pauvre</h3>
+      <ul>
+        <li>Diminuer la quantité de fromage et ne pas utiliser de chapelure.</li>
+        <li>Mettre un peu plus d’<strong>oignon et de pomme de terre</strong> pour donner du corps au plat.</li>
+        <li>Servir avec du <strong>pain de campagne</strong> pour “faire la scarpetta” dans la sauce.</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Le secret d’une bonne <strong>parmigiana pugliese</strong>, c’est l’<strong>équilibre entre la sauce et les couches de légumes</strong>.  
+        Si la sauce est trop liquide, les pommes de terre se gorgent d’eau et le plat devient lourd.  
+        Si elle est trop réduite, la parmigiana sera sèche.  
+        Vise une sauce <strong>souple, nappante</strong>, et n’hésite pas à laisser reposer la parmigiana un peu plus longtemps :  
+        c’est souvent le lendemain, légèrement réchauffée, qu’elle est encore meilleure.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        La <strong>Parmigiana Pugliese di Patate e Melanzane</strong> vient des campagnes entre <strong>Ostuni, Ceglie Messapica</strong>  
+        et la <strong>Valle d’Itria</strong>, où les familles utilisaient ce qu’elles avaient :  
+        les pommes de terre du champ, les aubergines de l’été, un oignon, un peu de sauce tomate et le fromage de la maison.  
+        <br><br>
+        C’était un plat de <strong>dimanche</strong> ou de <strong>fête simple</strong>, cuit dans le four à bois partagé du village.  
+        Aujourd’hui encore, on la retrouve parfois sur les tables familiales,  
+        mais très rarement dans les restaurants : c’est une vraie recette de maison,  
+        profonde, chaleureuse, typiquement « Puglia ».
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut"></button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Parmigiana Pugliese di Patate e Melanzane al Forno.</p>
+</footer>
+</body>
+</html>

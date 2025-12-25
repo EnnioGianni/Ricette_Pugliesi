@@ -1,0 +1,164 @@
+/* ============================================================
+ * Styles du Menu Saveurs du Salento — De la mer à la terre
+ * ============================================================ */
+
+body {
+  background: #fffaf4;
+  color: #3a2a1b;
+  font-family: 'Lora', serif;
+  line-height: 1.6;
+}
+
+/* ---------- En-tête ---------- */
+.menu-header {
+  text-align: center;
+  padding: 1.5rem;
+  border-bottom: 2px solid #e3d4c2;
+  background: #fdf8f2;
+}
+.menu-header h1 {
+  font-size: 1.8rem;
+  margin: 0.3rem 0;
+  color: #8b5e34;
+}
+.menu-header .subtitle {
+  font-style: italic;
+  color: #6c5439;
+}
+.back-home {
+  display: inline-block;
+  margin-bottom: 0.5rem;
+  color: #9b6c3b;
+  text-decoration: none;
+  font-weight: 600;
+}
+.back-home:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Structure principale ---------- */
+.menu-section {
+  padding: 2rem 1rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.menu-header p.menu-desc {
+  max-width: 720px;
+  margin: 1rem auto 2rem;
+  color: #5a4636;
+  font-style: italic;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* ---------- Carte de plat ---------- */
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  background: #fffdf8;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* ============================================================
+   🎯 Réduction de 50 % UNIQUEMENT pour les images du dossier /Menu/Images/
+   ============================================================ */
+.menu-image img[src^="/Menu/Images/"] {
+  width: 100%;
+  height: auto;
+  max-height: 250px; /* 🔻 Réduction de 50 % */
+  object-fit: cover;
+  display: block;
+  cursor: zoom-in;
+}
+
+/* ============================================================ */
+
+.menu-content {
+  padding: 1rem 1.5rem;
+}
+
+.menu-content h2 {
+  font-size: 1.2rem;
+  color: #8b5e34;
+  margin-bottom: 0.5rem;
+}
+.menu-content h2 span {
+  font-weight: 700;
+  color: #a06d3c;
+}
+
+.menu-content p {
+  color: #3a2a1b;
+  margin: 0.5rem 0 1rem;
+}
+
+/* ---------- Métadonnées ---------- */
+.menu-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.9rem;
+  color: #6a5b4a;
+  margin-bottom: 1rem;
+}
+
+/* ---------- Bouton ---------- */
+.button.recipe-link {
+  display: inline-block;
+  background: #b6783b;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background .2s;
+}
+.button.recipe-link:hover {
+  background: #9b602c;
+}
+
+/* ---------- Zoom image ---------- */
+.img-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  cursor: zoom-out;
+}
+.img-viewer img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  box-shadow: 0 0 25px rgba(0,0,0,0.5);
+}
+
+/* ---------- Animation ---------- */
+.fade-in {
+  animation: fadeInUp 0.6s ease both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Responsive ---------- */
+@media (min-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

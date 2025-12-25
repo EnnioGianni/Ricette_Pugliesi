@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Trofie alle Cozze e Pomodorini — Sapori di Puglia</title>
+  <meta name="description" content="Recette traditionnelle : pâtes artisanales trofie, moules fraîches, tomates cerises et vin blanc, typiques du Gargano.">
+
+  <!-- Fichiers CSS spécifiques -->
+  <link rel="stylesheet" href="/Menu/menu-salento.css">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/menu.js"></script>
+
+  <!-- Styles globaux du site -->
+  <link rel="icon" type="image/png" href="/Images/orecchiette-cime-di-rapa.png">
+  <link rel="stylesheet" href="/CSS/Styles.css">
+
+  <style>
+    body {
+      background: #fffaf4;
+      color: #3a2a1b;
+      font-family: 'Lora', serif;
+    }
+
+    img.recette-photo {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform .3s ease;
+      display: block;
+      margin: 1.5rem auto;
+    }
+    img.recette-photo:hover {
+      transform: scale(1.02);
+    }
+
+    .note-culturelle {
+      background: #fff6ea;
+      border-left: 5px solid #d4a373;
+      padding: 1em 1.5em;
+      margin-top: 1.5em;
+      font-style: italic;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      line-height: 1.6;
+    }
+    .note-culturelle strong {
+      color: #b45f06;
+    }
+
+    .recette-block {
+      background: #ffffffdd;
+      padding: 2rem 2.5rem;
+      border-radius: 14px;
+      max-width: 900px;
+      margin: 2rem auto;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes (ordre DOM) -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost"
+              aria-controls="menuDrawer" aria-expanded="false">
+        🍝 Recettes
+      </button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🔽 AJOUT CORRECTIF POUR aria-controls -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true"></aside>
+  <!-- ▲ Ce bloc manquait → erreur corrigée -->
+
+<main>
+  <div class="recette-block">
+
+    <h1>Trofie alle Cozze e Pomodorini</h1>
+
+    <img src="/Menu/Images/trofie-alle-cozze.png"
+         alt="Trofie alle Cozze e Pomodorini"
+         class="recette-photo">
+
+    <p>
+      Un plat typique du Gargano : des pâtes artisanales <em>trofie</em> mêlées au parfum iodé des moules fraîches,
+      aux tomates cerises fondantes et à un filet de vin blanc.  
+      Un plat simple, lumineux et plein de saveurs méditerranéennes.
+    </p>
+
+    <h2>Ingrédients (pour 4 personnes)</h2>
+    <ul>
+      <li data-symbol="🍝">350 g de trofie (pâtes torsadées)</li>
+      <li data-symbol="🦪">800 g de moules fraîches</li>
+      <li data-symbol="🍅">250 g de tomates cerises</li>
+      <li data-symbol="🧄">2 gousses d’ail</li>
+      <li data-symbol="🌿">Persil frais haché</li>
+      <li data-symbol="🍾">100 ml de vin blanc sec</li>
+      <li data-symbol="🫒">Huile d’olive vierge extra</li>
+      <li data-symbol="🧂">Sel, poivre</li>
+    </ul>
+
+    <h2>Préparation pas à pas</h2>
+    <ol>
+      <li><strong>Préparer les moules :</strong> rincer, gratter, retirer les barbes.  
+          Faire revenir l’ail dans l’huile, ajouter les moules et verser le vin blanc.  
+          Couvrir 2–3 minutes pour les ouvrir. Filtrer le jus.</li>
+
+      <li><strong>Préparer la sauce :</strong> couper les tomates cerises en deux et les faire revenir 5 minutes dans un filet d’huile
+          avec un peu d’ail. Ajouter le jus filtré des moules.</li>
+
+      <li><strong>Cuire les pâtes :</strong> cuire les trofie dans une grande casserole d’eau salée.
+          Elles doivent rester légèrement fermes.</li>
+
+      <li><strong>Assembler :</strong> ajouter les moules décoquillées dans la sauce, puis les trofie égouttées.
+          Mélanger doucement 1–2 minutes.</li>
+
+      <li><strong>Servir :</strong> parsemer de persil frais, un filet d’huile d’olive, poivre du moulin.</li>
+    </ol>
+
+    <h2>Astuce du chef</h2>
+    <p>
+      Ajoute quelques zestes de citron en fin de cuisson :  
+      ça réveille le parfum marin des moules sans masquer la douceur des tomates cerises.
+    </p>
+
+    <h2>Origine & sens des « Trofie »</h2>
+    <p>
+      Les <em>trofie</em> sont des pâtes courtes et torsadées, roulées à la main, parfaites pour retenir les sauces
+      aux fruits de mer.
+    </p>
+
+    <div class="note-culturelle">
+      🕊 <strong>Que sont les "Trofie" ?</strong><br><br>
+      Les trofie sont de petites pâtes artisanales torsadées, roulées entre les doigts pour obtenir leur forme en spirale.  
+      Cette torsion retient parfaitement les sauces : fruits de mer, tomates cerises, pesto…  
+      <br><br>
+      Elles sont nées en Ligurie mais sont très utilisées dans le sud de l’Italie, surtout pour les sauces marines.
+      C’est pourquoi elles s’accordent si bien avec les moules.
+    </div>
+
+    <div class="note-culturelle">
+      <h2>Faire ses Trofie maison (Recette traditionnelle)</h2>
+      <p>
+        Si tu veux aller encore plus loin dans la tradition italienne, voici la recette 
+        des trofie faites à la main.  
+        Ce sont de petites pâtes torsadées, roulées entre les doigts : simples, rustiques, 
+        et parfaites pour la sauce aux moules.
+      </p>
+
+      <h3>Ingrédients (pour 4 personnes)</h3>
+      <ul>
+        <li data-symbol="🌾">300 g de farine de blé dur (semola rimacinata)</li>
+        <li data-symbol="💧">150 ml d’eau tiède</li>
+        <li data-symbol="🧂">1 pincée de sel</li>
+      </ul>
+
+      <h3>Préparation des trofie</h3>
+      <ol>
+        <li><strong>Former la fontaine :</strong>  
+          Sur un plan de travail, verse la farine et creuse un puits au centre.  
+          Ajoute l’eau tiède et le sel.</li>
+
+        <li><strong>Pétrir :</strong>  
+          Mélange petit à petit la farine avec les doigts.  
+          Pétris ensuite 8–10 minutes : la pâte doit devenir lisse, souple et très ferme.</li>
+
+        <li><strong>Laisser reposer :</strong>  
+          Emballe la pâte dans un film ou couvre d’un bol renversé.  
+          Laisse reposer 20 minutes pour qu’elle soit plus maniable.</li>
+
+        <li><strong>Former les serpentins :</strong>  
+          Coupe un morceau de pâte et roule-le en un long boudin fin comme un crayon.  
+          Coupe ensuite en petits tronçons de 2–3 cm.</li>
+
+        <li><strong>Torsader :</strong>  
+          Pose un morceau de pâte sous tes doigts (index + majeur)  
+          et fais un mouvement de va-et-vient en appuyant légèrement.  
+          Le morceau va s’étirer et se torsader tout seul.  
+          C’est le geste traditionnel ligure.</li>
+
+        <li><strong>Laisser sécher :</strong>  
+          Dispose les trofie sur un plateau fariné pendant 20–30 minutes.</li>
+
+        <li><strong>Cuisson :</strong>  
+          Fais cuire 3 à 5 minutes dans une grande casserole d’eau salée.  
+          Elles doivent rester fermes mais cuites au cœur.</li>
+      </ol>
+
+      <div class="note-culturelle">
+        🌾 <strong>Pourquoi faire ses trofie ?</strong><br><br>
+        Leur torsion faite à la main retient parfaitement la sauce des moules et des tomates cerises.  
+        C’est exactement pour cela que dans le Gargano, on prépare souvent les trofie soi-même 
+        avant d’ajouter le parfum marin des <em>cozze</em>.
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="menu-footer">
+  <p>© 2025 Sapori di Puglia — Recette du Gargano.</p>
+</footer>
+
+</body>
+</html>

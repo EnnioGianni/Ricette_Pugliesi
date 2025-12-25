@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bombette di Martina Franca — Sapori di Puglia</title>
+  <meta name="description" content="Recette authentique des Bombette di Martina Franca, roulades de porc farcies et grillées à la braise, spécialité du Valle d'Itria, expliquée pas à pas.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/bombette-martina-franca.png">
+
+  <!-- ⚠️ Ordre important -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <main class="container recette">
+    <article>
+
+      <h1>🔥 Bombette di Martina Franca</h1>
+
+      <!-- IMAGE PRINCIPALE -->
+      <div class="image-zoom">
+        <img src="/Images/bombette-martina-franca.png"
+             alt="Bombette di Martina Franca — portion servie"
+             class="zoomable">
+      </div>
+
+      <!-- MODAL -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" type="button" aria-label="Fermer">×</button>
+        <img class="modal-content" id="modalImg" src="&" alt="Agrandissement de l’image">
+      </div>
+
+      <p class="intro">
+        Les <strong>Bombette di Martina Franca</strong> sont de petites roulades de porc farcies au fromage et aux herbes,
+        grillées à la braise dans les célèbres <em>fornelli pronti</em> du Valle d’Itria.
+        Croustillantes à l’extérieur, fondantes à l’intérieur, elles sont l’âme gourmande des Pouilles.
+      </p>
+
+      <!-- INFOS (section → div pour validité HTML) -->
+      <div class="infos">
+        <p>
+          ⏱ Préparation : <strong>1 h</strong> &nbsp;|&nbsp;
+          👥 Pour <strong>4 personnes</strong> &nbsp;|&nbsp;
+          ⚙️ Difficulté : <strong>Moyenne</strong>
+        </p>
+      </div>
+
+      <!-- INGREDIENTS -->
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li>16 fines escalopes de porc (échine ou longe)</li>
+          <li>180 g de fromage filant (caciocavallo ou scamorza)</li>
+          <li>60 g de pecorino râpé</li>
+          <li>1 gousse d’ail hachée</li>
+          <li>Persil plat haché</li>
+          <li>Sel fin, poivre noir</li>
+          <li>Huile d’olive extra-vierge</li>
+          <li>Quelques quartiers de citron pour servir</li>
+        </ul>
+      </section>
+
+      <!-- PREPARATION -->
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation détaillée</h2>
+        <ol>
+          <li><strong>Préparer la viande :</strong><br>
+            Étaler les escalopes entre deux feuilles de papier cuisson.<br>
+            Aplatir doucement avec un maillet pour les rendre fines et souples.<br>
+            Elles doivent devenir presque translucides mais rester entières.
+          </li>
+
+          <li><strong>Assaisonner :</strong><br>
+            Saler légèrement, poivrer, puis saupoudrer de pecorino, d’ail et de persil.<br>
+            Déposer au centre un bâtonnet de fromage filant.
+          </li>
+
+          <li><strong>Rouler les bombette :</strong><br>
+            Rabattre les bords latéraux puis rouler fermement en cylindre.<br>
+            Fixer avec un pic en bois pour éviter que le fromage s’échappe.<br>
+            Enduire d’un peu d’huile d’olive.
+          </li>
+
+          <li><strong>Laisser reposer :</strong><br>
+            Laisser raffermir 15 minutes au réfrigérateur pour une meilleure tenue.
+          </li>
+
+          <li><strong>Cuire à la braise :</strong><br>
+            Griller sur braises moyennes ou plancha :<br>
+            – 2 minutes par face pour marquer la viande,<br>
+            – puis 5–6 minutes à feu moyen en tournant souvent.<br>
+            <em>Astuce :</em> le léger parfum de fromage fumé indique la cuisson parfaite.
+          </li>
+
+          <li><strong>Finition et service :</strong><br>
+            Laisser reposer 2 minutes hors du feu.<br>
+            Terminer avec un filet d’huile crue ou un trait de citron.<br>
+            Servir avec roquette fraîche et pain chaud.
+          </li>
+        </ol>
+      </section>
+
+      <!-- VARIANTES -->
+      <section class="astuce">
+        <h2>💡 Variantes & conseils</h2>
+        <ul>
+          <li><strong>Classiche :</strong> fromage, ail, persil, pecorino.</li>
+          <li><strong>Capocollo :</strong> enroulées d’une tranche fine avant cuisson.</li>
+          <li><strong>Piccanti :</strong> piment doux + zeste de citron.</li>
+          <li><strong>Alle Erbe :</strong> parfum thym et origan.</li>
+          <li><strong>Four :</strong> 200 °C pendant 12 min + 3 min en grill.</li>
+        </ul>
+      </section>
+
+      <!-- ORIGINE -->
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Les <strong>Bombette</strong> sont nées dans les boucheries à braise de <strong>Martina Franca</strong>.
+          Les clients choisissaient leur viande, le boucher la roulait puis la grillait sur place.
+          Une tradition conviviale devenue emblème du Valle d’Itria.
+        </p>
+      </section>
+
+      <!-- LIENS -->
+      <section class="liens">
+        <h2>🔗 À déguster aussi</h2>
+        <ul>
+          <li><a href="/Primi/orecchietteAlSugoDiBraciole.html">Orecchiette al Sugo di Braciole</a></li>
+          <li><a href="/Secondi/polpoAllaPignata.html">Polpo alla Pignata</a></li>
+        </ul>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Bouton remonter -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script zoom -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback minimal -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+
+      const scrollBtn = document.getElementById('scrollTopBtn');
+
+      window.addEventListener('scroll', ()=>{
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+
+      scrollBtn.addEventListener('click', ()=>{
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    })();
+  </script>
+
+</body>
+</html>

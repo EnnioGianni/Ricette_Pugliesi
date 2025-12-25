@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Turcinieddhri alla Brace — Sapori di Puglia</title>
+  <meta name="description" content="Turcinieddhri alla Brace : rouleaux d’abats d’agneau enroulés dans le boyau, grillés sur la braise ou cuits au four. Une spécialité rustique du Salento et de la Murgia.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/turcinieddhri-brace.png">
+
+  <!-- ⚠️ Ordre important : catégories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom image -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- Menu latéral -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<!-- Contenu principal -->
+<main class="container recette">
+  <article>
+
+    <h1>🔥 Turcinieddhri alla Brace (et au four)</h1>
+
+    <!-- Image principale -->
+    <div class="image-zoom">
+      <img src="/Images/turcinieddhri-brace.png"
+           alt="Turcinieddhri alla brace — rouleaux d’abats d’agneau grillés"
+           class="zoomable">
+    </div>
+
+    <!-- Modal zoom -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" type="button" aria-label="Fermer">×</button>
+      <img class="modal-content" id="modalImg" src="&" alt="Mboti">
+    </div>
+
+    <p class="intro">
+      Les <strong>Turcinieddhri</strong> (ou <em>turcinieddi, gnummarieddhri</em>) sont de petits <strong>rouleaux d’abats d’agneau</strong>,
+      enroulés dans le boyau et grillés sur la braise.  
+      C’est l’un des symboles les plus rustiques des Pouilles, particulièrement dans le <em>Salento</em> et la <em>Murgia</em> :
+      on les achète chez les bouchers-grilladins, on les mange brûlants, parfois juste avec du pain et un verre de vin rouge.  
+      Ici, on te propose la version traditionnelle à la <strong>brace</strong>, avec aussi une <strong>variante au four</strong> pour pouvoir les préparer à la maison.
+    </p>
+
+    <!-- Infos -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>40–50 min</strong> (hors nettoyage) |
+        🔥 Cuisson : <strong>20–30 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Élevée (gestes de boucher)</strong>
+      </p>
+    </div>
+
+    <!-- Ingrédients -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour les Turcinieddhri</h3>
+      <ul>
+        <li>500–600 g de <strong>foie d’agneau</strong></li>
+        <li>250–300 g de <strong>poumons d’agneau</strong> (facultatif selon goût)</li>
+        <li>250–300 g de <strong>cœur d’agneau</strong></li>
+        <li>Le <strong>boyau fin d’agneau</strong> (intestin grêle, bien nettoyé et dessalé)</li>
+        <li>Quelques <strong>lanières de gras</strong> (issue de la poitrine ou du flanc)</li>
+      </ul>
+
+      <h3>Pour l’assaisonnement</h3>
+      <ul>
+        <li>Sel fin (ajouté avec modération en fin de préparation)</li>
+        <li>Poivre noir fraîchement moulu</li>
+        <li>1 petit bouquet de <strong>persil plat</strong></li>
+        <li>1 gousse d’ail (facultative, pour ceux qui aiment)</li>
+      </ul>
+
+      <h3>Pour la cuisson à la braise</h3>
+      <ul>
+        <li>Gril ou grille posée sur des <strong>braises de bois</strong> ou de charbon de bois</li>
+        <li>Un peu d’<strong>huile d’olive</strong> pour graisser légèrement la grille, si besoin</li>
+      </ul>
+
+      <h3>Pour la cuisson au four (variante maison)</h3>
+      <ul>
+        <li>1 grand plat ou une grille posée sur une lèchefrite</li>
+        <li>Un filet d’<strong>huile d’olive extra-vierge</strong></li>
+        <li>Four préchauffé à <strong>200–210&nbsp;°C</strong> (chaleur statique ou ventilée)</li>
+      </ul>
+    </section>
+
+    <!-- Préparation -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer et nettoyer les abats.</strong><br>
+          Rincer rapidement le foie, le cœur et, si tu l’utilises, les poumons sous un filet d’eau froide.
+          Éponger soigneusement avec du papier absorbant : les abats doivent être bien secs en surface.  
+          Retirer les parties trop nerveuses, les petits morceaux de cartilages ou de vaisseaux apparents.
+          Laisser un peu de gras ici et là, car c’est lui qui donnera du goût et du fondant à la cuisson.
+        </li>
+
+        <li>
+          <strong>Couper les abats en lanières régulières.</strong><br>
+          Couper le foie, le cœur (et les poumons) en <strong>bandelettes de 1 à 1,5 cm de largeur</strong>,
+          puis en morceaux de <strong>6–8 cm de long</strong> environ.  
+          Le but est d’obtenir des morceaux faciles à rouler, ni trop gros (ils cuiraient mal),
+          ni trop fins (ils se dessécheraient).  
+          Disposer ces lanières dans un grand plat ou sur une planche.
+        </li>
+
+        <li>
+          <strong>Assaisonner légèrement.</strong><br>
+          Ciseler finement le persil plat (et l’ail, si tu souhaites l’utiliser).
+          Répartir ce mélange sur les lanières d’abats.  
+          Ajouter un peu de poivre noir fraîchement moulu.
+          <strong>Ne pas saler encore</strong> à ce stade : le sel pourra faire sortir trop de jus et dessécher la viande.
+        </li>
+
+        <li>
+          <strong>Préparer le boyau (intestin).</strong><br>
+          Si le boyau est déjà préparé par le boucher, il est généralement déjà bien nettoyé et salé.
+          Le rincer plusieurs fois dans de l’eau froide pour enlever l’excès de sel,
+          puis le laisser tremper quelques minutes dans de l’eau froide propre.  
+          Égoutter, puis vérifier qu’il n’y a pas de parties trop épaisses ou abîmées.
+          Si nécessaire, couper le boyau en sections plus courtes (environ 1 mètre) pour pouvoir les manipuler plus facilement.
+        </li>
+
+        <li>
+          <strong>Préparer quelques lanières de gras.</strong><br>
+          Couper le gras (poitrine ou flanc d’agneau) en bandelettes fines.  
+          Ces petites lanières pourront être insérées au centre des rouleaux,
+          ou intercalées entre les morceaux d’abats, pour ajouter du fondant et empêcher le turcinieddhru de sécher.
+        </li>
+
+        <li>
+          <strong>Former les rouleaux (Turcinieddhri).</strong><br>
+          Prendre une lanière de foie, une de cœur et, éventuellement, un petit morceau de poumon,
+          les superposer grossièrement, avec au centre une petite bande de gras.  
+          Enrouler le tout sur lui-même pour former un petit rouleau serré.  
+          Avec une extrémité du boyau, commencer à enrouler le rouleau d’abats,
+          en tournant autour plusieurs fois, <strong>comme une ficelle naturelle</strong>,
+          jusqu’à ce que le rouleau soit bien compact.
+          Coincer l’extrémité du boyau sous un tour pour que cela tienne tout seul.  
+          Répéter l’opération jusqu’à épuisement des abats.
+        </li>
+
+        <li>
+          <strong>Assembler sur brochettes ou garder en petits rouleaux.</strong><br>
+          Selon la tradition, on peut :
+          <ul>
+            <li>soit laisser les Turcinieddhri tels quels, en rouleaux individuels, à poser sur la grille ;</li>
+            <li>soit les enfiler sur des <strong>brochettes métalliques</strong> ou en bois (préalablement trempées), en les espaçant légèrement.</li>
+          </ul>
+          Les brochettes facilitent la manipulation sur le feu ou dans le four.
+        </li>
+
+        <li>
+          <strong>Cuisson traditionnelle à la braise (alla brace).</strong><br>
+          Préparer un lit de braises de bois ou de charbon : les flammes doivent être éteintes,
+          et la chaleur bien répartie.  
+          Graisser très légèrement la grille avec un peu d’huile d’olive si nécessaire.  
+          Disposer les Turcinieddhri sur la grille, <strong>à chaleur moyenne</strong> (ni trop près, ni trop loin).
+          Les faire cuire lentement, en les retournant régulièrement, pendant environ <strong>20 à 25 minutes</strong>,
+          jusqu’à ce que l’extérieur soit bien doré, presque croustillant, et l’intérieur bien cuit mais encore juteux.  
+          À mi-cuisson, on peut commencer à saler légèrement la surface de chaque rouleau,
+          pour que le sel reste à l’extérieur et ne fasse pas sortir trop de jus.
+        </li>
+
+        <li>
+          <strong>Cuisson au four (variante maison).</strong><br>
+          Préchauffer le four à <strong>200–210&nbsp;°C</strong> (chaleur statique ou ventilée légère).  
+          Disposer les Turcinieddhri sur une grille posée au-dessus d’une lèchefrite (pour récupérer le gras),
+          ou dans un plat légèrement huilé, en les espaçant pour que l’air circule.  
+          Enfourner pour environ <strong>25 à 30 minutes</strong>, en les retournant à mi-cuisson.
+          Surveiller la coloration : ils doivent devenir dorés et légèrement croustillants à l’extérieur.  
+          En fin de cuisson, on peut activer le <strong>grill du four</strong> quelques minutes pour accentuer la croustillance,
+          en surveillant très attentivement pour éviter qu’ils ne brûlent.
+        </li>
+
+        <li>
+          <strong>Assaisonner en fin de cuisson.</strong><br>
+          Une fois les Turcinieddhri cuits, les retirer du feu (ou du four) et les laisser reposer 3 à 5 minutes.  
+          Les saler légèrement, ajouter une pincée de poivre noir et, si tu le souhaites,
+          parsemer un peu de persil plat finement ciselé sur le dessus pour apporter une touche de fraîcheur.
+        </li>
+
+        <li>
+          <strong>Service.</strong><br>
+          Servir les Turcinieddhri bien chauds, seuls ou sur un lit de <em>cicoria</em>, de salade verte
+          ou avec quelques tranches de pain de campagne grillé.  
+          C’est un plat très savoureux, riche, qui se marie parfaitement avec un verre de vin rouge des Pouilles,
+          comme un Primitivo ou un Negroamaro.
+        </li>
+      </ol>
+    </section>
+
+    <!-- Astuce -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Si tu veux te rapprocher du goût des <strong>fornelli</strong> des Pouilles (bouchers-grilladins),
+        demande à ton boucher de <strong>préparer les abats et le boyau</strong> pour Turcinieddhri :
+        ils ont l’habitude de nettoyer et de couper les morceaux à la bonne taille.  
+        À la maison, tu peux préparer une grande quantité de Turcinieddhri, les congeler crus,
+        puis les faire griller (ou cuire au four) directement à partir du congélateur,
+        en prolongeant un peu le temps de cuisson.
+      </p>
+    </section>
+
+    <!-- Origine -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les <strong>Turcinieddhri</strong> sont une spécialité ancienne du <em>Salento</em> et de la <em>Murgia</em> :
+        à l’origine, rien ne devait être jeté après l’abattage de l’agneau.  
+        Les abats et le boyau étaient donc transformés en ces petits rouleaux,
+        simples à cuire sur la braise et très nourrissants.  
+        Encore aujourd’hui, on les trouve dans les boucheries avec grill intégré, les jours de marché
+        et lors des fêtes de village.  
+        C’est l’un de ces plats qui racontent la cuisine pauvre, ingénieuse,
+        mais aussi la convivialité des soirées d’été autour du feu.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<!-- Bouton haut -->
+<button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+</footer>
+
+<!-- Script zoom -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+<!-- Fallback si app.js ne charge pas -->
+<script>
+  (function(){
+    document.querySelectorAll('[data-toggle-theme]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+      });
+    });
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+    });
+    scrollBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  })();
+</script>
+
+</body>
+</html>

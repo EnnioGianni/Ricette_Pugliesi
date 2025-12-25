@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Patate “Strascinate” cu Cicorielle Selvatiche — Sapori di Puglia</title>
+  <meta name="description" content="Ancienne recette paysanne : pommes de terre écrasées et tirées à la poêle avec des cicorielle selvatiche, herbes sauvages amères typiques du Salento. Préparation ultra détaillée, gestes, textures et astuces de grand-mère.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/zoom.css">
+  <link rel="icon" type="image/png" href="/Contorni/Images/patate-strascinate-cicorielle.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+  <script defer src="/JS/zoom.js"></script>
+
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+
+        <!-- Bouton imprimante -->
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()
+                  "
+                  aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+
+        <li><a href="/index.html">Accueil</a></li>
+
+        <li>
+          <button class="button secondary" data-toggle-theme>🌓</button>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🥔🌿 Patate “Strascinate” cu Cicorielle Selvatiche</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Contorni/Images/patate-strascinate-cicorielle.png"
+           alt="Plat rustique de patate strascinate avec cicorielle selvatiche, servi dans un plat en terre cuite, style paysan des Pouilles"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement des patate strascinate cu cicorielle selvatiche">
+    </div>
+
+    <p class="intro">
+      Les <strong>Patate “Strascinate” cu Cicorielle Selvatiche</strong> sont un <strong>plat paysan ancien</strong> des Pouilles :  
+      des <strong>pommes de terre farineuses</strong>, bouillies puis <strong>écrasées grossièrement</strong>, qu’on “traîne”  
+      à la poêle avec des <strong>cicorielle selvatiche</strong>, ces petites chicorées sauvages amères qu’on cueillait  
+      dans les champs après la pluie.  
+      <br><br>
+      C’est une cuisine de survie, très simple, mais d’une profondeur de goût incroyable :  
+      le <strong>sucré de la pomme de terre</strong>, l’<strong>amertume des herbes</strong>, l’<strong>ail légèrement doré</strong>,  
+      l’<strong>huile d’olive extravierge</strong> qui enrobe tout.  
+      On t’explique ici chaque geste, la texture idéale, et les petites astuces pour retrouver ce goût ancien.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>25–30 min</strong> (hors nettoyage des herbes) |
+        🔥 Cuisson : <strong>30–35 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Facile, mais très gestuelle</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Base paysanne pour 4 personnes</h3>
+      <ul>
+        <li>1,2 kg de <strong>pommes de terre farineuses</strong> (type pour purée)</li>
+        <li>400–500 g de <strong>cicorielle selvatiche</strong> (ou chicorée sauvage, déjà triée)</li>
+        <li>3–4 gousses d’<strong>ail</strong></li>
+        <li>6–8 c.à.s d’<strong>huile d’olive extravierge</strong> des Pouilles</li>
+        <li>Sel fin non iodé</li>
+        <li>Poivre noir ou <strong>piment doux/piment fort</strong> selon le goût</li>
+      </ul>
+
+      <h3>Pour la version très rustique (optionnelle)</h3>
+      <ul>
+        <li>1 petit <strong>oignon blanc</strong> ou de <strong>tropea</strong>, émincé très finement</li>
+        <li>2–3 c.à.s d’<strong>eau de cuisson des cicorielle</strong> pour lier</li>
+        <li>Un filet de <strong>vinaigre de vin rouge</strong> ou de <strong>vinaigre de figue</strong> (quelques gouttes seulement)</li>
+      </ul>
+
+      <h3>Pour servir (facultatif, mais très traditionnel)</h3>
+      <ul>
+        <li>Un filet d’<strong>huile d’olive crue</strong> au moment de servir</li>
+        <li>Un peu de <strong>pain de campagne</strong> légèrement grillé</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION ULTRA DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation ultra détaillée — Patate “Strascinate” cu Cicorielle Selvatiche</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer les cicorielle selvatiche.</strong><br>
+          Commencer par les herbes, c’est ce qui prend le plus de temps.  
+          Étaler les <strong>cicorielle</strong> sur le plan de travail ou dans un grand saladier.  
+          Retirer les parties trop dures : grosses tiges fibreuses, feuilles jaunies ou abîmées.  
+          Garder surtout les <strong>pousses tendres</strong> et les petites feuilles.  
+          <br><br>
+          Plonger ensuite les herbes dans un grand saladier d’<strong>eau froide</strong>.  
+          Les remuer doucement avec les mains pour faire tomber la terre au fond.  
+          Changer l’eau 2 ou 3 fois, jusqu’à ce qu’elle soit claire, sans sable ni terre.  
+        </li>
+
+        <li>
+          <strong>Blanchir les cicorielle.</strong><br>
+          Porter à ébullition une grande casserole d’eau salée.  
+          Quand l’eau bout franchement, ajouter les <strong>cicorielle égouttées</strong>.  
+          Les pousser délicatement sous l’eau avec une cuillère en bois.  
+          <br><br>
+          Cuire <strong>8–10 minutes</strong>, selon la tendreté des herbes, jusqu’à ce qu’elles deviennent souples  
+          mais encore légèrement résistantes sous la dent.  
+          Les égoutter en conservant <strong>un peu d’eau de cuisson</strong> de côté (1 tasse),  
+          qui servira éventuellement à lier le plat plus tard.  
+          Laisser s’égoutter dans une passoire sans les presser, pour garder leur texture.
+        </li>
+
+        <li>
+          <strong>Préparer les pommes de terre.</strong><br>
+          Peler les <strong>pommes de terre farineuses</strong>. Les rincer rapidement à l’eau froide.  
+          Les couper en morceaux de taille régulière (par exemple en 4 ou en 6 selon la grosseur).  
+          <br><br>
+          Les déposer dans une grande casserole, couvrir d’<strong>eau froide</strong>, ajouter une bonne pincée de sel  
+          et porter à ébullition.  
+          Cuire jusqu’à ce qu’elles soient <strong>très tendres</strong> : en piquant avec la pointe d’un couteau,  
+          la pomme de terre doit se briser sans résistance.  
+        </li>
+
+        <li>
+          <strong>Égoutter et “laisser sécher” les pommes de terre.</strong><br>
+          Une fois cuites, égoutter délicatement les pommes de terre.  
+          Les remettre aussitôt dans la casserole encore chaude, hors du feu.  
+          <br><br>
+          Secouer légèrement la casserole sur le feu éteint ou sur une plaque tiède :  
+          cela permet à la <strong>vapeur de s’échapper</strong> et aux pommes de terre de <strong>sécher un peu</strong>.  
+          Ce geste est important : des pommes de terre trop aqueuses donneraient une texture pâteuse et lourde.  
+        </li>
+
+        <li>
+          <strong>Écraser grossièrement les pommes de terre.</strong><br>
+          Avec un presse-purée à mailles larges ou une fourchette, écraser les pommes de terre directement dans la casserole.  
+          Ne pas chercher une purée lisse : on veut garder des <strong>morceaux, des petits éclats</strong>,  
+          pour une texture rustique.  
+          <br><br>
+          Goûter et rectifier en sel si besoin. Mettre de côté, couvercle entrouvert,  
+          juste pour que les pommes de terre ne refroidissent pas trop vite.
+        </li>
+
+        <li>
+          <strong>Préparer l’ail et, si tu veux, l’oignon.</strong><br>
+          Éplucher les <strong>gousses d’ail</strong>.  
+          Tu peux soit les laisser entières et les écraser légèrement du plat du couteau,  
+          soit les couper en tranches fines si tu veux un goût plus prononcé.  
+          <br><br>
+          Pour la version très rustique, éplucher aussi un petit <strong>oignon blanc</strong>  
+          et l’émincer en fines lamelles, presque translucides.  
+        </li>
+
+        <li>
+          <strong>Faire chauffer l’huile doucement.</strong><br>
+          Dans une grande poêle ou une large sauteuse, verser <strong>6–8 c.à.s d’huile d’olive extravierge</strong>.  
+          Ajouter l’ail (et éventuellement l’oignon).  
+          <br><br>
+          Faire chauffer à feu doux/moyen : l’ail ne doit pas brûler, mais juste <strong>chuchoter dans l’huile</strong>,  
+          en prenant une légère couleur blond doré.  
+          Si tu utilises du piment, l’ajouter maintenant en petits morceaux ou en flocons,  
+          pour qu’il parfume l’huile sans devenir amer.
+        </li>
+
+        <li>
+          <strong>Ajouter les cicorielle et les “strascinare”.</strong><br>
+          Quand l’ail commence à blondir, ajouter les <strong>cicorielle bien égouttées</strong> dans la poêle.  
+          Elles vont légèrement crépiter.  
+          <br><br>
+          Avec deux fourchettes ou des pinces, commencer à les <strong>tirer, retourner, étirer</strong> dans l’huile :  
+          c’est le geste de “strascinare” : on <strong>traîne</strong> les herbes dans la poêle pour qu’elles s’enrobent d’huile  
+          et qu’elles se détendent.  
+          Laisser cuire <strong>5–7 minutes</strong>, jusqu’à ce que l’odeur d’herbe crue disparaisse  
+          et que les cicorielle deviennent brillantes, légèrement assouplies, mais toujours présentes en bouche.  
+        </li>
+
+        <li>
+          <strong>Ajouter les pommes de terre et les “strascinare” avec les herbes.</strong><br>
+          Ajouter maintenant les <strong>pommes de terre écrasées</strong> dans la poêle, par grosses cuillerées.  
+          Mélanger doucement avec une spatule en bois :  
+          l’idée n’est pas de faire une purée, mais de <strong>lier</strong> les morceaux de pommes de terre  
+          avec les cicorielle.  
+          <br><br>
+          Continuer à “strascinare” :  
+          pousser, tirer, retourner la masse, en l’écrasant légèrement contre le fond de la poêle.  
+          Si le mélange semble trop sec ou trop “compact”, ajouter <strong>2–3 c.à.s d’eau de cuisson des cicorielle</strong>  
+          pour détendre le tout.  
+          <br><br>
+          Cuire ainsi <strong>5–8 minutes</strong>, jusqu’à ce que les pommes de terre aient absorbé l’huile parfumée  
+          et que l’ensemble soit crémeux mais encore structuré.  
+        </li>
+
+        <li>
+          <strong>Rectifier l’assaisonnement et la texture.</strong><br>
+          Goûter : ajuster le sel, le poivre ou le piment.  
+          Si tu veux un plat plus onctueux, ajouter encore un léger filet d’<strong>huile d’olive</strong>  
+          et une ou deux cuillères d’<strong>eau de cuisson</strong>.  
+          Mélanger brièvement.  
+          <br><br>
+          Le bon point : les pommes de terre doivent être <strong>crémeuses et moelleuses</strong>,  
+          les cicorielle bien <strong>réparties</strong>, et l’ensemble doit rester assez épais pour tenir à la cuillère.  
+        </li>
+
+        <li>
+          <strong>Finition rustique et service.</strong><br>
+          Pour la version très paysanne, hors du feu, tu peux ajouter quelques <strong>gouttes de vinaigre de vin rouge</strong>  
+          ou de vinaigre de figue, juste assez pour réveiller les saveurs (on ne doit pas le sentir comme une sauce).  
+          Mélanger rapidement.  
+          <br><br>
+          Transférer les <strong>Patate “Strascinate”</strong> dans un plat en terre cuite ou un grand bol rustique,  
+          arroser d’un dernier filet d’huile d’olive crue, et servir bien chaud,  
+          avec du <strong>pain de campagne grillé</strong> à côté pour accompagner.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>Variantes paysannes</h2>
+
+    <h3>Version “jour de fête”</h3>
+      <ul>
+        <li>Ajouter quelques <strong>olives noires des Pouilles</strong>, dénoyautées et légèrement écrasées,  
+            à la fin de la cuisson.</li>
+        <li>Parsemer avec un peu de <strong>chapelure grillée</strong> dans l’huile d’olive, pour un dessus croustillant.</li>
+      </ul>
+
+    <h3>Version “aux blettes traditionnelles”</h3>
+        <ul>
+        <li>Remplacer les cicorielle par des <strong>blettes traditionnelles</strong>, en utilisant surtout les feuilles et les tiges fines.</li>
+        <li>Couper les tiges en petits morceaux et les <strong>blanchir 2–3 minutes</strong> avant d’ajouter les feuilles, qui cuisent plus vite.</li>
+        <li>Égoutter soigneusement, puis faire revenir blettes et ail dans l’<strong>huile d’olive</strong> jusqu’à ce qu’elles deviennent tendres et bien enrobées.</li>
+        <li>Mélanger ensuite avec les <strong>pommes de terre écrasées</strong> en “strascinando”, c’est-à-dire en tirant et retournant la masse dans la poêle.</li>
+        <li>Finir avec un filet d’<strong>huile d’olive crue</strong> et un peu de <strong>poivre noir</strong> pour relever la douceur naturelle des blettes.</li>
+        </ul>
+
+
+    <h3>Version encore plus pauvre</h3>
+      <ul>
+        <li>Réduire la quantité d’huile et supprimer l’oignon.</li>
+        <li>Utiliser uniquement <strong>l’ail et les herbes</strong>, avec un peu plus d’eau de cuisson pour lier.</li>
+        <li>Servir dans des assiettes creuses, presque comme une soupe épaisse.</li>
+      </ul>
+
+      <h3>Version du soir “réchauffée”</h3>
+      <ul>
+        <li>Le lendemain, étaler les restes dans une poêle légèrement huilée.</li>
+        <li>Les laisser <strong>croûter légèrement</strong> dessous, sans trop remuer,  
+            pour créer une petite croûte dorée de pommes de terre et de cicorielle.</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Le secret de ce plat, c’est l’<strong>équilibre entre l’eau et l’huile</strong>.  
+        Si les pommes de terre sont trop aqueuses, le plat devient lourd et sans relief.  
+        Si elles sont bien séchées puis “tirées” à la poêle avec juste ce qu’il faut d’<strong>huile d’olive</strong>  
+        et un peu d’<strong>eau de cuisson des herbes</strong>, on obtient une texture <strong>crémeuse, parfumée et légère</strong>.  
+        N’hésite pas à “travailler” la masse à la poêle quelques minutes de plus :  
+        c’est ce geste, répété, qui donne le caractère aux patate strascinate.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les <strong>Patate “Strascinate” cu Cicorielle Selvatiche</strong> viennent des campagnes du <strong>Salento</strong>  
+        et de la <strong>Murgia</strong>, là où les familles vivaient avec très peu :  
+        des pommes de terre du champ, des herbes sauvages cueillies le matin, un peu d’ail et l’huile d’olive de la maison.  
+        <br><br>
+        C’était un plat du soir, après le travail aux champs : simple, nourrissant,  
+        avec cette amertume légère qui “nettoie” la bouche.  
+        Aujourd’hui, il a presque disparu des trattorie modernes,  
+        mais il reste profondément lié à la mémoire des cuisines paysannes des Pouilles.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Patate “Strascinate” cu Cicorielle Selvatiche.</p>
+</footer>
+</body>
+</html>

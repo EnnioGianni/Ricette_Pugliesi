@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pizza Napoletana Autentica — Sapori di Puglia</title>
+  <meta name="description" content="La vraie Pizza Napoletana AVPN : pâte longue fermentation, technique d’étalage traditionnelle, cuisson haute température. Recette authentique et ultra détaillée.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Primi/Images/pizza-napoletana.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+
+        <!-- Bouton imprimante -->
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">🖨️</button>
+        </li>
+
+        <li><a href="/index.html">Accueil</a></li>
+
+        <li>
+          <button class="button secondary" data-toggle-theme>🌓</button>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍕 Pizza Napoletana Autentica (Vera AVPN)</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Primi/Images/pizza-napoletana.png"
+           alt="Pizza Napoletana authentique avec cornicione gonflé"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement de la Pizza Napoletana">
+    </div>
+
+    <p class="intro">
+      Voici la <strong>Vera Pizza Napoletana</strong> selon l’<strong>AVPN</strong> :
+      fermentation longue, étalage à la main, cornicione gonflé et centre souple.
+      Une recette <strong>authentique</strong>, détaillée geste par geste,
+      pour reproduire chez toi la vraie pizza comme à Naples.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Fermentation : <strong>8–24 h</strong> |
+        🔥 Cuisson : <strong>60–90 sec (four à bois) / 6–8 min (four domestique)</strong> |
+        👥 Pour <strong>4 pizzas</strong> |
+        ⚙️ Difficulté : <strong>Élevée (technique traditionnelle)</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pâte AVPN</h3>
+      <ul>
+        <li>1 L d’eau froide (20–22°C)</li>
+        <li>1,6 à 1,8 kg de farine 00 “Pizza Napoletana”</li>
+        <li>50 g de sel</li>
+        <li>1 à 3 g de levure fraîche</li>
+      </ul>
+
+      <h3>Garniture classique Margherita</h3>
+      <ul>
+        <li>800 g de tomates San Marzano DOP</li>
+        <li>400 g de mozzarella Fior di Latte</li>
+        <li>Basilic frais</li>
+        <li>Huile d’olive extravierge</li>
+        <li>Sel</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION TRES DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation ultra détaillée</h2>
+
+      <ol>
+
+        <li>
+          <strong>Dissoudre le sel dans l’eau.</strong><br>
+          Verser l’eau froide dans un grand saladier.
+          Ajouter le sel. Mélanger jusqu’à dissolution totale.
+        </li>
+
+        <li>
+          <strong>Ajouter 10% de farine.</strong><br>
+          Verser un peu de farine dans l’eau salée pour obtenir une crème fluide.
+        </li>
+
+        <li>
+          <strong>Incorporer la levure.</strong><br>
+          Dissoudre la levure dans cette crème.
+          ⚠️ Jamais en contact direct avec le sel.
+        </li>
+
+        <li>
+          <strong>Incorporer progressivement le reste de la farine.</strong><br>
+          Ajouter doucement la farine en mélangeant avec la main jusqu’à obtention d’une pâte.
+        </li>
+
+        <li>
+          <strong>Pétrissage napolitain traditionnel.</strong><br>
+          Sur le plan de travail, pétrir 15–20 minutes :
+          pousser, replier, tourner.
+          La pâte doit devenir lisse et élastique.
+        </li>
+
+        <li>
+          <strong>Repos en masse : 2 h.</strong><br>
+          Former une boule, couvrir d’un linge humide.
+        </li>
+
+        <li>
+          <strong>Boulage.</strong><br>
+          Diviser en 4 pâtons de 250 g.
+          Former des boules tendues.
+        </li>
+
+        <li>
+          <strong>Fermentation lente : 8 à 24 h.</strong><br>
+          Laisser lever dans un bac fermé, à 20–22°C.
+        </li>
+
+        <li>
+          <strong>Préparer la sauce.</strong><br>
+          Écraser les tomates San Marzano à la main.
+          Ajouter sel, huile, basilic.
+          Ne pas cuire.
+        </li>
+
+        <li>
+          <strong>Préparer la mozzarella.</strong><br>
+          Couper en morceaux, laisser égoutter 1 h.
+        </li>
+
+        <li>
+          <strong>Façonnage napolitain.</strong><br>
+          Sur un plan légèrement fariné :
+          pousser l’air vers les bords avec les doigts,
+          former le cornicione,
+          étaler doucement le centre (2–4 mm).
+        </li>
+
+        <li>
+          <strong>Garniture.</strong><br>
+          Étaler la tomate, ajouter mozzarella, quelques feuilles de basilic.
+          Arroser d’un filet d’huile d’olive.
+        </li>
+
+        <li>
+          <strong>Cuisson.</strong><br>
+          • Four à bois : 430–485°C → 60–90 sec  
+          • Four domestique : pierre à pizza → 250–300°C → 6–8 min
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes traditionnelles AVPN</h2>
+
+      <h3>1️⃣ Marinara</h3>
+      <ul><li>Tomate, ail, origan, huile d’olive.</li></ul>
+
+      <h3>2️⃣ Margherita STG</h3>
+      <ul><li>Bufflonne DOP, San Marzano, basilic.</li></ul>
+
+      <h3>3️⃣ Filetto</h3>
+      <ul><li>Tomates fraîches en cubes, basilic, mozzarella.</li></ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du pizzaiolo</h2>
+      <p>
+        Pour un cornicione encore plus gonflé, laisse reposer la pizza 3–4 minutes après l’étalage
+        avant de la garnir : l’air se stabilise dans la pâte et se dilate davantage au four.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Créée à Naples au XVIIIe siècle, la Pizza Napoletana est devenue un symbole mondial.
+        Son secret tient dans trois choses : farine 00, eau froide, fermentation longue.
+        Le reste n’est que geste et tradition.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Pizza traditionnelle napolitaine.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

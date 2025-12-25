@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pipi e Patate alla Pugliese — Sapori di Puglia</title>
+  <meta name="description" content="Pipi e Patate alla Pugliese : poivrons et pommes de terre fondants, sautés à l’huile d’olive avec oignon et tomate, dans la pure tradition du Sud de l’Italie.">
+  
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/pipi-patate.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🥔 Pipi e Patate alla Pugliese</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+        <img src="/Menu/Images/pipi-patate.png" alt="Pipi e Patate alla Pugliese — portion servie" class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" class="modal-content" src="&" alt="Agrandissement de l’image">
+    </div>
+
+    <p class="intro">
+      <strong>Pipi e Patate</strong>, c’est le couple parfait de la cuisine du Sud :  
+      <strong>poivrons doux et pommes de terre</strong> coupés en morceaux généreux,  
+      doucement <strong>fondants à l’intérieur et légèrement dorés à l’extérieur</strong>,  
+      le tout parfumé à l’oignon, à la tomate et à l’huile d’olive.
+    </p>
+
+    <!-- Infos -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>20 min</strong> |
+        🔥 Cuisson : <strong>35–40 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Facile</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <ul>
+        <li>700 g de pommes de terre (chair ferme ou légèrement fondante)</li>
+        <li>3 poivrons (rouges et jaunes, si possible)</li>
+        <li>1 gros oignon blanc ou doré</li>
+        <li>1 petite tomate mûre ou 4 c.à.s de pulpe de tomate</li>
+        <li>1 gousse d’ail (facultatif mais traditionnel)</li>
+        <li>6 c.à.s d’huile d’olive extravierge</li>
+        <li>Sel & poivre</li>
+        <li>Origan ou un peu de romarin (au choix)</li>
+        <li>Un filet de vinaigre de vin blanc (touche finale facultative)</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer les légumes.</strong><br>
+          Peler les pommes de terre, les rincer et les couper en cubes de taille régulière  
+          (environ 2&nbsp;cm). Les plonger quelques minutes dans l’eau froide pour enlever  
+          l’excès d’amidon, puis bien les essuyer dans un torchon propre :  
+          ça aide à les faire dorer au lieu de les faire bouillir dans leur propre vapeur.
+          <br><br>
+          Laver les poivrons, retirer le pédoncule, les graines et les parties blanches.  
+          Les couper en lanières puis en morceaux plus courts, pour qu’ils se mélangent bien  
+          avec les pommes de terre.
+        </li>
+
+        <li>
+          <strong>Préparer l’oignon et la base aromatique.</strong><br>
+          Éplucher l’oignon et le couper en fines lamelles.  
+          Écraser légèrement la gousse d’ail avec le plat du couteau (si tu l’utilises).  
+          Couper la tomate en petits dés ou préparer la pulpe.
+          <br><br>
+          Dans une grande poêle ou une large sauteuse, verser 4 c.à.s d’huile d’olive.  
+          Ajouter l’oignon (et l’ail) et laisser revenir à feu doux 5–7&nbsp;minutes,  
+          jusqu’à ce qu’il devienne translucide et légèrement doré sur les bords.  
+          L’idée est de créer une base douce et parfumée sans brûler l’oignon.
+        </li>
+
+        <li>
+          <strong>Commencer la cuisson des pommes de terre.</strong><br>
+          Ajouter les cubes de pommes de terre dans la sauteuse, bien mélanger  
+          pour les enrober d’huile et d’oignon.  
+          Laisser saisir quelques minutes à feu moyen, en remuant doucement pour qu’elles ne se cassent pas :  
+          tu dois voir apparaître de petites zones dorées sur les bords.
+        </li>
+
+        <li>
+          <strong>Ajouter les poivrons.</strong><br>
+          Quand les pommes de terre ont commencé à colorer, ajouter les poivrons dans la poêle.  
+          Verser encore 1–2&nbsp;c.à.s d’huile d’olive si le fond est trop sec.  
+          Mélanger délicatement pour répartir les légumes.
+          <br><br>
+          Ajouter maintenant la tomate en dés ou la pulpe.  
+          Saler, poivrer et saupoudrer d’un peu d’origan (ou romarin, selon ton goût).  
+          Laisser cuire à feu moyen quelques minutes sans couvrir, pour que la tomate commence à fondre.
+        </li>
+
+        <li>
+          <strong>Mijoter jusqu’à texture fondante.</strong><br>
+          Baisser légèrement le feu, couvrir partiellement avec un couvercle,  
+          et laisser cuire 25–30&nbsp;minutes.  
+          Remuer de temps en temps : les pommes de terre ne doivent pas accrocher au fond.  
+          Si tu vois que ça sèche trop, ajouter une ou deux cuillères d’eau chaude,  
+          juste pour aider la cuisson, mais sans transformer le plat en ragoût liquide.
+          <br><br>
+          Le but est d’obtenir des pommes de terre bien cuites et fondantes,  
+          des poivrons doux et souples, et un jus épais qui nappe légèrement le tout.
+        </li>
+
+        <li>
+          <strong>Finition et équilibre des saveurs.</strong><br>
+          Quand les légumes sont cuits, goûter et rectifier en sel et en poivre.  
+          Si tu aimes la légère note aigrelette typique de certains plats du Sud,  
+          ajouter un petit filet de vinaigre de vin blanc en fin de cuisson,  
+          puis couper le feu et mélanger : cela réveille les saveurs  
+          sans dominer le goût de l’huile d’olive et des poivrons.
+        </li>
+
+        <li>
+          <strong>Repos et service.</strong><br>
+          Laisser reposer 5&nbsp;minutes hors du feu, couvercle entrouvert :  
+          les saveurs se mélangent encore, les légumes se détendent.  
+          Servir chaud ou tiède, dans un grand plat familial ou en portions individuelles,  
+          avec un filet d’huile d’olive crue sur le dessus.
+        </li>
+      </ol>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Si tu veux retrouver le goût des cuisines de campagne, prépare les <strong>Pipi e Patate</strong> un peu en avance  
+        et réchauffe-les doucement : comme souvent avec ce type de plat, ils sont encore meilleurs  
+        après avoir reposé, quand les pommes de terre ont bien absorbé l’huile et le parfum des poivrons.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Plat de pure <em>cucina povera</em>, les <strong>Pipi e Patate</strong> étaient préparés quand on avait des poivrons  
+        et des pommes de terre en abondance, souvent pour accompagner du pain fait maison ou un morceau de fromage.  
+        Simple, coloré et nourrissant, ce plat est devenu un classique des tables familiales en Puglia  
+        et dans tout le Sud de l’Italie.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette traditionnelle du Sud de l’Italie.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

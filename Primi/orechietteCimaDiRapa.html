@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orecchiette alle Cime di Rapa — Sapori di Puglia</title>
+  <meta name="description" content="Pâtes typiques des Pouilles avec cime di rapa, ail, anchois et huile d’olive.">
+
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/orecchiette-cime-di-rapa.png">
+
+  <!-- Ordre important -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+</head>
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes (ordre DOM) -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Drawer -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list"></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <main class="container recette">
+    <article>
+      <h1>🍝 Orecchiette alle Cime di Rapa</h1>
+      <img src="/Images/orecchiette-cime-di-rapa.png" alt="Orecchiette alle Cime di Rapa" class="recette-photo">
+
+      <p class="intro">
+        Plat symbole de la Puglia : des <strong>orecchiette</strong> mêlées aux <em>cime di rapa</em>
+        (pousses de navet), relevées d’ail, d’anchois et d’huile d’olive. Simple, franc, profond.
+      </p>
+
+      <section class="infos">
+        <h2>Informations</h2>
+        <p>⏱ Préparation : <strong>30 min</strong> &nbsp;|&nbsp; 👥 Pour <strong>4 personnes</strong> &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Facile</strong></p>
+      </section>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li class="ingredient">400 g d’orecchiette fraîches</li>
+          <li class="ingredient">600 g de cime di rapa (ou brocoli-rave)</li>
+          <li class="ingredient">2 gousses d’ail</li>
+          <li class="ingredient">4 filets d’anchois à l’huile</li>
+          <li class="ingredient">Huile d’olive extra-vierge</li>
+          <li class="ingredient">Piment (facultatif)</li>
+          <li class="ingredient">Sel</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li><strong>Préparer les cime di rapa.</strong> Laver, parer, détailler en morceaux.</li>
+          <li><strong>Cuisson combinée.</strong> Dans une eau bouillante salée, cuire ensemble cime di rapa et orecchiette (8–10 min, selon la pâte).</li>
+          <li><strong>Sauter l’assaisonnement.</strong> Dans une grande poêle : huile d’olive, ail, anchois et piment — fondre doucement.</li>
+          <li><strong>Mélanger.</strong> Égoutter pâtes + légumes (garder un peu d’eau de cuisson), sauter 1–2 min dans la poêle. Allonger avec l’eau si besoin.</li>
+          <li><strong>Servir.</strong> Un filet d’huile cru au dressage. C’est prêt.</li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce</h2>
+        <p>Si les cime di rapa sont amères, blanchis-les 1 minute, égoutte, puis fais la cuisson combinée.</p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>Classique des Pouilles (zone de Bari), souvent préparé à la maison pour célébrer la saison des herbes et des légumes verts.</p>
+      </section>
+    </article>
+  </main>
+
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia.</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cavatelli con Bietola Bianca e Limone — Sapori di Puglia</title>
+  <meta name="description" content="Cavatelli frais avec bietola bianca (blettes blanches) sautées à l’ail, huile d’olive et zeste de citron. Primo piatto rare, léger et rustique des Pouilles, décrit pas à pas avec variantes.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Primi/Images/cavatelli-bietola-bianca-limone.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li>
+          <button class="button secondary" data-toggle-theme>🌓</button>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍋 Cavatelli con Bietola Bianca e Limone</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Primi/Images/cavatelli-bietola-bianca-limone.png"
+           alt="Cavatelli frais avec blettes blanches et zeste de citron, servis dans une assiette rustique"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement des Cavatelli con Bietola Bianca e Limone">
+    </div>
+
+    <p class="intro">
+      Les <strong>Cavatelli con Bietola Bianca e Limone</strong> sont un <strong>primo piatto très rare</strong> des campagnes  
+      des Pouilles&nbsp;: des <strong>cavatelli frais</strong> faits à la main, mêlés à de la <strong>biette blanche</strong> doucement  
+      sautée à l’ail, à l’<strong>huile d’olive</strong> et au <strong>zeste de citron</strong>.  
+      C’est un plat <strong>léger, végétal et très parfumé</strong>, où chaque ingrédient reste simple mais profondément méditerranéen.
+    </p>
+
+    <!-- INFOS -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>45 min</strong> (avec pâte maison) |
+        🔥 Cuisson : <strong>20–25 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Moyenne (pâtes fraîches)</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour les cavatelli frais</h3>
+      <ul>
+        <li>400 g de <strong>semoule de blé dur rimacinata</strong></li>
+        <li>Environ 200–220 ml d’<strong>eau tiède</strong></li>
+        <li>1 petite pincée de <strong>sel fin</strong></li>
+      </ul>
+
+      <h3>Pour la bietola bianca au citron</h3>
+      <ul>
+        <li>500–600 g de <strong>blettes blanches</strong> (côtes + feuilles)</li>
+        <li>2 gousses d’<strong>ail</strong></li>
+        <li>1 <strong>citron non traité</strong> (zeste fin + un peu de jus)</li>
+        <li>5–6 c.à.s d’<strong>huile d’olive extravierge</strong></li>
+        <li>Sel fin</li>
+        <li>Poivre noir fraîchement moulu (facultatif)</li>
+      </ul>
+
+      <h3>Pour finir le plat</h3>
+      <ul>
+        <li>Huile d’olive extravierge crue</li>
+        <li>Un peu de <strong>persil plat</strong> ou marjolaine fraîche hachée (facultatif)</li>
+        <li>Un peu de <strong>pecorino</strong> ou caciocavallo râpé (facultatif, selon style)</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION TRES DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation extrêmement détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer la pâte à cavatelli.</strong><br>
+          Sur le plan de travail, verser la semoule et y ajouter une pincée de sel.  
+          Mélanger rapidement du bout des doigts, puis former un puits au centre.  
+          Verser une partie de l’eau tiède au milieu et commencer à incorporer la semoule par petites touches,  
+          avec les doigts.  
+          <br><br>
+          Ajouter peu à peu le reste de l’eau, jusqu’à ce que toute la semoule soit humidifiée et commence à former  
+          une boule. Pétrir ensuite avec les deux mains <strong>pendant 8–10 minutes</strong>, jusqu’à obtenir une pâte lisse,  
+          souple et ferme. Si la pâte colle légèrement, ajouter un voile de semoule en surface.
+          <br><br>
+          Former une boule, la couvrir avec un bol ou un torchon propre et laisser reposer <strong>20–30 minutes</strong>  
+          à température ambiante. Ce repos va assouplir le gluten et rendre la pâte plus facile à façonner.
+        </li>
+
+        <li>
+          <strong>Nettoyer et préparer les blettes blanches.</strong><br>
+          Pendant que la pâte repose, s’occuper de la <strong>bietola bianca</strong>.  
+          Séparer les côtes des feuilles si elles sont très grosses.  
+          Laver soigneusement sous l’eau courante pour enlever toute trace de terre, en ouvrant les feuilles avec les mains.  
+          <br><br>
+          Couper les côtes en petits tronçons de 1–2&nbsp;cm et les feuilles en lanières de 2–3&nbsp;cm.  
+          Garder le tout dans une passoire pour bien égoutter l’eau de lavage.
+        </li>
+
+        <li>
+          <strong>Blanchir rapidement la bietola.</strong><br>
+          Porter à ébullition une grande casserole d’eau salée.  
+          Quand l’eau bout, y plonger les côtes et les feuilles de blette.  
+          <br><br>
+          Les faire cuire <strong>4–5 minutes</strong>, juste le temps de les attendrir légèrement, sans les surcuire.  
+          Elles doivent garder une belle couleur et une légère tenue.  
+          Égoutter ensuite dans une passoire et presser délicatement avec une cuillère ou le dos d’une louche pour retirer  
+          l’excès d’eau. Réserver.
+        </li>
+
+        <li>
+          <strong>Former les cavatelli.</strong><br>
+          Reprendre la pâte reposée. La couper en 3–4 morceaux pour faciliter le travail.  
+          Rouler chaque morceau en long boudin d’environ 1&nbsp;cm de diamètre, en le faisant rouler sous les paumes  
+          sur le plan de travail légèrement saupoudré de semoule.  
+          <br><br>
+          Couper ensuite le boudin en petits tronçons de <strong>1–1,5&nbsp;cm</strong>.  
+          Pour chaque tronçon, poser le bout de l’index (ou deux doigts) sur le morceau de pâte et le tirer vers soi  
+          en appuyant légèrement&nbsp;: le morceau va s’enrouler sur lui-même en formant un petit creux,  
+          typique des <strong>cavatelli</strong>.  
+          <br><br>
+          Déposer les cavatelli formés sur un torchon légèrement fariné, en veillant à ce qu’ils ne se touchent pas trop,  
+          afin qu’ils ne collent pas entre eux. Répéter jusqu’à épuisement de la pâte.
+        </li>
+
+        <li>
+          <strong>Préparer l’aromatique ail–huile–citron.</strong><br>
+          Prélever le zeste du citron avec une râpe fine (type microplane) ou un couteau, en évitant la partie blanche amère.  
+          Réserver le zeste et un peu de jus (environ 1–2 c.à.s) dans deux petits récipients séparés.  
+          <br><br>
+          Éplucher les gousses d’ail et les écraser légèrement avec le plat du couteau.  
+          Dans une grande poêle ou sauteuse, verser <strong>5–6 c.à.s d’huile d’olive extravierge</strong> et y ajouter l’ail.  
+          Chauffer doucement à feu très doux jusqu’à ce que l’ail commence à légèrement blondir et à parfumer l’huile,  
+          sans brûler. Si l’ail dore trop vite, baisser immédiatement le feu.
+        </li>
+
+        <li>
+          <strong>Sauter la bietola dans l’huile parfumée.</strong><br>
+          Quand l’huile est parfumée à l’ail, retirer les gousses si tu préfères un goût plus délicat,  
+          ou les laisser si tu aimes leur présence dans le plat.  
+          <br><br>
+          Ajouter les blettes blanchies, bien égouttées, dans la poêle.  
+          Les répartir dans l’huile chaude et mélanger doucement pour qu’elles s’enrobent de matière grasse.  
+          Saler légèrement et poivrer si tu aimes.  
+          <br><br>
+          Laisser sauter à feu moyen-doux pendant <strong>8–10 minutes</strong>, en remuant de temps en temps,  
+          jusqu’à ce que les côtes deviennent tendres et que les feuilles soient bien brillantes.  
+          En fin de cuisson, ajouter une partie du <strong>zeste de citron</strong> et mélanger rapidement&nbsp;:  
+          le parfum doit être présent mais pas dominant.  
+          Couper le feu et réserver. Tu pourras ajuster le citron à la fin.
+        </li>
+
+        <li>
+          <strong>Mettre l’eau pour les cavatelli à bouillir.</strong><br>
+          Remplir une grande casserole d’eau, porter à ébullition et saler généreusement (comme pour toute cuisson de pâtes).  
+          Préparer une louche pour récupérer un peu d’eau de cuisson plus tard.
+        </li>
+
+        <li>
+          <strong>Cuire les cavatelli.</strong><br>
+          Quand l’eau bout, y verser les cavatelli en les détachant délicatement avec les doigts pour éviter qu’ils ne  
+          s’agglutinent. Mélanger doucement avec une cuillère en bois au moment où ils montent à la surface.  
+          <br><br>
+          Laisser cuire <strong>5–7 minutes</strong>, selon l’épaisseur et la farine, jusqu’à ce qu’ils soient  
+          <strong>al dente</strong> mais bien cuits à cœur.  
+          Juste avant d’égoutter, prélever <strong>1–2 louches d’eau de cuisson</strong> et les garder de côté.
+        </li>
+
+        <li>
+          <strong>Assembler cavatelli et bietola.</strong><br>
+          Égoutter les cavatelli et les verser immédiatement dans la poêle avec la bietola sautée, sur feu très doux.  
+          Mélanger délicatement pour bien répartir les blettes et l’huile aromatisée.  
+          <br><br>
+          Ajouter un peu d’<strong>eau de cuisson</strong> réservée (1/2 louche à la fois) pour créer une sorte de sauce légère  
+          qui enrobe les pâtes. Si le mélange semble trop sec, ajouter un peu d’eau de cuisson supplémentaire  
+          ou un filet d’huile d’olive crue.
+        </li>
+
+        <li>
+          <strong>Assaisonner avec le citron et finir le plat.</strong><br>
+          Hors du feu ou sur feu très doux, ajouter le reste du <strong>zeste de citron</strong> et un peu de <strong>jus de citron</strong>  
+          (commencer par 1 c.à.s, goûter, puis ajuster).  
+          <br><br>
+          Le citron doit apporter de la fraîcheur et réveiller le goût des blettes, sans rendre le plat acide.  
+          Goûter et rectifier&nbsp;: sel, poivre, citron, huile.  
+          Si tu le souhaites, ajouter une petite poignée de <strong>persil</strong> ou de marjolaine fraîche hachée.
+        </li>
+
+        <li>
+          <strong>Repos rapide et service.</strong><br>
+          Couper le feu, couvrir la poêle et laisser reposer <strong>1–2 minutes</strong>&nbsp;:  
+          les cavatelli vont absorber une partie des arômes de la bietola et du citron.  
+          <br><br>
+          Servir ensuite immédiatement dans des assiettes chaudes, en répartissant généreusement les blettes sur chaque portion.  
+          Terminer avec un filet d’<strong>huile d’olive crue</strong> sur le dessus et, pour ceux qui aiment,  
+          un tout petit peu de <strong>pecorino râpé</strong> (optionnel, car le plat est déjà complet sans fromage).
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes traditionnelles</h2>
+
+      <h3>1️⃣ Cavatelli con Bietola Bianca, Limone e Mandorle</h3>
+      <p>
+        Pour une version encore plus parfumée, inspirée des zones où l’on travaille beaucoup l’amande.
+      </p>
+      <ul>
+        <li>Ajouter 2–3 c.à.s d’<strong>amandes blanches</strong> grossièrement concassées dans la poêle avec la bietola en fin de cuisson.</li>
+        <li>Les laisser légèrement griller dans l’huile avant d’ajouter les cavatelli.</li>
+        <li>Terminer avec un peu de zeste de citron et d’amandes concassées sur chaque assiette.</li>
+      </ul>
+
+      <h3>2️⃣ Cavatelli con Bietola, Limone e Peperoncino</h3>
+      <p>
+        Variante plus “contadina”, avec une pointe de piment pour réchauffer le plat.
+      </p>
+      <ul>
+        <li>Ajouter un petit <strong>piment sec émietté</strong> dans l’huile avec l’ail au début.</li>
+        <li>Garder le citron, mais en quantité légèrement réduite pour ne pas couvrir le piment.</li>
+        <li>Servir avec un filet d’huile crue et, éventuellement, une pincée de piment supplémentaire.</li>
+      </ul>
+
+      <h3>3️⃣ Version “Bianca” sans citron</h3>
+      <p>
+        Dans certaines familles, on prépare le même plat mais sans citron, pour un résultat plus doux.
+      </p>
+      <ul>
+        <li>Omettre le citron.</li>
+        <li>Renforcer le parfum en ajoutant un peu plus d’ail (ou en le laissant dans la poêle).</li>
+        <li>Terminer avec seulement huile crue et herbes fraîches.</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Si tu veux un plat encore plus léger, tu peux remplacer une partie des cavatelli par des “striscioline” de bietola  
+        un peu plus longues&nbsp;: visuellement, on a l’impression d’avoir beaucoup de pâtes, mais en réalité, ce sont  
+        les légumes qui dominent. C’est une façon typique des nonne pour rendre un plat plus sain sans que personne  
+        ne s’en plaigne à table.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les <strong>cavatelli</strong> font partie des pâtes fraîches les plus anciennes des Pouilles.  
+        Dans certaines zones rurales, on les préparait souvent avec les légumes du jardin, plutôt qu’avec des sauces riches.  
+        La combinaison <strong>bietola bianca + huile d’olive + citron</strong> est une façon discrète mais très raffinée  
+        de rappeler la mer, la lumière et les jardins des maisons du Sud, avec un plat simple, pauvre, mais d’une grande élégance.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Primo piatto rare et végétal des Pouilles.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

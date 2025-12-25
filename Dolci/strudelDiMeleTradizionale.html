@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Strudel di Mele (version tradizionale) — Sapori di Puglia</title>
+  <meta name="description"
+        content="Strudel di mele traditionnel avec pâte étirée à la main, pommes, raisins et cannelle. Recette très détaillée, gestes expliqués pas à pas, avec variantes aux amandes, ricotta et mini-strudel.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Dolci/Images/strudel-di-mele.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles image + zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍰 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+
+
+<main class="container recette">
+  <article>
+
+    <h1>🍎 Strudel di Mele (version tradizionale)</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Dolci/Images/strudel-di-mele.png"
+           alt="Strudel di mele traditionnel, roulé et doré, servi en tranches avec pommes et raisins sur une table rustique"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement du strudel di mele traditionnel">
+    </div>
+
+
+    <!-- INTRO -->
+    <p class="intro">
+      Le <strong>strudel di mele</strong> est un dessert typique du Trentin–Haut-Adige, adopté dans de nombreuses cuisines
+      familiales en Italie. Ici, on le prépare dans sa version la plus <strong>traditionnelle</strong>&nbsp;:
+      une pâte simple, étirée à la main jusqu’à devenir presque <strong>transparente</strong>, puis garnie de
+      <strong>pommes parfumées, raisins, cannelle, chapelure dorée au beurre</strong>.
+      Tout est expliqué <strong>geste par geste</strong>, comme si on travaillait sur une grande table en bois dans une maison de montagne.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>45 min</strong> (dont repos de la pâte) |
+        🔥 Cuisson : <strong>35–40 min</strong> |
+        👥 Pour <strong>6–8 personnes</strong> |
+        ⚙️ Difficulté : <strong>Moyenne (pâte à étirer + roulage)</strong>
+      </p>
+    </div>
+
+
+
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pâte à strudel (pâte étirée traditionnelle)</h3>
+      <ul>
+        <li>250 g de <strong>farine de blé T55</strong> (ou T45, mais pas trop forte en gluten)</li>
+        <li>1 pincée de <strong>sel fin</strong></li>
+        <li>1 c.à.s d’<strong>huile neutre</strong> (ou huile d’olive très douce)</li>
+        <li>1 c.à.s de <strong>beurre fondu</strong> (optionnel, pour une pâte plus souple)</li>
+        <li>125–140 ml d’<strong>eau tiède</strong> (à ajuster)</li>
+        <li>Quelques gouttes de <strong>vinaigre blanc</strong> ou de jus de citron (aide l’élasticité)</li>
+      </ul>
+
+      <h3>Garniture aux pommes</h3>
+      <ul>
+        <li>800–900 g de <strong>pommes</strong> (type Boskoop, Reine des Reinettes, Golden rustique)</li>
+        <li>80–100 g de <strong>sucre</strong> (blanc ou roux, selon l’acidité des pommes)</li>
+        <li>60 g de <strong>raisins secs</strong></li>
+        <li>4–5 c.à.s de <strong>rhum</strong> ou d’<strong>eau tiède</strong> pour les tremper</li>
+        <li>1–2 c.à.c de <strong>cannelle en poudre</strong> (à ajuster selon goût)</li>
+        <li>40–50 g de <strong>pignons de pin</strong> ou de <strong>noix concassées</strong></li>
+        <li>40–50 g de <strong>chapelure</strong> (idéalement maison)</li>
+        <li>40 g de <strong>beurre</strong> (pour dorer la chapelure et le dessus)</li>
+        <li>Le <strong>jus d’un demi-citron</strong></li>
+        <li>Le <strong>zeste finement râpé</strong> d’un citron non traité (optionnel mais très parfumé)</li>
+      </ul>
+
+      <h3>Finition</h3>
+      <ul>
+        <li>Beurre fondu pour badigeonner la pâte avant et pendant la cuisson</li>
+        <li><strong>Sucre glace</strong> pour saupoudrer après cuisson</li>
+      </ul>
+    </section>
+
+
+
+
+    <!-- PREPARATION TRES DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation extrêmement détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer la pâte à strudel — sentir la douceur sous les doigts.</strong><br>
+          Dans un saladier, verse la <strong>farine</strong> et la pincée de <strong>sel</strong>. Mélange rapidement avec la main.
+          Fais un petit puits au centre et ajoute l’<strong>huile</strong>, éventuellement le <strong>beurre fondu</strong>, quelques gouttes
+          de <strong>vinaigre</strong> ou de jus de citron, puis une bonne partie de l’<strong>eau tiède</strong> (pas toute d’un coup).
+          <br><br>
+          Commence à ramener la farine vers le centre, en mélangeant avec la main ou une cuillère,
+          jusqu’à ce que la pâte commence à se former. Ajoute encore un peu d’eau si nécessaire&nbsp;:
+          la pâte doit devenir <strong>souple, lisse, non collante</strong>, mais pas sèche.
+          <br><br>
+          Quand tout est rassemblé en boule, dépose la pâte sur le plan de travail
+          et pétris-la pendant <strong>8–10 minutes</strong>&nbsp;: pousse avec la paume, replie, tourne, recommence.
+          Tu dois sentir la pâte devenir de plus en plus élastique, presque “vivante”.
+        </li>
+
+        <li>
+          <strong>Repos de la pâte — la laisser se détendre.</strong><br>
+          Forme une boule bien lisse, badigeonne-la d’un très léger voile d’huile, puis dépose-la dans un bol.
+          Couvre avec un film, un couvercle ou un bol renversé.
+          Laisse reposer au moins <strong>30 minutes</strong> à température ambiante.
+          <br><br>
+          Ce repos est essentiel&nbsp;: le gluten se détend, la pâte devient beaucoup plus facile à étirer
+          finement sans se déchirer.
+        </li>
+
+        <li>
+          <strong>Mettre les raisins à tremper.</strong><br>
+          Place les <strong>raisins secs</strong> dans un petit bol. Verse dessus le <strong>rhum</strong> ou de l’<strong>eau tiède</strong>
+          jusqu’à les couvrir. Laisse reposer <strong>15–20 minutes</strong>.
+          Ils vont se gonfler, devenir plus moelleux et plus parfumés.
+        </li>
+
+        <li>
+          <strong>Préparer les pommes — texture et parfum.</strong><br>
+          Épluche les <strong>pommes</strong>, retire le cœur et les pépins. Coupe-les en <strong>tranches fines</strong>
+          ou en lamelles un peu épaisses (selon si tu veux une texture plus fondante ou avec un peu de morceaux).
+          <br><br>
+          Place-les dans un grand saladier. Ajoute le <strong>jus de citron</strong> (pour éviter qu’elles noircissent)
+          et éventuellement le <strong>zeste de citron finement râpé</strong>. Mélange avec les mains pour bien enrober.
+        </li>
+
+        <li>
+          <strong>Dorer la chapelure au beurre.</strong><br>
+          Dans une petite poêle, fais fondre environ <strong>20 g de beurre</strong> à feu doux.
+          Ajoute la <strong>chapelure</strong> et fais-la dorer en remuant constamment, jusqu’à ce qu’elle prenne
+          une couleur dorée et une bonne odeur de pain grillé.
+          <br><br>
+          Retire du feu et laisse tiédir. Cette chapelure servira de couche absorbante sur la pâte,
+          pour boire le jus des pommes et éviter que le fond ne devienne mou.
+        </li>
+
+        <li>
+          <strong>Assaisonner la garniture.</strong><br>
+          Égoutte les <strong>raisins</strong> (en gardant éventuellement un peu de liquide pour parfumer les pommes).
+          Ajoute-les dans le saladier de pommes.
+          <br><br>
+          Ajoute le <strong>sucre</strong>, la <strong>cannelle</strong> et les <strong>pignons ou noix</strong>.
+          Mélange délicatement avec les mains ou une grande cuillère, sans écraser les pommes.
+          Goûte une tranche&nbsp;: ajuste le sucre, la cannelle et le citron selon ta préférence.
+          La garniture doit être parfumée, légèrement acidulée et bien équilibrée.
+        </li>
+
+        <li>
+          <strong>Préparer la surface pour étirer la pâte.</strong><br>
+          Choisis une grande table ou un plan de travail. Recouvre-la d’un <strong>grand torchon</strong> ou d’une nappe en coton,
+          légèrement fariné. Le torchon va t’aider à rouler le strudel ensuite.
+          <br><br>
+          Prends la pâte reposée, dépose-la au centre et commence à l’étaler au rouleau en un grand rectangle.
+          Quand le rouleau ne suffit plus, utilise le dos de tes mains pour l’<strong>étirer délicatement</strong>,
+          en passant les mains sous la pâte et en la soulevant pour la faire glisser vers l’extérieur.
+          <br><br>
+          Tu dois arriver à une pâte très fine, presque <strong>transparente</strong> (on doit voir le motif du torchon à travers),
+          mais sans trous. Si un petit trou se forme, pince simplement la pâte pour le refermer.
+        </li>
+
+        <li>
+          <strong>Beurrer la pâte et parsemer de chapelure.</strong><br>
+          Fais fondre le reste du <strong>beurre</strong> (environ 20–30 g).
+          Avec un pinceau, badigeonne délicatement toute la surface de la pâte avec une fine couche de beurre fondu.
+          <br><br>
+          Saupoudre ensuite la pâte de <strong>chapelure dorée</strong>, en faisant une couche plus généreuse dans la zone où
+          tu déposeras les pommes (en général un long rectangle sur le tiers inférieur de la pâte).
+        </li>
+
+        <li>
+          <strong>Disposer la garniture aux pommes.</strong><br>
+          Répartis les <strong>pommes assaisonnées</strong> sur la partie inférieure de la pâte, en laissant une marge
+          de quelques centimètres au bord. Forme un long tas régulier, sans monter trop haut, pour pouvoir rouler
+          facilement.
+          <br><br>
+          Essaie de garder une épaisseur constante sur toute la longueur, pour que le strudel cuise de manière uniforme.
+        </li>
+
+        <li>
+          <strong>Rouler le strudel avec l’aide du torchon.</strong><br>
+          Replie légèrement les bords latéraux par-dessus les pommes, comme pour fermer un paquet.
+          Puis, en soulevant le torchon par le bord, commence à <strong>rouler la pâte par-dessus la garniture</strong>,
+          doucement mais fermement. Le strudel va se rouler sur lui-même grâce au mouvement du torchon.
+          <br><br>
+          Continue jusqu’à ce que tout le rectangle soit roulé. À la fin, la fermeture (la “clé” du rouleau)
+          doit se retrouver en dessous.
+        </li>
+
+        <li>
+          <strong>Transférer sur la plaque et préparer la cuisson.</strong><br>
+          Préchauffe le four à <strong>180&nbsp;°C</strong> (chaleur tournante si possible).
+          <br><br>
+          Avec précaution, fais glisser le strudel sur une plaque recouverte de papier cuisson,
+          en gardant la soudure en dessous. Si le strudel est très long, on peut lui donner une forme
+          légèrement courbe.
+          <br><br>
+          Badigeonne généreusement le dessus avec du <strong>beurre fondu</strong>.
+          Avec la pointe d’un couteau, fais quelques petites incisions obliques sur le dessus
+          pour laisser échapper la vapeur.
+        </li>
+
+        <li>
+          <strong>Cuisson du strudel.</strong><br>
+          Enfourne au milieu du four et fais cuire environ <strong>35–40 minutes</strong>, jusqu’à ce que
+          la pâte soit bien <strong>dorée</strong> et croustillante.
+          <br><br>
+          En cours de cuisson, tu peux ouvrir le four une fois pour badigeonner à nouveau le dessus
+          avec un peu de beurre fondu&nbsp;: cela donnera une croûte encore plus brillante et savoureuse.
+        </li>
+
+        <li>
+          <strong>Repos, finition et service.</strong><br>
+          Une fois cuit, laisse le strudel reposer au moins <strong>15–20 minutes</strong> avant de le couper&nbsp;:
+          la garniture va se stabiliser et les tranches seront plus nettes.
+          <br><br>
+          Juste avant de servir, saupoudre généreusement de <strong>sucre glace</strong>.
+          Coupe en tranches épaisses et sers encore tiède, éventuellement avec une
+          <strong>crème anglaise</strong>, une boule de <strong>glace à la vanille</strong> ou un peu de crème fouettée.
+        </li>
+      </ol>
+    </section>
+
+
+
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes traditionnelles</h2>
+
+      <h3>1️⃣ Strudel di mele alle mandorle (pommes & amandes)</h3>
+      <p>
+        Pour une version plus riche, très parfumée, avec une touche de pâte d’amande rustique.
+      </p>
+      <ul>
+        <li>Remplace une partie des pignons/noix par <strong>60–80 g d’amandes concassées</strong>.</li>
+        <li>Ajoute <strong>1–2 c.à.s de miel</strong> dans la garniture, en le faisant couler sur les pommes.</li>
+        <li>Tu peux aussi ajouter 1 c.à.c d’<strong>extrait d’amande amère</strong> (très peu, c’est puissant).</li>
+      </ul>
+
+      <h3>2️⃣ Strudel di mele con ricotta</h3>
+      <p>
+        Une variante plus douce, crémeuse, très appréciée pour un dessert plus généreux.
+      </p>
+      <ul>
+        <li>Ajoute <strong>150–200 g de ricotta bien égouttée</strong> dans la garniture.</li>
+        <li>Mélange la ricotta avec 1–2 c.à.s de sucre et un peu de zeste de citron, puis ajoute-la par petites touches entre les pommes.</li>
+        <li>Veille à ce que la garniture reste assez sèche pour ne pas détremper la pâte.</li>
+      </ul>
+
+      <h3>3️⃣ Mini-strudel (strudelini)</h3>
+      <p>
+        La même pâte, mais en <strong>portions individuelles</strong>, pratiques à servir.
+      </p>
+      <ul>
+        <li>Divise la pâte étirée en bandes plus petites.</li>
+        <li>Place une petite quantité de garniture sur chaque bande et roule comme de petits strudel.</li>
+        <li>Réduis la cuisson à <strong>20–25 minutes</strong>, en surveillant la coloration.</li>
+      </ul>
+
+      <h3>4️⃣ Strudel di mele con pasta sfoglia (version rapide)</h3>
+      <p>
+        Pour les jours où on a moins de temps, on peut utiliser une <strong>pâte feuilletée</strong> prête à l’emploi.
+      </p>
+      <ul>
+        <li>Utilise 1 rouleau de pâte feuilletée rectangulaire.</li>
+        <li>Prépare la garniture de pommes exactement comme dans la version classique.</li>
+        <li>Roule le strudel comme décrit, dore à l’œuf ou au lait, puis cuis à <strong>190&nbsp;°C</strong> pendant <strong>25–30 minutes</strong>.</li>
+      </ul>
+    </section>
+
+
+
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Plus la pâte repose, plus elle est facile à étirer très finement.  
+        Si tu as le temps, tu peux préparer la pâte une heure à l’avance.  
+        Pour réchauffer le strudel sans le détremper, passe-le quelques minutes au four à <strong>150&nbsp;°C</strong>
+        plutôt qu’au micro-ondes.
+      </p>
+    </section>
+
+
+
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Le <strong>strudel di mele</strong> est un descendant des pâtisseries enroulées du monde ottoman,
+        passé par l’Autriche puis le Trentin–Haut-Adige.  
+        En Italie, il est devenu un dessert de maison de montagne, servi tiède après les repas d’hiver,
+        avec du café, du vin doux ou une simple tasse de lait chaud.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+
+
+<button id="scrollTopBtn" aria-label="Remonter en haut"></button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Strudel di mele traditionnel.</p>
+</footer>
+
+
+
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+      document.body.classList.add('modal-open');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+    document.body.classList.remove('modal-open');
+  });
+
+  document.getElementById('imageModal').addEventListener('click', (e) => {
+    if (e.target.id === 'imageModal') {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+      document.body.classList.remove('modal-open');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('imageModal');
+    if (e.key === 'Escape' && modal && !modal.hasAttribute('hidden')) {
+      modal.setAttribute('hidden', '');
+      document.body.classList.remove('modal-open');
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,917 @@
+/* ============================================================
+   Sapori di Puglia — Feuille de style fusionnée sans erreurs
+   ============================================================ */
+
+/* ------------------------------
+   Variables de base (thème général)
+   ------------------------------ */
+:root {
+  --bg: #ffffff;
+  --fg: #222222;
+  --accent: #b91c1c;
+  --card: #f8fafc;
+  --border: #e5e7eb;
+
+  /* Palette éditoriale Sapori di Puglia */
+  --text-color: #2c1c0f;
+  --bg-color: #fffaf4;
+  --heading-color: #8b5e34;
+  --link-color: #b6783b;
+  --accent-color: #b6783b;
+}
+
+:root.dark {
+  --bg: #0b0f14;
+  --fg: #e5e7eb;
+  --accent: #f97316;
+  --card: #111820;
+  --border: #1f2937;
+
+  --text-color: #f7f3ee;
+  --bg-color: #1e1a16;
+  --heading-color: #f3c88a;
+  --link-color: #f6c78e;
+  --accent-color: #e1b36a;
+}
+
+/* Reset simple */
+* {
+  box-sizing: border-box;
+  transition: color 0.25s ease,
+              background-color 0.25s ease,
+              border-color 0.25s ease;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* ------------------------------
+   Fond global Sapori di Puglia
+   ------------------------------ */
+body {
+  background-image: url("/Images/Fond_Decran.png");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Voile de lisibilité */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.78);
+  z-index: -1;
+  transition: background 0.3s ease;
+}
+
+/* Mode sombre : voile plus foncé */
+:root.dark body::before,
+body.dark::before {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* ------------------------------
+   Typographie globale
+   ------------------------------ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading-color);
+  transition: color 0.3s ease;
+}
+
+p, li, strong, em, span, blockquote {
+  color: var(--text-color);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+  transition: color 0.3s ease, text-decoration 0.2s;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* ------------------------------
+   Header
+   ------------------------------ */
+.header {
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  z-index: 10;
+}
+.header-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: bold;
+}
+.nav {
+  display: flex;
+  list-style: none;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+.nav a {
+  text-decoration: none;
+  color: var(--fg);
+}
+
+/* ------------------------------
+   Boutons génériques
+   ------------------------------ */
+.button {
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.8rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  background: var(--card);
+  color: var(--fg);
+}
+.button.primary {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: var(--accent);
+}
+.button.secondary {
+  background: transparent;
+}
+.button.icon {
+  width: 36px;
+  height: 36px;
+}
+
+/* ------------------------------
+   Drawer / Menu latéral
+   ------------------------------ */
+.drawer {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 280px;
+  max-width: 90%;
+  background: rgba(255, 248, 240, 0.95);
+  backdrop-filter: blur(4px);
+  border-right: 2px solid #d8b38c;
+  transform: translateX(-100%);
+  transition: transform 0.35s ease;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.drawer[aria-hidden="false"] {
+  transform: translateX(0);
+}
+
+.drawer-header,
+.drawer-search {
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.drawer-title {
+  font-family: "Playfair Display", serif;
+  font-size: 1.5em;
+  color: #703c1e;
+  margin: 0;
+  text-align: center;
+}
+
+.drawer-search {
+  gap: 0.4rem;
+}
+.drawer-search input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+}
+
+/* Liste des recettes dans le menu */
+.recipe-list {
+  flex: 1;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0.6rem;
+  margin: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.recipe-item {
+  border-radius: 0.5rem;
+  background: var(--card);
+}
+
+/* Accordéon catégories */
+.recipe-list.as-accordion {
+  padding: 0.4rem 0.6rem;
+}
+
+.cat {
+  margin-bottom: 0.4rem;
+  border-bottom: 1px solid #e5d0b1;
+  border-radius: 0.6rem;
+  background: var(--card);
+  overflow: clip;
+}
+
+.cat-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.6em 0.9em;
+  font-size: 1.05em;
+  font-weight: 600;
+  color: #5a2d0c;
+  cursor: pointer;
+  transition: background-color 0.25s;
+}
+.cat-toggle:hover {
+  background-color: #f7e8d3;
+}
+.cat-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3em;
+  margin-right: 0.5em;
+}
+.cat-icon img {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+.cat-title {
+  flex: 1;
+  text-align: left;
+  font-family: "Poppins", sans-serif;
+}
+.cat-chev {
+  font-size: 0.85em;
+  opacity: 0.6;
+  transition: transform 0.3s;
+}
+.cat-toggle[aria-expanded="true"] .cat-chev {
+  transform: rotate(180deg);
+}
+
+/* Liste interne des recettes */
+.cat-list {
+  list-style: none;
+  padding-left: 0.5em;
+  margin: 0;
+  background: #fff8f1;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.28s ease;
+  will-change: max-height;
+}
+.cat-list.open {
+  /* La hauteur exacte est gérée en JS */
+  display: block;
+}
+
+/* Élément recette dans le menu */
+.recipe-link {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
+  text-decoration: none;
+  color: #4b2c14;
+  width: 100%;
+  padding: 0.35em 0.9em;
+}
+.recipe-link img {
+  border-radius: 6px;
+  width: 46px;
+  height: 46px;
+  object-fit: cover;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.recipe-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+.recipe-text strong {
+  font-size: 0.95em;
+  color: #3c1e07;
+}
+.recipe-text small {
+  font-size: 0.8em;
+  color: #7a5a3a;
+}
+
+/* ------------------------------
+   Zone principale + hero
+   ------------------------------ */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+}
+.hero h1 {
+  margin: 0 0 0.5rem;
+}
+
+@media (max-width: 800px) {
+  .hero {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Slideshow d’accueil */
+.hero.slideshow {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+}
+.slideshow-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.slideshow-wrapper img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+.slideshow-wrapper img.active {
+  opacity: 1;
+}
+.hero-text {
+  z-index: 1;
+}
+
+@media (max-width: 900px) {
+  .hero.slideshow {
+    grid-template-columns: 1fr;
+  }
+  .slideshow-wrapper {
+    height: 280px;
+  }
+}
+
+/* ------------------------------
+   Backdrop (pour drawer / modals)
+   ------------------------------ */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.3);
+  z-index: 15;
+}
+[hidden].backdrop {
+  display: none;
+}
+
+/* ------------------------------
+   Footer
+   ------------------------------ */
+.footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  color: gray;
+}
+
+/* =======================================================
+   BOUTON REMONTER — VERSION PREMIUM AVEC DÉGRADÉ & 3D
+======================================================= */
+
+.scroll-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+
+  /* Taille du bouton */
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+
+  /* Dégradé circulaire + nuances lumineuses */
+  background: radial-gradient(circle at 30% 30%,
+      var(--accent-light, #ffd9a3),   /* zone claire */
+      var(--accent, #ec8f33) 60%,     /* couleur principale */
+      var(--accent-dark, #ef7306) 100% /* zone sombre */
+  );
+
+  /* Bordure douce */
+  border: 2px solid rgba(255, 255, 255, 0.5);
+
+  /* Icône ↑ */
+  color: #0a0a0a;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Effet 3D interne + ombre externe */
+  box-shadow:
+    0 4px 12px rgba(0,0,0,0.25),
+    inset 0 2px 4px rgba(255,255,255,0.4),
+    inset 0 -2px 4px rgba(0,0,0,0.2);
+
+  cursor: pointer;
+
+  /* Animations */
+  opacity: 0;
+  transform: scale(0.9);
+  transition:
+    opacity 0.3s ease,
+    transform 0.25s ease,
+    box-shadow 0.3s ease;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.scroll-top:hover {
+  transform: scale(1.12);
+
+  box-shadow:
+    0 6px 18px rgba(0,0,0,0.35),
+    inset 0 3px 6px rgba(255,255,255,0.5),
+    inset 0 -3px 6px rgba(0,0,0,0.25);
+}
+
+/* =======================================================
+   MODE SOMBRE
+======================================================= */
+body.dark .scroll-top,
+[data-theme="dark"] .scroll-top {
+  background: radial-gradient(circle at 30% 30%,
+      #f1e4d0,
+      var(--accent-color, #c26e1e) 60%,
+      #a0520a 100%
+  );
+
+  border-color: rgba(255,255,255,0.4);
+  color: #fff8e7;
+}
+
+/* ------------------------------
+   Animations & résultats de recherche
+   ------------------------------ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.search-results {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 0.5rem;
+  margin: 0.4rem 0 0;
+  padding: 0.25rem;
+  max-height: 300px;
+  overflow-y: auto;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.search-item {
+  animation: fadeInUp 0.25s ease both;
+  border-radius: 0.45rem;
+}
+
+.search-link {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 0.5rem;
+  align-items: center;
+  padding: 0.4rem 0.5rem;
+  text-decoration: none;
+  color: inherit;
+  border-radius: 0.45rem;
+  transition: background 0.18s ease, transform 0.18s ease, opacity 0.18s ease;
+}
+.search-link:hover {
+  background: rgba(0,0,0,0.04);
+  transform: translateY(-1px);
+  opacity: 0.96;
+}
+
+.search-link img {
+  border-radius: 0.3rem;
+}
+.search-text small {
+  display: block;
+  color: #777777;
+}
+.search-empty {
+  padding: 0.6rem 0.5rem;
+  color: #777777;
+  font-style: italic;
+}
+.search-results mark {
+  background: rgba(185, 28, 28, 0.18);
+  border-radius: 0.2rem;
+  padding: 0 0.1em;
+}
+
+/* Mode recherche active dans le drawer */
+.drawer.is-searching .recipe-list {
+  display: none !important;
+}
+.drawer.is-searching .search-results {
+  display: block !important;
+}
+
+/* Forcer les résultats SOUS l’input dans le menu */
+.drawer .drawer-search {
+  position: relative !important;
+  display: block !important;
+  width: 100% !important;
+}
+.drawer .search-results {
+  position: static !important;
+  width: 100% !important;
+  margin-top: 0.4rem !important;
+  z-index: auto !important;
+  background: #fffdf8 !important;
+  border: 1px solid #e0d2b5 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12) !important;
+}
+.drawer .search-results:empty {
+  display: none;
+}
+
+/* Préférence utilisateur : moins d’animations */
+@media (prefers-reduced-motion: reduce) {
+  .cat-list {
+    transition: none;
+  }
+  .search-item {
+    animation: none;
+  }
+}
+
+/* ------------------------------
+   Page de recette — centrage & blocs
+   ------------------------------ */
+.page-recette .recette {
+  text-align: center;
+  line-height: 1.2;
+  font-size: 1.05rem;
+  color: #2c2c2c;
+}
+
+.page-recette .recette h1 {
+  margin-bottom: 1rem;
+  font-size: 2.1rem;
+}
+
+.page-recette .recette p,
+.page-recette .recette li {
+  max-width: 760px;
+  margin: 0.6rem auto;
+}
+
+/* Image principale de recette (70% largeur, horizontale) */
+.page-recette .recette img.recette-photo {
+  width: 70%;
+  height: auto;
+  display: block;
+  margin: 1rem auto 1.6rem auto;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.25);
+}
+
+/* Listes ingrédients / préparation centrées, texte à gauche */
+.page-recette .ingredients ul,
+.page-recette .preparation ol {
+  display: inline-block;
+  text-align: left;
+  margin: 0 auto;
+}
+
+/* Titres sections recette */
+.page-recette .ingredients h2,
+.page-recette .preparation h2,
+.page-recette .astuce h2,
+.page-recette .origine h2 {
+  margin-top: 1.8rem;
+  margin-bottom: 0.8rem;
+  font-size: 1.4rem;
+}
+
+/* Bloc article avec fond légèrement opaque */
+.page-recette .recette article {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 2rem 2.5rem;
+  max-width: 900px;
+  margin: 2rem auto;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+/* ------------------------------
+   Mode sombre global
+   ------------------------------ */
+[data-theme="dark"],
+body.dark {
+  background-color: #181818;
+  color: #f5f5f5;
+}
+
+[data-theme="dark"] header,
+body.dark header {
+  background-color: #222;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .drawer,
+body.dark .drawer {
+  background-color: #1e1e1e;
+  color: #f5f5f5 !important;
+}
+
+[data-theme="dark"] .recette {
+  color: #e6e6e6;
+}
+
+[data-theme="dark"] .recette img.recette-photo {
+  box-shadow: 0 4px 15px rgba(255,255,255,0.1);
+}
+
+[data-theme="dark"] a {
+  color: #ffd479;
+}
+
+/* Cartes / blocs en mode sombre */
+body.dark .recette article,
+[data-theme="dark"] .recette article {
+  background: rgba(30,30,30,0.85);
+  border-color: rgba(255,255,255,0.1);
+  box-shadow: 0 6px 16px rgba(255,255,255,0.05);
+}
+
+/* Boutons en mode sombre */
+body.dark .button.primary {
+  background-color: var(--accent-color);
+  color: #1e1a16;
+}
+body.dark .button.secondary {
+  background-color: #3a2f27;
+  color: var(--heading-color);
+}
+
+/* Effet visuel pour toutes les images en mode sombre */
+body.dark img {
+  filter: brightness(0.9) contrast(1.05);
+  transition: filter 0.3s ease;
+}
+
+/* ------------------------------
+   Sections d’accueil / cartes
+   ------------------------------ */
+.section {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 1.75rem;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  line-height: 1.75;
+  color: var(--fg);
+  backdrop-filter: saturate(1.1) blur(4px);
+}
+
+.section-header h2 {
+  margin: 0 0 0.6rem;
+  font-family: "Playfair Display", ui-serif, Georgia, serif;
+  font-size: clamp(1.4rem, 1.1rem + 1.5vw, 2rem);
+  line-height: 1.2;
+  text-align: center;
+  color: var(--heading-color);
+}
+
+.section-header .section-kicker {
+  text-align: center;
+  font-style: italic;
+  opacity: 0.8;
+  margin-top: -0.2rem;
+  margin-bottom: 1.2rem;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem 1.1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.12);
+}
+
+.feature-list {
+  list-style: none;
+  margin: 1.2rem 0 1.4rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.7rem;
+}
+.feature-list li {
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--accent-color);
+  border-radius: 10px;
+  background: var(--card);
+}
+
+.section blockquote {
+  margin: 1.2rem 0 0.6rem;
+  padding: 0.9rem 1rem;
+  border-left: 5px solid var(--accent-color);
+  background: var(--card);
+  border-radius: 10px;
+  font-style: italic;
+}
+
+.section-outro {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1rem;
+}
+
+/* Mode sombre pour les sections */
+:root.dark .section,
+[data-theme="dark"] .section {
+  background: #1e1a16;
+  box-shadow: 0 12px 26px rgba(0,0,0,0.35);
+}
+
+:root.dark .card,
+[data-theme="dark"] .card {
+  background: #2a221d;
+}
+
+:root.dark .feature-list li,
+[data-theme="dark"] .feature-list li {
+  background: #2a221d;
+}
+
+:root.dark .section-header h2,
+[data-theme="dark"] .section-header h2 {
+  color: #e1b36a;
+}
+
+/* Page d’accueil : largeur un peu réduite */
+.index-page .section {
+  max-width: 860px;
+}
+
+/* RWD : mobile */
+@media (max-width: 640px) {
+  .section {
+    margin: 1rem auto;
+    padding: 1.1rem;
+  }
+  .feature-list li {
+    padding: 0.7rem 0.8rem;
+  }
+}
+
+/* ------------------------------
+   Listes avec symboles (data-symbol)
+   ------------------------------ */
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+ul li {
+  padding-left: 1.5rem;
+  position: relative;
+}
+ul li::before {
+  content: attr(data-symbol);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* ------------------------------
+   Image de recette avec zoom
+   ------------------------------ */
+.image-zoom img {
+  width: 100%;
+  max-width: 1400px;
+  border-radius: 14px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+  display: block;
+  margin: 0 auto;
+}
+.image-zoom img:hover {
+  transform: scale(1.02);
+}
+
+/* Modal zoom */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+.modal[hidden] {
+  display: none;
+}
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.4);
+}
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: #ffffff;
+  font-size: 40px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* ------------------------------
+   Autres petits utilitaires
+   ------------------------------ */
+h1 {
+  text-align: center;
+}
+
+/* Accessibilité : texte seulement pour lecteur d’écran */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

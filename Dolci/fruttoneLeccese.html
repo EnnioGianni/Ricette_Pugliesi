@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fruttone Leccese — Sapori di Puglia</title>
+  <meta name="description" content="Fruttone Leccese : un dessert traditionnel de Lecce, composé d'une coque de pâte, d'une garniture à l'amande et d'un glaçage au chocolat noir. Un classique des pâtisseries salentines.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/fruttone.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍰 Dolci</button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍫 Fruttone Leccese</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+        <img src="/Menu/Images/fruttone.png" alt="Fruttone Leccese — portion servie" class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" class="modal-content" src="&" alt="Agrandissement de l’image">
+    </div>
+
+    <p class="intro">
+      Le <strong>Fruttone Leccese</strong> est l’un des desserts les plus typiques du Salento :  
+      <em>une pâte fine cuite au four, un cœur moelleux à l'amande et au zeste de citron</em>,  
+      recouvert d’un glaçage <strong>au chocolat noir</strong>.  
+      Une spécialité des pâtisseries de Lecce, douce, parfumée et élégante.
+    </p>
+
+    <!-- Infos -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>30 min</strong> |
+        🔥 Cuisson : <strong>20 min</strong> |
+        👥 Pour <strong>6 fruttoni</strong> |
+        ⚙️ Difficulté : <strong>Moyenne</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour la pâte</h3>
+      <ul>
+        <li>200 g de farine</li>
+        <li>50 g de sucre</li>
+        <li>1 œuf</li>
+        <li>40 g de beurre</li>
+        <li>1 pincée de sel</li>
+      </ul>
+
+      <h3>Pour la garniture</h3>
+      <ul>
+        <li>250 g de pâte d’amande blanche</li>
+        <li>Zeste râpé d’un citron</li>
+        <li>1 c.à.s de confiture de poire ou de coing (facultatif mais traditionnel)</li>
+      </ul>
+
+      <h3>Pour le glaçage</h3>
+      <ul>
+        <li>150 g de chocolat noir</li>
+        <li>15 g de beurre</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer la pâte.</strong><br>
+          Mélanger la farine, le sucre et le sel.  
+          Incorporer le beurre en petits cubes, sabler du bout des doigts.  
+          Ajouter l’œuf et pétrir jusqu’à obtenir une pâte homogène.  
+          Filmer et laisser reposer 20 minutes.
+        </li>
+
+        <li>
+          <strong>Former les coques.</strong><br>
+          Étaler la pâte (3 mm).  
+          Découper des disques et les placer dans des moules ovales ou ronds.  
+          Piquer légèrement la base à la fourchette.
+        </li>
+
+        <li>
+          <strong>Préparer la garniture.</strong><br>
+          Mélanger la pâte d’amande avec le zeste de citron.  
+          Ajouter la confiture de poire si tu veux la version traditionnelle de Lecce.  
+          Former de petites boules et les placer dans les coques.
+        </li>
+
+        <li>
+          <strong>Cuisson.</strong><br>
+          Cuire 15–18 minutes à 180°C.  
+          Les coques doivent être légèrement dorées.
+        </li>
+
+        <li>
+          <strong>Glacer.</strong><br>
+          Faire fondre le chocolat noir avec le beurre.  
+          Napper chaque fruttone d’une couche lisse et brillante.  
+          Laisser refroidir jusqu’à solidification.
+        </li>
+      </ol>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Tu peux remplacer une partie du chocolat par une couverture fondante pour obtenir  
+        un glaçage encore plus brillant et souple à la dégustation.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Le <strong>Fruttone</strong> apparaît dans les pâtisseries de Lecce dès le XVIIIᵉ siècle.  
+        Il est considéré comme le “frère élégant” du célèbre <em>pasticiotto</em>.  
+        Son mélange d’amande, de citron et de chocolat reflète parfaitement  
+        l’équilibre entre richesse et simplicité de la tradition sucrée du Salento.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette traditionnelle du Salento.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

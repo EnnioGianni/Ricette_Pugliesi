@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spazzatu del Salento — Sapori di Puglia</title>
+  <meta name="description" content="Spazzatu del Salento : ragoût pascal traditionnel de Gallipoli, à base de viande, légumes et œufs durs écrasés dans la sauce. Un plat rustique qui symbolise la fin du Carême.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/spazzatu-salentino.png">
+
+  <!-- ⚠️ Ordre important -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">
+        🍝 Recettes
+      </button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+
+      <h1>🍲 Spazzatu del Salento (œufs écrasés)</h1>
+
+      <!-- Image principale -->
+      <div class="image-zoom">
+        <img src="/Images/spazzatu-salentino.png"
+             alt="Spazzatu del Salento — ragoût pascal aux œufs écrasés"
+             class="zoomable">
+      </div>
+
+      <!-- Modal zoom -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" type="button" aria-label="Fermer">×</button>
+        <img class="modal-content" id="modalImg" src=" &" alt="Spazzatu Salentino">
+      </div>
+
+      <p class="intro">
+        Le <strong>Spazzatu</strong> est un plat typique du sud des Pouilles, particulièrement dans la région de <em>Gallipoli</em>.  
+        Préparé à <strong>Pâques</strong>, il symbolise la fin du Carême et le retour des aliments festifs comme la <em>viande</em> et les <em>œufs</em>.  
+        Dans cette version paysanne, les <strong>œufs durs sont grossièrement écrasés et mélangés au ragoût</strong>, ce qui épaissit la sauce
+        et lui donne une texture rustique, presque “cassée”, d’où le nom de <em>Spazzatu / Sfasciatu</em>.  
+        C’est un plat de famille, riche, simple et profondément salentin.
+      </p>
+
+      <!-- Infos -->
+      <div class="infos">
+        <p>
+          ⏱ Préparation : <strong>45–60 min</strong> |
+          🔥 Cuisson : <strong>1 h 15–1 h 30</strong> |
+          👥 Pour <strong>6 personnes</strong> |
+          ⚙️ Difficulté : <strong>Moyenne</strong>
+        </p>
+      </div>
+
+      <!-- Ingrédients -->
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+
+        <h3>Pour le ragoût de base</h3>
+        <ul>
+          <li>600–700 g de viande d’agneau ou de mouton (épaule, collier, poitrine désossée)</li>
+          <li>2 à 3 c. à s. d’huile d’olive extra-vierge</li>
+          <li>1 gros oignon</li>
+          <li>1 carotte</li>
+          <li>1 branche de céleri</li>
+          <li>2 gousses d’ail</li>
+          <li>150 ml de vin blanc sec</li>
+          <li>300–400 g de pulpe de tomate ou de tomates concassées (facultatif mais courant)</li>
+          <li>1 feuille de laurier</li>
+          <li>Thym ou romarin (quelques branches, selon goût)</li>
+          <li>Sel fin, poivre noir fraîchement moulu</li>
+        </ul>
+
+        <h3>Pour les légumes</h3>
+        <ul>
+          <li>300–400 g de pommes de terre à chair ferme</li>
+          <li>200–250 g de petits pois (frais ou surgelés)</li>
+          <li>200 g de blettes, de chicorée ou autre verdure de saison</li>
+        </ul>
+
+        <h3>Pour les œufs écrasés</h3>
+        <ul>
+          <li>5 ou 6 œufs</li>
+          <li>1 pincée de sel</li>
+        </ul>
+
+        <h3>Pour servir</h3>
+        <ul>
+          <li>Pain de campagne (idéalement un peu rassis, grillé ou toasté)</li>
+          <li>Huile d’olive extra-vierge pour le filet final</li>
+          <li>Un peu de persil plat frais ciselé (facultatif)</li>
+        </ul>
+      </section>
+
+      <!-- Préparation -->
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+
+        <ol>
+          <li>
+            <strong>Préparer la viande.</strong><br>
+            Couper la viande en morceaux de 3 à 4 cm, en retirant juste l’excès de gras dur mais en laissant un peu de gras pour le goût.  
+            Bien sécher les morceaux avec du papier absorbant : une surface sèche permet une meilleure coloration dans la cocotte.
+          </li>
+
+          <li>
+            <strong>Faire dorer la viande.</strong><br>
+            Dans une grande cocotte, faire chauffer 2 à 3 cuillères à soupe d’huile d’olive à feu moyen-vif.  
+            Ajouter les morceaux de viande en une seule couche (procéder en deux fois si besoin) et les faire dorer sur toutes les faces.  
+            Cette étape donne de la profondeur au Spazzatu.  
+            Quand la viande est bien colorée, la retirer et la réserver dans un plat.
+          </li>
+
+          <li>
+            <strong>Préparer le soffritto.</strong><br>
+            Émincer finement l’oignon, la carotte et la branche de céleri.  
+            Dans la même cocotte, ajouter un petit filet d’huile si nécessaire,
+            puis verser ce mélange de légumes.  
+            Faire revenir doucement 8 à 10 minutes, à feu moyen,
+            jusqu’à ce qu’ils deviennent tendres et légèrement dorés.  
+            Ajouter ensuite les gousses d’ail hachées ou écrasées et laisser parfumer 30 secondes à 1 minute, sans les brûler.
+          </li>
+
+          <li>
+            <strong>Déglacer au vin blanc.</strong><br>
+            Remettre la viande dans la cocotte, mélanger avec le soffritto, puis verser le vin blanc.  
+            Laisser évaporer l’alcool quelques minutes à feu moyen, en grattant le fond avec une cuillère en bois
+            pour détacher les sucs de viande collés : ils enrichissent la sauce.
+          </li>
+
+          <li>
+            <strong>Ajouter la tomate et les herbes.</strong><br>
+            Ajouter la pulpe de tomate (ou les tomates concassées) si tu choisis une version légèrement tomatée.
+            Sinon, ajouter simplement un petit verre d’eau ou de bouillon.  
+            Ajouter la feuille de laurier et quelques branches de thym ou de romarin.  
+            Saler légèrement, poivrer, puis ajouter suffisamment d’eau pour que la viande soit presque recouverte,
+            sans transformer le tout en soupe.  
+            Porter à frémissement, couvrir à demi et laisser cuire à feu doux pendant 30 à 40 minutes.
+          </li>
+
+          <li>
+            <strong>Ajouter les pommes de terre.</strong><br>
+            Éplucher les pommes de terre, les couper en morceaux de taille bouchée.  
+            Les ajouter dans la cocotte, mélanger délicatement, puis poursuivre la cuisson 20 à 25 minutes,
+            jusqu’à ce qu’elles soient presque tendres.  
+            Surveiller le niveau de liquide : si nécessaire, ajouter un peu d’eau chaude pour que le ragoût reste bien souple
+            mais commence déjà à épaissir.
+          </li>
+
+          <li>
+            <strong>Ajouter les petits pois et la verdure.</strong><br>
+            Ajouter les petits pois directement dans la cocotte et cuire encore 8 à 10 minutes.  
+            Laver la verdure (blettes, chicorée ou autre), la couper grossièrement.  
+            La blanchir 3 à 4 minutes dans de l’eau bouillante salée, l’égoutter et bien la presser pour enlever l’excès d’eau.  
+            Ajouter cette verdure dans le ragoût, mélanger pour qu’elle se répartisse bien.  
+            Goûter, ajuster en sel et en poivre.
+          </li>
+
+          <li>
+            <strong>Cuire les œufs.</strong><br>
+            Pendant que le ragoût mijote, placer les œufs dans une petite casserole, les couvrir d’eau froide
+            et porter à ébullition.  
+            Dès l’ébullition, compter 9 à 10 minutes pour des œufs bien durs.  
+            Les passer ensuite sous l’eau froide, les écaler et les laisser tiédir.
+          </li>
+
+          <li>
+            <strong>Écraser les œufs et épaissir le Spazzatu.</strong><br>
+            Couper les œufs durs en deux, puis les hacher grossièrement au couteau ou les écraser
+            avec une fourchette dans un bol, en gardant une texture irrégulière : morceaux de blanc,
+            jaune qui se délite.  
+            Quand la viande et les légumes sont bien cuits et que la sauce a déjà réduit,
+            ajouter ces œufs écrasés directement dans la cocotte.  
+            Mélanger délicatement : les jaunes se mélangent à la sauce et la rendent plus épaisse,
+            tandis que les morceaux de blanc restent visibles ici et là.  
+            Laisser cuire encore 5 minutes à feu très doux, juste pour lier le tout,
+            sans faire bouillir fortement (pour ne pas rendre les œufs caoutchouteux).
+          </li>
+
+          <li>
+            <strong>Finaliser la texture.</strong><br>
+            Le Spazzatu doit avoir une consistance <em>épaisse et rustique</em> :
+            ni soupe liquide, ni purée compacte.  
+            Si la sauce est trop fluide, laisser réduire encore quelques minutes à feu doux, à découvert.  
+            Si au contraire elle est trop serrée, ajouter un petit filet d’eau chaude ou de bouillon
+            pour retrouver un ragoût bien moelleux.  
+            Retirer la feuille de laurier et, si tu le souhaites, les tiges de romarin/thym.
+          </li>
+
+          <li>
+            <strong>Repos et service.</strong><br>
+            Couper le feu, couvrir la cocotte et laisser reposer 10 à 15 minutes :
+            les saveurs se déposent, la sauce épaissit encore un peu et la viande se détend.  
+            Servir le Spazzatu bien chaud dans des assiettes creuses ou dans un grand plat au centre de la table.  
+            Arroser chaque portion d’un petit filet d’huile d’olive crue et parsemer d’un peu de persil plat ciselé,
+            si tu aimes.  
+            Proposer à côté des tranches de pain de campagne grillées ou toastées pour saucer la sauce.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Astuce -->
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Dans certaines familles du Salento, on prépare le <strong>Spazzatu</strong> la veille de Pâques,
+          puis on le réchauffe doucement le jour même :  
+          les œufs écrasés ont alors le temps de bien se mêler à la sauce,
+          la viande devient encore plus fondante et la texture du ragoût devient presque crémeuse.  
+          Tu peux aussi varier les légumes selon la saison (artichauts, fèves, etc.),
+          tant que tu gardes l’idée centrale : un ragoût épais, où <em>tout est mélangé</em>,
+          sans présentation sophistiquée, mais avec beaucoup de goût.
+        </p>
+      </section>
+
+      <!-- Origine -->
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Le <strong>Spazzatu</strong> est un plat typique du sud des Pouilles, particulièrement dans la région de <em>Gallipoli</em>.  
+          Préparé à <strong>Pâques</strong>, il symbolise la fin du Carême et le retour des aliments festifs comme la viande et les œufs.  
+          Ce ragoût rustique est transmis de génération en génération et se déguste en famille,
+          souvent dans un grand plat posé au centre de la table.  
+          Les œufs, <strong>écrasés et mélangés au reste du ragoût</strong>, épaississent la sauce et rappellent la richesse retrouvée
+          après la période de privation, dans un esprit simple, paysan et profondément salentin.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Bouton haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script zoom -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback si app.js ne charge pas -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.body.classList.toggle('dark');
+        });
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', () => {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>

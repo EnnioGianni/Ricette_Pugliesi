@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sedano alla Pugliese — Sapori di Puglia</title>
+  <meta name="description" content="Sedano alla Pugliese : céleri sauté au vin blanc, tomates, ail et chapelure croquante, dans la tradition rustique du Sud de l’Italie.">
+  
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/sedano-alla-pugliese.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🥬 Sedano alla Pugliese</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+        <img src="/Images/sedano-alla-pugliese.png" alt="Sedano alla Pugliese — portion servie" class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" class="modal-content" src="&" alt="Agrandissement de l’image">
+    </div>
+
+    <p class="intro">
+      Le <strong>Sedano alla Pugliese</strong> est un plat rustique typique du Sud :  
+      du céleri tendre sauté avec <strong>vin blanc, tomates, ail et huile d’olive</strong>,  
+      fini avec une <strong>chapelure croquante au citron</strong> pour un parfum authentique.
+    </p>
+
+    <!-- Infos -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>20 min</strong> |
+        🔥 Cuisson : <strong>20 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Facile</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <ul>
+        <li>1 gros pied de céleri branche (avec feuilles)</li>
+        <li>1 oignon blanc</li>
+        <li>2 gousses d’ail</li>
+        <li>6–7 tomates cerises</li>
+        <li>1/2 verre de vin blanc sec</li>
+        <li>4 c.à.s d’huile d’olive extravierge</li>
+        <li>Sel & poivre</li>
+        <li>1 pincée d’origan</li>
+        <li>Zeste d’1/2 citron</li>
+        <li>2 c.à.s de chapelure fine</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation détaillée</h2>
+
+      <ol>
+
+        <li>
+          <strong>Préparer le céleri.</strong><br>
+          Découper les branches, retirer les fils, couper en morceaux de 3–4 cm.  
+          Garder les feuilles pour la fin.
+        </li>
+
+        <li>
+          <strong>Blanchir.</strong><br>
+          Faire bouillir 5 minutes dans de l’eau salée.  
+          Égoutter et garder un peu d’eau de cuisson.
+        </li>
+
+        <li>
+          <strong>Base aromatique.</strong><br>
+          Faire revenir l’oignon et l’ail écrasé dans l’huile.  
+          Ajouter les tomates et laisser fondre 4 minutes.
+        </li>
+
+        <li>
+          <strong>Déglacer.</strong><br>
+          Verser le vin blanc, laisser évaporer 1 minute.
+        </li>
+
+        <li>
+          <strong>Mijoter.</strong><br>
+          Ajouter le céleri, sel, poivre, origan et un peu d’eau de cuisson.  
+          Couvrir et cuire 10 minutes.  
+          Terminer avec les feuilles de céleri hachées.
+        </li>
+
+        <li>
+          <strong>Chapelure au citron.</strong><br>
+          Faire dorer la chapelure dans l’huile puis ajouter le zeste de citron.
+        </li>
+
+        <li>
+          <strong>Servir.</strong><br>
+          Dresser le céleri et parsemer de chapelure croquante juste avant de servir.
+        </li>
+
+      </ol>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour un goût plus typé, ajoute un petit morceau de <strong>piment sec</strong> dans l’huile en début de cuisson.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Cette recette provient des campagnes pugliesi où l’on utilisait le céleri du potager  
+        avec les ingrédients simples du quotidien : vin blanc, tomate, ail et huile d’olive.  
+        La chapelure grillée rappelle la pure tradition de la <em>cucina povera</em>.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette traditionnelle du Salento.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

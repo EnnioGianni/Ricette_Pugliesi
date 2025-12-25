@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Baccalà con le Patate (a strati) — Sapori di Puglia</title>
+  <meta name="description" content="Baccalà con le Patate version a strati : morue salée dessalée, montée en couches patate–baccalà–patate, finie avec chapelure et huile d’olive, gratinée au four comme une lasagne.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/baccala-patate.png">
+
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Menu -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+
+      <h1>🐟 Baccalà con le Patate (a strati)</h1>
+
+      <!-- Image zoomable -->
+      <div class="image-zoom">
+        <img src="/Images/baccala-patate.png"
+             alt="Baccalà con le Patate a strati — portion servie"
+             class="zoomable">
+      </div>
+
+      <!-- Modal -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" type="button" aria-label="Fermer">×</button>
+        <img class="modal-content" id="modalImg" src="&" alt="">
+      </div>
+
+      <p class="intro">
+        Ce <strong>baccalà con le patate</strong> est la version a strati, comme une lasagne salée :
+        des couches nettes de pommes de terre, baccalà dessalé, aromates, et une chapelure dorée.
+      </p>
+
+      <!-- SECTION INFOS corrigée en <div> -->
+      <div class="infos">
+        <p>
+          ⏱ Préparation : <strong>35–40 min</strong> |
+          🕰 Dessalaison : <strong>36–48 h</strong> |
+          🔥 Cuisson : <strong>55–70 min</strong> |
+          👥 Pour <strong>4 pers.</strong> |
+          ⚙️ Difficulté : <strong>Moyenne</strong>
+        </p>
+      </div>
+
+      <!-- INGREDIENTS -->
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+
+        <h3>Pour le baccalà</h3>
+        <ul>
+          <li>700–800 g de baccalà sec</li>
+          <li>Grand volume d’eau froide pour la dessalaison</li>
+        </ul>
+
+        <h3>Pour les couches</h3>
+        <ul>
+          <li>1 kg de pommes de terre</li>
+          <li>2 oignons</li>
+          <li>3 gousses d’ail</li>
+          <li>Persil, poivre, origan</li>
+          <li>7–10 c.à.s huile d’olive</li>
+        </ul>
+
+        <h3>Pour la croûte</h3>
+        <ul>
+          <li>6 c.à.s de chapelure</li>
+          <li>Origan, persil (facultatif)</li>
+          <li>3 c.à.s d’huile d’olive</li>
+        </ul>
+      </section>
+
+      <!-- PREPARATION -->
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+
+        <ol>
+          <li><strong>Dessaler le baccalà.</strong> Tremper 36–48 h, changer l’eau toutes les 6–8 h.</li>
+          <li><strong>Préparer le poisson.</strong> Égoutter, sécher, retirer peau + arêtes.</li>
+          <li><strong>Préparer les pommes de terre.</strong> Rondelles régulières 5–6 mm.</li>
+          <li><strong>Oignons + ail + persil.</strong> Émincer tout finement.</li>
+          <li><strong>Chapelure parfumée.</strong> Mélanger chapelure + huile + origan.</li>
+          <li><strong>Première couche.</strong> Patates + aromates + huile.</li>
+          <li><strong>Deuxième.</strong> Morceaux de baccalà + huile.</li>
+          <li><strong>Troisième.</strong> Patates à nouveau.</li>
+          <li><strong>Finir.</strong> Chapelure huilée + un peu d’eau dans le fond.</li>
+          <li><strong>Cuisson.</strong> 55–70 min à 190°C, dorer la surface.</li>
+          <li><strong>Repos.</strong> Laisser 10–15 min avant de découper.</li>
+        </ol>
+
+      </section>
+
+      <!-- ASTUCE -->
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Encore meilleur réchauffé le lendemain : les couches se soudent parfaitement.
+        </p>
+      </section>
+
+      <!-- ORIGINE -->
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Plat d’hiver des Pouilles, souvent préparé pour les fêtes ou les repas familiaux.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Bouton haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script Zoom -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>

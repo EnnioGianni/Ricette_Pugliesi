@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ciceri e Tria — Sapori di Puglia</title>
+  <meta name="description" content="Recette traditionnelle salentine de Ciceri e Tria : pois chiches mijotés et pâtes fraîches, moitié frites moitié bouillies, le tout nappé d’huile d’olive des Pouilles.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/ciceri-e-tria.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles pour le zoom image -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <h1>🥣 Ciceri e Tria</h1>
+
+      <!-- Image principale avec zoom -->
+      <div class="image-zoom">
+        <img src="/Images/ciceriETria.png" alt="Ciceri e Tria — portion servie" class="zoomable">
+      </div>
+
+      <!-- Fenêtre d’agrandissement -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" aria-label="Fermer">
+          <span aria-hidden="true">×</span>
+        </button>
+        <img
+          class="modal-content"
+          id="modalImg"
+          src="&"
+          alt="Aperçu de l’image agrandie"
+        >
+      </div>
+
+      <p class="intro">
+        <strong>Ciceri e Tria</strong> est l’un des plats les plus anciens du Salento : une soupe épaisse de <em>pois chiches</em> parfumés aux herbes, mariés à des <em>pâtes fraîches maison</em>, dont une partie est fritée dans l’huile d’olive pour devenir croustillante.  
+        À table, on sent le parfum de l’ail, du romarin et du laurier, et on retrouve ce contraste unique entre les pois chiches crémeux et les morceaux de pâtes dorées.
+      </p>
+
+      <div class="infos">
+        
+        <p>⏱ Préparation : <strong>30 min</strong> + trempage &amp; cuisson &nbsp;|&nbsp; 🕰 Temps total : <strong>2 h 30</strong> &nbsp;|&nbsp; 👥 Pour <strong>4 personnes</strong> &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Moyenne</strong></p>
+      </div>
+
+      <div class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <h3>Pour les pois chiches</h3>
+        <ul>
+          <li>300 g de pois chiches secs</li>
+          <li>1 carotte</li>
+          <li>1 petite branche de céleri</li>
+          <li>1 petit oignon</li>
+          <li>2 gousses d’ail</li>
+          <li>1 feuille de laurier</li>
+          <li>1 petite branche de romarin</li>
+          <li>Huile d’olive extra-vierge des Pouilles</li>
+          <li>Sel fin</li>
+          <li>Poivre noir fraîchement moulu</li>
+        </ul>
+
+        <h3>Pour la pâte “Tria”</h3>
+        <ul>
+          <li>300 g de semoule de blé dur (rimacinata)</li>
+          <li>Environ 150–170 ml d’eau à température ambiante</li>
+          <li>1 pincée de sel</li>
+          <li>Huile d’olive extra-vierge (pour la friture)</li>
+        </ul>
+
+        <h3>Pour le service</h3>
+        <ul>
+          <li>Huile d’olive extra-vierge crue</li>
+          <li>Quelques feuilles de persil ou de céleri émincées (facultatif)</li>
+        </ul>
+      </div>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li>
+            <strong>La veille : préparer les pois chiches.</strong><br>
+            Verser les pois chiches secs dans un grand saladier, les couvrir d’eau froide en prévoyant large (ils vont gonfler) et laisser tremper <strong>toute la nuit</strong>, idéalement 12 heures.  
+            Le lendemain, rincer les pois chiches sous l’eau claire pour enlever l’excès d’amidon et d’impuretés.
+          </li>
+
+          <li>
+            <strong>Cuire les pois chiches doucement.</strong><br>
+            Mettre les pois chiches rincés dans une grande casserole. Ajouter la carotte épluchée, le céleri en tronçons, l’oignon pelé, 1 gousse d’ail écrasée, la feuille de laurier et la branche de romarin.  
+            Couvrir d’eau froide (environ 3–4 cm au-dessus des pois chiches). Porter doucement à ébullition, puis baisser le feu au minimum et laisser <strong>mijoter 1 h 15 à 1 h 30</strong>, jusqu’à ce que les pois chiches soient tendres mais non défaits.  
+            Écumer au début si nécessaire. Saler seulement en fin de cuisson pour éviter de durcir la peau.
+          </li>
+
+          <li>
+            <strong>Préparer la pâte “Tria”.</strong><br>
+            Sur un plan de travail ou dans un grand bol, verser la semoule et ajouter une pincée de sel. Former un puits, verser peu à peu l’eau tout en mélangeant avec une fourchette, puis travailler à la main.  
+            Pétrir pendant <strong>10 minutes</strong> : la pâte doit devenir lisse, élastique, assez ferme mais souple au toucher. Si elle colle, ajouter un peu de semoule ; si elle est trop sèche, mouiller légèrement les mains.
+            Former une boule, la couvrir d’un linge propre et laisser reposer <strong>30 minutes</strong> à température ambiante.
+          </li>
+
+          <li>
+            <strong>Abaisser et couper la pâte.</strong><br>
+            Diviser la pâte en 2–3 morceaux pour la manipuler plus facilement.  
+            Les étaler au rouleau en une feuille d’environ <strong>2 mm d’épaisseur</strong>. Fariner légèrement avec de la semoule si nécessaire pour éviter que ça colle.  
+            Couper en lanières de 1 cm de large, puis en morceaux de 5–6 cm : ce sont les “tria”, sortes de petites tagliatelles larges.
+            Les répartir sur un torchon légèrement fariné pour qu’elles sèchent un peu, sans se chevaucher.
+          </li>
+
+          <li>
+            <strong>Frire une partie de la Tria.</strong><br>
+            Verser une bonne quantité d’huile d’olive dans une poêle (fond bien recouvert). Faire chauffer à feu moyen : l’huile doit être chaude mais non fumante.  
+            Prélever environ <strong>un tiers</strong> des pâtes crues et les plonger délicatement dans l’huile.  
+            Remuer souvent avec une écumoire pour que les morceaux dorent de tous les côtés. Quand les pâtes prennent une <strong>couleur doré intense</strong> et deviennent croustillantes, les égoutter sur du papier absorbant.  
+            Les réserver : elles apporteront le croquant au moment du service.
+          </li>
+
+          <li>
+            <strong>Préparer la base de pois chiches.</strong><br>
+            Retirer la carotte, le céleri, l’oignon, le laurier et le romarin de la casserole de pois chiches.  
+            Prélever une petite louche de pois chiches avec un peu de leur eau de cuisson, les écraser grossièrement à la fourchette ou au mixer plongeant pour obtenir une crème épaisse.  
+            Remettre cette purée dans la casserole : la soupe devient plus liée et onctueuse.  
+            Ajuster la quantité de liquide : la préparation doit être assez serrée mais encore fluide, comme une soupe très épaisse. Ajouter un peu d’eau chaude si nécessaire.
+          </li>
+
+          <li>
+            <strong>Assaisonner la soupe.</strong><br>
+            Dans une petite poêle, faire doucement revenir la seconde gousse d’ail coupée en deux dans 3–4 c.à.s d’huile d’olive.  
+            Quand l’ail est juste doré, retirer du feu pour éviter qu’il ne brûle et verser cette huile parfumée dans la casserole de pois chiches.  
+            Saler, poivrer généreusement, mélanger et laisser mijoter à feu très doux encore <strong>5–10 minutes</strong> pour que les saveurs se mélangent bien.
+          </li>
+
+          <li>
+            <strong>Cuire le reste des pâtes.</strong><br>
+            Porter à ébullition une grande casserole d’eau salée.  
+            Y plonger les pâtes fraîches restantes (celles qui ne sont pas frites) et les cuire quelques minutes, juste le temps qu’elles remontent et deviennent tendres tout en gardant de la mâche.  
+            Les égoutter directement dans la casserole de pois chiches, en conservant un peu d’eau de cuisson au cas où il faudrait allonger la texture.
+          </li>
+
+          <li>
+            <strong>Mélanger et ajuster la consistance.</strong><br>
+            Mélanger délicatement les pâtes cuites avec les pois chiches, sur feu très doux.  
+            La préparation doit rester <strong>crémeuse mais pas sèche</strong> : si elle est trop épaisse, ajouter une ou deux louches d’eau de cuisson des pâtes ou de bouillon chaud.  
+            Laisser cuire ensemble 2–3 minutes pour que les pâtes s’imprègnent de la saveur des pois chiches.
+          </li>
+
+          <li>
+            <strong>Servir avec la Tria frite.</strong><br>
+            Répartir Ciceri e Tria dans des assiettes creuses chaudes.  
+            Juste au moment de servir, parsemer généreusement de morceaux de pâtes frites croustillantes sur le dessus, sans trop mélanger pour garder le contraste de textures.  
+            Terminer avec un beau filet d’huile d’olive crue, un tour de poivre noir et, si tu aimes, un peu de persil ou de feuilles de céleri finement hachées.
+          </li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Pour retrouver le goût authentique du Salento, laisse les pois chiches <strong>cuire très doucement</strong> : plus la cuisson est lente, plus ils deviennent crémeux sans se casser.  
+          Tu peux aussi faire frire quelques <em>petits morceaux de pâte plus fins</em> que les autres : ils deviendront encore plus croustillants et apporteront un joli jeu de textures dans l’assiette.  
+          Et n’hésite pas à utiliser une <strong>huile d’olive bien fruitée</strong> pour le filet final : c’est elle qui parfume vraiment le plat.
+        </p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          <strong>Ciceri e Tria</strong> est un plat très ancien, probablement d’origine arabe, qui a traversé les siècles dans le Salento.  
+          Il naît comme un <em>plat pauvre</em> : des pois chiches secs, de la farine de blé dur, un peu d’huile d’olive et des herbes.  
+          La particularité de la recette est ce mélange de pâtes <strong>bouillies et frites</strong>, rare en Italie, qui donne au plat son caractère unique.  
+          Aujourd’hui encore, on le prépare pour les grandes occasions et les fêtes de village, surtout autour de Lecce, où chaque famille a sa version, plus ou moins crémeuse, mais toujours généreuse en huile d’olive.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script du zoom -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback si app.js ne charge pas -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>

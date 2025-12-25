@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sporcamuss — Sapori di Puglia</title>
+  <meta name="description" content="Dessert chaud et croustillant originaire de Foggia : pâte feuilletée pur beurre et crème pâtissière soyeuse.">
+
+  <!-- CSS spécifique -->
+  <link rel="stylesheet" href="/Menu/menu-salento.css">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/menu.js"></script>
+
+  <!-- Styles globaux -->
+  <link rel="icon" type="image/png" href="/Images/orecchiette-cime-di-rapa.png">
+  <link rel="stylesheet" href="/CSS/Styles.css">
+
+  <style>
+    body {
+      background: #fffaf4;
+      color: #3a2a1b;
+      font-family: 'Lora', serif;
+    }
+
+    img.recette-photo {
+      height:   550px;
+      width: 800px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform .3s ease;
+      display: block;
+      margin: 1.5rem auto;
+    }
+    img.recette-photo:hover {
+      transform: scale(1.02);
+    }
+
+    .recette-block {
+      background: #ffffffdd;
+      padding: 2rem 2.5rem;
+      border-radius: 14px;
+      max-width: 900px;
+      margin: 2rem auto;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    .note-culturelle {
+      background: #fff6ea;
+      border-left: 5px solid #d4a373;
+      padding: 1em 1.5em;
+      margin-top: 1.5em;
+      font-style: italic;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      line-height: 1.6;
+    }
+    .note-culturelle strong {
+      color: #b45f06;
+    }
+  </style>
+</head>
+
+<header class="menu-header"
+  style="
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0.8rem 1rem;
+  "
+>
+
+  <a href="/index.html" class="back-home" style="white-space:nowrap;">
+    ← Accueil
+  </a>
+
+  <div class="brand"
+    style="
+      text-align:center;
+      flex:1;
+    "
+  >
+    <img src="/Images/SaporiDiPuglia.png"
+         alt="Logo Sapori di Puglia"
+         width="56"
+         height="56"
+         style="margin:0px 0 0 300px;">
+
+    <h1>Sapori di Puglia</h1>
+
+    <p class="subtitle" style="margin:0; font-size:1rem;">
+      Recette traditionnelle du bassin méditerranéen
+    </p>
+  </div>
+
+  <!-- Menu déroulant intégré -->
+  <details class="menu-dropdown" style="position:relative;">
+    <summary
+      style="
+        list-style:none;
+        cursor:pointer;
+        background:#d4a373;
+        color:#fff;
+        padding:0.5rem 1rem;
+        border-radius:8px;
+        font-weight:bold;
+        white-space:nowrap;
+        display:inline-block;
+        user-select:none;
+      "
+      aria-label="Ouvrir le menu des cartes"
+    >
+      Menus ▾
+    </summary>
+
+    <ul
+      style="
+        margin:0.5rem 0 0;
+        padding:0.25rem 0;
+        list-style:none;
+        background:#fff;
+        border:1px solid rgba(0,0,0,0.1);
+        border-radius:8px;
+        box-shadow:0 6px 18px rgba(0,0,0,0.1);
+        position:absolute;
+        right:0;
+        min-width:220px;
+        z-index:999;
+      "
+      role="menu"
+    >
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuGargano.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Gargano</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuSalento.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Salento</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuBari.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Bari</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuLecce.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Lecce</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuFoggia.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Foggia</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuVegetarien.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Végétarien</a>
+      </li>
+      <li role="none">
+        <a role="menuitem" href="/Menu/menuPoisson.html"
+           onclick="this.closest('details').removeAttribute('open')"
+           style="display:block; padding:0.5rem 0.75rem; color:#3a2a1b; text-decoration:none;">Menu Poisson</a>
+      </li>
+    </ul>
+  </details>
+
+</header>
+
+<!-- CONTENU PRINCIPAL -->
+<main>
+  <div class="recette-block">
+
+    <h1 style="text-align: center; margin: -20px 0 0 0 ;">Sporcamuss</h1>
+
+    <img src="/Menu/Images/sporcamuss.png"
+         alt="Sporcamuss de Foggia"
+         class="recette-photo">
+
+    <p>
+      Dessert croustillant et fondant originaire de Foggia : un carré de pâte feuilletée pur beurre,
+      ouvert en deux et garni de crème pâtissière chaude. Lorsqu'on croque dedans, la crème déborde…
+      d’où son nom amusant : <em>Sporcamuss</em>, qui signifie littéralement
+      « se salir la bouche ».
+    </p>
+
+    <!-- INGREDIENTS -->
+    <h2>Ingrédients</h2>
+
+    <h3>Pour la pâte feuilletée maison</h3>
+    <ul>
+      <li>250 g de farine T55</li>
+      <li>5 g de sel</li>
+      <li>125 ml d’eau très froide</li>
+      <li>180 g de beurre très froid</li>
+    </ul>
+
+    <h3>Pour la crème pâtissière</h3>
+    <ul>
+      <li>400 ml de lait entier</li>
+      <li>3 jaunes d’œufs</li>
+      <li>80 g de sucre</li>
+      <li>40 g de fécule de maïs</li>
+      <li>Zestes de citron ou vanille</li>
+      <li>20 g de beurre (optionnel)</li>
+    </ul>
+
+    <!-- PREPARATION -->
+    <h2>Préparation pas à pas</h2>
+
+    <h3>1. Pâte feuilletée maison</h3>
+    <ol>
+      <li><strong>Préparer la détrempe :</strong> mélanger farine + sel, ajouter l’eau froide et former une boule. Repos 30 min.</li>
+      <li><strong>Préparer le beurre :</strong> l’aplatir entre deux feuilles de papier cuisson en rectangle régulier.</li>
+      <li><strong>Emprisonner le beurre :</strong> étaler la détrempe, poser le beurre au centre, refermer.</li>
+      <li><strong>Faire 4 tours :</strong> étaler, replier en trois, tourner, reposer 20 min entre chaque tour.</li>
+      <li><strong>Réfrigérer :</strong> 1h minimum avant l’étalage final.</li>
+    </ol>
+
+    <h3>2. Crème pâtissière</h3>
+    <ol>
+      <li>Chauffer le lait avec citron ou vanille.</li>
+      <li>Blanchir les jaunes avec le sucre.</li>
+      <li>Ajouter la fécule.</li>
+      <li>Verser le lait chaud en filet, fouetter, remettre à cuire.</li>
+      <li>Laisser épaissir, ajouter le beurre hors feu.</li>
+      <li>Filmer au contact.</li>
+    </ol>
+
+    <h3>3. Montage et cuisson</h3>
+    <ol>
+      <li>Étaler la pâte sur 4 mm et couper en carrés de 6–7 cm.</li>
+      <li>Cuire 12–14 min à 190°C.</li>
+      <li>Ouvrir délicatement en deux.</li>
+      <li>Garnir de crème chaude et refermer.</li>
+      <li>Saupoudrer de sucre glace au dernier moment.</li>
+    </ol>
+
+    <!-- NOTE CULTURELLE -->
+    <div class="note-culturelle">
+      🕊 <strong>Origine et sens du mot « Sporcamuss »</strong><br><br>
+      Ce dessert vient de <strong>Foggia</strong>, dans le nord des Pouilles.
+      Le nom vient du dialecte « sporcare la mousse », littéralement :
+      <strong>« se salir la bouche »</strong>.
+      On l’appelle ainsi car la crème chaude déborde dès qu’on y croque.<br><br>
+      Un dessert simple, joyeux, très populaire dans les cafés de la région.
+    </div>
+
+  </div>
+</main>
+
+<footer class="menu-footer">
+  <p>© 2025 Sapori di Puglia — Desserts des Pouilles.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lagane e Ceci alla Salentina — Sapori di Puglia</title>
+  <meta name="description" content="Lagane e Ceci alla Salentina : pâtes larges faites maison, pois chiches mijotés lentement, ail, huile d’olive et laurier. Une recette paysanne simple et parfumée du Salento.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/lagane-e-ceci.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles pour le zoom image -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      background: none;
+      border: none;
+    }
+    .visually-hidden {
+      position: absolute;
+      left: -9999px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- MENU LATERAL -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="container recette">
+    <article>
+
+      <h1>🥣 Lagane e Ceci alla Salentina</h1>
+
+      <!-- Image principale -->
+      <div class="image-zoom">
+        <img src="/Images/lagane-e-ceci.png" alt="Lagane e Ceci alla Salentina — portion servie" class="zoomable">
+      </div>
+
+      <!-- Modal zoom -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" aria-label="Fermer" type="button">×</button>
+        <img class="modal-content" id="modalImg" src="&" alt="Agrandissement de l’image">
+      </div>
+
+      <!-- INTRO -->
+      <p class="intro">
+        <strong>Lagane e Ceci</strong> est un plat très ancien du Salento : de <em>larges tagliatelles de blé dur</em> faites maison, mélangées à des <em>pois chiches mijotés lentement</em> dans un fond parfumé d’ail, d’huile d’olive et de laurier.  
+        C’est une recette paysanne, simple, crémeuse, parfaite pour l’hiver comme pour les soirs d’été.
+      </p>
+
+      <!-- INFOS -->
+      <section class="infos">
+        <h2 class="visually-hidden">Informations</h2>
+        <p>⏱ Préparation : <strong>25 min</strong> &nbsp;|&nbsp;
+           🕰 Cuisson : <strong>1 h 30</strong> &nbsp;|&nbsp;
+           👥 Pour <strong>4 personnes</strong> &nbsp;|&nbsp;
+           ⚙️ Difficulté : <strong>Facile</strong></p>
+      </section>
+
+      <!-- INGREDIENTS -->
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+
+        <h3>Pour les pois chiches</h3>
+        <ul>
+          <li>300 g de pois chiches secs</li>
+          <li>1 carotte</li>
+          <li>1 petit oignon</li>
+          <li>1 branche de céleri</li>
+          <li>2 feuilles de laurier</li>
+          <li>2 gousses d’ail</li>
+          <li>Huile d’olive extra-vierge</li>
+          <li>Sel et poivre</li>
+        </ul>
+
+        <h3>Pour les Lagane</h3>
+        <ul>
+          <li>300 g de semoule de blé dur (rimacinata)</li>
+          <li>150 ml d’eau</li>
+          <li>1 pincée de sel</li>
+        </ul>
+      </section>
+
+      <!-- PREPARATION -->
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li>
+            <strong>Faire tremper les pois chiches.</strong><br>
+            La veille, mettre les pois chiches dans un grand saladier et couvrir largement d’eau froide. Laisser tremper toute la nuit.
+          </li>
+
+          <li>
+            <strong>Cuire les pois chiches.</strong><br>
+            Dans une grande casserole, mettre les pois chiches égouttés, la carotte, l’oignon, le céleri et les feuilles de laurier. Couvrir d’eau, porter à ébullition puis laisser mijoter <strong>1 h 15</strong>.
+          </li>
+
+          <li>
+            <strong>Préparer la pâte à Lagane.</strong><br>
+            Mélanger la semoule et le sel, ajouter l’eau petit à petit et pétrir jusqu’à obtenir une pâte lisse et ferme.  
+            Laisser reposer <strong>20 min</strong> sous un torchon.
+          </li>
+
+          <li>
+            <strong>Former les Lagane.</strong><br>
+            Abaisser la pâte en une grande feuille de 2 mm d’épaisseur.  
+            Couper des bandes de 2 cm de large et 10–12 cm de long.  
+            Fariner légèrement pour éviter qu’elles ne collent.
+          </li>
+
+          <li>
+            <strong>Assaisonner les pois chiches.</strong><br>
+            Retirer les légumes.  
+            Faire dorer 2 gousses d’ail dans 4 c.à.s d’huile d’olive et verser dans les pois chiches.  
+            Saler, poivrer et laisser mijoter encore 10 min.
+          </li>
+
+          <li>
+            <strong>Cuire les Lagane.</strong><br>
+            Cuire dans de l’eau bouillante salée 5–7 min jusqu’à ce qu’elles soient tendres mais fermes.
+          </li>
+
+          <li>
+            <strong>Assembler.</strong><br>
+            Ajouter les Lagane dans la casserole et mélanger doucement 2–3 min.
+          </li>
+
+          <li>
+            <strong>Servir.</strong><br>
+            Arroser d’huile d’olive crue et poivre noir fraîchement moulu.
+          </li>
+        </ol>
+      </section>
+
+      <!-- ASTUCE -->
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Pour encore plus de parfum, ajoute un petit brin de romarin lors de la cuisson.  
+          Pour une texture plus crémeuse, écrase une louche de pois chiches et remets-la dans la casserole.
+        </p>
+      </section>
+
+      <!-- ORIGINE -->
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          <strong>Lagane e Ceci</strong> est un plat très ancien mentionné depuis l’époque romaine.  
+          Dans le Salento, il est symbole de la cuisine paysanne minimaliste et généreuse.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+  <!-- FOOTER -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- SCRIPT ZOOM -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>

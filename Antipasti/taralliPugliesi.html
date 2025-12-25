@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taralli Pugliesi — Sapori di Puglia</title>
+  <meta name="description" content="Recette des Taralli Pugliesi, biscuits traditionnels des Pouilles, croquants et parfumés à l'anis. Parfaits pour un apéritif ou un en-cas.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/taralli-pugliesi.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes (ordre DOM) -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <h1>🍪 Taralli Pugliesi</h1>
+      <img src="/Images/TaralliAuErbes.png" alt="Taralli Pugliesi" class="recette-photo">
+
+      <p class="intro">
+        Les <strong>Taralli Pugliesi</strong> sont des biscuits traditionnels de la région des Pouilles. Croustillants, parfumés à l'anis, et légèrement salés, ils sont parfaits pour l'apéritif ou un en-cas.
+        Ces biscuits peuvent être préparés facilement à la maison et partagent le goût authentique de la cuisine du Sud de l'Italie.
+      </p>
+
+      <section class="infos">
+        <h2 class="sr-only">Informations de la recette</h2>
+          <p>
+            ⏱ Préparation : <strong>1 h 30</strong> &nbsp;|&nbsp;
+            👥 Pour <strong>8 personnes</strong> &nbsp;|&nbsp;
+            ⚙️ Difficulté : <strong>Facile</strong>
+          </p>
+      </section>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li class="ingredient">500 g de farine de blé type 00</li>
+          <li class="ingredient">100 ml d'huile d'olive extra-vierge</li>
+          <li class="ingredient">100 ml de vin blanc sec</li>
+          <li class="ingredient">1 c. à soupe de graines d'anis</li>
+          <li class="ingredient">1 c. à café de sel fin</li>
+          <li class="ingredient">1 c. à soupe de sucre</li>
+          <li class="ingredient">Eau tiède (si nécessaire, pour ajuster la pâte)</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li><strong>Préparer la pâte :</strong> Mélangez la farine, l'huile d'olive, le vin blanc, le sel, le sucre et les graines d'anis dans un grand bol. Ajoutez de l'eau tiède petit à petit pour obtenir une pâte lisse et souple.</li>
+          <li><strong>Pétrir :</strong> Pétrissez la pâte pendant environ 10 minutes pour qu’elle devienne élastique et homogène. Si la pâte est trop collante, ajoutez un peu de farine.</li>
+          <li><strong>Faire reposer :</strong> Couvrez la pâte avec un linge propre et laissez-la reposer pendant 30 minutes à température ambiante.</li>
+          <li><strong>Façonner les Taralli :</strong> Prenez une petite portion de pâte et roulez-la pour former un boudin d’environ 10 cm de long. Repliez-le pour former une petite boucle (un anneau). Répétez l'opération avec toute la pâte.</li>
+          <li><strong>Cuire :</strong> Portez à ébullition une grande casserole d’eau salée. Plongez-y les Taralli quelques-uns à la fois, jusqu’à ce qu’ils remontent à la surface (cela prend environ 1 à 2 minutes). Retirez-les à l’aide d’une écumoire et déposez-les sur un torchon propre pour les sécher.</li>
+          <li><strong>Cuisson au four :</strong> Préchauffez le four à 200°C (chaleur tournante). Placez les Taralli sur une plaque de cuisson recouverte de papier sulfurisé. Faites cuire pendant 20–25 minutes ou jusqu'à ce qu’ils soient dorés et croustillants.</li>
+          <li><strong>Servir :</strong> Laissez refroidir sur une grille avant de les déguster. Les Taralli peuvent être conservés dans une boîte hermétique pour plusieurs jours.</li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>Vous pouvez ajouter des graines de fenouil ou de cumin dans la pâte pour varier les saveurs. Pour une version plus légère, vous pouvez aussi les cuire uniquement au four sans les faire bouillir.</p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>Les <em>Taralli Pugliesi</em> sont une spécialité typique de la région des Pouilles, dans le sud de l'Italie. Ils sont consommés traditionnellement lors des fêtes ou en apéritif, et sont appréciés pour leur texture croquante et leur parfum subtil d'anis. Ils font partie des incontournables de la cuisine du Sud de l'Italie.</p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Bouton Remonter en haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <!-- Pied de page -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle des Pouilles.</p>
+  </footer>
+
+  <!-- Fallback minimal si /JS/app.js n’est pas chargé -->
+  <script>
+    (function(){
+      // Toggle theme
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      // Scroll-to-top
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

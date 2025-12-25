@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Huîtres Gratinées à la Crème de Poireaux — Sapori di Puglia</title>
+  <meta name="description" content="Huîtres gratinées à la crème de poireaux : une entrée raffinée, avec une base de poireaux fondants, vin blanc, crème et chapelure dorée. Parfait pour un menu de la mer.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/huitres-creme-poireaux.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles pour le zoom image -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <h1>🦪 Huîtres Gratinées à la Crème de Poireaux</h1>
+
+      <!-- Image principale avec zoom -->
+      <div class="image-zoom">
+        <img src="/Images/huitres-creme-poireaux.png" alt="Huîtres gratinées à la crème de poireaux — portion servie" class="zoomable">
+      </div>
+
+      <!-- Fenêtre d’agrandissement -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" type="button" aria-label="Fermer">×</button>
+        <img class="modal-content" id="modalImg" src="&" alt="">
+      </div>
+
+      <p class="intro">
+        Ces <strong>huîtres gratinées à la crème de poireaux</strong> sont une entrée de la mer à la fois <em>raffinée</em> et <em>réconfortante</em>.  
+        Une base de <strong>poireaux fondants</strong>, doucement cuits avec <em>beurre</em>, <em>vin blanc</em> et <em>crème</em>, vient enrober chaque huître.  
+        Le tout est recouvert d’une <strong>fine chapelure parfumée</strong> et gratiné au four, pour obtenir un contraste parfait entre le moelleux de la crème et le croustillant du dessus.
+      </p>
+
+      <!-- ⚠️ Section infos transformée en div pour éviter l'avertissement "section sans heading" -->
+      <div class="infos">
+        <p>
+          ⏱ Préparation : <strong>30 min</strong>
+          &nbsp;|&nbsp; 🕰 Cuisson : <strong>10–12 min</strong>
+          &nbsp;|&nbsp; 👥 Pour <strong>4 personnes</strong>
+          &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Moyenne</strong>
+        </p>
+      </div>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+
+        <h3>Pour les huîtres</h3>
+        <ul>
+          <li>12 huîtres (n° 2 ou 3, selon la taille souhaitée)</li>
+          <li>Poivre noir fraîchement moulu</li>
+          <li>Quelques gouttes d’huile d’olive extra-vierge</li>
+        </ul>
+
+        <h3>Pour la crème de poireaux</h3>
+        <ul>
+          <li>2 gros poireaux (partie blanche et vert clair)</li>
+          <li>20 g de beurre</li>
+          <li>1 filet d’huile d’olive extra-vierge</li>
+          <li>1 petite gousse d’ail</li>
+          <li>10 cl de vin blanc sec</li>
+          <li>15 cl de crème fraîche entière (ou panna liquide)</li>
+          <li>Sel fin (à ajuster)</li>
+          <li>Poivre noir</li>
+          <li>Un peu de zeste de citron (facultatif, pour la fraîcheur)</li>
+        </ul>
+
+        <h3>Pour la finition gratinée</h3>
+        <ul>
+          <li>3 c.à.s de chapelure fine</li>
+          <li>2 c.à.s de parmesan ou pecorino finement râpé</li>
+          <li>1 pincée d’origan sec ou de thym</li>
+          <li>1 c.à.s de persil plat finement ciselé (facultatif)</li>
+          <li>1–2 c.à.s d’huile d’olive extra-vierge</li>
+          <li>Poivre noir</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li>
+            <strong>Préparer les poireaux : nettoyage et découpe.</strong><br>
+            Couper les extrémités vert foncé et les racines des poireaux.  
+            Fendre chaque poireau en deux dans la longueur et passer sous un filet d’eau froide en ouvrant les couches du bout des doigts, pour enlever tout résidu de terre ou de sable.  
+            Égoutter, puis émincer les poireaux en <strong>fines demi-lunes</strong> ou en lamelles très fines : plus la découpe est fine, plus la crème sera lisse et agréable en bouche.
+          </li>
+
+          <li>
+            <strong>Faire fondre les poireaux doucement.</strong><br>
+            Dans une sauteuse ou une grande poêle, faire fondre <strong>20 g de beurre</strong> avec un petit filet d’huile d’olive.  
+            Ajouter les poireaux émincés, saler légèrement (le sel aide à faire rendre l’eau et à les attendrir) et mélanger bien pour les enrober de matière grasse.  
+            Cuire à feu doux pendant <strong>10 minutes</strong>, en remuant régulièrement, jusqu’à ce qu’ils deviennent <em>souples, fondants et légèrement translucides</em>, sans les laisser colorer.
+          </li>
+
+          <li>
+            <strong>Ajouter l’ail et déglacer au vin blanc.</strong><br>
+            Hacher finement la gousse d’ail et l’ajouter aux poireaux fondus.  
+            Remuer quelques secondes pour laisser l’ail parfumer le mélange, sans le faire brûler.  
+            Verser ensuite <strong>10 cl de vin blanc sec</strong> et augmenter légèrement le feu.  
+            Laisser réduire le vin jusqu’à ce qu’il soit presque entièrement évaporé : on ne doit plus voir de liquide libre au fond de la poêle, seulement des poireaux bien enrobés.
+          </li>
+
+          <li>
+            <strong>Incorporer la crème et finir la crème de poireaux.</strong><br>
+            Verser <strong>15 cl de crème fraîche</strong> dans la sauteuse.  
+            Mélanger délicatement pour bien lier la crème aux poireaux.  
+            Laisser mijoter à feu doux pendant <strong>5 minutes</strong>, jusqu’à obtenir une texture <strong>onctueuse</strong> qui nappe la cuillère.  
+            Assaisonner avec un peu de sel (en goûtant, car le fromage viendra plus tard) et du poivre noir.  
+            Si tu le souhaites, ajouter une petite pincée de zeste de citron finement râpé pour une touche fraîche et légèrement acidulée.  
+            Réserver la crème de poireaux hors du feu.
+          </li>
+
+          <li>
+            <strong>Préparer la chapelure parfumée pour le gratin.</strong><br>
+            Dans un bol, mélanger la chapelure, le parmesan (ou pecorino) râpé, l’origan sec (ou thym), un peu de persil ciselé et une pincée de poivre noir.  
+            Ajouter <strong>1 à 2 c.à.s d’huile d’olive</strong> et mélanger avec une fourchette pour bien enrober la chapelure.  
+            On doit obtenir une texture de <em>sable légèrement humide</em>, prête à dorer au four sans sécher.
+          </li>
+
+          <li>
+            <strong>Ouvrir les huîtres et préparer les coquilles.</strong><br>
+            Ouvrir les huîtres une à une avec un couteau adapté, en faisant bien attention à ne pas renverser tout le jus.  
+            Détacher délicatement le mollusque de la coquille inférieure avec la lame, sans le couper, puis garder uniquement la <strong>coquille creuse</strong> avec l’huître à l’intérieur.  
+            Filtrer éventuellement le jus à travers une petite passoire fine ou un linge propre pour enlever les éventuels débris de coquille.  
+            Placer les coquilles sur une plaque de cuisson recouverte de gros sel ou d’un lit de riz cru : cela permettra de les caler pour qu’elles ne basculent pas au four.
+          </li>
+
+          <li>
+            <strong>Napper les huîtres de crème de poireaux.</strong><br>
+            Réchauffer légèrement la crème de poireaux si elle a trop refroidi, afin qu’elle soit fluide et facile à déposer.  
+            Sur chaque huître, déposer une <strong>petite cuillère de crème de poireaux</strong>, suffisante pour enrober le mollusque sans le noyer complètement.  
+            L’idée est que l’on voie encore un peu l’huître sous la crème, pour garder un bon équilibre entre la mer et le légume.
+          </li>
+
+          <li>
+            <strong>Ajouter la chapelure et l’assaisonnement final.</strong><br>
+            Saupoudrer chaque huître d’une petite couche de chapelure parfumée : juste assez pour recouvrir la crème, sans faire une croûte trop épaisse.  
+            Si nécessaire, ajouter quelques gouttes d’huile d’olive sur le dessus pour assurer un joli gratin.  
+            Donner un tour de moulin à poivre sur l’ensemble de la plaque si tu aimes le poivre bien présent avec les huîtres.
+          </li>
+
+          <li>
+            <strong>Gratiner rapidement au four.</strong><br>
+            Préchauffer le four en mode <strong>grill à 220&nbsp;°C</strong> (ou chaleur très vive en haut du four).  
+            Enfourner la plaque avec les huîtres sur un niveau assez proche du grill, en surveillant en permanence.  
+            Laisser gratiner pendant <strong>5 à 7 minutes</strong> : la chapelure doit devenir <em>dorée et légèrement croustillante</em>, la crème doit frémir doucement sur les bords, mais les huîtres ne doivent pas dessécher ni cuire trop longtemps.  
+            Dès que la surface est bien colorée, retirer immédiatement la plaque du four.
+          </li>
+
+          <li>
+            <strong>Repos très court et service.</strong><br>
+            Laisser reposer 1 à 2 minutes hors du four : les huîtres sont très chaudes et la crème de poireaux se stabilise légèrement.  
+            Servir 3 huîtres par personne, disposées sur un lit de gros sel dans une assiette ou sur un plateau, pour qu’elles restent bien en place.  
+            Tu peux ajouter un tout petit filet d’huile d’olive crue sur chaque huître juste avant de servir, ainsi qu’un peu de persil très finement ciselé pour la couleur.
+          </li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Pour une entrée encore plus élégante, prépare la crème de poireaux la veille et garde-la au réfrigérateur :  
+          le lendemain, tu n’auras plus qu’à la réchauffer doucement, ouvrir les huîtres, assembler et gratiner au dernier moment.  
+          Tu peux aussi remplacer une petite partie de la crème par un <strong>fumet de poisson réduit</strong> pour renforcer le côté “mer”.  
+          Et si tu veux une texture encore plus fine, passe la crème de poireaux au mixer plongeant avant de l’utiliser, pour obtenir un nappage parfaitement lisse.
+        </p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Les <strong>huîtres gratinées</strong> sont un grand classique des cartes de fêtes, autant dans les régions de l’Atlantique que dans les cuisines méditerranéennes.  
+          En associant l’huître à une <strong>crème de poireaux</strong>, on marie le goût iodé de la mer avec la douceur légèrement sucrée du poireau, un légume très utilisé en Italie du Sud dans les soupes et les plats de poisson.  
+          Cette version gratinée trouve naturellement sa place dans un <em>menu de la mer</em> : en entrée chaude, elle prépare le palais à un risotto, des pâtes aux fruits de mer ou un poisson entier au four.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Bouton Remonter en haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <!-- Pied de page -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script du zoom -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback si /JS/app.js n’est pas chargé -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

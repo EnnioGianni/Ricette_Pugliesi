@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bocconcini Reali — Sapori di Puglia</title>
+
+  <meta name="description"
+        content="Bocconcini Reali : farce d’amande moelleuse du Salento, idéale pour feuilletés, boules et dolci rustiques. Version ultra détaillée + variantes traditionnelles de Pasta Reale.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="stylesheet" href="/CSS/zoom.css">
+  <link rel="icon" type="image/png" href="/Dolci/Images/bocconcini-reali.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+  <script defer src="/JS/zoom.js"></script>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <!-- Bouton imprimante -->
+        <li>
+          <button class="button secondary" onclick="window.print()" aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATERAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍬 Bocconcini Reali</h1>
+
+    <!-- IMAGE -->
+    <div class="image-zoom">
+      <img src="/Dolci/Images/bocconcini-reali.png"
+           alt="Bocconcini Reali farcis à la Pasta Reale, version moelleuse du Salento"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement des Bocconcini Reali">
+    </div>
+
+    <p class="intro">
+      Les <strong>Bocconcini Reali</strong> sont une spécialité du <strong>Salento</strong> :  
+      une <strong>Pasta Reale moelleuse</strong>, souple, parfumée au citron et aux amandes,  
+      utilisée pour farcir des <strong>boules feuilletées</strong>, des <strong>dolci rustiques</strong> ou des  
+      <strong>pâtisseries à l’ancienne</strong>.  
+      La version que tu vas découvrir est celle des maisons traditionnelles :  
+      une farce qui se tient, mais qui reste fondante à cœur, sans sécher à la cuisson.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>20 min</strong> |
+        🔥 Cuisson : <strong>aucune (sauf dans les dolci)</strong> |
+        👥 Pour <strong>20–24 bocconcini</strong> |
+        ⚙️ Difficulté : <strong>Très facile mais technique</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients (version moelleuse officielle)</h2>
+
+      <ul>
+        <li>250 g de <strong>poudre d’amande</strong> fine</li>
+        <li>150 g de <strong>sucre</strong></li>
+        <li>1 <strong>blanc d’œuf</strong> (30 g environ)</li>
+        <li>1 c.à.s de <strong>miel</strong> doux (acacia ou oranger)</li>
+        <li>Le <strong>zeste fin d’un citron</strong> non traité</li>
+        <li>1 c.à.c d’<strong>eau</strong> (si besoin)</li>
+        <li>1 goutte d’<strong>extrait d’amande amère</strong> (optionnel mais très traditionnel)</li>
+      </ul>
+
+      <p>
+        Le but est d’obtenir une pâte <strong>malléable</strong>, <strong>lisse</strong>,  
+        et légèrement <strong>collante</strong> sans l’être trop, pour être facilement façonnée.
+      </p>
+    </section>
+
+<!-- PREPARATION ULTRA DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation ultra détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Mélanger les ingrédients secs.</strong><br>
+          Dans un grand bol, verser la poudre d’amande et le sucre.  
+          Mélanger avec les doigts pour casser les éventuels petits grumeaux.  
+          L’objectif : une base sèche parfaitement homogène.
+        </li>
+
+        <li>
+          <strong>Ajouter le zeste de citron.</strong><br>
+          Râper très finement le citron : seule la partie jaune doit être utilisée.  
+          Mélanger à la main pour uniformiser l’arôme dans toute la masse.
+        </li>
+
+        <li>
+          <strong>Incorporer le blanc d’œuf.</strong><br>
+          Verser le blanc d’œuf au centre.  
+          Commencer par mélanger avec une fourchette, puis continuer avec les doigts.  
+          La pâte va d’abord sembler sèche, puis peu à peu s’agglomérer.
+        </li>
+
+        <li>
+          <strong>Ajouter le miel.</strong><br>
+          Le miel donne la souplesse typique des Bocconcini Reali.  
+          L’incorporer lentement, en pétrissant 10–15 secondes.  
+          La texture doit devenir plus douce, mais pas collante.
+        </li>
+
+        <li>
+          <strong>Travailler la pâte comme une pâte d’amande.</strong><br>
+          Transférer la pâte sur un plan propre.  
+          La travailler du bout des doigts, en pressant et en repliant.  
+          Au bout de 30–40 secondes, la pâte doit devenir <strong>lisse et modelable</strong>.
+        </li>
+
+        <li>
+          <strong>Ajuster l’hydratation.</strong><br>
+          Si la pâte est trop sèche : ajouter 1 c.à.c d’eau.  
+          Si elle est trop humide : saupoudrer 1 c.à.s de poudre d’amande.  
+          Elle doit ressembler à une pâte d’amande souple.
+        </li>
+
+        <li>
+          <strong>Laisser reposer (obligatoire).</strong><br>
+          Emballer dans un film alimentaire et laisser reposer <strong>15 minutes</strong>.  
+          Cela permet au sucre et aux amandes d’absorber l’humidité.
+        </li>
+<!-- PREPARATION boules feuilletées -->
+        <li>
+          <strong>Former les boules feuilletées.</strong><br>
+          Découper des disques de pâte. Déposer au centre une petite noix de
+          Pasta Reale. Refermer soigneusement puis rouler entre les mains
+          pour obtenir de vraies boules rondes.
+        </li>
+
+        <li>
+          <strong>Dorer.</strong><br>
+          Badigeonner d’œuf battu pour obtenir une belle couleur dorée.
+        </li>
+
+        <li>
+          <strong>Cuisson.</strong><br>
+          Enfourner à 180–190°C pendant 15–18 minutes jusqu’à ce que les
+          bocconcini soient gonflés et dorés.
+        </li>
+
+        <li>
+          <strong>Sucre glace.</strong><br>
+          Laisser tiédir 5 minutes puis rouler dans le sucre glace.
+          Ils doivent être parfaitement blancs et parfumés.
+        </li>
+
+        <li>
+          <strong>Utilisation.</strong><br>
+          Prélever des petites portions et farcir :  
+          – biscuits creusés,  
+          – cornetti rustiques,  
+          – “cartellate” revisitées,  
+          – feuilletés de fête.  
+          <br>À la cuisson, la pâte devient <strong>moelleuse et légèrement fondante</strong>.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes traditionnelles de Pasta Reale</h2>
+
+      <h3>1️⃣ Pasta Reale per Paste di Mandorla (version sèche)</h3>
+      <ul>
+        <li>250 g amandes, 250 g sucre, 1 blanc d’œuf</li>
+        <li>Beaucoup plus ferme → idéale pour biscuits</li>
+        <li>Cuisson : 12 min à 180°C</li>
+      </ul>
+
+      <h3>2️⃣ Pasta Reale per Bocconotti (version semi-molle)</h3>
+      <ul>
+        <li>Amandes + sucre + zeste + 1 jaune + 1 blanc → texture plus dense</li>
+        <li>Supporte une cuisson longue dans la pâte brisée</li>
+      </ul>
+
+      <h3>3️⃣ Pasta Reale per Fruttone / Pasticciotto (version cuite)</h3>
+      <ul>
+        <li>Amandes + sucre + sirop + cuisson 5 min à la casserole</li>
+        <li>Texture ferme qui fond après cuisson finale du dolce</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour une pâte vraiment moelleuse :  
+        ajoute une <strong>demi-cuillère à café de miel supplémentaire</strong> juste avant d’utiliser la farce.  
+        Les nonne du Salento le font pour éviter que la pâte ne sèche dans le four.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        La <strong>Pasta Reale</strong> est l’une des préparations les plus anciennes du Sud de l’Italie.  
+        Dans les Pouilles et le Salento, elle servait autrefois à farcir les desserts de fête :  
+        bocconotti, fruttoni, feuilletés rustiques.  
+        Cette version “<strong>morbida</strong>” est celle des maisons rurales :  
+        simple, parfumée au citron, et surtout <strong>fondante</strong>, parfaite pour créer des dolci généreux.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Bocconcini Reali.</p>
+</footer>
+
+</body>
+</html>

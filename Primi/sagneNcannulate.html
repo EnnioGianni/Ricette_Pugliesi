@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sagne Ncannulate al Sugo — Sapori di Puglia</title>
+  <meta name="description" content="Sagne Ncannulate al sugo : pâtes torsadées traditionnelles de Lecce, préparées à la main et servies avec un sugo épais au basilic.">
+  
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍝 Sagne Ncannulate al Sugo</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+        <img src="/Menu/Images/sagne-ncannulate.png" alt=" Sagne Ncannulate — portion servie" class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" class="modal-content" alt="Agrandissement de l’image" src="&">
+    </div>
+
+    <p class="intro">
+      Les <strong>Sagne Ncannulate</strong> sont les pâtes emblématiques du Salento :  
+      longues bandes fines <em>torsadées à la main</em>, puis servies avec un <strong>sugo dense</strong>,  
+      parfumé au basilic. C’est un plat entièrement fait maison, simple mais d’une saveur incomparable.
+    </p>
+
+    <!-- Infos -->
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>45 min</strong> |
+        🔥 Cuisson : <strong>35 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Moyenne</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour les sagne</h3>
+      <ul>
+        <li>400 g de semoule de blé dur rimacinata</li>
+        <li>Environ 200 ml d’eau tiède</li>
+        <li>1 pincée de sel</li>
+      </ul>
+
+      <h3>Pour le sugo</h3>
+      <ul>
+        <li>1 bouteille de passata (700 ml)</li>
+        <li>2 gousses d’ail</li>
+        <li>Quelques feuilles de basilic frais</li>
+        <li>4 c.à.s d’huile d’olive extra-vierge</li>
+        <li>Sel & poivre</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer la pâte à sagne.</strong><br>
+          Verser la semoule sur le plan de travail, faire un puits et ajouter l’eau tiède.  
+          Mélanger du bout des doigts jusqu’à obtenir une pâte ferme.  
+          Pétrir <strong>10 minutes</strong> jusqu’à ce qu’elle soit lisse et élastique.  
+          Laisser reposer 20 minutes sous un torchon.
+        </li>
+
+        <li>
+          <strong>Former les sagne ncannulate.</strong><br>
+          Étaler la pâte sur 3–4 mm d’épaisseur.  
+          Couper des bandes longues de 1,5 cm de large.  
+          Torsader chaque bande délicatement en spirale, comme un ruban enroulé.  
+          Déposer les pâtes torsadées sur un torchon fariné.
+        </li>
+
+        <li>
+          <strong>Préparer le sugo.</strong><br>
+          Faire chauffer l’huile dans une casserole.  
+          Ajouter l’ail écrasé et laisser légèrement dorer.  
+          Verser la passata, saler, poivrer, ajouter quelques feuilles de basilic.  
+          Cuire à feu doux <strong>30 minutes</strong>, jusqu’à obtenir une sauce épaisse.
+        </li>
+
+        <li>
+          <strong>Cuisson des pâtes.</strong><br>
+          Porter un grand volume d’eau salée à ébullition.  
+          Cuire les sagne <strong>7 à 9 minutes</strong> selon épaisseur.  
+          Elles doivent rester souples mais fermes.
+        </li>
+
+        <li>
+          <strong>Mélanger et servir.</strong><br>
+          Égoutter en gardant une louche d’eau de cuisson.  
+          Mélanger les pâtes dans le sugo encore chaud.  
+          Ajouter un filet d’huile d’olive crue et quelques feuilles de basilic.
+        </li>
+      </ol>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour un plat encore plus authentique, ajoute un peu de <strong>ricotta forte</strong> dans le sugo :  
+        c’est une astuce typique des grands-mères du Salento.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les Sagne Ncannulate sont un symbole de Lecce : nées dans les maisons rurales,  
+        elles étaient autrefois faites pour les fêtes patronales.  
+        Leur torsade unique permettait de retenir parfaitement le sugo.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Recette traditionnelle du Salento.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

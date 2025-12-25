@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sgagliozze Barese — Sapori di Puglia</title>
+  <meta name="description"
+        content="Sgagliozze Barese traditionnelles : dés de polenta refroidie puis frite dans l’huile d’olive. Recette très détaillée, gestes expliqués pas à pas, avec variantes de rue, version contadina et épicée.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Antipasti/Images/sgagliozze-barese.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles image + zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍰 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+
+
+<main class="container recette">
+  <article>
+
+    <h1>🟡 Sgagliozze Barese</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Images/sgagliozze-barese.png"
+           alt="Sgagliozze barese dorées, carrés de polenta frite servis sur une assiette rustique"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement des sgagliozze barese">
+    </div>
+
+
+    <!-- INTRO -->
+    <p class="intro">
+      Les <strong>sgagliozze barese</strong> sont l’un des symboles de <strong>Bari Vecchia</strong>&nbsp;:  
+      des carrés de <strong>polenta refroidie puis frite</strong> dans l’huile, servis brûlants, juste salés.  
+      C’est une street food très simple, mais pour obtenir la texture parfaite – <strong>croûte croustillante</strong>  
+      et cœur <strong>moelleux</strong> – il faut respecter les temps&nbsp;: cuisson de la polenta, refroidissement,  
+      découpe et friture lente. Tout est expliqué <strong>geste par geste</strong>.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>20 min</strong> (+ repos) |
+        🔥 Cuisson : <strong>30 min</strong> (polenta + friture) |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Facile (attention aux temps de repos)</strong>
+      </p>
+    </div>
+
+
+
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour la polenta</h3>
+      <ul>
+        <li>250 g de <strong>semoule de maïs pour polenta</strong> (cuisson normale, pas instantanée si possible)</li>
+        <li>1 litre d’<strong>eau</strong></li>
+        <li>1 c.à.s de <strong>sel fin</strong></li>
+        <li>(Facultatif) 1 c.à.s d’<strong>huile d’olive</strong> pour la cuisson</li>
+      </ul>
+
+      <h3>Pour la friture</h3>
+      <ul>
+        <li>Huile pour friture (huile d’olive ou mélange spécial friture)</li>
+        <li><strong>Sel fin</strong> pour assaisonner à la fin</li>
+      </ul>
+
+      <h3>Optionnel pour aromatiser légèrement</h3>
+      <ul>
+        <li>Poivre noir moulu</li>
+        <li>Un peu de <strong>romarin séché</strong> finement émietté</li>
+        <li>Une pincée de <strong>piment</strong> en poudre (pour une version plus “de rue”)</li>
+      </ul>
+    </section>
+
+
+
+
+    <!-- PREPARATION TRES DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation extrêmement détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer le moule pour faire refroidir la polenta.</strong><br>
+          Choisis un plat rectangulaire ou un moule peu profond (type plat à gratin) d’environ <strong>2 cm de hauteur</strong>.  
+          Badigeonne-le d’un léger voile d’<strong>huile d’olive</strong> ou tapisse-le de papier cuisson.  
+          Ce plat servira à laisser prendre la polenta pour pouvoir la découper en carrés réguliers.
+        </li>
+
+        <li>
+          <strong>Chauffer l’eau et saler correctement.</strong><br>
+          Verse <strong>1 litre d’eau</strong> dans une grande casserole. Porte presque à ébullition.  
+          Ajoute le <strong>sel</strong> et, si tu veux, 1 c.à.s d’<strong>huile d’olive</strong>.  
+          Mélange avec une cuillère en bois pour dissoudre le sel.  
+          Le salage doit être net mais pas excessif, car on salera encore légèrement après friture.
+        </li>
+
+        <li>
+          <strong>Verser la semoule de maïs en pluie.</strong><br>
+          Baisse le feu pour que l’eau frémisse seulement.  
+          Verse la semoule de maïs <strong>en pluie</strong> avec une main, tout en mélangeant constamment  
+          avec l’autre main à l’aide d’un fouet ou d’une cuillère en bois.  
+          Ainsi, tu évites les grumeaux.  
+          <br><br>
+          Au bout de quelques minutes, la polenta commence à épaissir et les bulles remontent à la surface.
+        </li>
+
+        <li>
+          <strong>Cuire la polenta — sentir la résistance.</strong><br>
+          Laisse cuire la polenta à feu doux, en remuant régulièrement pour qu’elle n’attache pas au fond.  
+          Le temps de cuisson dépend du type de semoule, mais il faut en général <strong>30–40 minutes</strong>  
+          pour une polenta bien cuite et sans goût de farine.  
+          <br><br>
+          La texture doit devenir <strong>épaisse, lisse</strong>, la polenta doit se détacher légèrement des parois de la casserole  
+          quand tu passes la cuillère. Si elle est encore trop liquide, prolonge la cuisson de quelques minutes.
+        </li>
+
+        <li>
+          <strong>Étaler la polenta dans le moule.</strong><br>
+          Quand la polenta est prête, verse-la immédiatement dans le plat préparé.  
+          Étale-la avec une spatule ou le dos d’une cuillère mouillée pour obtenir une épaisseur régulière  
+          d’environ <strong>1,5 à 2 cm</strong>.  
+          <br><br>
+          Lisse bien la surface. Si tu veux ajouter un peu de poivre ou de romarin, tu peux en saupoudrer  
+          très légèrement à ce stade et lisser à nouveau.
+        </li>
+
+        <li>
+          <strong>Laisser refroidir et faire prendre.</strong><br>
+          Laisse d’abord tiédir la polenta à température ambiante.  
+          Quand le plat n’est plus brûlant, place-le au réfrigérateur pendant au moins <strong>1 à 2 heures</strong>,  
+          ou jusqu’à ce que la polenta soit <strong>bien ferme</strong> et se décolle facilement du plat.  
+          <br><br>
+          Pour une texture encore meilleure à la friture, on peut même préparer la polenta la veille  
+          et la laisser reposer toute la nuit au frais.
+        </li>
+
+        <li>
+          <strong>Démouler et découper les sgagliozze.</strong><br>
+          Quand la polenta est bien froide et compacte, démoule-la délicatement sur une planche.  
+          Avec un couteau bien aiguisé (lame légèrement huilée si besoin), découpe-la en <strong>carrés ou rectangles</strong>  
+          de taille régulière : environ 4 × 4 cm, ou un peu plus grands selon ton goût.  
+          <br><br>
+          Empile les morceaux sur un plateau, en évitant de les superposer trop pour qu’ils ne se cassent pas.
+        </li>
+
+        <li>
+          <strong>Préparer la friture.</strong><br>
+          Verse suffisamment d’<strong>huile de friture</strong> dans une grande poêle ou une casserole à bords hauts  
+          pour pouvoir immerger au moins à moitié les carrés de polenta.  
+          Chauffe l’huile à feu moyen : elle doit être bien chaude, mais pas fumante.  
+          Une bonne température est autour de <strong>170–180&nbsp;°C</strong>.  
+          <br><br>
+          Tu peux tester en plongeant un petit bout de polenta : de petites bulles doivent se former instantanément  
+          autour sans brunir trop vite.
+        </li>
+
+        <li>
+          <strong>Frire les sgagliozze — trouver le bon rythme.</strong><br>
+          Plonge les carrés de polenta dans l’huile chaude, par petites quantités pour ne pas faire chuter la température.  
+          Ils doivent dorer progressivement, sans brûler.  
+          <br><br>
+          Laisse frire quelques minutes de chaque côté, en les retournant avec une écumoire,  
+          jusqu’à ce qu’ils soient <strong>bien dorés</strong> et que la surface devienne légèrement croustillante.  
+          L’intérieur doit rester moelleux, pas sec.
+        </li>
+
+        <li>
+          <strong>Égoutter et saler immédiatement.</strong><br>
+          Sors les sgagliozze avec une écumoire et dépose-les sur une assiette couverte de papier absorbant.  
+          Dès qu’elles sont posées, saupoudre-les de <strong>sel fin</strong> pendant qu’elles sont encore très chaudes,  
+          pour que le sel adhère bien.  
+          <br><br>
+          Si tu veux une touche légèrement piquante, ajoute une pince de <strong>piment</strong> ou un peu de poivre à ce moment-là.
+        </li>
+
+        <li>
+          <strong>Servir comme à Bari Vecchia.</strong><br>
+          Traditionnellement, les sgagliozze se servent <strong>brûlantes</strong>, souvent dans un simple cornet en papier  
+          ou sur une petite assiette, à manger avec les doigts.  
+          Propose-les immédiatement, dès la sortie de la friture, pour profiter du contraste  
+          entre la croûte croustillante et l’intérieur fondant.
+        </li>
+      </ol>
+    </section>
+
+
+
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes traditionnelles</h2>
+
+      <h3>1️⃣ Sgagliozze “di strada” (version pure de rue)</h3>
+      <p>
+        La version la plus simple, telle qu’on la trouve chez les vendeuses de Bari Vecchia.
+      </p>
+      <ul>
+        <li>Utilise une polenta <strong>sans aucun aromate</strong> : seulement eau, sel, semoule.</li>
+        <li>Fais frire dans de l’<strong>huile d’arachide</strong> ou un mélange spécial friture pour une odeur plus neutre.</li>
+        <li>Sale généreusement à la fin, sans poivre ni herbes.</li>
+      </ul>
+
+      <h3>2️⃣ Sgagliozze “contadine” (avec touche d’herbes)</h3>
+      <p>
+        Inspirée de la campagne, avec une légère note d’herbes.
+      </p>
+      <ul>
+        <li>Ajoute une <strong>pincée de romarin ou d’origan séché</strong> finement émietté dans la polenta juste avant de l’étaler.</li>
+        <li>Tu peux aussi frotter légèrement le plat avec une gousse d’ail avant d’y verser la polenta.</li>
+      </ul>
+
+      <h3>3️⃣ Sgagliozze légèrement épicées</h3>
+      <p>
+        Pour ceux qui aiment un peu de piquant, sans écraser le goût du maïs.
+      </p>
+      <ul>
+        <li>Ajoute une <strong>pincée de piment en poudre</strong> dans la polenta en fin de cuisson.</li>
+        <li>Ou saupoudre très légèrement de piment les sgagliozze encore chaudes, juste après les avoir salées.</li>
+      </ul>
+    </section>
+
+
+
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour des sgagliozze qui ne se cassent pas à la friture, la polenta doit être <strong>très bien prise</strong> et froide.  
+        Prépare-la idéalement la veille et laisse-la reposer toute la nuit au réfrigérateur.  
+        Vérifie aussi que l’huile soit bien chaude avant de commencer la friture :  
+        si elle est tiède, la polenta va absorber l’huile et devenir lourde au lieu de croustillante.
+      </p>
+    </section>
+
+
+
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les <strong>sgagliozze</strong> sont nées comme un moyen de ne pas gaspiller la polenta restante.  
+        À Bari Vecchia, elles sont devenues une véritable <strong>institution de rue</strong>, vendues par des femmes  
+        qui les préparent depuis des générations, devant les portes, dans de grandes casseroles d’huile.  
+        Simples, peu coûteuses, mais profondément liées à l’âme populaire de la ville.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+
+
+<button id="scrollTopBtn" aria-label="Remonter en haut"></button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Sgagliozze Barese.</p>
+</footer>
+
+
+
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+      document.body.classList.add('modal-open');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+    document.body.classList.remove('modal-open');
+  });
+
+  document.getElementById('imageModal').addEventListener('click', (e) => {
+    if (e.target.id === 'imageModal') {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+      document.body.classList.remove('modal-open');
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    const modal = document.getElementById('imageModal');
+    if (e.key === 'Escape' && modal && !modal.hasAttribute('hidden')) {
+      modal.setAttribute('hidden', '');
+      document.body.classList.remove('modal-open');
+    }
+  });
+</script>
+
+</body>
+</html>

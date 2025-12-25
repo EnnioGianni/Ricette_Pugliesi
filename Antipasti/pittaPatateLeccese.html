@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pitta di Patate Leccese — Sapori di Puglia</title>
+  <meta name="description" content="Pitta di Patate Leccese : couronne rustique de pommes de terre, oignons, olives et tomates, cuite au four. Une entrée emblématique de Lecce et du Salento.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/pitta-di-patate-lecce.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">
+        🍝 Recettes
+      </button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+
+      <h1>🥔 Pitta di Patate Leccese</h1>
+
+      <!-- Image principale -->
+      <div class="image-zoom">
+        <img src="/Images/pitta-di-patate-lecce.png"
+             alt="Pitta di Patate Leccese — portion servie"
+             class="zoomable">
+      </div>
+
+      <!-- Modal zoom -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" type="button" aria-label="Fermer">×</button>
+        <img class="modal-content" id="modalImg" src="&" alt="Pitta di Patate Leccese">
+      </div>
+
+      <p class="intro">
+        La <strong>Pitta di Patate Leccese</strong> est l’un des antipasti les plus emblématiques de Lecce et du Salento.  
+        C’est une <strong>couronne rustique de pommes de terre</strong> qui enferme une garniture parfumée d’<em>oignons</em>, de <em>tomates</em>,
+        d’<em>olives noires</em> et parfois de <em>thon</em>.  
+        Servie tiède ou à température ambiante, elle accompagne les repas de famille, les fêtes de village et les pique-niques en campagne.
+      </p>
+
+      <!-- Infos -->
+      <div class="infos">
+        <p>
+          ⏱ Préparation : <strong>40–45 min</strong> |
+          🔥 Cuisson : <strong>50–60 min</strong> |
+          🧊 Repos/tiédissement : <strong>15–20 min</strong> |
+          👥 Pour <strong>6 personnes</strong> |
+          ⚙️ Difficulté : <strong>Moyenne</strong>
+        </p>
+      </div>
+
+      <!-- Ingrédients -->
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+
+        <h3>Pour la pâte de pommes de terre</h3>
+        <ul>
+          <li>1 kg de pommes de terre à chair farineuse (type purée)</li>
+          <li>2 œufs moyens</li>
+          <li>80–100 g de pecorino ou de parmesan râpé</li>
+          <li>200–250 g de farine (T45 ou T55, quantité à ajuster)</li>
+          <li>40 ml d’huile d’olive extra-vierge</li>
+          <li>Sel fin</li>
+          <li>Poivre noir fraîchement moulu</li>
+        </ul>
+
+        <h3>Pour la garniture</h3>
+        <ul>
+          <li>2 gros oignons (blancs ou dorés)</li>
+          <li>350–400 g de tomates pelées concassées (ou coulis épais)</li>
+          <li>100–120 g d’olives noires dénoyautées (type Cellina ou Taggiasche)</li>
+          <li>160–200 g de thon à l’huile égoutté (facultatif mais très typique)</li>
+          <li>2–3 c. à s. d’huile d’olive extra-vierge</li>
+          <li>1–2 c. à s. de chapelure pour sécher légèrement la garniture (si besoin)</li>
+          <li>Origan sec</li>
+          <li>Sel, poivre</li>
+        </ul>
+
+        <h3>Pour le montage et la finition</h3>
+        <ul>
+          <li>Huile d’olive extra-vierge pour le moule et le dessus</li>
+          <li>Un peu de chapelure pour saupoudrer le fond et la surface</li>
+        </ul>
+      </section>
+
+      <!-- Préparation -->
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+
+        <ol>
+          <li>
+            <strong>Cuire les pommes de terre.</strong><br>
+            Laver les pommes de terre et les placer entières, avec la peau, dans une grande casserole d’eau froide salée.  
+            Porter à ébullition puis cuire à frémissement jusqu’à ce qu’elles soient très tendres au cœur
+            (un couteau doit y entrer sans résistance).  
+            Les sortir de l’eau et les laisser tiédir juste le temps de pouvoir les manipuler sans se brûler :
+            elles doivent rester chaudes pour être écrasées facilement.
+          </li>
+
+          <li>
+            <strong>Préparer la purée de base.</strong><br>
+            Éplucher les pommes de terre encore tièdes, puis les écraser au presse-purée ou au moulin,
+            directement dans un grand saladier.  
+            Éviter le mixeur qui rendrait la texture élastique.  
+            Laisser la vapeur s’échapper quelques minutes : cela permet de sécher légèrement la purée
+            et de limiter la quantité de farine ensuite.
+          </li>
+
+          <li>
+            <strong>Assaisonner la pâte de pommes de terre.</strong><br>
+            Ajouter à la purée les œufs, le fromage râpé, l’huile d’olive, du sel et un peu de poivre.  
+            Mélanger d’abord avec une cuillère en bois, puis à la main pour bien répartir tous les ingrédients.  
+            Ajouter la farine petit à petit : la quantité exacte dépendra de l’humidité des pommes de terre.  
+            On cherche une pâte <strong>souple mais modelable</strong>, qui ne colle plus trop aux doigts
+            et qui se tient quand on la presse entre les mains.
+          </li>
+
+          <li>
+            <strong>Rectifier la consistance.</strong><br>
+            Si la pâte est encore trop molle et collante, ajouter un peu de farine en plusieurs fois,
+            en évitant de trop travailler la masse (pour ne pas la rendre élastique).  
+            Si au contraire elle paraît trop sèche et se fissure, ajouter une cuillère à soupe d’huile d’olive
+            ou un petit trait de lait pour lui redonner du moelleux.
+          </li>
+
+          <li>
+            <strong>Préparer la garniture : les oignons.</strong><br>
+            Éplucher les oignons, les couper en fines demi-lunes.  
+            Faire chauffer 2–3 cuillères à soupe d’huile d’olive dans une grande poêle,
+            puis ajouter les oignons.  
+            Les faire cuire à feu doux-moyen pendant 10–12 minutes,
+            en remuant souvent, jusqu’à ce qu’ils deviennent translucides et doux,
+            sans les laisser brûler.
+          </li>
+
+          <li>
+            <strong>Ajouter les tomates et les olives.</strong><br>
+            Quand les oignons sont bien fondants, ajouter les tomates concassées,
+            une pincée de sel, un peu de poivre et une bonne pincée d’origan sec.  
+            Laisser mijoter à feu doux 10–15 minutes, jusqu’à ce que la sauce épaississe légèrement
+            et perde son excès d’eau.  
+            Ajouter ensuite les olives noires dénoyautées, coupées en deux ou laissées entières selon la taille.
+          </li>
+
+          <li>
+            <strong>Incorporer le thon (facultatif mais conseillé).</strong><br>
+            Égoutter le thon à l’huile, l’émietter grossièrement à la fourchette
+            et l’ajouter dans la poêle avec la sauce tomate-oignons-olives.  
+            Mélanger délicatement pour ne pas réduire tous les morceaux en purée.  
+            Goûter et ajuster en sel et poivre.  
+            Si la garniture paraît un peu trop juteuse, saupoudrer 1–2 cuillères à soupe de chapelure
+            et mélanger : elle absorbera l’excès d’humidité.
+            Laisser tiédir la garniture hors du feu.
+          </li>
+
+          <li>
+            <strong>Préparer le moule.</strong><br>
+            Huiler généreusement un moule rond (ou rectangulaire) de taille moyenne,
+            de préférence en métal ou en céramique.  
+            Saupoudrer légèrement le fond et les parois de chapelure :
+            cela évitera que la Pitta accroche et donnera une légère croûte.
+          </li>
+
+          <li>
+            <strong>Former la base de la Pitta.</strong><br>
+            Prélever un peu plus de la moitié de la pâte de pommes de terre et la déposer dans le moule.  
+            Avec les mains légèrement huilées, l’aplatir et la pousser vers les bords,
+            en formant une couche régulière sur le fond et en remontant un peu sur les parois
+            (comme une “croûte” de pommes de terre).  
+            L’épaisseur doit être d’environ 1 à 1,5 cm : ni trop fine, pour ne pas se fissurer,
+            ni trop épaisse, pour garder un bon équilibre avec la garniture.
+          </li>
+
+          <li>
+            <strong>Ajouter la garniture.</strong><br>
+            Répartir la garniture aux oignons, tomates, olives et thon sur la base de pommes de terre,
+            en veillant à laisser un petit bord libre tout autour.  
+            Lisser légèrement avec le dos d’une cuillère, sans trop tasser,
+            pour que la garniture reste moelleuse à la cuisson.
+          </li>
+
+          <li>
+            <strong>Fermer avec la couche supérieure.</strong><br>
+            Étaler le reste de la pâte de pommes de terre sur un plan légèrement fariné
+            ou simplement l’aplatir à la main directement au-dessus du moule.  
+            Former une sorte de “couvercle” que l’on vient déposer par-dessus la garniture,
+            en soudant bien les bords avec la base du dessous.  
+            Lisser délicatement la surface avec les mains humides ou huilées.
+          </li>
+
+          <li>
+            <strong>Finition avant cuisson.</strong><br>
+            Badigeonner le dessus de la Pitta avec un mince filet d’huile d’olive,
+            étalé au pinceau ou avec le dos d’une cuillère.  
+            Saupoudrer légèrement de chapelure pour accentuer l’effet croustillant.  
+            On peut ajouter encore une pincée d’origan ou quelques aiguilles de romarin finement hachées
+            selon le goût.
+          </li>
+
+          <li>
+            <strong>Cuisson.</strong><br>
+            Préchauffer le four à <strong>190–200&nbsp;°C</strong> (chaleur statique).  
+            Enfourner la Pitta sur une grille placée au milieu du four
+            et cuire environ <strong>50 à 60 minutes</strong>, jusqu’à ce que la surface soit bien dorée
+            et que les bords se colorent légèrement.  
+            Si le dessus colore trop vite, couvrir légèrement avec une feuille de papier aluminium
+            et poursuivre la cuisson jusqu’à ce que l’intérieur soit bien chaud.
+          </li>
+
+          <li>
+            <strong>Repos et service.</strong><br>
+            Sortir le moule du four et laisser reposer la Pitta au moins <strong>15–20 minutes</strong> avant de la découper :  
+            la croûte de pommes de terre se raffermit, la garniture se stabilise
+            et les parts se tiendront mieux.  
+            Couper en carrés ou en tranches comme une tarte, et servir tiède ou à température ambiante,
+            en antipasto ou même comme plat unique léger.
+          </li>
+        </ol>
+      </section>
+
+      <!-- Astuce -->
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          La <strong>Pitta di Patate</strong> est encore meilleure le lendemain :
+          tu peux la réchauffer doucement au four ou la servir à température ambiante,
+          les saveurs auront eu le temps de se développer.  
+          Pour une version plus paysanne, remplace le thon par des restes de légumes grillés ou un peu de saucisse émiettée.
+        </p>
+      </section>
+
+      <!-- Origine -->
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          La <strong>Pitta di Patate</strong> est traditionnellement préparée dans le <em>Salento</em>,
+          surtout autour de <strong>Lecce</strong> et dans les villages voisins.  
+          C’était une façon ingénieuse de transformer des ingrédients simples
+          (pommes de terre, pain, oignons, tomates, olives) en un plat nourrissant
+          que l’on pouvait emporter aux champs ou aux fêtes de village.  
+          Aujourd’hui encore, elle reste un antipasto très apprécié,
+          présent dans les boulangeries, les trattorie et les tables familiales du Salento.
+        </p>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Bouton haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script zoom -->
+  <script>
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImg');
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+
+    document.querySelector('.close').addEventListener('click', () => {
+      document.getElementById('imageModal').setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback si app.js ne charge pas -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.body.classList.toggle('dark');
+        });
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', () => {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+
+</body>
+</html>

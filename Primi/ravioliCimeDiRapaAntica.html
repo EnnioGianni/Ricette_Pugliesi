@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ravioli alle Cime di Rapa (version antica) — Sapori di Puglia</title>
+  <meta name="description" content="Ravioli maison farcis de cime di rapa sautées à l’huile d’olive, sans anchois. Recette rurale ancienne du Salento, expliquée geste par geste, avec pâte fraîche, farce végétale et finitions rustiques.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Primi/Images/ravioli-cime-di-rapa-antica.png">
+
+  <!-- Scripts globaux -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn"
+            class="button ghost"
+            aria-controls="menuDrawer"
+            aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png"
+           alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+
+        <!-- Bouton imprimante -->
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">
+            🖨️
+          </button>
+        </li>
+
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer"
+           type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🥬 Ravioli alle Cime di Rapa (version antica)</h1>
+
+    <!-- IMAGE PRINCIPALE -->
+    <div class="image-zoom">
+      <img src="/Primi/Images/ravioli-cime-di-rapa-antica.png"
+           alt="Ravioli rustiques farcis de cime di rapa, nappés d’huile d’olive dans une assiette en céramique"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg"
+           src="&"
+           class="modal-content"
+           alt="Agrandissement des ravioli alle cime di rapa">
+    </div>
+
+    <p class="intro">
+      Ces <strong>Ravioli alle Cime di Rapa (version antica)</strong> sont un plat <strong>rural et très ancien</strong> du Salento&nbsp;:  
+      une pâte maison robuste, travaillée à la main, farcie uniquement de <strong>cime di rapa sautées dans l’huile d’olive</strong>,  
+      sans anchois, sans crème, sans fromage obligatoire.  
+      C’est un plat de <strong>campagne</strong> : simple en apparence, mais d’un parfum profond si on respecte les temps,  
+      les gestes et la façon de travailler la pâte et les légumes.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>1 h 30</strong> (avec repos) |
+        🔥 Cuisson : <strong>20 min</strong> |
+        👥 Pour <strong>4 personnes</strong> |
+        ⚙️ Difficulté : <strong>Élevée (pâte + farce + façonnage)</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour la pâte des ravioli</h3>
+      <ul>
+        <li>400 g de <strong>semoule de blé dur rimacinata</strong></li>
+        <li>Environ <strong>200–220 ml d’eau tiède</strong> (ajuster selon absorption)</li>
+        <li>1 petite <strong>pincée de sel fin</strong></li>
+      </ul>
+
+      <h3>Pour la farce aux cime di rapa</h3>
+      <ul>
+        <li>500–600 g de <strong>cime di rapa</strong> (feuilles, boutons, tiges tendres)</li>
+        <li>2–3 gousses d’<strong>ail</strong></li>
+        <li>6–7 c.à.s d’<strong>huile d’olive extravierge</strong></li>
+        <li>Sel fin</li>
+        <li>Un petit morceau de <strong>piment sec</strong> (optionnel, selon goût)</li>
+      </ul>
+
+      <h3>Pour la finition du plat</h3>
+      <ul>
+        <li>Huile d’olive extravierge <strong>crue</strong></li>
+        <li>Un peu de <strong>cime di rapa sautées</strong> réservées pour décorer</li>
+        <li>Poivre ou piment en plus (optionnel)</li>
+        <li>(Facultatif et non obligatoire dans la version antica) un peu de <strong>pecorino</strong> ou caciocavallo râpé</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION TRES TRES TRES DETAILLEE -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation extrêmement détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer la pâte à ravioli — sentir la texture.</strong><br>
+          Verser la semoule sur le plan de travail et l’étaler en petit monticule.  
+          Ajouter la pincée de sel et mélanger avec les doigts pour la répartir.  
+          Former un puits au centre, assez large pour contenir la majorité de l’eau.  
+          <br><br>
+          Verser environ <strong>2/3 de l’eau tiède</strong> dans le puits.  
+          Avec une main, commencer à ramener la semoule du bord vers le centre, de façon circulaire,  
+          en mélangeant doucement l’eau et la farine.  
+          La pâte va d’abord être très granuleuse, comme du sable humide.  
+          <br><br>
+          Ajouter peu à peu le reste de l’eau, en fonction de l’absorption&nbsp;:  
+          tu dois obtenir une pâte qui se rassemble en boule, qui n’est ni trop sèche (elle se fend)  
+          ni collante (elle colle au plan de travail et aux doigts).  
+          <br><br>
+          Pétrir ensuite avec les deux mains pendant <strong>10–12 minutes</strong> :  
+          pousser la pâte vers l’avant avec la paume, la replier sur elle-même, tourner d’un quart de tour, et recommencer.  
+          Tu sentiras la pâte devenir de plus en plus lisse, élastique, presque “vivante” sous les mains.  
+          <br><br>
+          Former une boule bien lisse, couvrir avec un bol renversé ou un torchon légèrement humide et laisser reposer  
+          <strong>au moins 30 minutes</strong> à température ambiante.  
+          Pendant ce temps, la semoule va absorber l’eau de façon homogène et la pâte deviendra plus souple à étaler.
+        </li>
+
+        <li>
+          <strong>Préparer les cime di rapa — nettoyage minutieux.</strong><br>
+          Préparer un grand bac d’eau froide.  
+          Prendre les cime di rapa, enlever les grosses tiges très dures en gardant&nbsp;:  
+          – les feuilles  
+          – les petites tiges encore souples  
+          – les petits bouquets floraux.  
+          <br><br>
+          Plonger les cime di rapa dans l’eau, les agiter avec les mains pour faire tomber la terre au fond.  
+          Changer l’eau si nécessaire jusqu’à ce qu’elle soit claire.  
+          Laisser égoutter dans une passoire quelques minutes.  
+        </li>
+
+        <li>
+          <strong>Blanchir les cime di rapa.</strong><br>
+          Porter à ébullition une grande casserole d’<strong>eau salée</strong>.  
+          Quand l’eau bout franchement, plonger les cime di rapa.  
+          Remuer pour que tout soit immergé.  
+          <br><br>
+          Cuire <strong>4–5 minutes</strong> : les tiges doivent devenir plus tendres, les feuilles bien vertes,  
+          mais on ne veut pas les transformer en bouillie.  
+          Égoutter ensuite dans une passoire et, lorsque c’est manipulable, presser délicatement avec une cuillère ou  
+          le dos d’une louche pour enlever l’excès d’eau.  
+          Réserver sur une planche pour la suite.
+        </li>
+
+        <li>
+          <strong>Préparer l’ail et l’huile pour la farce.</strong><br>
+          Éplucher les gousses d’ail, les écraser légèrement avec le plat du couteau.  
+          Dans une grande poêle, verser <strong>6–7 c.à.s d’huile d’olive extravierge</strong>.  
+          Ajouter l’ail et, si tu le souhaites, un petit morceau de piment sec émietté.  
+          <br><br>
+          Chauffer à feu très doux : tu dois voir de petites bulles se former autour de l’ail,  
+          sans qu’il ne brûne ni ne brunisse trop vite.  
+          Quand l’ail devient légèrement doré et très parfumé, tu peux le retirer pour un goût plus léger,  
+          ou le laisser si tu aimes les morceaux d’ail dans la farce.
+        </li>
+
+        <li>
+          <strong>Sauter les cime di rapa — sentir l’odeur de campagne.</strong><br>
+          Ajouter les cime di rapa blanchies dans la poêle avec l’huile chaude parfumée.  
+          Elles vont d’abord faire un petit bruit de friture puis se calmer.  
+          Mélanger calmement avec une cuillère en bois, pour bien les enrober d’huile.  
+          <br><br>
+          Saler légèrement (tu as déjà salé l’eau de cuisson) et laisser cuire à feu moyen-doux  
+          pendant <strong>10–12 minutes</strong>.  
+          Pendant ce temps, les cime di rapa vont perdre encore un peu d’eau, se concentrer en goût,  
+          et l’odeur va devenir très typique&nbsp;: légèrement amère, verte, chaude, avec l’ail et l’huile.  
+          <br><br>
+          Quand elles sont bien tendres, retirer du feu et laisser tiédir quelques minutes.  
+          Puis, sur une planche, hacher les cime di rapa au couteau en petits morceaux,  
+          jusqu’à obtenir une texture qui se tient bien en “boulette” quand tu la presses avec une cuillère.  
+          <br><br>
+          Laisser refroidir complètement la farce dans un bol.  
+          C’est important : une farce chaude rendrait la pâte fragile et plus difficile à fermer.
+        </li>
+
+        <li>
+          <strong>Reprendre la pâte et l’étaler finement.</strong><br>
+          Reprendre la pâte reposée. Au toucher, elle doit être plus souple, moins “élastique dure”.  
+          La diviser en 2 ou 3 morceaux pour travailler plus facilement.  
+          <br><br>
+          Fariner légèrement (avec un voile de semoule) le plan de travail.  
+          Étaler chaque morceau au rouleau ou au laminoir jusqu’à obtenir une épaisseur d’environ <strong>1,5–2 mm</strong>.  
+          La pâte doit être assez fine pour que les ravioli soient délicats,  
+          mais assez solide pour contenir la farce sans se déchirer.  
+          <br><br>
+          Si tu utilises un laminoir, passer la pâte plusieurs fois en la repliant,  
+          en serrant progressivement les rouleaux jusqu’à l’épaisseur souhaitée.
+        </li>
+
+        <li>
+          <strong>Découper la base des ravioli.</strong><br>
+          Une fois la pâte étalée, découper des <strong>bandes</strong> ou des <strong>disques</strong> selon la forme désirée.  
+          Par exemple :  
+          – Des carrés d’environ 5 × 5 cm pour des ravioli carrés  
+          – Des cercles avec un emporte-pièce pour des demi-lunes.  
+          <br><br>
+          Il est important que les morceaux de pâte aient des bords nets,  
+          pour se souder proprement au moment de fermer les ravioli.
+        </li>
+
+        <li>
+          <strong>Former et ajuster la farce.</strong><br>
+          Prendre le bol de cime di rapa hachées et vérifier la texture :  
+          si la farce semble trop humide (eau qui perle au fond), ajouter une petite cuillère de chapelure  
+          ou laisser encore reposer quelques minutes pour qu’elle se stabilise.  
+          <br><br>
+          Goûter et ajuster :  
+          – sel (léger)  
+          – piment (si tu veux une version plus vive)  
+          – un mince filet d’huile d’olive si tu veux plus de douceur.  
+          La farce doit être équilibrée&nbsp;: légèrement amère (cime), ronde (huile), parfumée (ail).
+        </li>
+
+        <li>
+          <strong>Garnir les ravioli — gestes précis.</strong><br>
+          Sur chaque carré ou disque de pâte, déposer une petite <strong>noisette de farce</strong>,  
+          à peu près la taille d’une cuillère à café bombée.  
+          Laisser de l’espace sur les bords pour pouvoir refermer.  
+          <br><br>
+          Avec le doigt ou un petit pinceau, humidifier très légèrement le pourtour de la pâte avec de l’eau  
+          (pas trop, sinon la pâte glisse et ne colle plus).  
+          Replier la pâte par-dessus la farce (en triangle, carré ou demi-lune selon la forme),  
+          puis appuyer d’abord doucement autour de la farce pour chasser l’air,  
+          ensuite presser un peu plus fort sur les bords pour sceller.  
+          <br><br>
+          Pour renforcer la soudure, tu peux presser les bords avec les dents d’une fourchette.  
+          Déposer les ravioli terminés sur un torchon légèrement fariné, sans les superposer.
+        </li>
+
+        <li>
+          <strong>Laisser reposer les ravioli façonnés.</strong><br>
+          Laisser les ravioli reposer à l’air à température ambiante pendant <strong>10–15 minutes</strong>  
+          pendant que tu prépares la cuisson.  
+          Ce petit temps leur permet de sécher légèrement en surface,  
+          ce qui les aidera à mieux garder la forme à la cuisson.
+        </li>
+
+        <li>
+          <strong>Mettre l’eau à bouillir.</strong><br>
+          Remplir une grande casserole d’eau et porter à ébullition.  
+          Saler généreusement, comme pour toutes les pâtes.  
+          Pendant que l’eau chauffe, tu peux préparer une petite poêle avec un filet d’huile d’olive,  
+          pour réchauffer éventuellement quelques cime di rapa réservées pour le service.
+        </li>
+
+        <li>
+          <strong>Cuire les ravioli avec douceur.</strong><br>
+          Quand l’eau bout bien, baisser légèrement le feu pour obtenir une ébullition moins violente  
+          (cela évite que les ravioli ne se “cognent” trop entre eux et ne s’ouvrent).  
+          <br><br>
+          Plonger les ravioli par petites quantités, en les déposant délicatement,  
+          puis remuer doucement avec une cuillère en bois pour qu’ils ne collent pas au fond.  
+          <br><br>
+          Les ravioli vont descendre au fond, puis remonter à la surface.  
+          À partir du moment où ils remontent, compter encore <strong>2–3 minutes</strong>,  
+          selon l’épaisseur de la pâte.  
+          <br><br>
+          Les sortir à l’aide d’une écumoire et les déposer dans un grand plat chaud ou une poêle large.
+        </li>
+
+        <li>
+          <strong>Assaisonner et servir — version antica.</strong><br>
+          Pour rester dans la version la plus rurale et ancienne&nbsp;:  
+          – arroser les ravioli d’un généreux filet d’<strong>huile d’olive crue</strong>  
+          – ajouter quelques <strong>cime di rapa sautées</strong> mises de côté  
+          – éventuellement, un peu de piment ou de poivre.  
+          <br><br>
+          Bien mélanger en secouant légèrement le plat ou en remuant doucement pour ne pas abîmer les ravioli.  
+          Servir immédiatement, tant que la chaleur fait briller l’huile sur la pâte.
+        </li>
+      </ol>
+    </section>
+
+    <!-- VARIANTES -->
+    <section class="preparation variante">
+      <h2>🔁 Variantes traditionnelles</h2>
+
+      <h3>1️⃣ Variante “Contadina” avec chapelure</h3>
+      <p>
+        Très utilisée quand on voulait donner un peu de corps à un plat sans fromage.
+      </p>
+      <ul>
+        <li>Dans une petite poêle, faire chauffer 2 c.à.s d’huile d’olive.</li>
+        <li>Ajouter 3–4 c.à.s de chapelure et la faire dorer doucement en remuant sans arrêt.</li>
+        <li>Parsemer cette chapelure dorée sur les ravioli juste avant de servir.</li>
+      </ul>
+
+      <h3>2️⃣ Variante avec un soupçon de pecorino</h3>
+      <p>
+        Non obligatoire, mais utilisée dans certaines familles les jours de fête.
+      </p>
+      <ul>
+        <li>Ajouter 1–2 c.à.s de pecorino râpé dans les cime di rapa hachées, une fois refroidies, avant de farcir.</li>
+        <li>Ou saupoudrer légèrement les ravioli au moment du service.</li>
+      </ul>
+
+      <h3>3️⃣ Variante citronnée légère</h3>
+      <p>
+        Pour rappeler la lumière et la fraîcheur de la côte.
+      </p>
+      <ul>
+        <li>Ajouter un tout petit peu de <strong>zeste de citron finement râpé</strong> dans la farce ou à la fin, sur les ravioli.</li>
+        <li>Ne pas exagérer, pour ne pas couvrir l’amertume typique des cime di rapa.</li>
+      </ul>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Pour avoir des ravioli qui ne s’ouvrent jamais, presse toujours l’air vers l’extérieur avant de sceller.  
+        Une petite bulle d’air coincée à l’intérieur se dilate à la cuisson et peut faire éclater la pâte.  
+        On peut aussi laisser la pâte un peu plus épaisse sur le bord, en l’aplatissant un peu moins,  
+        pour avoir une soudure plus solide.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Ces <strong>ravioli alle cime di rapa</strong> viennent d’une époque où l’on farcissait les pâtes avec ce que la terre  
+        donnait, et non avec des ingrédients de luxe. Dans certaines familles rurales du Salento,  
+        la farce n’était faite que de <strong>cime di rapa, ail, huile et sel</strong>, sans rien d’autre.  
+        C’est l’expression d’une cuisine <strong>pauvre, mais fière</strong>, qui sait donner de la noblesse  
+        aux légumes les plus simples.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Ravioli rustiques aux cime di rapa.</p>
+</footer>
+
+<!-- ZOOM SCRIPT -->
+<script>
+  document.querySelectorAll('.zoomable').forEach(img => {
+    img.addEventListener('click', () => {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('modalImg');
+      modalImg.src = img.src;
+      modal.removeAttribute('hidden');
+    });
+  });
+
+  document.querySelector('.close').addEventListener('click', () => {
+    document.getElementById('imageModal').setAttribute('hidden', '');
+  });
+</script>
+
+</body>
+</html>

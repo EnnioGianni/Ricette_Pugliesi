@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cozze Gratinate alla Leccese — Sapori di Puglia</title>
+  <meta name="description" content="Recette traditionnelle des moules gratinées à la mode de Lecce, servies avec chapelure dorée, ail, persil et huile d’olive. Une version parfumée et typique du Salento.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/cozze-gratinate-leccesi.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles pour le zoom image -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+    }
+    .image-zoom img:hover {
+      transform: scale(1.02);
+    }
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] {
+      display: none;
+    }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+    }
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: #fff;
+      font-size: 40px;
+      cursor: pointer;
+      font-weight: bold;
+      background: none;
+      border: none;
+    }
+  </style>
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <h1>🦪 Cozze Gratinate alla Leccese</h1>
+
+      <!-- Image principale avec zoom -->
+      <div class="image-zoom">
+        <img src="/Images/cozze-gratinate-leccesi.png" alt="Cozze Gratinate alla Leccese — portion servie" class="zoomable">
+      </div>
+
+      <!-- Fenêtre d’agrandissement (UNIQUE & CORRECTE) -->
+      <div id="imageModal" class="modal" hidden>
+        <button class="close" aria-label="Fermer">×</button>
+        <img
+          class="modal-content"
+          id="modalImg"
+          src="&"
+          alt="Agrandissement de l’image sélectionnée">
+      </div>
+
+      <p class="intro">
+        Les <strong>cozze gratinate alla leccese</strong> représentent tout le charme des Pouilles.
+        Une recette simple : des <em>moules fraîches</em> garnies de chapelure dorée, d’ail, de persil et d’un filet d’huile d’olive extra-vierge, gratinées au four.
+        Servies sur une assiette rustique, elles évoquent les soirs d’été du littoral de Lecce.
+      </p>
+
+      <section class="infos">
+        <h2>Informations</h2>
+        <p>⏱ Préparation : <strong>40 min</strong> &nbsp;|&nbsp; 👥 Pour <strong>4 personnes</strong> &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Facile</strong></p>
+      </section>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li>1 kg de moules fraîches</li>
+          <li>100 g de chapelure fine</li>
+          <li>2 gousses d’ail hachées</li>
+          <li>1 bouquet de persil frais</li>
+          <li>Huile d’olive extra-vierge des Pouilles</li>
+          <li>Sel et poivre noir</li>
+          <li>Quelques quartiers de citron pour le service</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li><strong>Préparer les moules :</strong> Nettoyer soigneusement les moules. Les ouvrir à la vapeur quelques minutes jusqu’à ce qu’elles s’ouvrent. Retirer la coquille vide et garder celle contenant le mollusque.</li>
+          <li><strong>Préparer la farce :</strong> Mélanger chapelure, ail, persil, sel, poivre et huile d’olive. La texture doit être sablée et parfumée.</li>
+          <li><strong>Garnir :</strong> Disposer les moules sur une plaque, puis les recouvrir du mélange.</li>
+          <li><strong>Gratiner :</strong> 200 °C pendant 8–10 min jusqu’à croûte dorée.</li>
+          <li><strong>Servir :</strong> Pain, citron, vin blanc du Salento.</li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>
+          Ajoute un peu de zeste de citron et quelques gouttes de vin blanc pour renforcer le parfum marin.
+        </p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>
+          Plat emblématique des trattorie du Salento, autrefois gratiné directement sur les braises par les pêcheurs.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <!-- Bouton Remonter en haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle revisitée des Pouilles.</p>
+  </footer>
+
+  <!-- Script du zoom -->
+  <script>
+    const modal = document.getElementById('imageModal');
+    const modalImg = document.getElementById('modalImg');
+    const closeBtn = modal.querySelector('.close');
+
+    document.querySelectorAll('.zoomable').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.removeAttribute('hidden');
+      });
+    });
+
+    closeBtn.addEventListener('click', () => {
+      modal.setAttribute('hidden', '');
+    });
+  </script>
+
+  <!-- Fallback si /JS/app.js n’est pas chargé -->
+  <script>
+    (function(){
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>

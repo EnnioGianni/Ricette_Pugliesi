@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Panzerotti di Bari — Sapori di Puglia</title>
+  <meta name="description" content="Recette des Panzerotti di Bari, des chaussons frits aux tomates, mozzarella et un petit twist créatif pour les rendre uniques.">
+
+  <!-- Styles et scripts globaux -->
+  <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/panzerotti-bari.png">
+
+  <!-- ⚠️ Ordre important : categories -> menu -> app -> recherche -->
+  <script defer src="/JS/categories.js"></script>
+  <script defer src="/JS/menu.js"></script>
+  <script defer src="/JS/app.js"></script>
+  <script defer src="/JS/recherche.js"></script>
+
+</head>
+
+<body class="page-recette">
+  <header class="header">
+    <div class="header-inner">
+      <!-- ▼ Dropdown placé à GAUCHE du bouton Recettes (ordre DOM) -->
+      <div id="menu-dropdown" style="margin-right:.5rem;"></div>
+
+      <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+      <div class="brand">
+        <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+        <span>Sapori di Puglia</span>
+      </div>
+
+      <nav>
+        <ul class="nav">
+          <li><a href="/index.html">Accueil</a></li>
+          <li><button class="button secondary" data-toggle-theme type="button">🌓</button></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <!-- Menu latéral -->
+  <aside id="menuDrawer" class="drawer" aria-hidden="true">
+    <div class="drawer-header">
+      <h2 class="drawer-title">Recettes</h2>
+      <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+    </div>
+    <div class="drawer-search">
+      <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+      <div id="searchResultsDrawer" class="search-results" hidden></div>
+    </div>
+    <nav aria-label="Liste des recettes">
+      <ul id="recipeList" class="recipe-list" data-list></ul>
+    </nav>
+  </aside>
+  <div id="backdrop" class="backdrop" hidden></div>
+
+  <!-- Contenu principal -->
+  <main class="container recette">
+    <article>
+      <h1>🥟 Panzerotti di Bari</h1>
+      <img src="/Images/panzerottiDiBari.png" alt="Panzerotti di Bari" class="recette-photo">
+
+      <p class="intro">
+        Les <strong>Panzerotti di Bari</strong> sont des chaussons frits typiques des Pouilles. Garnis de tomate, mozzarella, et parfois d'autres ingrédients créatifs, ils apportent une touche unique à une recette traditionnelle.
+        Parfaits pour un apéritif ou un dîner léger, ces panzerotti croustillants sont un régal pour tous les gourmands.
+      </p>
+
+      <section class="infos">
+        <h2>Informations</h2>
+        <p>⏱ Préparation : <strong>2 h</strong> &nbsp;|&nbsp; 👥 Pour <strong>6 personnes</strong> &nbsp;|&nbsp; ⚙️ Difficulté : <strong>Moyenne</strong></p>
+      </section>
+
+      <section class="ingredients custom-list">
+        <h2>🫒 Ingrédients</h2>
+        <ul>
+          <li class="ingredient">250 g de farine de blé type 00</li>
+          <li class="ingredient">50 g de semoule de blé dur</li>
+          <li class="ingredient">1 c. à soupe de sucre</li>
+          <li class="ingredient">7 g de levure de boulanger</li>
+          <li class="ingredient">15 cl d’eau tiède</li>
+          <li class="ingredient">1 c. à soupe d’huile d’olive extra-vierge</li>
+          <li class="ingredient">1 c. à café de sel fin</li>
+          <li class="ingredient">200 g de mozzarella râpée</li>
+          <li class="ingredient">100 g de sauce tomate maison</li>
+          <li class="ingredient">100 g de jambon cuit (facultatif, pour un twist créatif)</li>
+          <li class="ingredient">Huile pour friture</li>
+          <li class="ingredient">Quelques feuilles de basilic frais (pour garnir)</li>
+        </ul>
+      </section>
+
+      <section class="preparation">
+        <h2>👩‍🍳 Préparation</h2>
+        <ol>
+          <li><strong>Préparer la pâte :</strong> Dans un grand bol, mélangez la farine, la semoule, le sucre, le sel et la levure. Ajoutez l’eau tiède et l’huile d’olive, puis pétrissez jusqu’à obtenir une pâte souple et homogène. Laissez reposer 1 heure dans un endroit chaud pour que la pâte double de volume.</li>
+          <li><strong>Préparer la garniture :</strong> Pendant que la pâte repose, mélangez la mozzarella râpée avec la sauce tomate. Si vous utilisez du jambon, coupez-le en petits morceaux et ajoutez-le au mélange. Cette touche de jambon apporte un petit goût fumé qui distingue cette recette.</li>
+          <li><strong>Façonner les panzerotti :</strong> Une fois que la pâte a levé, divisez-la en petites boules de la taille d’une noix. Étalez chaque boule en un cercle de 8–10 cm de diamètre. Placez une cuillère de garniture au centre de chaque cercle.</li>
+          <li><strong>Fermer et souder :</strong> Pliez chaque cercle de pâte en deux pour former une demi-lune. Appuyez fermement sur les bords pour bien les souder, puis scellez les bords avec une fourchette pour éviter que la garniture ne s’échappe pendant la cuisson.</li>
+          <li><strong>Frire les panzerotti :</strong> Faites chauffer de l’huile dans une friteuse ou une grande poêle à feu moyen-vif. Faites frire les panzerotti par lots, environ 3-4 minutes de chaque côté, jusqu’à ce qu’ils soient bien dorés et croustillants. Égouttez sur du papier absorbant.</li>
+          <li><strong>Garnir et servir :</strong> Disposez les panzerotti sur un plat, garnissez-les de feuilles de basilic frais et servez immédiatement pour qu’ils soient bien chauds et fondants.</li>
+        </ol>
+      </section>
+
+      <section class="astuce">
+        <h2>💡 Astuce du chef</h2>
+        <p>Pour un goût encore plus authentique, vous pouvez ajouter quelques câpres hachées dans la garniture ou utiliser de la mozzarella de bufflonne pour un goût plus crémeux et savoureux.</p>
+      </section>
+
+      <section class="origine">
+        <h2>📜 Origine</h2>
+        <p>Les panzerotti sont une spécialité de la région des Pouilles, particulièrement appréciée à Bari. Ils sont souvent préparés comme en-cas ou dans le cadre d’un repas familial, surtout lors des fêtes. Leur pâte moelleuse et leur garniture fondante en font un plat réconfortant et délicieux.</p>
+      </section>
+
+      <!-- Variante au four -->
+      <section class="preparation">
+        <h2>🍴 Variante au Four</h2>
+        <p>Voici une version plus légère des Panzerotti, cuite au four. Elle permet d’avoir des panzerotti dorés et savoureux, avec moins de matières grasses.</p>
+        <ol>
+          <li><strong>Préparer la pâte et la garniture :</strong> Suivez les mêmes instructions que pour la version traditionnelle, mais au lieu de frire, placez les panzerotti sur une plaque de cuisson recouverte de papier sulfurisé.</li>
+          <li><strong>Cuisson au four :</strong> Préchauffez votre four à 200°C. Badigeonnez les panzerotti d’un peu d’huile d’olive pour qu’ils soient bien dorés. Faites cuire pendant environ 15-20 minutes ou jusqu’à ce qu’ils soient bien dorés et croustillants.</li>
+          <li><strong>Servir :</strong> Servez immédiatement en les garnissant de basilic frais.</li>
+        </ol>
+      </section>
+
+    </article>
+  </main>
+
+  <!-- Bouton Remonter en haut -->
+  <button id="scrollTopBtn" title="Remonter en haut" aria-label="Remonter en haut">↑</button>
+
+  <!-- Pied de page -->
+  <footer class="footer container">
+    <p>© 2025 Sapori di Puglia — Recette traditionnelle des Pouilles.</p>
+  </footer>
+
+  <!-- Fallback minimal si /JS/app.js n’est pas chargé -->
+  <script>
+    (function(){
+      // Toggle theme
+      document.querySelectorAll('[data-toggle-theme]').forEach(btn=>{
+        btn.addEventListener('click', ()=> document.body.classList.toggle('dark'));
+      });
+      // Scroll-to-top
+      const scrollBtn = document.getElementById('scrollTopBtn');
+      window.addEventListener('scroll', ()=> {
+        scrollBtn.style.display = (window.scrollY > 200) ? 'block' : 'none';
+      });
+      scrollBtn.addEventListener('click', ()=> {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+</html>
