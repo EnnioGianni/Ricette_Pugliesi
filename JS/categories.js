@@ -57,7 +57,7 @@ window.CATEGORIES = [
     {
       id: 'rustici-leccesi',
       title: 'Rustici Leccesi',
-      url: '/Ricette_Pugliesi/Antipasti/rusticiLeccesi.html',
+      url: 'Antipasti/rusticiLeccesi.html',
       img: './Images/rustici.png',
       meta: '⏱ 40 min · 👥 6 · Facile',
       hay: 'rustici feuilletés farcis béchamel tomate mozzarella'
