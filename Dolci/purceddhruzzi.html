@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Purceddhruzzi Salentini — Sapori di Puglia</title>
+  <meta name="description" content="Purceddhruzzi salentini traditionnels : petites bouchées frites au vin cuit, enrobées de miel et décorées de fruits secs. Recette ancestrale ultra détaillée des Pouilles.">
+
+  <!-- Styles globaux -->
+  <link rel="stylesheet" href=" ../CSS/Styles.css">
+  <link rel="stylesheet" href="../CSS/zoom.css">
+  <link rel="icon" type="image/png" href="../Dolci/Images/purceddhruzzi.jpg">
+
+  <!-- Scripts -->
+  <script defer src="../JS/categories.js"></script>
+  <script defer src="../JS/menu.js"></script>
+  <script defer src="../JS/app.js"></script>
+  <script defer src="../JS/recherche.js"></script>
+  <script defer src="../JS/zoom.js"></script>
+</head>
+
+<body class="page-recette">
+
+<header class="header">
+  <div class="header-inner">
+
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost"
+            aria-controls="menuDrawer" aria-expanded="false">
+      🍝 Recettes
+    </button>
+
+    <div class="brand">
+      <img src="../Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia"
+           width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li>
+          <button class="button secondary"
+                  onclick="window.print()"
+                  aria-label="Imprimer la recette">🖨️</button>
+        </li>
+        <li><a href="../index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
+
+  </div>
+</header>
+
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search"
+           placeholder="Rechercher une recette…"
+           aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
+  <article>
+
+    <h1>🍯 Purceddhruzzi Salentini</h1>
+
+    <!-- IMAGE -->
+    <div class="image-zoom">
+      <img src="../Dolci/Images/purceddhruzzi.jpg"
+           alt="Purceddhruzzi salentini enrobés de miel et fruits secs"
+           class="zoomable">
+    </div>
+
+    <!-- MODAL -->
+    <div id="imageModal" class="modal" hidden>
+      <button class="close" aria-label="Fermer">×</button>
+      <img id="modalImg" src="&"
+           class="modal-content"
+           alt="Agrandissement des Purceddhruzzi">
+    </div>
+
+    <p class="intro">
+      Les <strong>Purceddhruzzi</strong> sont l’un des <strong>dolci de Noël
+      les plus anciens du Salento</strong>.  
+      De petites bouchées frites, rustiques, façonnées à la main,
+      puis <strong>liées au miel chaud</strong> et décorées de fruits secs.
+      <br><br>
+      Leur nom vient de leur forme irrégulière, rappelant de petits
+      cochonnets (<em>purceddhi</em> en dialecte).
+      Chaque famille avait sa version, mais le geste reste le même
+      depuis des siècles.
+    </p>
+
+    <div class="infos">
+      <p>
+        ⏱ Préparation : <strong>40 min</strong> |
+        🔥 Cuisson : <strong>25 min</strong> |
+        👥 Pour <strong>8 personnes</strong> |
+        ⚙️ Difficulté : <strong>Facile – technique ancienne</strong>
+      </p>
+    </div>
+
+    <!-- INGREDIENTS -->
+    <section class="ingredients custom-list">
+      <h2>🫒 Ingrédients</h2>
+
+      <h3>Pour la pâte</h3>
+      <ul>
+        <li>500 g de <strong>farine</strong></li>
+        <li>120 ml d’<strong>huile d’olive</strong></li>
+        <li>120 ml de <strong>vin cuit</strong> (ou vin blanc doux)</li>
+        <li>1 c.à.s de <strong>sucre</strong></li>
+        <li>1 pincée de <strong>sel</strong></li>
+        <li>Zeste d’<strong>orange</strong> ou de <strong>citron</strong></li>
+      </ul>
+
+      <h3>Pour la friture</h3>
+      <ul>
+        <li>Huile pour friture (olive ou arachide)</li>
+      </ul>
+
+      <h3>Pour l’enrobage</h3>
+      <ul>
+        <li>250 g de <strong>miel</strong> (de préférence local)</li>
+        <li>Amandes grillées</li>
+        <li>Noisettes ou noix</li>
+        <li>Pignons (optionnels)</li>
+        <li>Cannelle (facultative)</li>
+      </ul>
+    </section>
+
+    <!-- PREPARATION -->
+    <section class="preparation">
+      <h2>👩‍🍳 Préparation extrêmement détaillée</h2>
+
+      <ol>
+        <li>
+          <strong>Préparer la pâte.</strong><br>
+          Verser la farine sur le plan de travail, ajouter le sucre,
+          le sel et le zeste.  
+          Former un puits, ajouter l’huile et le vin cuit.  
+          Mélanger progressivement jusqu’à obtenir une pâte ferme,
+          lisse, non collante.
+        </li>
+
+        <li>
+          <strong>Pétrir lentement.</strong><br>
+          Pétrir 8–10 minutes avec la paume de la main.
+          La pâte doit devenir élastique mais rester rustique.
+        </li>
+
+        <li>
+          <strong>Repos.</strong><br>
+          Couvrir la pâte et laisser reposer 20 minutes.
+          Ce repos facilite le façonnage.
+        </li>
+
+        <li>
+          <strong>Façonner les Purceddhruzzi.</strong><br>
+          Prélever de petits morceaux de pâte
+          et former des boudins irréguliers,
+          puis les couper en petits tronçons de 2 cm.
+        </li>
+
+        <li>
+          <strong>Friture.</strong><br>
+          Chauffer l’huile à 170–175°C.
+          Frire par petites quantités jusqu’à coloration dorée.
+          Égoutter sur papier absorbant.
+        </li>
+
+        <li>
+          <strong>Enrobage au miel.</strong><br>
+          Chauffer le miel doucement dans une grande casserole.
+          Ajouter les Purceddhruzzi encore tièdes,
+          mélanger délicatement pour les enrober sans les casser.
+        </li>
+
+        <li>
+          <strong>Décoration.</strong><br>
+          Ajouter fruits secs, pignons et cannelle.
+          Mélanger une dernière fois.
+        </li>
+
+        <li>
+          <strong>Repos final.</strong><br>
+          Laisser refroidir complètement avant de servir :
+          le miel va figer légèrement et les parfums se fixer.
+        </li>
+      </ol>
+    </section>
+
+    <!-- ASTUCE -->
+    <section class="astuce">
+      <h2>💡 Astuce du chef</h2>
+      <p>
+        Les Purceddhruzzi sont meilleurs après quelques heures,
+        voire le lendemain.  
+        Le miel pénètre la pâte et les rend encore plus fondants.
+      </p>
+    </section>
+
+    <!-- ORIGINE -->
+    <section class="origine">
+      <h2>📜 Origine</h2>
+      <p>
+        Les Purceddhruzzi sont nés dans les maisons rurales du Salento
+        comme dolce de célébration hivernale.  
+        Ils étaient préparés en grande quantité,
+        partagés avec voisins et visiteurs,
+        symbole d’abondance et de fête.
+      </p>
+    </section>
+
+  </article>
+</main>
+
+<button id="scrollTopBtn" aria-label="Remonter en haut">↑</button>
+
+<footer class="footer container">
+  <p>© 2025 Sapori di Puglia — Purceddhruzzi Salentini.</p>
+</footer>
+
+</body>
+</html>

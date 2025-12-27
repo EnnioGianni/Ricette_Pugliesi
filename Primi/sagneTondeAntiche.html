@@ -1,46 +1,119 @@
 <!doctype html>
-<html lang="fr" class="page-recette">
+<html lang="fr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <title>Sagne Tonde Antiche — Sapori di Puglia</title>
-  <meta name="description" content="Version ronde ancestrale des sagne leccesi, une pâte rustique et presque disparue.">
-
-  <!-- Styles -->
+  <title>Sagne Ncannulate al Sugo — Sapori di Puglia</title>
+  <meta name="description" content="Sagne Ncannulate al sugo : pâtes torsadées traditionnelles de Lecce, préparées à la main et servies avec un sugo épais au basilic.">
+  
+  <!-- Styles globaux -->
   <link rel="stylesheet" href="/CSS/Styles.css">
+  <link rel="icon" type="image/png" href="/Images/">
 
-  <!-- Scripts essentiels -->
+  <!-- Scripts globaux -->
   <script defer src="/JS/categories.js"></script>
   <script defer src="/JS/menu.js"></script>
   <script defer src="/JS/app.js"></script>
   <script defer src="/JS/recherche.js"></script>
+
+  <!-- Styles du zoom -->
+  <style>
+    .image-zoom img {
+      width: 100%;
+      max-width: 1400px;
+      border-radius: 14px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+      cursor: zoom-in;
+      transition: transform 0.3s ease;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+    .image-zoom img:hover { transform: scale(1.02); }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .modal[hidden] { display: none; }
+
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      font-size: 40px;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      font-weight: bold;
+    }
+  </style>
 </head>
 
-<body>
-
-<!-- Menu latéral -->
-<aside id="drawer" class="drawer" aria-hidden="true"></aside>
-<div id="backdrop" class="backdrop" hidden></div>
+<body class="page-recette">
 
 <header class="header">
   <div class="header-inner">
-    <div class="brand">Sapori di Puglia</div>
-    <button class="button icon" id="openMenu">☰</button>
+    <div id="menu-dropdown"></div>
+
+    <button id="openMenuBtn" class="button ghost" aria-controls="menuDrawer" aria-expanded="false">🍝 Recettes</button>
+
+    <div class="brand">
+      <img src="/Images/SaporiDiPuglia.png" alt="Logo Sapori di Puglia" width="36" height="36">
+      <span>Sapori di Puglia</span>
+    </div>
+
+    <nav>
+      <ul class="nav">
+        <li><a href="/index.html">Accueil</a></li>
+        <li><button class="button secondary" data-toggle-theme>🌓</button></li>
+      </ul>
+    </nav>
   </div>
 </header>
 
-<main class="recette">
+<!-- MENU LATÉRAL -->
+<aside id="menuDrawer" class="drawer" aria-hidden="true">
+  <div class="drawer-header">
+    <h2 class="drawer-title">Recettes</h2>
+    <button id="closeMenuBtn" class="button icon" aria-label="Fermer">✕</button>
+  </div>
+
+  <div class="drawer-search">
+    <input id="searchDrawer" type="search" placeholder="Rechercher une recette…" aria-label="Rechercher une recette">
+    <div id="searchResultsDrawer" class="search-results" hidden></div>
+  </div>
+
+  <nav aria-label="Liste des recettes">
+    <ul id="recipeList" class="recipe-list" data-list></ul>
+  </nav>
+</aside>
+
+<div id="backdrop" class="backdrop" hidden></div>
+
+<main class="container recette">
   <article>
 
     <h1>Sagne Tonde Antiche</h1>
 
     <!-- Image principale -->
     <div class="image-zoom">
-      <img src="/Primi/Images/sagne-tonde-antiche.png"
+      <img src="../Menu/Images/sagne-tonde-antiche.png"
            alt="Sagne Tonde Antiche"
            class="recette-photo"
-           data-full="/Primi/Images/sagne-tonde-antiche.png">
+           data-full="../Menu/Images/sagne-tonde-antiche.png">
     </div>
 
     <!-- MODAL -->
