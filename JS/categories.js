@@ -137,7 +137,7 @@ window.CATEGORIES = [
     {
       id: "pitta-patate-lecce",
       title: "Pitta di Patate Leccese",
-      url: "./Antipasti/pittaPatateLeccese.html",
+      url: "Antipasti/pittaPatateLeccese.html",
       img: "./Images/pitta-di-patate-lecce.png",
       meta: "⏱ 1 h 20 · 👥 6 pers. · 💶 2,90 € / pers.",
       hay: "pitta di patate lecce antipasto salento recette pommes de terre oignons olives pate rustique traditionnelle puglia"
@@ -145,7 +145,7 @@ window.CATEGORIES = [
     {
       id: "sedano-alla-pugliese",
       title: "Sedano alla Pugliese",
-      url: "./Antipasti/sedanoAllaPugliese.html",
+      url: "Antipasti/sedanoAllaPugliese.html",
       img: "./Images/sedano-alla-pugliese.png",
       meta: "⏱ 20 min · 👥 4 · Facile",
       hay: "céleri sauté vin blanc tomates ail chapelure croquante citron contorno puglia"
