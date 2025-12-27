@@ -147,11 +147,11 @@ document.addEventListener("DOMContentLoaded", () => {
         description:
           "Un voyage gustatif à travers les Pouilles : des saveurs iodées de la côte aux parfums rustiques de l’arrière-pays.",
         courses: [
-          { category: "Antipasto", title: "Rustici Leccesi", img: "/Menu/Images/rustici-leccesi.png", desc: "Feuilletés dorés farcis de béchamel et de tomate.", time: "⏱ 40 min", level: "👥 Facile", price: "💶 3,20 € / pers", url: "/Antipasti/rusticiLeccesi.html" },
-          { category: "Primo Piatto", title: "Orecchiette al Sugo di Braciole", img: "/Menu/Images/orecchiette-sugo-di-braciole.png", desc: "Pâtes au ragoût lent de roulades de viande fondantes.", time: "⏱ 2 h", level: "👥 Moyen", price: "💶 4,50 € / pers", url: "/Primi/orecchietteAlSugoDiBraciole.html" },
-          { category: "Secondo Piatto", title: "Polpo alla Pignata", img: "/Menu/Images/polpo-alla-pignata.png", desc: "Poulpe mijoté en terre cuite avec tomate, vin et herbes du maquis.", time: "⏱ 1 h 30", level: "👥 Moyen", price: "💶 6,80 € / pers", url: "/Secondi/polpoAllaPignata.html" },
-          { category: "Contorno", title: "Melanzane alla Pugarganicagliese", img: "/Menu/Images/Aubergines.png", desc: "Aubergines marinées à l’huile d’olive, ail et origan.", time: "⏱ 40 min", level: "👥 Facile", price: "💶 2,90 € / pers", url: "/Antipasti/melanzaneMarinate.html" },
-          { category: "Dolce", title: "Pasticciotto Leccese", img: "/Menu/Images/pasticciotto-leccese.png", desc: "Petits gâteaux sablés garnis de crème pâtissière tiède.", time: "⏱ 1 h 15", level: "👥 Moyen", price: "💶 3,50 € / pers", url: "/Dolci/pasticciottoLeccese.html" }
+          { category: "Antipasto", title: "Rustici Leccesi", img: "./Menu/Images/rustici-leccesi.png", desc: "Feuilletés dorés farcis de béchamel et de tomate.", time: "⏱ 40 min", level: "👥 Facile", price: "💶 3,20 € / pers", url: "/Antipasti/rusticiLeccesi.html" },
+          { category: "Primo Piatto", title: "Orecchiette al Sugo di Braciole", img: "./Menu/Images/orecchiette-sugo-di-braciole.png", desc: "Pâtes au ragoût lent de roulades de viande fondantes.", time: "⏱ 2 h", level: "👥 Moyen", price: "💶 4,50 € / pers", url: "/Primi/orecchietteAlSugoDiBraciole.html" },
+          { category: "Secondo Piatto", title: "Polpo alla Pignata", img: "./Menu/Images/polpo-alla-pignata.png", desc: "Poulpe mijoté en terre cuite avec tomate, vin et herbes du maquis.", time: "⏱ 1 h 30", level: "👥 Moyen", price: "💶 6,80 € / pers", url: "/Secondi/polpoAllaPignata.html" },
+          { category: "Contorno", title: "Melanzane alla Pugarganicagliese", img: "./Menu/Images/Aubergines.png", desc: "Aubergines marinées à l’huile d’olive, ail et origan.", time: "⏱ 40 min", level: "👥 Facile", price: "💶 2,90 € / pers", url: "/Antipasti/melanzaneMarinate.html" },
+          { category: "Dolce", title: "Pasticciotto Leccese", img: "./Menu/Images/pasticciotto-leccese.png", desc: "Petits gâteaux sablés garnis de crème pâtissière tiède.", time: "⏱ 1 h 15", level: "👥 Moyen", price: "💶 3,50 € / pers", url: "/Dolci/pasticciottoLeccese.html" }
         ]
       };
     }
@@ -167,52 +167,52 @@ if (page.includes("gargano")) {
       {
         category: "Antipasto",
         title: "Polpette di Pane alla Garganica",
-        img: "/Images/polpette-pane-garganica.png",
+        img: "./Images/polpette-pane-garganica.png",
         desc: "Boulettes rustiques à base de pain rassis, pecorino, ail et persil, dorées dans un filet d’huile du Gargano.",
         time: "⏱ 35 min",
         level: "👥 Facile",
         price: "💶 3,20 € / pers",
-        url: "/Antipasti/polpettePaneGarganica.html"
+        url: "./Antipasti/polpettePaneGarganica.html"
       },
       {
         category: "Primo Piatto",
         title: "Trofie alle Cozze e Pomodorini",
-        img: "/Menu/Images/trofie-alle-cozze.png",
+        img: "./Menu/Images/trofie-alle-cozze.png",
         desc: "Pâtes trofie avec moules fraîches, tomates cerises et vin blanc — un classique des pêcheurs du Gargano.",
         time: "⏱ 45 min",
         level: "👥 Moyen",
         price: "💶 4,60 € / pers",
-        url: "/Primi/trofieAlleCozze.html"
+        url: "./Primi/trofieAlleCozze.html"
       },
       {
         category: "Secondo Piatto",
         title: "Agnello al Forno con Patate e Rosmarino",
-        img: "/Menu/Images/agnello-al-forno.png",
+        img: "./Menu/Images/agnello-al-forno.png",
         desc: "Agneau rôti au four avec pommes de terre, romarin et vin blanc — spécialité de montagne.",
         time: "⏱ 1 h 30",
         level: "👥 Moyen",
         price: "💶 6,80 € / pers",
-        url: "/Secondi/agnelloAlForno.html"
+        url: "./Secondi/agnelloAlForno.html"
       },
       {
         category: "Contorno",
         title: "Verdure Grigliate al Profumo d’Olio",
-        img: "/Menu/Images/verdure-grigliate.png",
+        img: "./Menu/Images/verdure-grigliate.png",
         desc: "Aubergines, courgettes et poivrons grillés, marinés à l’huile d’olive, ail et origan.",
         time: "⏱ 30 min",
         level: "👥 Facile",
         price: "💶 2,80 € / pers",
-        url: "/Antipasti/verdureGrigliate.html"
+        url: "./Antipasti/verdureGrigliate.html"
       },
       {
         category: "Dolce",
         title: "Sporcamuss alla Crema",
-        img: "/Menu/Images/sporcamuss.png",
+        img: "./Menu/Images/sporcamuss.png",
         desc: "Carrés de pâte feuilletée garnis de crème pâtissière et sucre glace — un dessert populaire à Foggia.",
         time: "⏱ 50 min",
         level: "👥 Facile",
         price: "💶 2,50 € / pers",
-        url: "/Dolci/sporcamuss.html"
+        url: "./Dolci/sporcamuss.html"
       }
     ]
   };
@@ -298,13 +298,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Liste centralisée des menus (tu peux en ajouter ou modifier ici)
   const menus = [
-    { name: "Menu Gargano", href: "/Menu/menuGargano.html" },
-    { name: "Menu Salento", href: "/Menu/menu-salento.html" },
-    { name: "Menu Bari", href: "/Menu/menuBari.html" },
-    { name: "Menu Lecce", href: "/Menu/menuLecce.html" },
-    { name: "Menu Foggia", href: "/Menu/menuFoggia.html" },
-    { name: "Menu Végétarien", href: "/Menu/menuVegetarien.html" },
-    { name: "Menu Poisson", href: "/Menu/menuPoisson.html" }
+    { name: "Menu Gargano", href: "./Menu/menuGargano.html" },
+    { name: "Menu Salento", href: "./Menu/menu-salento.html" },
+    { name: "Menu Bari", href: "./Menu/menuBari.html" },
+    { name: "Menu Lecce", href: "./Menu/menuLecce.html" },
+    { name: "Menu Foggia", href: "./Menu/menuFoggia.html" },
+    { name: "Menu Végétarien", href: "./Menu/menuVegetarien.html" },
+    { name: "Menu Poisson", href: "./Menu/menuPoisson.html" }
   ];
 
   // On génère le HTML du menu déroulant
