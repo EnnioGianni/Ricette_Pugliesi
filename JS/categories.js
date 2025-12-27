@@ -74,7 +74,7 @@ window.CATEGORIES = [
       id: 'friselle-pomodoro',
       title: 'Friselle al Pomodoro',
       url: 'Antipasti/frisellePomodoro.html',
-      img: './Images/friselle.png',
+      img: './Images/Friselle.png',
       meta: '⏱ 10 min · 👥 4 · Très facile',
       hay: 'pain sec réhydraté tomate origan huile olive antipasti'
     },
