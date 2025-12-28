@@ -57,7 +57,7 @@ window.CATEGORIES = [
     {
       id: 'rustici-leccesi',
       title: 'Rustici Leccesi',
-      url: '../Antipasti/rusticiLeccesi.html',
+      url: '/Antipasti/rusticiLeccesi.html',
       img: '../Images/rustici.png',
       meta: '⏱ 40 min · 👥 6 · Facile',
       hay: 'rustici feuilletés farcis béchamel tomate mozzarella'
@@ -65,7 +65,7 @@ window.CATEGORIES = [
     {
       id: 'focaccia-barese',
       title: 'Focaccia Barese',
-      url: '../Antipasti/focacciaBarese.html',
+      url: './Antipasti/focacciaBarese.html',
       img: '../Images/focaccia-barese.png',
       meta: '⏱ 2 h 30 · 👥 6 · Facile',
       hay: 'pain tomates cerises origan moelleuse entrée antipasti'
@@ -81,7 +81,7 @@ window.CATEGORIES = [
     {
       id: 'taralli-pugliesi',
       title: 'Taralli Pugliesi',
-      url: '../Antipasti/taralliPugliesi.html',
+      url: '../../Antipasti/taralliPugliesi.html',
       img: '../Images/TaralliAuErbes.png',
       meta: '⏱ 45 min · 👥 30 · Facile',
       hay: 'biscuits salés vin blanc huile olive apéritif'
