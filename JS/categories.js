@@ -65,7 +65,7 @@ window.CATEGORIES = [
         id: 'focaccia-barese',
         title: 'Focaccia Barese',
         url: 'Antipasti/focacciaBarese.html',
-        img: 'Images/focaccia-barese.png',
+        img: './Images/focaccia-barese.png',
         meta: '⏱ 2 h 30 · 👥 6 · Facile',
         hay: 'focaccia barese tomates cerises origan'
       },
