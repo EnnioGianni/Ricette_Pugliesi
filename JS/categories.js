@@ -17,7 +17,7 @@ window.CATEGORIES = [
         id: 'menu-saveurs-salento',
         title: 'Menu Saveurs du Salento — De la mer à la terre',
         url: 'Menu/menu-salento.html',
-        img: './Menu/Images/saporiDelSalento.png',
+         img: './Menu/Images/saporiDelSalento.png',
         meta: '⏱ 5 plats · 👥 4 · Traditionnel',
         hay: 'menu complet salento terre mer antipasti primi secondi dolci'
       },
@@ -25,7 +25,7 @@ window.CATEGORIES = [
         id: 'menu-terre-mer-gargano',
         title: 'Menu Terre & Mer du Gargano',
         url: 'Menu/menuGargano.html',
-        img: './Menu/Images/menu-gargano.png',
+         img: './Menu/Images/menu-gargano.png',
         meta: '⏱ 5 plats · 👥 4 · Traditionnel',
         hay: 'menu complet gargano mer terre nord pouilles'
       },
@@ -33,7 +33,7 @@ window.CATEGORIES = [
         id: 'menu-lecce',
         title: 'Menu Tradizionale di Lecce',
         url: 'Menu/menuLecce.html',
-        img: './Menu/Images/menu-lecce.png',
+         img: './Menu/Images/menu-lecce.png',
         meta: '⏱ 5 plats · 👥 4 · Traditionnel',
         hay: 'menu complet lecce salento traditionnel'
       },
@@ -41,7 +41,7 @@ window.CATEGORIES = [
         id: 'menu-tradizionale-di-bari',
         title: 'Menu Tradizionale di Bari — Saveurs de la côte adriatique',
         url: 'Menu/menu-bari.html',
-        img: './Menu/Images/menu-bari.png',
+         img: './Menu/Images/menu-bari.png',
         meta: '⏱ 5 plats · 👥 4 · Traditionnel',
         hay: 'menu bari barese plats traditionnels'
       }
@@ -57,7 +57,7 @@ window.CATEGORIES = [
         id: 'rustici-leccesi',
         title: 'Rustici Leccesi',
         url: 'Antipasti/rusticiLeccesi.html',
-        img: 'Images/rustici.png',
+         img: './Images/rustici.png',
         meta: '⏱ 40 min · 👥 6 · Facile',
         hay: 'rustici feuilletés béchamel tomate mozzarella'
       },
@@ -65,7 +65,7 @@ window.CATEGORIES = [
         id: 'focaccia-barese',
         title: 'Focaccia Barese',
         url: 'Antipasti/focacciaBarese.html',
-        img: 'Images/focaccia-barese.png',
+         img: './Images/focaccia-barese.png',
         meta: '⏱ 2 h 30 · 👥 6 · Facile',
         hay: 'focaccia barese tomates cerises origan'
       },
@@ -73,7 +73,7 @@ window.CATEGORIES = [
         id: 'friselle-pomodoro',
         title: 'Friselle al Pomodoro',
         url: 'Antipasti/frisellePomodoro.html',
-        img: 'Images/friselle.png',
+         img: './Images/friselle.png',
         meta: '⏱ 10 min · 👥 4 · Très facile',
         hay: 'friselle tomate huile olive origan'
       },
@@ -81,7 +81,7 @@ window.CATEGORIES = [
         id: 'taralli-pugliesi',
         title: 'Taralli Pugliesi',
         url: 'Antipasti/taralliPugliesi.html',
-        img: 'Images/taralli.png',
+         img: './Images/taralli.png',
         meta: '⏱ 45 min · 👥 30 · Facile',
         hay: 'taralli vin blanc huile olive'
       },
@@ -89,7 +89,7 @@ window.CATEGORIES = [
         id: 'panzerotti-bari',
         title: 'Panzerotti di Bari',
         url: 'Antipasti/panzerottiDiBari.html',
-        img: 'Images/panzerotti.png',
+         img: './Images/panzerotti.png',
         meta: '⏱ 2 h · 👥 12 · Moyen',
         hay: 'panzerotti frits tomate mozzarella'
       },
@@ -97,7 +97,7 @@ window.CATEGORIES = [
         id: 'pepata-di-cozze',
         title: 'Pepata di Cozze',
         url: 'Antipasti/pepataDiCozze.html',
-        img: 'Images/pepata-di-cozze.png',
+         img: './Images/pepata-di-cozze.png',
         meta: '⏱ 25 min · 👥 4 · Facile',
         hay: 'moules poivre ail vin blanc'
       },
@@ -105,7 +105,7 @@ window.CATEGORIES = [
         id: 'pitta-patate-leccese',
         title: 'Pitta di Patate Leccese',
         url: 'Antipasti/pittaPatateLeccese.html',
-        img: 'Images/pitta-di-patate.png',
+         img: './Images/pitta-di-patate.png',
         meta: '⏱ 1 h 20 · 👥 6 · Traditionnel',
         hay: 'pitta patate lecce salento'
       }
@@ -121,7 +121,7 @@ window.CATEGORIES = [
         id: 'orecchiette-cime-rapa',
         title: 'Orecchiette alle Cime di Rapa',
         url: 'Primi/orechietteCimaDiRapa.html',
-        img: './Images/orecchiette-cime-di-rapa.png',
+         img: './Images/orecchiette-cime-di-rapa.png',
         meta: '⏱ 30 min · 👥 4 · Facile',
         hay: 'orecchiette cime rapa bari'
       },
@@ -129,7 +129,7 @@ window.CATEGORIES = [
         id: 'ciceri-tria',
         title: 'Ciceri e Tria',
         url: 'Primi/ciceriETria.html',
-        img: './Images/ciceriETria.png',
+         img: './Images/ciceriETria.png',
         meta: '⏱ 2 h 30 · 👥 4 · Moyenne',
         hay: 'pois chiches pâtes frites Lecce Salento recette traditionnelle ciceri e tria'
       },
@@ -378,7 +378,7 @@ window.CATEGORIES = [
       {
         id: "polpette-cavallo-lecce",
         title: "Polpette di Cavallo alla Leccese",
-        url: "./Secondi/polpetteCavalloLeccese.html",
+        url: "Secondi/polpetteCavalloLeccese.html",
         img: "./Images/polpette-cavallo-lecce.png",
         meta: "⏱ 1 h 40 · 👥 4 · Traditionnel",
         hay: "polpette cavallo leccese sugo viande cheval salento secondo pugliese recette"
@@ -394,7 +394,7 @@ window.CATEGORIES = [
       {
         id: "zuppa-frutti-mare-recanati",
         title: "Zuppa di Frutti di Mare alla Recanati",
-        url: "./Secondi/zuppaFruttiMareRecanati.html",
+        url: "Secondi/zuppaFruttiMareRecanati.html",
         img: "./Secondi/Images/zuppa-frutti-mare-recanati.png",
         meta: "⏱ 25 min + 20 min · 👥 4 · Moyen",
         hay: "zuppa frutti di mare fruits de mer soup moules palourdes crevettes calamars puglia salento recanati poisson recette"
@@ -402,7 +402,7 @@ window.CATEGORIES = [
       {
         id: "cosce-pollo-mare-masseria",
         title: "Cosce di Pollo alla Mare e Masseria",
-        url: "./Secondi/coscePolloMareMasseria.html",
+        url: "Secondi/coscePolloMareMasseria.html",
         img: "./Secondi/Images/cosce-pollo-mare-masseria.png",
         meta: "⏱ 20 min + 45 min · 👥 4 · Facile",
         hay: "pollo poulet artichauts olives capres secondi salento puglia four masseria recette"
@@ -410,7 +410,7 @@ window.CATEGORIES = [
       {
         id: "baccala-in-umido",
         title: "Baccalà in umido",
-        url: "./Secondi/baccala-in-umido.html",
+        url: "Secondi/baccala-in-umido.html",
         img: "./Secondi/Images/baccala-in-umido.png",
         meta: "⏱ 20 min + 40 min · 👥 4 · Facile",
         hay: "baccala morue poisson umido tomate pommes de terre olives capres puglia salento secondo recette"
@@ -470,7 +470,7 @@ window.CATEGORIES = [
       {
         id: "strudel-di-mele-tradizionale",
         title: "Strudel di Mele (version tradizionale)",
-        url: "./Dolci/strudelDiMeleTradizionale.html",
+        url: "Dolci/strudelDiMeleTradizionale.html",
         img: "./Dolci/Images/strudel-di-mele.png",
         meta: "⏱ 45 min · 🍎 Tradizionale",
         hay: "strudel mele pomme autriche alto adige cannelle raisin pignons dessert roule rustique montagne"
@@ -478,7 +478,7 @@ window.CATEGORIES = [
       {
         id: "purceddhruzzi",
         title: "Purceddhruzzi",
-        url: "./Dolci/purceddhruzzi.html",
+        url: "Dolci/purceddhruzzi.html",
         img: "./Dolci/Images/purceddhruzzi.jpg",
         meta: "⏱ 40 min · 👥 6 · Facile",
         hay: "purciazzucci dolci frits puglia salento noel gnocchi sucrés tradition recette ancienne potiron farine friture sucre cannelle"
